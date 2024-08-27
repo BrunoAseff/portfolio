@@ -105,8 +105,9 @@ export default function Home() {
             <CardContent className="items-center justify-center w-full">
               <p className="text-lg text-black">Minhas tecnologias </p>
               <div className="flex-wrap max-w-96 flex gap-6">
-                {technologies.map((tech) => (
+                {technologies.map((tech, index) => (
                   <TechnologiesLogo
+	        key={index}	
                     icon={tech.icon}
                     title={tech.title}
                     color={tech.color}
