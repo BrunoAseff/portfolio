@@ -1,5 +1,6 @@
 "use client";
 
+import BottomLeftText from "@/components/general/BottomLeftText";
 import TechnologiesLogo from "@/components/general/Technologieslogo";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -72,8 +73,11 @@ export default function Home() {
   return (
     <div className="p-10 bg-white rounded-3xl ">
       <main
-        className="rounded-3xl relative flex min-h-screen flex-col items-center justify-between p-24 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url("/background4.webp")' }}
+        className="rounded-3xl min-h-3.5 relative flex flex-col items-center justify-between p-24 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url("/background4.webp")',
+          height: "calc(100vh - 5rem)",
+        }}
       >
         <nav className="absolute gap-3 items-center justify-center top-6 left-6 flex bg-white/50 rounded-xl shadow-xl  backdrop-blur-[12.6px] border border-white/40">
           <Image
@@ -107,7 +111,7 @@ export default function Home() {
               <div className="flex-wrap max-w-96 flex gap-6">
                 {technologies.map((tech, index) => (
                   <TechnologiesLogo
-	        key={index}	
+                    key={index}
                     icon={tech.icon}
                     title={tech.title}
                     color={tech.color}
@@ -117,6 +121,7 @@ export default function Home() {
             </CardContent>
           </Card>
         </section>
+        <BottomLeftText />
       </main>
     </div>
   );
