@@ -9,6 +9,9 @@ module.exports = {
   ],
   prefix: "",
   theme: {
+    fontFamily: {
+      handjet: ["var(--font-handjet)"],
+    },
     container: {
       center: true,
       padding: "2rem",
