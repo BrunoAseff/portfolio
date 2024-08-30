@@ -5,7 +5,6 @@ import TechnologiesLogo from "@/components/general/Technologieslogo";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Image from "next/image";
-import { At } from "phosphor-react";
 import {
   SiCplusplus,
   SiJavascript,
@@ -21,6 +20,7 @@ import {
   SiFramer,
   SiStyledcomponents,
 } from "react-icons/si";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const technologies = [
@@ -70,59 +70,78 @@ export default function Home() {
       icon: <SiStyledcomponents size="2rem" />,
     },
   ];
+
   return (
-    <div className="p-10 bg-white rounded-3xl ">
-      <main
-        className="rounded-3xl min-h-3.5 relative flex flex-col items-center justify-between p-24 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: 'url("/background4.webp")',
-          height: "calc(100vh - 5rem)",
-        }}
+    <main
+      className="h-screen relative flex flex-col items-center justify-between p-24 bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: 'url("/background4.webp")',
+      }}
+    >
+      <motion.nav
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="absolute gap-3 items-center justify-center top-6 left-6 flex bg-white/20 rounded-xl shadow-xl backdrop-blur-[30px] border border-white/40"
       >
-        <nav className="absolute gap-3 items-center justify-center top-6 left-6 flex bg-white/50 rounded-xl shadow-xl  backdrop-blur-[12.6px] border border-white/40">
-          <Image
-            className="p-3"
-            width={175}
-            height={65}
-            src="/Signature.png"
-            alt="My signature"
-          />
-          <a href="/" className="p-3 text-md  text-black">
-            Sobre mim
-          </a>
-          <a href="/projetos" className="p-3 text-md  text-black">
-            Projetos
-          </a>
-          <a href="/contato" className="p-3 text-md  text-black">
-            <Button className="p-4 rounded-xl"> Contato</Button>
-          </a>
-        </nav>
-        <section className="w-full flex justify-end">
-          <Card className=" p-8 bg-white rounded-[30px] ">
+        <Image
+          className="p-3"
+          width={175}
+          height={65}
+          src="/Signature.png"
+          alt="My signature"
+        />
+        <a href="/" className="p-3 text-md text-black">
+          Sobre mim
+        </a>
+        <a href="/projetos" className="p-3 text-md text-black">
+          Projetos
+        </a>
+        <a href="/contato" className="p-3 text-md text-black">
+          <Button className="p-4 rounded-xl">Contato</Button>
+        </a>
+      </motion.nav>
+
+      <section className="w-full flex justify-end">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          <Card className="max-w-[40rem] p-8 bg-white/20 shadow-xl backdrop-blur-[30px] border border-white/40 rounded-xl">
             <CardHeader className="text-xl font-semibold text-black">
               <div className="flex gap-1">
-                <At size={26} />
-
-                <p> Sobre mim</p>
+                <p>Sobre mim</p>
               </div>
             </CardHeader>
             <CardContent className="items-center justify-center w-full">
-              <p className="text-lg text-black">Minhas tecnologias </p>
+              <p>
+                Sou programador e estudante de Sistemas para Internet na
+                Univali. Tenho afinidade tanto com o desenvolvimento back-end
+                quanto front-end, mas tenho mais conhecimento em front-end.
+                Atualmente, trabalho como redator e programador freelancer.
+                Comecei minha carreira profissional como redator e estou,
+                gradativamente, migrando para a programação. Tenho interesse
+                genuíno por linguística e gosto de estudar as diferentes formas
+                de se comunicar, seja através de códigos ou palavras.
+              </p>
+              <p className=" text-xl font-semibold m-4 text-black">
+                Minhas tecnologias
+              </p>
               <div className="flex-wrap max-w-96 flex gap-6">
                 {technologies.map((tech, index) => (
                   <TechnologiesLogo
                     key={index}
                     icon={tech.icon}
                     title={tech.title}
-                    color={tech.color}
+                    color="bg-white/20"
                   />
                 ))}
               </div>
             </CardContent>
           </Card>
-        </section>
-        <BottomLeftText />
-      </main>
-    </div>
+        </motion.div>
+      </section>
+    </main>
   );
 }

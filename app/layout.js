@@ -1,5 +1,6 @@
 import { Inter, Handjet } from "next/font/google";
 import "./globals.css";
+import { AnimatePresence, motion } from "framer-motion";
 
 export const metadata = {
   title: "Bruno de Almeida Aseff",

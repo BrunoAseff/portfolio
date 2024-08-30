@@ -10,7 +10,9 @@ export default function TechnologiesLogo({ color, title, icon }) {
     <div>
       <TooltipProvider>
         <Tooltip>
-          <TooltipTrigger className={`${color}  p-2 rounded-xl`}>
+          <TooltipTrigger
+            className={`${color} backdrop-blur-[30px]  p-2 rounded-xl`}
+          >
             {icon}
           </TooltipTrigger>
           <TooltipContent>
