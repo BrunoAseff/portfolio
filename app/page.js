@@ -2,21 +2,18 @@
 
 import AboutMeTab from "@/components/Tabs/AboutMeTab";
 import TechnologiesTab from "@/components/Tabs/TechnologiesTab";
+import { Code, User } from "phosphor-react";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [card1Position, setCard1Position] = useState({ x: 0, y: 0 });
-  const [card2Position, setCard2Position] = useState({ x: 0, y: 0 });
+  const [card1Position, setCard1Position] = useState(null);
+  const [card2Position, setCard2Position] = useState(null);
 
   const calculateInitialPositions = () => {
     const width = window.innerWidth;
     const height = window.innerHeight;
-
-    // Set positions based on a percentage of the screen size
-    setCard1Position({ x: width * 0.2, y: height * 0.3 });
-    setCard2Position({ x: width * 0.7, y: height * 0.3 });
-
-    console.log(card1Position, card2Position);
+    setCard1Position({ x: width * -0.4, y: height * -0.3 });
+    setCard2Position({ x: width * -0.01, y: height * -0.3 });
   };
 
   useEffect(() => {
@@ -28,11 +25,29 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="h-screen flex justify-center items-center">
+    <main className="h-screen flex justify-center items-center relative">
       <section className="w-full flex justify-center items-center">
-        <AboutMeTab defaultPosition={card1Position} />
-        <TechnologiesTab defaultPosition={card2Position} />
+        {card1Position && <AboutMeTab defaultPosition={card1Position} />}
+        {card2Position && <TechnologiesTab defaultPosition={card2Position} />}
       </section>
+      <div className="items-center flex justify-center w-full">
+        <nav className="absolute gap-3 items-center justify-center bottom-6 flex bg-white/20 rounded-xl  backdrop-blur-[30px] border border-white/40">
+          <a
+            href="/"
+            className="p-3 text-md flex flex-col items-center justify-center gap-1 text-black"
+          >
+            <User size={32} />
+            <div className="rounded-full w-1 h-1 bg-black"></div>
+          </a>
+          <a
+            href="/"
+            className="p-3 text-md flex flex-col items-center justify-center gap-1 text-black"
+          >
+            <Code size={32} />
+            <div className="rounded-full w-1 h-1 bg-black"></div>
+          </a>
+        </nav>
+      </div>
     </main>
   );
 }
