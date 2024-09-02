@@ -4,72 +4,10 @@ import TechnologiesLogo from "@/components/general/Technologieslogo";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Image from "next/image";
-import {
-  SiCplusplus,
-  SiJavascript,
-  SiHtml5,
-  SiCss3,
-  SiGit,
-  SiNodedotjs,
-  SiReact,
-  SiNextdotjs,
-  SiTailwindcss,
-  SiTypescript,
-  SiPrisma,
-  SiFramer,
-  SiStyledcomponents,
-} from "react-icons/si";
+import { technologies } from "./info/technologies";
 import { Rnd } from "react-rnd";
 
 export default function Home() {
-  const technologies = [
-    { title: "C++", color: "bg-blue-50", icon: <SiCplusplus size="2rem" /> },
-    {
-      title: "JavaScript",
-      color: "bg-yellow-50",
-      icon: <SiJavascript size="2rem" />,
-    },
-    { title: "HTML", color: "bg-orange-50", icon: <SiHtml5 size="2rem" /> },
-    { title: "CSS", color: "bg-blue-50", icon: <SiCss3 size="2rem" /> },
-    { title: "Git", color: "bg-orange-50", icon: <SiGit size="2rem" /> },
-    {
-      title: "Node.js",
-      color: "bg-green-50",
-      icon: <SiNodedotjs size="2rem" />,
-    },
-    { title: "React.js", color: "bg-cyan-50", icon: <SiReact size="2rem" /> },
-    {
-      title: "Next.js",
-      color: "bg-slate-50",
-      icon: <SiNextdotjs size="2rem" />,
-    },
-    {
-      title: "Tailwind CSS",
-      color: "bg-sky-50",
-      icon: <SiTailwindcss size="2rem" />,
-    },
-    {
-      title: "TypeScript",
-      color: "bg-blue-50",
-      icon: <SiTypescript size="2rem" />,
-    },
-    {
-      title: "Prisma ORM",
-      color: "bg-slate-50",
-      icon: <SiPrisma size="2rem" />,
-    },
-    {
-      title: "Framer Motion",
-      color: "bg-slate-50",
-      icon: <SiFramer size="2rem" />,
-    },
-    {
-      title: "Styled Components",
-      color: "bg-pink-50",
-      icon: <SiStyledcomponents size="2rem" />,
-    },
-  ];
-
   return (
     <main
       className="h-screen relative flex flex-col items-center justify-between  bg-cover bg-center bg-no-repeat"
@@ -100,12 +38,14 @@ export default function Home() {
         <Rnd
           className="flex-col min-w-20 max-w-[40rem] p-8 relative bg-white/20 shadow-xl backdrop-blur-[30px] border border-white/40 rounded-xl"
           default={{
-            x: 100,
-            y: 100,
+            x: 300,
+            y: 300,
             width: "500px",
           }}
           minHeight="430px"
           minWidth="400px"
+          maxHeight="3000px"
+          maxWidth="3000px"
         >
           <div className="flex">
             <div className="rounded-full w-4 h-4 border-1 border-gray-900 bg-red-400 absolute top-4 left-4">
@@ -138,12 +78,14 @@ export default function Home() {
         <Rnd
           className="flex-col min-w-20 max-w-[40rem] p-8 bg-white/20 shadow-xl backdrop-blur-[30px] border border-white/40 rounded-xl"
           default={{
-            x: 700,
-            y: 100,
+            x: 900,
+            y: 300,
             width: "500px",
           }}
           minHeight="400px"
           minWidth="400px"
+          maxHeight="3000px"
+          maxWidth="3000px"
         >
           <div className="flex">
             <div className="rounded-full w-4 h-4 border-1 border-gray-900 bg-red-400 absolute top-4 left-4">
