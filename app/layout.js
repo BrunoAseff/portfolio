@@ -1,6 +1,7 @@
 import { Inter, Handjet } from "next/font/google";
 import "./globals.css";
-import { AnimatePresence, motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export const metadata = {
   title: "Bruno de Almeida Aseff",
@@ -19,7 +20,32 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} ${handjet.variable}`}>
-        {children}
+        <main
+          className="h-screen relative flex flex-col items-center justify-between  bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url("/opcao_4.jpeg")',
+          }}
+        >
+          <nav className="absolute gap-3 items-center justify-center top-6 left-6 flex bg-white/20 rounded-xl  backdrop-blur-[30px] border border-white/40">
+            <Image
+              className="p-3"
+              width={175}
+              height={65}
+              src="/Signature.png"
+              alt="My signature"
+            />
+            <a href="/" className="p-3 text-md text-black">
+              Sobre mim
+            </a>
+            <a href="/projetos" className="p-3 text-md text-black">
+              Projetos
+            </a>
+            <a href="/contato" className="p-3 text-md text-black">
+              <Button className="p-4 rounded-xl">Contato</Button>
+            </a>
+          </nav>
+          {children}
+        </main>
       </body>
     </html>
   );
