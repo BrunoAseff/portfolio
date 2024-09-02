@@ -15,49 +15,61 @@ import {
 } from "react-icons/si";
 
 export const technologies = [
-  { title: "C++", color: "bg-blue-50", icon: <SiCplusplus size="2rem" /> },
+  {
+    title: "C++",
+    color: "hover:text-blue-600",
+    icon: <SiCplusplus size="2rem" />,
+  },
   {
     title: "JavaScript",
-    color: "bg-yellow-50",
+    color: "hover:text-yellow-600",
     icon: <SiJavascript size="2rem" />,
   },
-  { title: "HTML", color: "bg-orange-50", icon: <SiHtml5 size="2rem" /> },
-  { title: "CSS", color: "bg-blue-50", icon: <SiCss3 size="2rem" /> },
-  { title: "Git", color: "bg-orange-50", icon: <SiGit size="2rem" /> },
+  {
+    title: "HTML",
+    color: "hover:text-orange-600",
+    icon: <SiHtml5 size="2rem" />,
+  },
+  { title: "CSS", color: "hover:text-blue-600", icon: <SiCss3 size="2rem" /> },
+  { title: "Git", color: "hover:text-orange-600", icon: <SiGit size="2rem" /> },
   {
     title: "Node.js",
-    color: "bg-green-50",
+    color: "hover:text-green-600",
     icon: <SiNodedotjs size="2rem" />,
   },
-  { title: "React.js", color: "bg-cyan-50", icon: <SiReact size="2rem" /> },
+  {
+    title: "React.js",
+    color: "hover:text-cyan-600",
+    icon: <SiReact size="2rem" />,
+  },
   {
     title: "Next.js",
-    color: "bg-slate-50",
+    color: "hover:text-slate-600",
     icon: <SiNextdotjs size="2rem" />,
   },
   {
     title: "Tailwind CSS",
-    color: "bg-sky-50",
+    color: "hover:text-sky-600",
     icon: <SiTailwindcss size="2rem" />,
   },
   {
     title: "TypeScript",
-    color: "bg-blue-50",
+    color: "hover:text-blue-600",
     icon: <SiTypescript size="2rem" />,
   },
   {
     title: "Prisma ORM",
-    color: "bg-slate-50",
+    color: "hover:text-slate-600",
     icon: <SiPrisma size="2rem" />,
   },
   {
     title: "Framer Motion",
-    color: "bg-slate-50",
+    color: "hover:text-slate-600",
     icon: <SiFramer size="2rem" />,
   },
   {
     title: "Styled Components",
-    color: "bg-pink-50",
+    color: "hover:text-pink-600",
     icon: <SiStyledcomponents size="2rem" />,
   },
 ];

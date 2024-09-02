@@ -39,7 +39,8 @@ export default function TechnologiesTab({ defaultPosition }) {
               key={index}
               icon={tech.icon}
               title={tech.title}
-              color="bg-white/20"
+              className="bg-white/20 "
+              color={tech.color}
             />
           ))}
         </div>
