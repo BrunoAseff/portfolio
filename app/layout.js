@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
         <main
           className="h-screen relative flex flex-col items-center justify-between  bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url("/opcao_4.jpeg")',
+            backgroundImage: 'url("/opcao_2.jpeg")',
           }}
         >
           <nav className="absolute gap-3 items-center justify-center top-6 left-6 flex bg-white/20 rounded-xl  backdrop-blur-[30px] border border-white/40">

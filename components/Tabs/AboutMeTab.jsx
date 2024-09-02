@@ -3,7 +3,7 @@ import { Rnd } from "react-rnd";
 export default function AboutMeTab({ defaultPosition }) {
   return (
     <Rnd
-      className="flex-col min-w-20 max-w-[40rem] p-8 relative bg-white/20  backdrop-blur-[20px] border border-white/40 rounded-xl"
+      className="flex-col min-w-20 max-w-[40rem] p-8 relative shadow-xl bg-white/20  backdrop-blur-[20px] border border-white/40 rounded-xl"
       default={{
         x: defaultPosition.x,
         y: defaultPosition.y,

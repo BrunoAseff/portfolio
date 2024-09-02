@@ -5,33 +5,33 @@ import TechnologiesTab from "@/components/Tabs/TechnologiesTab";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [positions, setPositions] = useState({
-    aboutMePosition: { x: 0, y: 0 },
-    technologiesPosition: { x: 0, y: 0 },
-  });
+  const [card1Position, setCard1Position] = useState({ x: 0, y: 0 });
+  const [card2Position, setCard2Position] = useState({ x: 0, y: 0 });
+
+  const calculateInitialPositions = () => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    // Set positions based on a percentage of the screen size
+    setCard1Position({ x: width * 0.2, y: height * 0.3 });
+    setCard2Position({ x: width * 0.7, y: height * 0.3 });
+
+    console.log(card1Position, card2Position);
+  };
 
   useEffect(() => {
-    const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
-
-    const aboutMePosition = {
-      x: screenWidth * 0.2,
-      y: screenHeight * 0.2,
+    calculateInitialPositions();
+    window.addEventListener("resize", calculateInitialPositions);
+    return () => {
+      window.removeEventListener("resize", calculateInitialPositions);
     };
-
-    const technologiesPosition = {
-      x: screenWidth * 0.6,
-      y: screenHeight * 0.2,
-    };
-
-    setPositions({ aboutMePosition, technologiesPosition });
   }, []);
 
   return (
     <main className="h-screen flex justify-center items-center">
       <section className="w-full flex justify-center items-center">
-        <AboutMeTab defaultPosition={positions.aboutMePosition} />
-        <TechnologiesTab defaultPosition={positions.technologiesPosition} />
+        <AboutMeTab defaultPosition={card1Position} />
+        <TechnologiesTab defaultPosition={card2Position} />
       </section>
     </main>
   );

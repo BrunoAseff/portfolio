@@ -12,7 +12,7 @@ export default function TechnologiesTab({ defaultPosition }) {
 
         width: "500px",
       }}
-      minHeight="400px"
+      minHeight="430px"
       minWidth="400px"
       maxHeight="3000px"
       maxWidth="3000px"
