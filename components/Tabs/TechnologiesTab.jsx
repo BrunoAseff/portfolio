@@ -24,11 +24,10 @@ export default function TechnologiesTab({ defaultPosition }) {
           <button className="rounded-full w-4 h-4 border-1 border-gray-900 bg-green-400 absolute top-4 left-16" />
         </div>
       </div>
-      <div className="text-xl font-semibold mt-4 text-black flex gap-1">
-        <p>O que eu sei</p>
+      <div className="flex gap-1 mb-4 text-full rounded-lg p-2 w-fit   border-black border-[1px]  mt-6 text-black">
+        <p>Tecnologias</p>
       </div>
       <div className="items-center justify-center w-full">
-        <p className=" text-xl font-semibold m-4 text-black"></p>
         <div className="flex-wrap  flex gap-6">
           {technologies.map((tech, index) => (
             <TechnologiesLogo

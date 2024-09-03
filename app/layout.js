@@ -34,10 +34,16 @@ export default function RootLayout({ children }) {
               src="/Signature.png"
               alt="My signature"
             />
-            <a href="/" className="p-3 text-md text-black">
+            <a
+              href="/"
+              className="p-3 rounded-xl border-1 border-transparent hover:border-black border-[1px] text-md text-black"
+            >
               Sobre mim
             </a>
-            <a href="/projetos" className="p-3 text-md text-black">
+            <a
+              href="/projetos"
+              className="p-3 rounded-xl border-1 border-transparent hover:border-black border-[1px] text-md text-black"
+            >
               Projetos
             </a>
             <a href="/contato" className="p-3 text-md text-black">

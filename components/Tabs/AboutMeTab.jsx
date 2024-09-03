@@ -20,12 +20,12 @@ export default function AboutMeTab({ defaultPosition }) {
         <button className="rounded-full w-4 h-4 border-1 border-gray-900 bg-yellow-400 absolute top-4 left-10" />
         <button className="rounded-full w-4 h-4 border-1 border-gray-900 bg-green-400 absolute top-4 left-16" />
       </div>
-      <div className="flex gap-1 text-xl font-semibold mt-6 text-black">
-        <p>Quem eu sou</p>
+      <div className="flex gap-1 mb-4 text-full rounded-lg p-2 w-fit   bg-white/5 mt-6 shadow-xl backdrop-blur-[30px] border border-white/40">
+        <p>Sobre mim</p>
       </div>
-      <div className="items-center justify-center w-full">
+      <div className="items-center justify-center text-justify w-full">
         <p>
-          Sou programador e estudante de Sistemas para Internet na Univali.{" "}
+          Sou programador e estudante de Sistemas para Internet na Univali.
           <br />
           Tenho afinidade tanto com o desenvolvimento back-end quanto front-end,
           mas tenho mais conhecimento em front-end.

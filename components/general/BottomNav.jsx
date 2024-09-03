@@ -22,7 +22,7 @@ export default function BottomNav() {
               </a>
             </TooltipTrigger>
             <TooltipContent className="bg-white/20 mb-1 shadow-xl backdrop-blur-[30px] border border-white/40">
-              <p>Quem eu sou</p>
+              <p>Sobre mim</p>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
@@ -38,7 +38,7 @@ export default function BottomNav() {
               </a>
             </TooltipTrigger>
             <TooltipContent className="bg-white/20 mb-1 shadow-xl backdrop-blur-[30px] border border-white/40">
-              <p>O que eu sei</p>
+              <p>Tecnologias</p>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
