@@ -18,14 +18,10 @@ export default function TechnologiesTab({ defaultPosition }) {
       maxWidth="3000px"
     >
       <div className="flex">
-        <div className="rounded-full w-4 h-4 border-1 border-gray-900 bg-red-400 absolute top-4 left-4">
-          {" "}
-        </div>
-        <div className="rounded-full w-4 h-4 border-1 border-gray-900 bg-yellow-400 absolute top-4 left-10">
-          {" "}
-        </div>
-        <div className="rounded-full w-4 h-4 border-1 border-gray-900 bg-green-400 absolute top-4 left-16">
-          {" "}
+        <div className="flex">
+          <button className="rounded-full w-4 h-4 border-1 border-gray-900 bg-red-400 absolute top-4 left-4" />
+          <button className="rounded-full w-4 h-4 border-1 border-gray-900 bg-yellow-400 absolute top-4 left-10" />
+          <button className="rounded-full w-4 h-4 border-1 border-gray-900 bg-green-400 absolute top-4 left-16" />
         </div>
       </div>
       <div className="text-xl font-semibold mt-4 text-black flex gap-1">
