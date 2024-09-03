@@ -24,7 +24,7 @@ export default function TechnologiesTab({ defaultPosition }) {
           <button className="rounded-full w-4 h-4 border-1 border-gray-900 bg-green-400 absolute top-4 left-16" />
         </div>
       </div>
-      <div className="flex gap-1 mb-4 text-full rounded-lg p-2 w-fit   border-black border-[1px]  mt-6 text-black">
+      <div className="flex gap-1 mb-4 text-full rounded-lg p-2 w-fit   bg-white/5 mt-6 shadow-xl backdrop-blur-[30px] border border-white/40">
         <p>Tecnologias</p>
       </div>
       <div className="items-center justify-center w-full">
