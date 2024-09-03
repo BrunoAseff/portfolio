@@ -29,7 +29,7 @@ export default function TechnologiesTab({ defaultPosition }) {
         </div>
       </div>
       <div className="text-xl font-semibold mt-4 text-black flex gap-1">
-        <p> Minhas tecnologias</p>
+        <p>O que eu sei</p>
       </div>
       <div className="items-center justify-center w-full">
         <p className=" text-xl font-semibold m-4 text-black"></p>

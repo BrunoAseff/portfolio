@@ -31,11 +31,11 @@ export default function AboutMeTab({ defaultPosition }) {
       </div>
       <div className="items-center justify-center w-full">
         <p>
-          Sou programador e estudante de Sistemas para Internet na Univali.
+          Sou programador e estudante de Sistemas para Internet na Univali. <br/>
           Tenho afinidade tanto com o desenvolvimento back-end quanto front-end,
-          mas tenho mais conhecimento em front-end. Atualmente, trabalho como
-          redator e programador freelancer. Comecei minha carreira profissional
-          como redator e estou, gradativamente, migrando para a programação.
+          mas tenho mais conhecimento em front-end. 
+          <br/>
+          
           Tenho interesse genuíno por linguística e gosto de estudar as
           diferentes formas de se comunicar, seja através de códigos ou
           palavras.
