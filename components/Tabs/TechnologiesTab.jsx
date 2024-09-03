@@ -1,5 +1,5 @@
 import TechnologiesLogo from "@/components/general/Technologieslogo";
-import { technologies } from "@/app/info/technologies";
+import { technologies } from "@/info/technologies";
 import { Rnd } from "react-rnd";
 
 export default function TechnologiesTab({ defaultPosition }) {
@@ -39,8 +39,8 @@ export default function TechnologiesTab({ defaultPosition }) {
               key={index}
               icon={tech.icon}
               title={tech.title}
-              className="bg-white/20 "
-              color={tech.color}
+              className="bg-white/20"
+              iconColor={tech.color}
             />
           ))}
         </div>

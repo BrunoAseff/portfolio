@@ -5,13 +5,13 @@ import {
   TooltipTrigger,
 } from "../ui/tooltip";
 
-export default function TechnologiesLogo({ color, title, icon }) {
+export default function TechnologiesLogo({ iconColor, title, icon }) {
   return (
     <div>
       <TooltipProvider delayDuration="50">
         <Tooltip>
           <TooltipTrigger
-            className={`${color} backdrop-blur-[30px] cursor-default  p-2 rounded-xl`}
+            className={`${iconColor} backdrop-blur-[30px] cursor-default  p-2 rounded-xl`}
           >
             {icon}
           </TooltipTrigger>
