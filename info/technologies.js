@@ -22,7 +22,7 @@ export const technologies = [
   },
   {
     title: "JavaScript",
-    color: "hover:text-yellow-600",
+    color: "hover:text-yellow-500",
     icon: <SiJavascript size="2rem" />,
   },
   {

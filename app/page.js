@@ -3,9 +3,14 @@
 import BottomNav from "@/components/general/BottomNav";
 import AboutMeTab from "@/components/Tabs/AboutMeTab";
 import TechnologiesTab from "@/components/Tabs/TechnologiesTab";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const [tabsState, setTabsState] = useState({
+    aboutMe: "open", // 'open', 'minimized', 'closed'
+    technologies: "open", // 'open', 'minimized', 'closed'
+  });
+
   const [card1Position, setCard1Position] = useState(null);
   const [card2Position, setCard2Position] = useState(null);
 
@@ -24,14 +29,53 @@ export default function Home() {
     };
   }, []);
 
+  const handleTabStateChange = (tabName) => {
+    setTabsState((prevState) => {
+      // Toggle between minimized and open states
+      if (prevState[tabName] === "open")
+        return { ...prevState, [tabName]: "minimized" };
+      if (prevState[tabName] === "minimized")
+        return { ...prevState, [tabName]: "open" };
+      return { ...prevState, [tabName]: "open" }; // Handle cases when it's closed
+    });
+  };
+
+  const closeTab = (tabName) => {
+    setTabsState((prevState) => ({ ...prevState, [tabName]: "closed" }));
+  };
+
+  const minimizeTab = (tabName) => {
+    setTabsState((prevState) => ({ ...prevState, [tabName]: "minimized" }));
+  };
+
+  const restoreTab = (tabName) => {
+    setTabsState((prevState) => ({ ...prevState, [tabName]: "open" }));
+  };
+
   return (
     <main className="border-6 border-blue-600 h-screen flex flex-col max-w-full justify-center items-center relative">
       <section>
-        {card1Position && <AboutMeTab defaultPosition={card1Position} />}
-        {card2Position && <TechnologiesTab defaultPosition={card2Position} />}
+        {tabsState.aboutMe !== "closed" && (
+          <AboutMeTab
+            defaultPosition={card1Position}
+            state={tabsState.aboutMe}
+            onClose={() => closeTab("aboutMe")}
+            onMinimize={() => minimizeTab("aboutMe")}
+            onRestore={() => restoreTab("aboutMe")}
+          />
+        )}
+        {tabsState.technologies !== "closed" && (
+          <TechnologiesTab
+            defaultPosition={card2Position}
+            state={tabsState.technologies}
+            onClose={() => closeTab("technologies")}
+            onMinimize={() => minimizeTab("technologies")}
+            onRestore={() => restoreTab("technologies")}
+          />
+        )}
       </section>
 
-      <BottomNav />
+      <BottomNav tabsState={tabsState} onTabClick={handleTabStateChange} />
     </main>
   );
 }
