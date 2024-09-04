@@ -3,7 +3,7 @@
 import BottomNav from "@/components/general/BottomNav";
 import AboutMeTab from "@/components/Tabs/AboutMeTab";
 import TechnologiesTab from "@/components/Tabs/TechnologiesTab";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Home() {
   const [tabsState, setTabsState] = useState({
