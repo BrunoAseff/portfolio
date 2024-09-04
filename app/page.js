@@ -11,24 +11,6 @@ export default function Home() {
     technologies: "open", // 'open', 'minimized', 'closed'
   });
 
-  const [card1Position, setCard1Position] = useState(null);
-  const [card2Position, setCard2Position] = useState(null);
-
-  const calculateInitialPositions = () => {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    setCard1Position({ x: width * -0.4, y: height * -0.3 });
-    setCard2Position({ x: width * 0.03, y: height * -0.3 });
-  };
-
-  useEffect(() => {
-    calculateInitialPositions();
-    window.addEventListener("resize", calculateInitialPositions);
-    return () => {
-      window.removeEventListener("resize", calculateInitialPositions);
-    };
-  }, []);
-
   const handleTabStateChange = (tabName) => {
     setTabsState((prevState) => {
       // Toggle between minimized and open states
@@ -57,7 +39,6 @@ export default function Home() {
       <section>
         {tabsState.aboutMe !== "closed" && (
           <AboutMeTab
-            defaultPosition={card1Position}
             state={tabsState.aboutMe}
             onClose={() => closeTab("aboutMe")}
             onMinimize={() => minimizeTab("aboutMe")}
@@ -66,7 +47,6 @@ export default function Home() {
         )}
         {tabsState.technologies !== "closed" && (
           <TechnologiesTab
-            defaultPosition={card2Position}
             state={tabsState.technologies}
             onClose={() => closeTab("technologies")}
             onMinimize={() => minimizeTab("technologies")}
