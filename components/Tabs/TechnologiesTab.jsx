@@ -32,7 +32,7 @@ export default function TechnologiesTab({ state, onClose, onMinimize }) {
         </div>
       </div>
       <div className="flex gap-1 mb-4 text-lg rounded-lg pl-0 p-2 w-fit  font-semibold  mt-6  ">
-        <p>Tecnologias</p>
+        <p>Habilidades</p>
       </div>
       <div className="items-center justify-center w-full">
         <div className="flex-wrap  flex gap-6">

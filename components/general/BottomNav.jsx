@@ -44,7 +44,7 @@ export default function BottomNav({ tabsState, onTabClick }) {
             </a>
           </TooltipTrigger>
           <TooltipContent className="bg-white/20 mb-1 shadow-xl backdrop-blur-[30px] border border-white/40">
-            <p>Tecnologias</p>
+            <p>Habilidades</p>
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
