@@ -7,6 +7,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "../ui/tooltip";
+import { Button } from "../ui/button";
 
 export default function BottomNav({ tabsState, onTabClick }) {
   return (
@@ -14,7 +15,7 @@ export default function BottomNav({ tabsState, onTabClick }) {
       <TooltipProvider delayDuration="50">
         <Tooltip>
           <TooltipTrigger>
-            <a
+            <button
               onClick={() => onTabClick("aboutMe")}
               className="p-3 text-md flex flex-col items-center justify-center gap-1 text-black cursor-pointer"
             >
@@ -22,7 +23,7 @@ export default function BottomNav({ tabsState, onTabClick }) {
               {tabsState.aboutMe !== "closed" && (
                 <div className="rounded-full w-1 h-1 bg-black"></div>
               )}
-            </a>
+            </button>
           </TooltipTrigger>
           <TooltipContent className="bg-white/20 mb-1 shadow-xl backdrop-blur-[30px] border border-white/40">
             <p>Sobre mim</p>
@@ -33,7 +34,7 @@ export default function BottomNav({ tabsState, onTabClick }) {
       <TooltipProvider delayDuration="50">
         <Tooltip>
           <TooltipTrigger>
-            <a
+            <button
               onClick={() => onTabClick("technologies")}
               className="p-3 text-md flex flex-col items-center justify-center gap-1 text-black cursor-pointer"
             >
@@ -41,7 +42,7 @@ export default function BottomNav({ tabsState, onTabClick }) {
               {tabsState.technologies !== "closed" && (
                 <div className="rounded-full w-1 h-1 bg-black"></div>
               )}
-            </a>
+            </button>
           </TooltipTrigger>
           <TooltipContent className="bg-white/20 mb-1 shadow-xl backdrop-blur-[30px] border border-white/40">
             <p>Habilidades</p>
