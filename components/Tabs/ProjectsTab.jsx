@@ -45,8 +45,11 @@ export default function ProjectsTab() {
                 </Button>
               </DialogTrigger>
             </div>
-            <DialogContent className="flex-col w-full m-10 p-8  shadow-xl bg-white/20 backdrop-blur-[20px] h-[80vh]  border border-white/40 rounded-xl">
+            <DialogContent className="flex-col m-10 p-8  shadow-xl bg-white/20 backdrop-blur-[20px] h-[80vh]  border border-white/40 rounded-xl">
               <DialogTitle>{project.title}</DialogTitle>
+              <DialogDescription className="text-black">
+                {project.longDescription}
+              </DialogDescription>
             </DialogContent>
           </Dialog>
         ))}
