@@ -7,18 +7,17 @@ import { useState } from "react";
 
 export default function Home() {
   const [tabsState, setTabsState] = useState({
-    aboutMe: "open", // 'open', 'minimized', 'closed'
-    technologies: "open", // 'open', 'minimized', 'closed'
+    aboutMe: "open",
+    technologies: "open",
   });
 
   const handleTabStateChange = (tabName) => {
     setTabsState((prevState) => {
-      // Toggle between minimized and open states
       if (prevState[tabName] === "open")
         return { ...prevState, [tabName]: "minimized" };
       if (prevState[tabName] === "minimized")
         return { ...prevState, [tabName]: "open" };
-      return { ...prevState, [tabName]: "open" }; // Handle cases when it's closed
+      return { ...prevState, [tabName]: "open" };
     });
   };
 
