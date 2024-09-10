@@ -99,14 +99,24 @@ export default function ProjectsTab() {
                 </div>
                 <div className="grid grid-cols-2 w-[40%] gap-4 m-4">
                   {project.images.map((image, index) => (
-                    <Image
-                      className="rounded-xl"
-                      key={index}
-                      src={image}
-                      alt="Picture of the author"
-                      width={200}
-                      height={200}
-                    />
+                    <div key={index}>
+                      <Image
+                        className="rounded-xl"
+                        src={image}
+                        alt={
+                          project.imagesAlt
+                            ? project.imagesAlt[index]
+                            : "Imagem"
+                        }
+                        width={200}
+                        height={200}
+                      />
+                      <span>
+                        {project.imagesAlt
+                          ? project.imagesAlt[index]
+                          : "Descrição não disponível"}
+                      </span>
+                    </div>
                   ))}
                 </div>
               </div>
