@@ -23,6 +23,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} ${handjet.variable}`}>
         <main className="h-screen relative flex flex-col items-center justify-between w-full   ">
           <Image
+            priority
             alt="Background"
             src="/opcao_2.jpeg"
             quality={100}
