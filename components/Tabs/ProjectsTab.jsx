@@ -36,13 +36,16 @@ export default function ProjectsTab() {
                 <p> Github </p>
                 <ArrowSquareOut size={17} />
               </Link>
-              <Image
-                className="rounded-xl ml-auto mr-auto mb-2"
-                src={project.images[0]}
-                alt="Picture of the author"
-                width={250}
-                height={250}
-              />
+              <div className="w-[15.625rem] ml-auto mr-auto h-[8rem]">
+                {" "}
+                <Image
+                  className="rounded-xl ml-auto mr-auto mb-2"
+                  src={project.images[0]}
+                  alt="Picture of the author"
+                  width={250}
+                  height={250}
+                />
+              </div>
               <DialogTrigger asChild>
                 <Button className="p-4 mt-4 text-md text-white bg-black rounded-xl">
                   Ver detalhes
@@ -139,6 +142,7 @@ export default function ProjectsTab() {
                         <DialogTrigger asChild>
                           <div className="mt-auto mb-auto">
                             <Image
+                              loading="eager"
                               className="rounded-xl hover:cursor-pointer"
                               src={image}
                               alt={project.imagesAlt?.[index]}
@@ -150,12 +154,19 @@ export default function ProjectsTab() {
                             </p>
                           </div>
                         </DialogTrigger>
-                        <DialogContent
-                          style={{
-                            backgroundImage: `url(${image})`,
-                          }}
-                          className="w-[1024px] h-[576px] min-h-96 bg-transparent max-w-full bg-no-repeat bg-center bg-cover object-scale-down"
-                        ></DialogContent>
+                        <DialogContent className="w-[1105px] h-[576px] min-h-96 bg-transparent rounded-xl max-w-full bg-no-repeat bg-center bg-cover">
+                          <Image
+                            className="rounded-lg"
+                            alt="Mountains"
+                            src={image}
+                            quality={20}
+                            fill
+                            sizes="100vw"
+                            style={{
+                              objectFit: "cover",
+                            }}
+                          />
+                        </DialogContent>
                       </Dialog>
                     </div>
                   ))}
