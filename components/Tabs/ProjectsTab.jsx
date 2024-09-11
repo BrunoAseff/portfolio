@@ -154,7 +154,7 @@ export default function ProjectsTab() {
                           style={{
                             backgroundImage: `url(${image})`,
                           }}
-                          className="w-[95%] h-[80%] min-h-96 bg-transparent max-w-full bg-no-repeat bg-center bg-cover object-scale-down"
+                          className="w-[1024px] h-[576px] min-h-96 bg-transparent max-w-full bg-no-repeat bg-center bg-cover object-scale-down"
                         ></DialogContent>
                       </Dialog>
                     </div>

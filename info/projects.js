@@ -26,12 +26,12 @@ export const projects = [
       "svgs/tailwindcss.svg",
     ],
     images: [
-      "/forms_1.png",
-      "/forms_2.png",
-      "/forms_3.png",
-      "/forms_4.png",
-      "/forms_5.png",
-      "/forms_6.png",
+      "/forms_1.webp",
+      "/forms_2.webp",
+      "/forms_3.webp",
+      "/forms_4.webp",
+      "/forms_5.webp",
+      "/forms_6.webp",
     ],
     imagesAlt: [
       "Dashboard",
@@ -69,12 +69,12 @@ export const projects = [
     webLink: "https://guia-quantico.vercel.app/",
 
     images: [
-      "/guia_1.png",
-      "/guia_2.png",
-      "/guia_3.png",
-      "/guia_4.png",
-      "/guia_5.png",
-      "/guia_5.png",
+      "/guia_1.webp",
+      "/guia_2.webp",
+      "/guia_3.webp",
+      "/guia_4.webp",
+      "/guia_5.webp",
+      "/guia_5.webp",
     ],
     imagesAlt: [
       "Tela inicial",
@@ -107,12 +107,12 @@ export const projects = [
       "svgs/tailwindcss.svg",
     ],
     images: [
-      "/univali_1.png",
-      "/univali_2.png",
-      "/univali_3.png",
-      "/univali_4.png",
-      "/univali_5.png",
-      "/univali_6.png",
+      "/univali_1.webp",
+      "/univali_2.webp",
+      "/univali_3.webp",
+      "/univali_4.webp",
+      "/univali_5.webp",
+      "/univali_6.webp",
     ],
     imagesAlt: [
       "Tela de login",
@@ -145,7 +145,7 @@ export const projects = [
       "svgs/tailwindcss.svg",
       "svgs/Framer.svg",
     ],
-    images: ["/opcao_2.jpeg", "/image2.jpg", "/image3.jpg"],
+    images: ["/opcao_2.jpeg", "/image2.webp", "/image3.webp"],
     imagesAlt: [
       "Forms Creator",
       "Forms Creator",
@@ -171,7 +171,7 @@ export const projects = [
     gitHubLink: "https://github.com/",
     webLink: "https://github.com/",
     technologies: ["/svgs/cpp.svg"],
-    images: ["/opcao_2.jpeg", "/image2.jpg", "/image3.jpg"],
+    images: ["/opcao_2.jpeg", "/image2.webp", "/image3.webp"],
     imagesAlt: [
       "Forms Creator",
       "Forms Creator",
@@ -199,6 +199,6 @@ export const projects = [
       "svgs/zod.svg",
       "svgs/tailwindcss.svg",
     ],
-    images: ["/opcao_2.jpeg", "/image2.jpg", "/image3.jpg"],
+    images: ["/opcao_2.jpeg", "/image2.webp", "/image3.webp"],
   },
 ];
