@@ -145,7 +145,7 @@ export const projects = [
       "svgs/tailwindcss.svg",
       "svgs/Framer.svg",
     ],
-    images: ["/opcao_2.jpeg", "/image2.webp", "/image3.webp"],
+    images: ["/univali_1.webp", "/image2.webp", "/image3.webp"],
     imagesAlt: [
       "Forms Creator",
       "Forms Creator",
