@@ -16,7 +16,7 @@ import { toast } from "sonner";
 
 export default function ProjectsTab() {
   return (
-    <Card className="flex-col w-full m-10 p-8 items-center justify-center shadow-xl bg-white/20 backdrop-blur-[20px] mb-auto mt-auto  border border-white/40 rounded-xl">
+    <Card className="flex-col w-full m-6 p-8 items-center justify-center shadow-xl bg-white/20 backdrop-blur-[20px] mb-auto mt-auto  border border-white/40 rounded-xl">
       <CardHeader className="flex gap-1 mb-4 text-lg rounded-lg pl-0 p-2 w-fit font-semibold">
         <p>Projetos</p>
       </CardHeader>
@@ -34,7 +34,7 @@ export default function ProjectsTab() {
                 target="_blank"
               >
                 <p> Github </p>
-                <ArrowSquareOut size={20} />
+                <ArrowSquareOut size={17} />
               </Link>
               <Image
                 className="rounded-xl ml-auto mr-auto mb-2"
@@ -49,7 +49,7 @@ export default function ProjectsTab() {
                 </Button>
               </DialogTrigger>
             </div>
-            <DialogContent className="flex-col pt-20 pb-20 pl-10 pr-10  backdrop-blur-[100px] shadow-xl bg-white/5 min-h-96 w-[90%] h-[90%]  max-w-full  border border-white/40 rounded-xl">
+            <DialogContent className="flex-col pt-20 pb-20 pl-10 pr-10  backdrop-blur-[100px] shadow-xl bg-white/5 min-h-[90%] max-h-[95%] w-[90%]   max-w-full  border border-white/40 rounded-xl">
               <div className="w-full flex gap-2 text-lg text-black">
                 <div className="w-[50%] flex flex-col justify-evenly m-4">
                   <DialogTitle className="mb-6">{project.title}</DialogTitle>
@@ -70,7 +70,7 @@ export default function ProjectsTab() {
                   <div className="flex gap-2 space-between mt-4">
                     {" "}
                     <Button
-                      className="p-4  text-md text-white bg-black rounded-xl w-fit"
+                      className="p-4  text-sm text-white bg-black rounded-xl w-fit"
                       asChild
                     >
                       <Link
@@ -97,7 +97,7 @@ export default function ProjectsTab() {
                       </Link>
                     </Button>
                     <Button
-                      className="p-4  text-md text-white bg-black rounded-xl w-fit"
+                      className="p-4  text-sm text-white bg-black rounded-xl w-fit"
                       asChild
                     >
                       <Link
@@ -107,7 +107,7 @@ export default function ProjectsTab() {
                       >
                         {" "}
                         <p>Projeto no Github</p>
-                        <ArrowSquareOut size={20} />
+                        <ArrowSquareOut size={17} />
                       </Link>
                     </Button>
                   </div>
@@ -117,7 +117,7 @@ export default function ProjectsTab() {
                   <div className="flex mb-auto gap-2">
                     {project.technologies.map((tech, index) => (
                       <Image
-                        className=" hover:cursor-pointer rounded-2xl p-3  backdrop-blur-[20px] bg-black"
+                        className=" hover:cursor-pointer rounded-2xl p-3  backdrop-blur-[20px] bg-black/20 border border-white/40"
                         key={index}
                         src={tech}
                         alt="Picture of the author"
@@ -138,8 +138,8 @@ export default function ProjectsTab() {
                               className="rounded-xl hover:cursor-pointer"
                               src={image}
                               alt={project.imagesAlt?.[index]}
-                              width={300}
-                              height={300}
+                              width={250}
+                              height={250}
                             />
                             <p className="mt-2">{project.imagesAlt?.[index]}</p>
                           </div>
