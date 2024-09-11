@@ -2,6 +2,7 @@ import { Inter, Handjet } from "next/font/google";
 import "./globals.css";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata = {
   title: "Bruno de Almeida Aseff",
@@ -52,6 +53,7 @@ export default function RootLayout({ children }) {
           </nav>
           {children}
         </main>
+        <Toaster />
       </body>
     </html>
   );
