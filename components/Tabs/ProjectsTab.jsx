@@ -39,6 +39,7 @@ export default function ProjectsTab() {
               <div className="w-[15.625rem] ml-auto mr-auto h-[8rem]">
                 {" "}
                 <Image
+                  loading="eager"
                   className="rounded-xl ml-auto mr-auto mb-2"
                   src={project.images[0]}
                   alt="Picture of the author"
@@ -125,6 +126,7 @@ export default function ProjectsTab() {
                       >
                         {" "}
                         <Image
+                          loading="eager"
                           src={tech}
                           alt="Picture of the author"
                           width={50}

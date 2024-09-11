@@ -54,7 +54,7 @@ export default function RootLayout({ children }) {
               Projetos
             </a>
             <a href="/contato" className="p-3 text-md text-black">
-              <Button className="p-4 rounded-xl">Contato</Button>
+              <Button className="p-5 rounded-xl">Contato</Button>
             </a>
           </nav>
           {children}
