@@ -49,7 +49,7 @@ export default function ProjectsTab() {
                 </Button>
               </DialogTrigger>
             </div>
-            <DialogContent className="flex-col pt-20 pb-20 pl-10 pr-10  backdrop-blur-[100px] shadow-xl bg-white/5 min-h-[90%] max-h-[95%] w-[90%]   max-w-full  border border-white/40 rounded-xl">
+            <DialogContent className="flex-col pt-4 pb-4  pl-10 pr-10  backdrop-blur-[100px] shadow-xl bg-white/5 min-h-[90%] max-h-[95%] w-[90%]   max-w-full  border border-white/40 rounded-xl">
               <div className="w-full flex gap-2 text-lg text-black">
                 <div className="w-[50%] flex flex-col justify-evenly m-4">
                   <DialogTitle className="mb-6">{project.title}</DialogTitle>
@@ -116,19 +116,23 @@ export default function ProjectsTab() {
                   </h1>
                   <div className="flex mb-auto gap-2">
                     {project.technologies.map((tech, index) => (
-                      <Image
-                        className=" hover:cursor-pointer rounded-2xl p-3  backdrop-blur-[20px] bg-black/20 border border-white/40"
+                      <div
+                        className="w-12 h-12 backdrop-blur-[20px]   flex items-center justify-center rounded-xl p-2 bg-black/20 border border-white/40"
                         key={index}
-                        src={tech}
-                        alt="Picture of the author"
-                        width={50}
-                        height={50}
-                      />
+                      >
+                        {" "}
+                        <Image
+                          src={tech}
+                          alt="Picture of the author"
+                          width={50}
+                          height={50}
+                        />
+                      </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 max-w-[60%] gap-4">
+                <div className="grid grid-cols-2 max-w-[90%] gap-12 mt-auto mb-auto ">
                   {project.images.map((image, index) => (
                     <div key={index} className="w-full">
                       <Dialog className="flex flex-col items-left w-full">
@@ -138,10 +142,12 @@ export default function ProjectsTab() {
                               className="rounded-xl hover:cursor-pointer"
                               src={image}
                               alt={project.imagesAlt?.[index]}
-                              width={250}
-                              height={250}
+                              width={230}
+                              height={230}
                             />
-                            <p className="mt-2">{project.imagesAlt?.[index]}</p>
+                            <p className="mt-2 font-sm text-stone-700">
+                              {project.imagesAlt?.[index]}
+                            </p>
                           </div>
                         </DialogTrigger>
                         <DialogContent
