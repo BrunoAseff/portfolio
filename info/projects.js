@@ -171,7 +171,7 @@ export const projects = [
     gitHubLink: "https://github.com/",
     webLink: "https://github.com/",
     technologies: ["/svgs/cpp.svg"],
-    images: ["/opcao_2.jpeg", "/image2.webp", "/image3.webp"],
+    images: ["/univali_1.webp", "/image2.webp", "/image3.webp"],
     imagesAlt: [
       "Forms Creator",
       "Forms Creator",
@@ -199,6 +199,6 @@ export const projects = [
       "svgs/zod.svg",
       "svgs/tailwindcss.svg",
     ],
-    images: ["/opcao_2.jpeg", "/image2.webp", "/image3.webp"],
+    images: ["/univali_1.webp", "/image2.webp", "/image3.webp"],
   },
 ];
