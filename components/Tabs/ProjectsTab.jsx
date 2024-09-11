@@ -154,19 +154,12 @@ export default function ProjectsTab() {
                             </p>
                           </div>
                         </DialogTrigger>
-                        <DialogContent className="w-[1105px] h-[576px] min-h-96 bg-transparent rounded-xl max-w-full bg-no-repeat bg-center bg-cover">
-                          <Image
-                            className="rounded-lg"
-                            alt="Mountains"
-                            src={image}
-                            quality={20}
-                            fill
-                            sizes="100vw"
-                            style={{
-                              objectFit: "cover",
-                            }}
-                          />
-                        </DialogContent>
+                        <DialogContent
+                          style={{
+                            backgroundImage: `url(${image})`,
+                          }}
+                          className="w-[1024px] h-[576px] min-h-96 bg-transparent max-w-full bg-no-repeat bg-center bg-cover object-scale-down"
+                        ></DialogContent>
                       </Dialog>
                     </div>
                   ))}
