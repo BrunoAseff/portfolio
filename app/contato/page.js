@@ -42,21 +42,20 @@ export default function Contato() {
                 href="https://www.linkedin.com/in/bruno-aseff-374835207/"
               >
                 {" "}
-                <strong className="text-black">Linkedin</strong>
+                <p className="text-black font-semibold">Linkedin</p>
               </Link>
 
               <ArrowSquareOut color="black" size={23} />
             </Button>
             <Button className="flex items-center justify-between backdrop-blur-[20px] gap-4 hover:bg-white/5 rounded-xl bg-white/10 border border-white/40">
-              <Image
-                src="/svgs/github-light.svg"
-                alt="github logo"
-                width={25}
-                height={25}
-              />
               <Link target="_blank" href="https://github.com/BrunoAseff">
-                {" "}
-                <strong className="text-black">GitHub</strong>
+                <Image
+                  src="/svgs/github-light.svg"
+                  alt="github logo"
+                  width={25}
+                  height={25}
+                />{" "}
+                <p className="text-black font-semibold">GitHub</p>
               </Link>
 
               <ArrowSquareOut color="black" size={23} />
@@ -66,7 +65,7 @@ export default function Contato() {
               className="flex items-center justify-between backdrop-blur-[20px] gap-4 hover:bg-white/5 rounded-xl bg-white/10 border border-white/40"
               onClick={() => copyToClipboard("(47) 991031009", "phone")}
             >
-              <strong className="text-black">(47) 991031009</strong>
+              <p className="text-black font-semibold">(47) 991031009</p>
               {copiedItem === "phone" ? (
                 <Check color="black" size={23} />
               ) : (
@@ -77,7 +76,7 @@ export default function Contato() {
               className="flex items-center justify-between backdrop-blur-[20px] hover:bg-white/5 gap-4 rounded-xl bg-white/10 border border-white/40"
               onClick={() => copyToClipboard("brunoaseff2@gmail.com", "email")}
             >
-              <strong className="text-black">brunoaseff2@gmail.com</strong>
+              <p className="text-black font-semibold">brunoaseff2@gmail.com</p>
               {copiedItem === "email" ? (
                 <Check color="black" size={23} />
               ) : (
@@ -86,13 +85,13 @@ export default function Contato() {
             </Button>
           </div>
           <div className="flex flex-col gap-2 items-center justify-center">
-            <Link href="/curriculo.pdf">
-              {" "}
-              <Button className="flex justify-evenly items-center w-full gap-4">
+            {" "}
+            <Button className="flex justify-evenly items-center w-full gap-4">
+              <Link target="_blank" href="/curriculo.pdf">
                 <DownloadSimple size={25} />
                 <p>Baixar currículo em PDF</p>
-              </Button>
-            </Link>
+              </Link>
+            </Button>
             <Button className="flex justify-evenly m-4 mt-0 w-full items-center gap-4">
               <WhatsappLogo size={25} />
               <Link target="_blank" href="https://wa.me/5547991031009?text=">
