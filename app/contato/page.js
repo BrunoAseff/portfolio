@@ -37,7 +37,7 @@ export default function Contato() {
           <div className="flex flex-col w-full justify-start gap-2">
             <Button className="flex items-center justify-between backdrop-blur-[20px] gap-4 hover:bg-white/5 rounded-xl bg-white/10 border border-white/40">
               <Link
-                className="flex items-center justify-between"
+                className="flex items-center w-full justify-between"
                 target="_blank"
                 href="https://www.linkedin.com/in/bruno-aseff-374835207/"
               >
@@ -50,7 +50,7 @@ export default function Contato() {
             </Button>
             <Button className="flex items-center justify-between backdrop-blur-[20px] gap-4 hover:bg-white/5 rounded-xl bg-white/10 border border-white/40">
               <Link
-                className="flex items-center justify-between"
+                className="flex items-center  w-full justify-between"
                 target="_blank"
                 href="https://github.com/BrunoAseff"
               >
