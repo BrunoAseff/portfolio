@@ -37,24 +37,32 @@ export default function Contato() {
           <div className="flex flex-col w-full justify-start gap-2">
             <Button className="flex items-center justify-between backdrop-blur-[20px] gap-4 hover:bg-white/5 rounded-xl bg-white/10 border border-white/40">
               <Link
+                className="flex items-center justify-between"
                 target="_blank"
                 href="https://www.linkedin.com/in/bruno-aseff-374835207/"
               >
-                {" "}
-                <LinkedinLogo color="black" weight="fill" size={25} />
-                <p className="text-black font-semibold">Linkedin</p>
+                <div className="flex items-center gap-2">
+                  <LinkedinLogo color="black" weight="fill" size={25} />
+                  <p className="text-black font-semibold">Linkedin</p>
+                </div>
                 <ArrowSquareOut color="black" size={23} />
               </Link>
             </Button>
             <Button className="flex items-center justify-between backdrop-blur-[20px] gap-4 hover:bg-white/5 rounded-xl bg-white/10 border border-white/40">
-              <Link target="_blank" href="https://github.com/BrunoAseff">
-                <Image
-                  src="/svgs/github-light.svg"
-                  alt="github logo"
-                  width={25}
-                  height={25}
-                />{" "}
-                <p className="text-black font-semibold">GitHub</p>
+              <Link
+                className="flex items-center justify-between"
+                target="_blank"
+                href="https://github.com/BrunoAseff"
+              >
+                <div className="flex items-center gap-2">
+                  <Image
+                    src="/svgs/github-light.svg"
+                    alt="github logo"
+                    width={25}
+                    height={25}
+                  />{" "}
+                  <p className="text-black font-semibold">GitHub</p>
+                </div>
                 <ArrowSquareOut color="black" size={23} />
               </Link>
             </Button>
@@ -85,7 +93,11 @@ export default function Contato() {
           <div className="flex flex-col gap-2 items-center justify-center">
             {" "}
             <Button className="flex justify-evenly items-center w-full gap-4">
-              <Link target="_blank" href="/curriculo.pdf">
+              <Link
+                className="flex items-center gap-4"
+                target="_blank"
+                href="/curriculo.pdf"
+              >
                 <DownloadSimple size={25} />
                 <p>Baixar currículo em PDF</p>
               </Link>
