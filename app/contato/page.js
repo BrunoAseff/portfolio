@@ -36,16 +36,15 @@ export default function Contato() {
         <CardContent className="flex flex-col  gap-10 items-center justify-center">
           <div className="flex flex-col w-full justify-start gap-2">
             <Button className="flex items-center justify-between backdrop-blur-[20px] gap-4 hover:bg-white/5 rounded-xl bg-white/10 border border-white/40">
-              <LinkedinLogo color="black" weight="fill" size={25} />
               <Link
                 target="_blank"
                 href="https://www.linkedin.com/in/bruno-aseff-374835207/"
               >
                 {" "}
+                <LinkedinLogo color="black" weight="fill" size={25} />
                 <p className="text-black font-semibold">Linkedin</p>
+                <ArrowSquareOut color="black" size={23} />
               </Link>
-
-              <ArrowSquareOut color="black" size={23} />
             </Button>
             <Button className="flex items-center justify-between backdrop-blur-[20px] gap-4 hover:bg-white/5 rounded-xl bg-white/10 border border-white/40">
               <Link target="_blank" href="https://github.com/BrunoAseff">
@@ -56,9 +55,8 @@ export default function Contato() {
                   height={25}
                 />{" "}
                 <p className="text-black font-semibold">GitHub</p>
+                <ArrowSquareOut color="black" size={23} />
               </Link>
-
-              <ArrowSquareOut color="black" size={23} />
             </Button>
 
             <Button
