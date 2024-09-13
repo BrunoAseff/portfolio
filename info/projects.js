@@ -126,8 +126,7 @@ export const projects = [
 
   {
     title: "Portifólio",
-    shortDescription:
-      "A web application that allows users to create forms and share them with others.",
+    shortDescription: "Meu portfólio pessoal mostrando meus projetos.",
     longDescription:
       "Meu portfólio pessoal com design moderno e animações suaves, mostrando meus projetos de forma clara e interativa.",
     features: [
@@ -145,21 +144,14 @@ export const projects = [
       "svgs/tailwindcss.svg",
       "svgs/Framer.svg",
     ],
-    images: ["/univali_1.webp", "/image2.webp", "/image3.webp"],
-    imagesAlt: [
-      "Forms Creator",
-      "Forms Creator",
-      "Forms Creator",
-      "Forms Creator",
-      "Forms Creator",
-      "Forms Creator",
-    ],
+    images: ["/portfolio_1.webp", "/portfolio_2.webp", "/portfolio_4.webp"],
+    imagesAlt: ["Sobre mim", "Contatos", "Projetos"],
   },
 
   {
     title: "RPG no Terminal",
     shortDescription:
-      "A web application that allows users to create forms and share them with others.",
+      "Um jogo de RPG desenvolvido em C++ para rodar no terminal, criado como parte do curso de graduação.",
     longDescription:
       "Um jogo de RPG desenvolvido em C++ para rodar no terminal, criado como parte do curso de graduação.",
     features: [
@@ -168,10 +160,9 @@ export const projects = [
       "Jogabilidade simples e direta",
     ],
 
-    gitHubLink: "https://github.com/",
-    webLink: "https://github.com/",
+    gitHubLink: "https://www.onlinegdb.com/YCYpLmmMM",
     technologies: ["/svgs/cpp.svg"],
-    images: ["/univali_1.webp", "/image2.webp", "/image3.webp"],
+    images: ["/univali_1.webp"],
     imagesAlt: [
       "Forms Creator",
       "Forms Creator",

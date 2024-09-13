@@ -10,7 +10,7 @@ export default function Navbar() {
       <nav className="static md:absolute gap-3 items-center justify-center top-6 left-6  bg-white/20 rounded-xl z-50  backdrop-blur-[30px] flex border border-white/40">
         <a
           href="/"
-          className="p-3 flex rounded-xl border-1 border-transparent hover:border-black border-[1px] text-md text-black"
+          className="p-3 flex rounded-xl  border-transparent  text-md text-black"
         >
           <Image
             className="p-2"

@@ -14,14 +14,15 @@ import { projects } from "@/info/projects";
 import { ArrowSquareOut, CheckCircle } from "phosphor-react";
 import { toast } from "sonner";
 import { AspectRatio } from "../ui/aspect-ratio";
+import RpgCode from "../CodeHightlighter";
 
 export default function ProjectsTab() {
   return (
-    <Card className="flex-col w-full m-6 p-8 items-center justify-center shadow-xl bg-white/20 backdrop-blur-[20px] mb-auto mt-auto  border border-white/40 rounded-xl">
-      <CardHeader className="flex gap-1 mb-4 text-lg rounded-lg pl-0 p-2 w-fit font-semibold">
+    <Card className="flex-col w-full m-6 md:p-8 items-center justify-center shadow-xl bg-white/20 backdrop-blur-[20px] mb-auto mt-auto  border border-white/40 rounded-xl">
+      <CardHeader className="md:flex hidden  gap-1 mb-4 text-lg rounded-lg pl-0 p-2 w-fit font-semibold">
         <p>Projetos</p>
       </CardHeader>
-      <CardContent className="mt-auto mb-auto  text-justify gap-4 scroll-smooth overflow-x-scroll flex w-full">
+      <CardContent className="mt-auto p-6 mb-auto max-h-[85vh]  text-justify gap-4 scroll-smooth md:overflow-x-scroll overflow-x-hidden overflow-y-scroll flex-col md:flex-row flex w-full">
         {projects.map((project, index) => (
           <Dialog key={index}>
             <div className="shadow-xl justify-between flex min-w-[300px] flex-col  bg-white/5  p-6 backdrop-blur-[20px]  border border-white/40 rounded-xl">
@@ -30,7 +31,7 @@ export default function ProjectsTab() {
                 {project.shortDescription}
               </p>
               <Link
-                className="text-blue-600 mb-2 flex items-center gap-1"
+                className="text-blue-600 mb-2  items-center hidden md:flex gap-1"
                 href={project.gitHubLink}
                 target="_blank"
               >
@@ -49,10 +50,20 @@ export default function ProjectsTab() {
                 />
               </div>
               <DialogTrigger asChild>
-                <Button className="p-4 mt-4 text-md text-white bg-black rounded-xl">
+                <Button className="hidden md:flex p-4 mt-4 text-md text-white bg-black rounded-xl">
                   Ver detalhes
                 </Button>
               </DialogTrigger>
+              <Button className="md:hidden flex p-4 mt-4 text-md text-white bg-black rounded-xl">
+                <Link
+                  className="flex items-center gap-4 "
+                  href={project.gitHubLink}
+                  target="_blank"
+                >
+                  <p>Ver no GitHub</p>
+                  <ArrowSquareOut size={17} />
+                </Link>
+              </Button>
             </div>
             <DialogContent className="flex-col pt-4 pb-4  pl-10 pr-10  backdrop-blur-[100px] shadow-xl bg-white/5 min-h-[90%] max-h-[95%] w-[90%]   max-w-full  border border-white/40 rounded-xl">
               <div className="w-full flex gap-2 text-lg text-black">
@@ -74,33 +85,34 @@ export default function ProjectsTab() {
                   </ul>
                   <div className="flex gap-2 space-between mt-4">
                     {" "}
-                    <Button
-                      className="p-4  text-sm text-white bg-black rounded-xl w-fit"
-                      asChild
-                    >
-                      <Link
-                        className="text-blue-600 mb-auto flex gap-2"
-                        href={
-                          project.webLink === "Você já está nele!"
-                            ? "#"
-                            : project.webLink
-                        }
-                        target={
-                          project.webLink === "Você já está nele!"
-                            ? ""
-                            : "_blank"
-                        }
-                        onClick={(e) => {
-                          if (project.webLink === "Você já está nele!") {
-                            e.preventDefault();
-                            console.log("Você já está nele!");
-                            toast("Você já está nele!");
-                          }
-                        }}
+                    {project.webLink && project.webLink !== "" && (
+                      <Button
+                        className="p-4  text-sm text-white bg-black rounded-xl w-fit"
+                        asChild
                       >
-                        <p>Projeto na web</p> <ArrowSquareOut size={20} />
-                      </Link>
-                    </Button>
+                        <Link
+                          className="text-blue-600 mb-auto flex gap-2"
+                          href={
+                            project.webLink === "Você já está nele!"
+                              ? "#"
+                              : project.webLink
+                          }
+                          target={
+                            project.webLink === "Você já está nele!"
+                              ? ""
+                              : "_blank"
+                          }
+                          onClick={(e) => {
+                            if (project.webLink === "Você já está nele!") {
+                              e.preventDefault();
+                              toast("Você já está aqui!");
+                            }
+                          }}
+                        >
+                          <p>Projeto na web</p> <ArrowSquareOut size={20} />
+                        </Link>
+                      </Button>
+                    )}
                     <Button
                       className="p-4  text-sm text-white bg-black rounded-xl w-fit"
                       asChild
@@ -122,7 +134,7 @@ export default function ProjectsTab() {
                   <div className="flex mb-auto gap-2">
                     {project.technologies.map((tech, index) => (
                       <div
-                        className="w-12 h-12 backdrop-blur-[20px]   flex items-center justify-center rounded-xl p-2 bg-black/20 border border-white/40"
+                        className="w-12 h-12 backdrop-blur-[20px]   flex items-center justify-center rounded-xl p-2 bg-black/20 "
                         key={index}
                       >
                         {" "}
@@ -139,40 +151,50 @@ export default function ProjectsTab() {
                 </div>
 
                 <div className="grid grid-cols-2 max-w-[90%] gap-12 mt-auto mb-auto ">
-                  {project.images.map((image, index) => (
-                    <div key={index} className="w-full">
-                      <Dialog className="flex flex-col items-left w-full">
-                        <DialogTrigger asChild>
-                          <div className="mt-auto mb-auto">
-                            <Image
-                              loading="eager"
-                              className="rounded-xl hover:cursor-pointer"
-                              src={image}
-                              alt={project.imagesAlt?.[index]}
-                              width={230}
-                              height={230}
-                            />
-                            <p className="mt-2 font-sm text-stone-700">
-                              {project.imagesAlt?.[index]}
-                            </p>
-                          </div>
-                        </DialogTrigger>
-                        <DialogContent className="max-w-[1024px] border-0 p-0 max-h-fit  bg-transparent  ">
-                          <AspectRatio ratio={16 / 9}>
-                            <Image
-                              loading="eager"
-                              className="rounded-xl  object-cover  hover:cursor-pointer"
-                              src={image}
-                              alt={project.imagesAlt?.[index]}
-                              width={2100}
-                              height={430}
-                            />
-                          </AspectRatio>
-                        </DialogContent>
-                      </Dialog>
-                    </div>
-                  ))}
+                  {project.images.length > 1 && (
+                    <>
+                      {project.images.map((image, index) => (
+                        <div key={index} className="w-full">
+                          <Dialog className="flex flex-col items-left w-full">
+                            <DialogTrigger asChild>
+                              <div className="mt-auto mb-auto">
+                                <Image
+                                  loading="eager"
+                                  className="rounded-xl hover:cursor-pointer"
+                                  src={image}
+                                  alt={project.imagesAlt?.[index]}
+                                  width={230}
+                                  height={230}
+                                />
+                                <p className="mt-2 font-sm text-stone-700">
+                                  {project.imagesAlt?.[index]}
+                                </p>
+                              </div>
+                            </DialogTrigger>
+                            <DialogContent className="max-w-[1024px] border-0 p-0 max-h-fit  bg-transparent  ">
+                              <AspectRatio ratio={16 / 9}>
+                                <Image
+                                  loading="eager"
+                                  className="rounded-xl  object-cover  hover:cursor-pointer"
+                                  src={image}
+                                  alt={project.imagesAlt?.[index]}
+                                  width={2100}
+                                  height={430}
+                                />
+                              </AspectRatio>
+                            </DialogContent>
+                          </Dialog>
+                        </div>
+                      ))}
+                    </>
+                  )}
                 </div>
+
+                {project.title === "RPG no Terminal" && (
+                  <div className="m-auto w-[700px]  ">
+                    <RpgCode />
+                  </div>
+                )}
               </div>
             </DialogContent>
           </Dialog>
