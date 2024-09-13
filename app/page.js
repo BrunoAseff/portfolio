@@ -35,7 +35,7 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="md:overflow-visible overflow-hidden">
       <TabsMobile className="hidden" />
       <main className="border-6 md:flex hidden border-blue-600 h-screen  flex-col max-w-full justify-center items-center relative">
         <section>

@@ -3,6 +3,8 @@ import "./globals.css";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Toaster } from "@/components/ui/sonner";
+import { List } from "phosphor-react";
+import Navbar from "@/components/Navbar";
 
 export const metadata = {
   title: "Bruno de Almeida Aseff",
@@ -33,30 +35,8 @@ export default function RootLayout({ children }) {
               objectFit: "cover",
             }}
           />
-          <nav className="md:flex hidden absolute gap-3 items-center justify-center top-6 left-6  bg-white/20 rounded-xl z-50  backdrop-blur-[30px] border border-white/40">
-            <Image
-              className="p-3"
-              width={175}
-              height={65}
-              src="/Signature.png"
-              alt="My signature"
-            />
-            <a
-              href="/"
-              className="p-3 rounded-xl border-1 border-transparent hover:border-black border-[1px] text-md text-black"
-            >
-              Sobre mim
-            </a>
-            <a
-              href="/projetos"
-              className="p-3 rounded-xl border-1 border-transparent hover:border-black border-[1px] text-md text-black"
-            >
-              Projetos
-            </a>
-            <a href="/contato" className="p-3 text-md text-black">
-              <Button className="p-5 rounded-xl">Contato</Button>
-            </a>
-          </nav>
+
+          <Navbar />
           {children}
         </main>
         <Toaster />

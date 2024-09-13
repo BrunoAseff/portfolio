@@ -13,6 +13,7 @@ import Link from "next/link";
 import { projects } from "@/info/projects";
 import { ArrowSquareOut, CheckCircle } from "phosphor-react";
 import { toast } from "sonner";
+import { AspectRatio } from "../ui/aspect-ratio";
 
 export default function ProjectsTab() {
   return (
@@ -156,12 +157,18 @@ export default function ProjectsTab() {
                             </p>
                           </div>
                         </DialogTrigger>
-                        <DialogContent
-                          style={{
-                            backgroundImage: `url(${image})`,
-                          }}
-                          className="w-[1024px] h-[576px] min-h-96 bg-transparent max-w-full bg-no-repeat bg-center bg-cover object-scale-down"
-                        ></DialogContent>
+                        <DialogContent className="max-w-[1024px] border-0 p-0 max-h-fit  bg-transparent  ">
+                          <AspectRatio ratio={16 / 9}>
+                            <Image
+                              loading="eager"
+                              className="rounded-xl  object-cover  hover:cursor-pointer"
+                              src={image}
+                              alt={project.imagesAlt?.[index]}
+                              width={2100}
+                              height={430}
+                            />
+                          </AspectRatio>
+                        </DialogContent>
                       </Dialog>
                     </div>
                   ))}
