@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
               objectFit: "cover",
             }}
           />
-          <nav className="absolute gap-3 items-center justify-center top-6 left-6 flex bg-white/20 rounded-xl z-50  backdrop-blur-[30px] border border-white/40">
+          <nav className="md:flex hidden absolute gap-3 items-center justify-center top-6 left-6  bg-white/20 rounded-xl z-50  backdrop-blur-[30px] border border-white/40">
             <Image
               className="p-3"
               width={175}

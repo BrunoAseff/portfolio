@@ -6,7 +6,6 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import {
   Copy,
   Check,
-  GithubLogo,
   LinkedinLogo,
   WhatsappLogo,
   DownloadSimple,
