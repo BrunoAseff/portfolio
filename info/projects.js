@@ -162,15 +162,8 @@ export const projects = [
 
     gitHubLink: "https://www.onlinegdb.com/YCYpLmmMM",
     technologies: ["/svgs/cpp.svg"],
-    images: ["/univali_1.webp"],
-    imagesAlt: [
-      "Forms Creator",
-      "Forms Creator",
-      "Forms Creator",
-      "Forms Creator",
-      "Forms Creator",
-      "Forms Creator",
-    ],
+    images: ["/rpg.webp"],
+    imagesAlt: ["RPG no terminal"],
   },
   {
     title: "Outros projetos",

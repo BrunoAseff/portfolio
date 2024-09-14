@@ -199,6 +199,24 @@ export default function ProjectsTab() {
             </DialogContent>
           </Dialog>
         ))}
+
+        <div className="shadow-xl justify-between flex min-w-[300px] flex-col  bg-white/5  p-6 backdrop-blur-[20px]  border border-white/40 rounded-xl">
+          <h1 className="mb-0">Outros projetos</h1>
+          <p className="text-slate-500 text-sm text-left mb-2">
+            Outros repositorios podem ser encontrados no meu github.
+          </p>
+          <Image
+            loading="eager"
+            className="rounded-xl ml-auto mr-auto mb-2"
+            src="/github.webp"
+            alt="Print do github"
+            width={250}
+            height={250}
+          />
+          <Button className="hidden md:flex  p-4 mt-4 text-md text-white bg-black rounded-xl">
+            Acessar Github
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );

@@ -14,6 +14,7 @@ import {
 import { toast } from "sonner";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Contato() {
   const [copiedItem, setCopiedItem] = useState(null);
@@ -27,7 +28,12 @@ export default function Contato() {
   };
 
   return (
-    <main className="flex w-full overflow-hidden items-center justify-center h-screen">
+    <motion.main
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="flex w-full overflow-hidden items-center justify-center h-screen"
+    >
       <Card className="backdrop-blur-[20px] p-6 flex-col mt-auto mb-auto flex rounded-xl bg-white/20 border border-white/40">
         <CardHeader className="flex gap-1 mb-4 text-lg rounded-lg pl-0 p-2 w-fit font-semibold">
           <h1 className="mt-auto mb-4 font-semibold text-black">Contato</h1>
@@ -111,6 +117,6 @@ export default function Contato() {
           </div>
         </CardContent>
       </Card>
-    </main>
+    </motion.main>
   );
 }

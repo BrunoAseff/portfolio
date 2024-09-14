@@ -3,10 +3,16 @@
 import { List } from "phosphor-react";
 import { Button } from "./ui/button";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   return (
-    <div className="flex  md:mt-0 mt-4 pl-6 pr-6 items-center justify-between w-full ">
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="flex  md:mt-0 mt-4 pl-6 pr-6 items-center justify-between w-full "
+    >
       <nav className="static md:absolute gap-3 items-center justify-center top-6 left-6  bg-white/20 rounded-xl z-50  backdrop-blur-[30px] flex border border-white/40">
         <a
           href="/"
@@ -48,6 +54,6 @@ export default function Navbar() {
       <nav className="md:hidden  items-center p-3 justify-center  bg-white/20 rounded-lg z-50  backdrop-blur-[30px] flex border border-white/40">
         <List size={32} />
       </nav>
-    </div>
+    </motion.div>
   );
 }

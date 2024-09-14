@@ -1,9 +1,7 @@
 import { Inter, Handjet } from "next/font/google";
 import "./globals.css";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Toaster } from "@/components/ui/sonner";
-import { List } from "phosphor-react";
 import Navbar from "@/components/Navbar";
 
 export const metadata = {

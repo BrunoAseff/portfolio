@@ -1,9 +1,10 @@
 "use client";
 
+import { useState } from "react";
+import { motion } from "framer-motion";
 import BottomNav from "@/components/general/BottomNav";
 import AboutMeTab from "@/components/Tabs/AboutMeTab";
 import TechnologiesTab from "@/components/Tabs/TechnologiesTab";
-import { useState } from "react";
 import TabsMobile from "@/components/Tabs/TabsMobile";
 
 export default function Home() {
@@ -35,9 +36,14 @@ export default function Home() {
   };
 
   return (
-    <div className="md:overflow-visible overflow-hidden">
+    <motion.div
+      className="md:overflow-visible overflow-hidden"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <TabsMobile className="hidden" />
-      <main className="border-6 md:flex hidden border-blue-600 h-screen  flex-col max-w-full justify-center items-center relative">
+      <main className="border-6 md:flex hidden border-blue-600 h-screen flex-col max-w-full justify-center items-center relative">
         <section>
           {tabsState.aboutMe !== "closed" && (
             <AboutMeTab
@@ -59,6 +65,6 @@ export default function Home() {
 
         <BottomNav tabsState={tabsState} onTabClick={handleTabStateChange} />
       </main>
-    </div>
+    </motion.div>
   );
 }
