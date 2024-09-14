@@ -4,13 +4,7 @@ import { List } from "phosphor-react";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  Sheet,
-  SheetTrigger,
-  SheetContent,
-  SheetHeader,
-  SheetClose,
-} from "./ui/sheet";
+import { Sheet, SheetTrigger, SheetContent, SheetClose } from "./ui/sheet";
 
 export default function Navbar() {
   return (
@@ -59,52 +53,53 @@ export default function Navbar() {
         </a>
       </nav>
 
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button
-            variant="outline"
-            className="pl-3 pr-3 pb-6 pt-6 bg-white/20 rounded-lg z-50 backdrop-blur-[30px] flex border border-white/40"
+      <nav className="md:hidden block">
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button
+              variant="outline"
+              className="pl-3 pr-3 pb-6 pt-6 bg-white/20 rounded-lg z-50 backdrop-blur-[30px] flex border border-white/40"
+            >
+              <List size={32} />
+            </Button>
+          </SheetTrigger>
+
+          <SheetContent
+            showOverlay={false}
+            className="bg-white/20 backdrop-brightness-100 rounded-lg max-w-[70%] z-50 backdrop-blur-[30px] flex border border-white/40"
+            side="right"
           >
-            <List size={32} />
-          </Button>
-        </SheetTrigger>
-
-        <SheetContent
-          showOverlay={false}
-          className="bg-white/20 backdrop-brightness-100 rounded-lg max-w-[70%] z-50 backdrop-blur-[30px] flex border border-white/40"
-          side="right"
-        >
-          <div className="flex text-xl ml-auto mr-auto text-right text-gray-800 flex-col gap-8 ">
-            <Image
-              className="p-2 mb-6"
-              width={175}
-              height={65}
-              src="/Signature.png"
-              alt="My signature"
-            />
-            <a
-              className="w-full rounded-xl border-[1px] border-transparent "
-              href="/"
-            >
-              Sobre mim
-            </a>
-            <a
-              className="w-full rounded-xl border-[1px] border-transparent "
-              href="/projetos"
-            >
-              Projetos
-            </a>
-            <a
-              className="w-full rounded-xl border-[1px] border-transparent "
-              href="/contato"
-            >
-              Contato
-            </a>
-          </div>
-
-          <SheetClose asChild></SheetClose>
-        </SheetContent>
-      </Sheet>
+            <div className="flex text-xl ml-auto mr-auto text-right text-gray-800 flex-col gap-8 ">
+              <Image
+                className="p-2 mb-6"
+                width={175}
+                height={65}
+                src="/Signature.png"
+                alt="My signature"
+              />
+              <a
+                className="w-full rounded-xl border-[1px] border-transparent "
+                href="/"
+              >
+                Sobre mim
+              </a>
+              <a
+                className="w-full rounded-xl border-[1px] border-transparent "
+                href="/projetos"
+              >
+                Projetos
+              </a>
+              <a
+                className="w-full rounded-xl border-[1px] border-transparent "
+                href="/contato"
+              >
+                Contato
+              </a>
+            </div>
+            <SheetClose asChild></SheetClose>
+          </SheetContent>
+        </Sheet>
+      </nav>
     </motion.div>
   );
 }
