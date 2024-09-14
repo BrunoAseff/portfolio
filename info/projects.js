@@ -165,24 +165,5 @@ export const projects = [
     images: ["/rpg.webp"],
     imagesAlt: ["RPG no terminal"],
   },
-  {
-    title: "Outros projetos",
-    shortDescription:
-      "A web application that allows users to create forms and share them with others.",
-    longDescription:
-      "This is a web application that allows users to create forms and share them with others. The application is built using React and Firebase. Users can create forms with multiple input fields and share them with others. The application also allows users to view responses to the forms they have created.",
-    gitHubLink: "https://github.com/",
-    webLink: "https://github.com/",
-    technologies: [
-      "/svgs/nextjs.svg",
-      "svgs/react.svg",
-      "svgs/git.svg",
-      "svgs/prisma.svg",
-      "svgs/postgresql.svg",
-      "svgs/Vercel_light.svg",
-      "svgs/zod.svg",
-      "svgs/tailwindcss.svg",
-    ],
-    images: ["/univali_1.webp", "/image2.webp", "/image3.webp"],
-  },
+ 
 ];
