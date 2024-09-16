@@ -191,7 +191,7 @@ export default function ProjectsTab() {
                 </div>
 
                 {project.title === "RPG no Terminal" && (
-                  <div className="m-auto w-[700px]  ">
+                  <div className="m-auto w-[700px]">
                     <RpgCode />
                   </div>
                 )}

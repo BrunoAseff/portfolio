@@ -52,17 +52,21 @@ export const projects = [
     features: [
       "Animações interativas com anime.js",
       "Autenticação de usuários",
+      "Envio de emails com confirmação de conta e recuperação de senha",
       "Progresso de curso controlado",
     ],
     technologies: [
       "/svgs/nextjs.svg",
       "svgs/react.svg",
+      "svgs/typescript.svg",
       "svgs/git.svg",
       "svgs/supabase.svg",
       "svgs/javascript.svg",
       "svgs/postgresql.svg",
       "svgs/Vercel_light.svg",
-      "svgs/styledcomponents.svg",
+      "svgs/tailwindcss.svg",
+      "svgs/radix.svg",
+      "svgs/resend.svg",
     ],
 
     gitHubLink: "https://github.com/BrunoAseff/guia-quantico",
@@ -165,5 +169,4 @@ export const projects = [
     images: ["/rpg.webp"],
     imagesAlt: ["RPG no terminal"],
   },
- 
 ];
