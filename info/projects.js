@@ -70,7 +70,7 @@ export const projects = [
     ],
 
     gitHubLink: "https://github.com/BrunoAseff/guia-quantico",
-    webLink: "https://guia-quantico.vercel.app/",
+    webLink: "https://guiaquantico.com.br",
 
     images: [
       "/guia_1.webp",
