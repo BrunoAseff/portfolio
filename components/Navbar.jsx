@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Sheet, SheetTrigger, SheetContent, SheetClose } from "./ui/sheet";
+import { Badge } from "./ui/badge";
 
 export default function Navbar() {
   return (
@@ -48,6 +49,24 @@ export default function Navbar() {
             Projetos
           </Button>
         </a>
+
+        <a
+          href="/blog"
+          className="md:block hidden rounded-xl text-md text-black relative"
+        >
+          <Button
+            className="rounded-xl border-[1px] border-transparent hover:bg-white/20"
+            variant="ghost"
+          >
+            Blog
+          </Button>
+          <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2">
+            <Badge className="bg-green-400 text-black text-xs px-1 py-0.5 hover:bg-green-400">
+              novo
+            </Badge>
+          </span>
+        </a>
+
         <a href="/contato" className="p-3 md:block hidden text-md text-black">
           <Button className="p-5 rounded-xl">Contato</Button>
         </a>
@@ -88,6 +107,17 @@ export default function Navbar() {
                 href="/projetos"
               >
                 Projetos
+              </a>
+              <a
+                className="w-full rounded-xl relative border-[1px] border-transparent "
+                href="/blog"
+              >
+                Blog
+                <span className="absolute top-[-1px] right-[-1px] transform translate-x-1/2 -translate-y-1/2">
+                  <Badge className="bg-green-400 text-black text-xs px-1 py-0.5 hover:bg-green-400">
+                    novo
+                  </Badge>
+                </span>
               </a>
               <a
                 className="w-full rounded-xl border-[1px] border-transparent "
