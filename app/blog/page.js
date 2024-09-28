@@ -46,7 +46,7 @@ export default async function BlogPage() {
             <h1 className="font-semibold text-4xl">Bruno Aseff</h1>
             <p className="text-gray-600 text-sm m-4">
               Um blog que traz assuntos sobre tecnologia, programação da
-              perspectiva de um desenvolvedor e ex-redator.
+              perspectiva de um desenvolvedor e redator.
             </p>
           </div>
         </div>
