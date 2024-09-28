@@ -17,31 +17,18 @@ O engraçado é que, no fundo, muitas das coisas que tanto as "pessoas de humana
 Vou dar um exemplo de quando eu era redator. Muitas vezes, eu tinha que escrever uma legenda pro Instagram e não era só jogar qualquer frase. Eu precisava cumprir os objetivos de uma campanha, atingir o público-alvo certo, ter uma linguagem clara e, de quebra, fazer tudo isso com o mínimo de palavras possível.
 <br>
 <br>
-
-"Quer melhorar sua qualidade de vida? Comece ajustando pequenos hábitos. Descubra como fazer isso no nosso blog."
-<br>  
-<br>
 Agora, como programador, minha tarefa é criar funções que cumpram os objetivos de um projeto, que sejam fáceis de entender e, de novo, com o menor tamanho possível.
-<br>
-<br>
-
-```javascript
-function calcBalance(expenses, income) {
-  return income - expenses;
-}
-```
-
 <br>
 <br>
 No fim das contas, essas duas tarefas são muito semelhantes. Ao escrever uma legenda, eu preciso:
 <br>
 <br>
-
 - Cumprir os objetivos de uma campanha
 - Me conectar com o público
 - Ser claro e direto
 - Usar o menor número de palavras possível
-- E, em uma função, eu preciso:
+<br>
+E, em uma função, eu preciso:
   <br>
 - Cumprir os objetivos de um projeto
 - Facilitar o entendimento do código
