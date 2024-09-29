@@ -33,7 +33,7 @@ export default async function BlogPage() {
 
   return (
     <div className="flex z-40 w-full h-screen items-center justify-center">
-      <Card className="flex flex-col mt-64 h-screen w-[95%]  md:p-8  bg-white border">
+      <Card className="flex flex-col mt-10 md:mt-64 h-screen w-[95%]  p-8  bg-white border">
         <div className="flex flex-col gap-2 items-center ">
           <Image
             className="rounded-full"
@@ -42,7 +42,7 @@ export default async function BlogPage() {
             height={60}
             alt="Meu avatar"
           />
-          <div className="max-w-72  text-center">
+          <div className="max-w-72 text-center">
             <h1 className="font-semibold text-4xl">Bruno Aseff</h1>
             <p className="text-gray-600 text-sm m-4">
               Um blog que traz assuntos sobre tecnologia, programação da

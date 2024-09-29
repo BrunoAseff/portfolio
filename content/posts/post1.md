@@ -23,22 +23,28 @@ Agora, como programador, minha tarefa é criar funções que cumpram os objetivo
 No fim das contas, essas duas tarefas são muito semelhantes. Ao escrever uma legenda, eu preciso:
 <br>
 <br>
+
 - Cumprir os objetivos de uma campanha
 - Me conectar com o público
 - Ser claro e direto
 - Usar o menor número de palavras possível
-<br>
-E, em uma função, eu preciso:
   <br>
+  <br>
+  E, em uma função, eu preciso:
+  <br>
+  <br>
+
 - Cumprir os objetivos de um projeto
 - Facilitar o entendimento do código
 - Ser eficiente e conciso
 - Minimizar o número de linhas
   <br>
-  Ou seja, no final das contas, eu estou usando a mesma técnica: lógica. A única diferença? A linguagem. Uma é português, a outra é JavaScript.
+
+Ou seja, no final das contas, eu estou usando a mesma técnica: lógica. A única diferença? A linguagem. Uma é português, a outra é JavaScript.
+
   <br>
   <br>
-  E isso me leva a outra reflexão: para a maioria dos programadores, linguística acaba sendo mais importante que matemática. O que geralmente faz as pessoas terem dificuldade com matemática é que seus signos e linguagens não estão presentes no nosso dia a dia da mesma forma que a linguagem idiomática está. Já a linguagem, por outro lado, usamos o tempo todo — seja pra se comunicar ou pra estruturar um pensamento lógico.
+E isso me leva a outra reflexão: para a maioria dos programadores, linguística acaba sendo mais importante que matemática. O que geralmente faz as pessoas terem dificuldade com matemática é que seus signos e linguagens não estão presentes no nosso dia a dia da mesma forma que a linguagem idiomática está. Já a linguagem, por outro lado, usamos o tempo todo — seja pra se comunicar ou pra estruturar um pensamento lógico.
   <br>
   <br>
   E aqui entra um ponto que, pra mim, é crucial: essa tendência de separar o mundo entre “humanas” e “exatas” é nociva.

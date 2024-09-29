@@ -5,14 +5,21 @@ module.exports = {
     "./pages/**/*.{js,jsx}",
     "./components/**/*.{js,jsx}",
     "./app/**/*.{js,jsx}",
+    "./app/blog/*.{js,jsx}",
     "./src/**/*.{js,jsx}",
     "./info/**/*.{js,ts,jsx,tsx}",
   ],
+
   prefix: "",
   theme: {
     fontFamily: {
       handjet: ["var(--font-handjet)"],
     },
+    plugins: [
+      require("@tailwindcss/typography"),
+      // ...
+    ],
+
     container: {
       center: true,
       padding: "2rem",

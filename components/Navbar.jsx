@@ -113,11 +113,6 @@ export default function Navbar() {
                 href="/blog"
               >
                 Blog
-                <span className="absolute top-[-1px] right-[-1px] transform translate-x-1/2 -translate-y-1/2">
-                  <Badge className="bg-green-400 text-black text-xs px-1 py-0.5 hover:bg-green-400">
-                    novo
-                  </Badge>
-                </span>
               </a>
               <a
                 className="w-full rounded-xl border-[1px] border-transparent "

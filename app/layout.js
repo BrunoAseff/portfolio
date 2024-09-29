@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} ${handjet.variable}`}>
-        <main className="h-screen relative flex flex-col items-center justify-between w-full   ">
+        <main className="h-screen relative  flex flex-col items-center justify-between w-full ">
           <Image
             priority
             alt="Background"
