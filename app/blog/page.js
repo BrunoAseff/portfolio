@@ -32,8 +32,8 @@ export default async function BlogPage() {
   const posts = getBlogPosts();
 
   return (
-    <div className="flex z-40 w-full h-screen items-center justify-center">
-      <Card className="flex flex-col mt-10 md:mt-64 h-screen w-[95%]  p-8  bg-white border">
+    <div className="flex z-40 w-full h-screen md:items-center items-start justify-center overflow-hidden">
+      <Card className="flex flex-col mt-6 md:mt-64 h-[95%] md:h-screen w-[95%]  p-8 overflow-auto  bg-white border">
         <div className="flex flex-col gap-2 items-center ">
           <Image
             className="rounded-full"
@@ -53,9 +53,9 @@ export default async function BlogPage() {
         <Separator orientation="horizontal" />
 
         <CardContent>
-          <ul className="flex gap-2">
+          <ul className="flex md:flex-row flex-col gap-1 items-center">
             {posts.map((post) => (
-              <li className="max-w-[400px]  rounded-lg p-10" key={post.slug}>
+              <li className="max-w-[400px]  rounded-lg p-8" key={post.slug}>
                 <div className="w-[300px]  bg-cover overflow-hidden h-[200px]">
                   <Image
                     className="shadow-2xl shadow-black"
