@@ -5,61 +5,85 @@ date: "27 de setembro de 2024"
 coverImage: "/post1.jpg"
 ---
 
-Essa ideia de que somos divididos entre “pessoas de humanas” e “pessoas de exatas” nunca fez sentido pra mim. Acho que, em algum momento da vida, a maioria de nós escolhe um desses lados. E aí, a partir disso, começa a se limitar e evitar explorar o outro, porque bate aquela sensação de “ah, não nasci pra isso”.
+A ideia de que somos divididos entre "pessoas de humanas" e "pessoas de exatas" nunca fez muito sentido pra mim. Parece que, em algum momento da vida, escolhemos um desses "lados" e, a partir daí, começamos a nos limitar, evitando explorar o outro. A famosa frase “ah, eu não nasci pra isso” é a desculpa perfeita pra não tentar.
 <br>
 <br>
-Só que quanto mais você evita essa outra perspectiva, mais difícil fica de entendê-la no futuro. Aí vira uma bola de neve.
+Só que o que acaba acontecendo é que, quanto mais você evita essa outra área, mais difícil fica de entendê-la no futuro. E esse ciclo vai crescendo e vira uma bola de neve.
 <br>
 <br>
-O engraçado é que, no fundo, muitas das coisas que tanto as "pessoas de humanas" quanto as "pessoas de exatas" precisam fazer utilizam a mesma técnica: a lógica.
+O curioso é que, no fundo, tanto as "pessoas de humanas" quanto as "de exatas" acabam usando a mesma ferramenta: a lógica.
 <br>
 <br>
-Vou dar um exemplo de quando eu era redator. Muitas vezes, eu tinha que escrever uma legenda pro Instagram e não era só jogar qualquer frase. Eu precisava cumprir os objetivos de uma campanha, atingir o público-alvo certo, ter uma linguagem clara e, de quebra, fazer tudo isso com o mínimo de palavras possível.
+Por exemplo, trabalhando como redator, muitas vezes precisava escrever algo simples como uma legenda pro Instagram. Não era só questão de jogar qualquer frase. Eu tinha que pensar nos objetivos da campanha, no público-alvo certo, na linguagem adequada e, além de tudo, fazer isso da forma mais direta e clara possível, com o mínimo de palavras.
 <br>
 <br>
-Agora, como programador, minha tarefa é criar funções que cumpram os objetivos de um projeto, que sejam fáceis de entender e, de novo, com o menor tamanho possível.
+Agora, como programador, o processo é bem semelhante. Eu crio funções para atingir os objetivos de um projeto, tornando o código claro, eficiente e, novamente, com o menor número de linhas possível. No final das contas, essas duas tarefas são bem parecidas.
 <br>
 <br>
-No fim das contas, essas duas tarefas são muito semelhantes. Ao escrever uma legenda, eu preciso:
+Escrever uma legenda envolve:
 <br>
 <br>
 
 - Cumprir os objetivos de uma campanha
-- Me conectar com o público
+- Conectar-se com o público
 - Ser claro e direto
-- Usar o menor número de palavras possível
+- Minimizar o número de palavras
   <br>
   <br>
-  E, em uma função, eu preciso:
+  Escrever uma função envolve:
   <br>
   <br>
-
 - Cumprir os objetivos de um projeto
 - Facilitar o entendimento do código
 - Ser eficiente e conciso
 - Minimizar o número de linhas
   <br>
+  <br>
+  Percebe como, no fundo, o que estou fazendo é usar lógica em ambos os casos? A única diferença está na linguagem: uma é o português, a outra é JavaScript.
+  <br>
+  <br>
 
-Ou seja, no final das contas, eu estou usando a mesma técnica: lógica. A única diferença? A linguagem. Uma é português, a outra é JavaScript.
+## A importância da linguagem na programação
 
   <br>
-  <br>
-E isso me leva a outra reflexão: para a maioria dos programadores, linguística acaba sendo mais importante que matemática. O que geralmente faz as pessoas terem dificuldade com matemática é que seus signos e linguagens não estão presentes no nosso dia a dia da mesma forma que a linguagem idiomática está. Já a linguagem, por outro lado, usamos o tempo todo — seja pra se comunicar ou pra estruturar um pensamento lógico.
-  <br>
-  <br>
-  E aqui entra um ponto que, pra mim, é crucial: essa tendência de separar o mundo entre “humanas” e “exatas” é nociva.
+Muitas vezes, as pessoas associam programação diretamente com matemática. Porém, na minha experiência, a linguística acaba muitas vezes sendo até mais relevante. O que muitas pessoas encontram de dificuldade em matemática é justamente o fato de seus símbolos e linguagens serem pouco familiares no cotidiano. Ninguém nunca vai chegar em você e falar "Opa, bom dia! Eu queria saber se \(\int_{a}^{b} f(x)dx = F(b) - F(a)\)'"
   <br>
   <br>
-  Para quem é de humanas, entender lógica e ciência ajuda a enxergar melhor a realidade e como o mundo funciona. Isso não só nos dá uma visão mais clara dos problemas, mas também nos dá ferramentas para resolvê-los.
+Já a linguagem idiomática, seja qual for, usamos o tempo todo – pra nos comunicar, pra estruturar pensamentos e argumentar.
   <br>
   <br>
-  Por outro lado, pessoas de exatas que ignoram história, sociologia ou filosofia perdem a capacidade de entender o impacto real de suas criações. Se você não tem uma noção de como a sociedade funciona, você acaba criando soluções que só atendem uma parte do problema ou até mesmo criam novos problemas. Afinal, todo código, todo algoritmo, afeta pessoas de carne e osso. E essas pessoas vivem dentro de contextos sociais, históricos e culturais que moldam as necessidades delas.
+A lógica, que é essencial tanto em humanas quanto em exatas, é a base que conecta as duas áreas. E é aí que eu acho que está o problema em separar as duas: essa divisão nos limita, nos empobrece intelectualmente.
   <br>
   <br>
-  Ignorar isso é como tentar resolver uma equação sem entender as variáveis.
+  
+## Mas, por que evitamos o outro lado?
+  <br>
+Talvez a sociedade tenha se organizado dessa forma porque, à medida que nos especializamos e focamos em áreas mais restritas de conhecimento, nos tornamos experts naquilo que fazemos. E, de fato, essa especialização é útil no mercado de trabalho. O problema surge quando essa divisão se estende para além do profissional e passamos a evitar, de forma inconsciente, áreas que não dominamos. No dia a dia, dentro e fora do trabalho, acabamos esbarrando em situações que exigem justamente esse conhecimento que negligenciamos. 
   <br>
   <br>
-  No fim, separar essas áreas só faz com que a gente tenha uma visão limitada do mundo e das soluções que podemos criar. O equilíbrio entre as duas coisas é o que, de fato, faz a diferença.
+
+## Humanas e exatas são complementares e não opostas
+
+  <br>
+Pessoas que trabalham em áreas de humanas, ao aprenderem lógica e ciência, conseguem enxergar o mundo de maneira mais clara. Entender o funcionamento de sistemas complexos permite ter uma visão mais apurada dos problemas que enfrentamos e nos dá as ferramentas certas para resolvê-los de forma eficiente. No entanto, ao não explorar o pensamento científico e a lógica, muitas vezes perdemos a chance de entender melhor as bases de como o mundo funciona.
+  <br>
+  <br>
+Por outro lado, profissionais de exatas que ignoram a história, a sociologia ou a filosofia perdem uma parte crucial da compreensão do impacto de suas criações. Por exemplo, ao desenvolver um software ou algoritmo sem considerar as realidades sociais, culturais e históricas das pessoas que vão interagir com essa tecnologia, o resultado pode ser uma solução que atenda apenas a uma parcela do problema ou, em casos extremos, que crie novos problemas.
+  <br>
+  <br>
+Vamos pensar na criação de ferramentas de automação. Sem uma compreensão das relações de trabalho, o desenvolvedor pode ignorar o impacto que essa tecnologia pode ter sobre os empregos das pessoas que estão em posições mais vulneráveis. Ao desconhecer as nuances do mercado de trabalho, é possível criar ferramentas que contribuem para a exploração ou precarização de determinadas classes trabalhadoras, muitas vezes sem que o criador tenha essa intenção.
+  <br>
+  <br>
+Outro exemplo: empresas de tecnologia que ignoram as necessidades de grupos minoritários muitas vezes acabam excluindo ou dificultando o acesso a produtos ou serviços. Isso é visível em várias plataformas digitais, que, por falta de uma visão mais ampla, criam soluções que não atendem adequadamente pessoas com deficiência, ou até mesmo reproduzem preconceitos já enraizados na sociedade.
+  <br>
+  <br>
+Se quem está por trás da tecnologia não entende as dinâmicas sociais e históricas, suas criações podem reforçar desigualdades e injustiças, ao invés de resolvê-las. Não entender as relações de trabalho, por exemplo, pode fazer com que o desenvolvedor aceite passivamente condições injustas, sem questionar o porquê de elas existirem. Da mesma forma, ignorar o impacto das grandes corporações na sociedade faz com que não se perceba como as decisões tomadas dentro de uma empresa influenciam diretamente o comportamento das pessoas e moldam a forma como elas pensam e agem.
+  <br>
+  <br>
+Quando dividimos o mundo entre “humanas” e “exatas”, estamos perdendo uma grande oportunidade de criar soluções mais completas, justas e inovadoras. A interação entre essas áreas é o que realmente faz a diferença. Profissionais que combinam o pensamento lógico com uma visão crítica e humanista conseguem ter uma compreensão mais ampla e profunda dos desafios que enfrentamos. E, consequentemente, conseguem propor soluções que beneficiam mais pessoas.
+  <br>
+  <br>
+Separar essas áreas é como enxergar o mundo com apenas um olho. Podemos ver uma parte, mas nunca teremos a visão completa.
   <br>
   <br>
   <br>

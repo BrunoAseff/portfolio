@@ -15,10 +15,6 @@ module.exports = {
     fontFamily: {
       handjet: ["var(--font-handjet)"],
     },
-    plugins: [
-      require("@tailwindcss/typography"),
-      // ...
-    ],
 
     container: {
       center: true,
