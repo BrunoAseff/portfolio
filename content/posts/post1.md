@@ -42,6 +42,7 @@ Escrever uma legenda envolve:
   Percebe como, no fundo, o que estou fazendo é usar lógica em ambos os casos? A única diferença está na linguagem: uma é o português, a outra é JavaScript.
   <br>
   <br>
+  <br>
 
 ## A importância da linguagem na programação
 
@@ -55,10 +56,13 @@ Já a linguagem idiomática, seja qual for, usamos o tempo todo – pra nos comu
 A lógica, que é essencial tanto em humanas quanto em exatas, é a base que conecta as duas áreas. E é aí que eu acho que está o problema em separar as duas: essa divisão nos limita, nos empobrece intelectualmente.
   <br>
   <br>
-  
+    <br>
+
 ## Mas, por que evitamos o outro lado?
+
   <br>
 Talvez a sociedade tenha se organizado dessa forma porque, à medida que nos especializamos e focamos em áreas mais restritas de conhecimento, nos tornamos experts naquilo que fazemos. E, de fato, essa especialização é útil no mercado de trabalho. O problema surge quando essa divisão se estende para além do profissional e passamos a evitar, de forma inconsciente, áreas que não dominamos. No dia a dia, dentro e fora do trabalho, acabamos esbarrando em situações que exigem justamente esse conhecimento que negligenciamos. 
+  <br>
   <br>
   <br>
 

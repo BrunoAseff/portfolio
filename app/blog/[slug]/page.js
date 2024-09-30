@@ -149,7 +149,7 @@ export default function BlogPostPage() {
             <div
               className={`w-full [&>ul]:list-disc [&>ul]:ml-6 [&>h1]:text-3xl [&>h1]:font-medium [&>h2]:text-xl [&>h2]:font-semibold ${
                 isDarkMode ? "text-gray-200" : "text-black"
-              }`}
+              } ${isDarkMode ? "[&>h2]:text-blue-400" : "[&>h2]:text-black"}`}
               dangerouslySetInnerHTML={{ __html: content }}
             />
           </article>
