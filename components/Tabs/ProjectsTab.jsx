@@ -38,11 +38,10 @@ export default function ProjectsTab() {
                 <p> Github </p>
                 <ArrowSquareOut size={17} />
               </Link>
-              <div className="w-[15.625rem] ml-auto mr-auto h-[8rem]">
-                {" "}
+              <div className="w-[15.625rem]  bg-cover overflow-hidden ml-auto mr-auto h-[9rem]">
                 <Image
                   loading="eager"
-                  className="rounded-xl ml-auto mr-auto mb-2"
+                  className="rounded-xl ml-auto mr-auto mb-2 object-cover w-full h-full"
                   src={project.images[0]}
                   alt="Picture of the author"
                   width={250}
