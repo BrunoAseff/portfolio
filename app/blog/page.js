@@ -7,7 +7,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { parse } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
+// Function to get blog posts and sort them by date
 const getBlogPosts = () => {
   const postsDir = path.join(process.cwd(), "content/posts");
   const filenames = fs.readdirSync(postsDir);
@@ -16,16 +19,26 @@ const getBlogPosts = () => {
     const filePath = path.join(postsDir, filename);
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data } = matter(fileContents);
+
+    // Parse the Portuguese date string into a valid Date object
+    const parsedDate = parse(data.date, "d 'de' MMMM 'de' yyyy", new Date(), {
+      locale: ptBR,
+    });
+
     return {
       slug: filename.replace(".md", ""),
       title: data.title,
-      date: data.date,
+      date: data.date, // Keep the original date string
+      parsedDate, // Store the parsed date for sorting
       coverImage: data.coverImage,
       description: data.description,
     };
   });
 
-  return posts;
+  // Sort posts by parsedDate in descending order (latest first)
+  const sortedPosts = posts.sort((a, b) => b.parsedDate - a.parsedDate);
+
+  return sortedPosts;
 };
 
 export default async function BlogPage() {
@@ -53,10 +66,10 @@ export default async function BlogPage() {
         <Separator orientation="horizontal" />
 
         <CardContent>
-          <ul className="flex md:flex-row flex-col gap-1 items-center">
-            {posts.map((post) => (
-              <li className="max-w-[400px]  rounded-lg p-8" key={post.slug}>
-                <div className="w-[300px]  bg-cover overflow-hidden h-[200px]">
+          <ul className="flex md:flex-row flex-col gap-1 items-center md:items-start">
+            {posts.map((post, index) => (
+              <li className="max-w-[350px] rounded-lg p-6" key={post.slug}>
+                <div className="w-[300px] bg-cover overflow-hidden h-[200px]">
                   <Image
                     className="shadow-2xl shadow-black"
                     src={post.coverImage}
@@ -66,21 +79,34 @@ export default async function BlogPage() {
                   />
                 </div>
                 <div className="flex flex-col mt-3 gap-2 w-full ">
-                  <Badge className="max-w-fit" variant="outline">
-                    {post.date}
-                  </Badge>
+                  <div className="flex justify-between">
+                    <Badge className="max-w-fit" variant="outline">
+                      {post.date}
+                    </Badge>
+                    {/* Show "novo" badge only for the first post (index === 0) */}
+                    {index === 0 && (
+                      <Badge
+                        variant="outline"
+                        className="max-w-fit border-green-500 text-green-500 px-1 text-sm"
+                      >
+                        novo
+                      </Badge>
+                    )}
+                  </div>
                   <Link href={`/blog/${post.slug}`}>
-                    <h2 className="font-semibold  ">{post.title}</h2>
+                    <h2 className="font-semibold">{post.title}</h2>
                   </Link>
                 </div>
-                <p className="text-sm mt-2 text-gray-900">{post.description}</p>
+                <p className="text-sm mt-2 max-w-[90%] text-gray-900">
+                  {post.description}
+                </p>
 
                 <Button className="ml-0 p-0" variant="link" asChild>
                   <Link
                     className="flex items-center gap-1"
                     href={`/blog/${post.slug}`}
                   >
-                    <h2 className="font-semibold ">Ler post</h2>
+                    <h2 className="font-semibold">Ler post</h2>
                     <Image
                       src="/svgs/ArrowUp.svg"
                       width={17}
