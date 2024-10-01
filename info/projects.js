@@ -69,7 +69,7 @@ export const projects = [
       "svgs/resend.svg",
     ],
 
-    gitHubLink: "https://github.com/BrunoAseff/guia-quantico",
+    gitHubLink: "https://github.com/BrunoAseff/quantum-guide",
     webLink: "https://guiaquantico.com.br",
 
     images: [
