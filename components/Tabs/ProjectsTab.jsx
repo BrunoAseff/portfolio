@@ -213,7 +213,13 @@ export default function ProjectsTab() {
             height={250}
           />
           <Button className="hidden md:flex  p-4 mt-4 text-md text-white bg-black rounded-xl">
-            Acessar Github
+            <Link
+              className="flex items-center  "
+              href="https://github.com/BrunoAseff"
+              target="_blank"
+            >
+              <p>Acessar Github</p>
+            </Link>{" "}
           </Button>
         </div>
       </CardContent>
