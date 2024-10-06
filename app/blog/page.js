@@ -66,55 +66,45 @@ export default async function BlogPage() {
         <Separator orientation="horizontal" />
 
         <CardContent>
-          <ul className="flex md:flex-row flex-col gap-1 items-center md:items-start">
+          <ul className="flex md:flex-row flex-col mt-2 gap-1 items-center md:items-start">
             {posts.map((post, index) => (
-              <li className="max-w-[350px] rounded-lg p-6" key={post.slug}>
-                <div className="w-[300px] bg-cover overflow-hidden h-[200px]">
-                  <Image
-                    className="shadow-2xl shadow-black"
-                    src={post.coverImage}
-                    width={400}
-                    height={200}
-                    alt={post.title}
-                  />
-                </div>
-                <div className="flex flex-col mt-3 gap-2 w-full ">
-                  <div className="flex justify-between">
-                    <Badge className="max-w-fit" variant="outline">
-                      {post.date}
-                    </Badge>
-                    {/* Show "novo" badge only for the first post (index === 0) */}
-                    {index === 0 && (
-                      <Badge
-                        variant="outline"
-                        className="max-w-fit border-green-500 text-green-500 px-1 text-sm"
-                      >
-                        novo
-                      </Badge>
-                    )}
-                  </div>
-                  <Link href={`/blog/${post.slug}`}>
-                    <h2 className="font-semibold">{post.title}</h2>
-                  </Link>
-                </div>
-                <p className="text-sm mt-2 max-w-[90%] text-gray-900">
-                  {post.description}
-                </p>
-
-                <Button className="ml-0 p-0" variant="link" asChild>
-                  <Link
-                    className="flex items-center gap-1"
-                    href={`/blog/${post.slug}`}
-                  >
-                    <h2 className="font-semibold">Ler post</h2>
+              <li
+                className="max-w-[350px] hover:bg-slate-100 rounded-lg p-6"
+                key={post.slug}
+              >
+                <Link href={`/blog/${post.slug}`}>
+                  <div className="w-[300px] rounded-sm bg-cover overflow-hidden h-[200px]">
                     <Image
-                      src="/svgs/ArrowUp.svg"
-                      width={17}
-                      height={17}
-                      alt="arrow up"
+                      className="shadow-2xl shadow-black"
+                      src={post.coverImage}
+                      width={400}
+                      height={200}
+                      alt={post.title}
                     />
-                  </Link>
-                </Button>
+                  </div>
+                  <div className="flex flex-col mt-3 gap-2 w-full ">
+                    <div className="flex justify-between">
+                      <Badge className="max-w-fit" variant="outline">
+                        {post.date}
+                      </Badge>
+                      {/* Show "novo" badge only for the first post (index === 0) */}
+                      {index === 0 && (
+                        <Badge
+                          variant="outline"
+                          className="max-w-fit border-green-500 text-green-500 px-1 text-sm"
+                        >
+                          novo
+                        </Badge>
+                      )}
+                    </div>
+                    <Link href={`/blog/${post.slug}`}>
+                      <h2 className="font-semibold">{post.title}</h2>
+                    </Link>
+                  </div>
+                  <p className="text-sm mt-2 max-w-[90%] text-gray-900">
+                    {post.description}
+                  </p>
+                </Link>
               </li>
             ))}
           </ul>
