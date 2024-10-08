@@ -1,6 +1,6 @@
 ---
 title: "Typescript, typescript, typescript..."
-description: "Muitas pessoas têm expectativas irreais sobre o ChatGPT, utilizando-o para tarefas que ele não foi projetado para realizar."
+description: "Typescript, typescript, typescript, typescript, typescript, typescript, typescript, typescript."
 date: "07 de outubro de 2024"
 coverImage: "/post3.jpg"
 ---
@@ -69,16 +69,7 @@ Outra coisa interessante é que, ao invés de apenas compilar para JavaScript, o
 &nbsp;
 &nbsp;
 
-### Facilitando com complexidade
-
-&nbsp;
-
 A biblioteca tem uma boa quantidade de opções de personalização — você pode definir o tamanho da senha, incluir números, símbolos, caracteres específicos e até padrões como "deve começar com" ou "deve terminar com". Isso cria uma certa complexidade no código. No entanto, o TypeScript me ajudou a **organizar essa complexidade**, deixando o código claro e livre de erros.
-
-&nbsp;
-&nbsp;
-
-Com a tipagem forte, ficou muito mais fácil adicionar todas essas opções sem me perder nos tipos e validações. Se fosse em JavaScript puro, eu teria que lidar com isso no runtime, o que é bem mais arriscado e trabalhoso.
 
 &nbsp;
 &nbsp;
@@ -112,16 +103,11 @@ Argument of type 'string' is not assignable to parameter of type 'string[]'.
 &nbsp;
 &nbsp;
 
-Isso evita bugs na hora que a aplicação estiver em produção. Com o JavaScript, esse erro só seria descoberto tarde demais.
-
-&nbsp;
-&nbsp;
-
 ## A quantidade de configurações é absurda
 
 &nbsp;
 
-Em 2024, ainda não deveria ser tão complicado integrar TypeScript com outras tecnologias. É um setup gigantesco só pra garantir que o TypeScript funcione bem. Esse foi arsenal de arquivos e pacotes que precisei só pra isso:
+Vou ser sincero: configurar TypeScript pra funcionar com todo o ecossistema que usamos hoje em dia ainda é um pesadelo. Não é nada direto, e é fácil acabar com mais arquivos de configuração do que o próprio código que você quer escrever. Só pra fazer a integração com Jest, ESLint, e as outras ferramentas, eu precisei de um arsenal de arquivos e pacotes apenas para o TS:
 
 &nbsp;
 &nbsp;
@@ -148,7 +134,12 @@ Então é isso. Criar essa biblioteca me fez perceber o quanto **TypeScript** é
 &nbsp;
 &nbsp;
 
-Se quiser dar uma olhada na biblioteca, aqui estão os links:
+Agora que a biblioteca está rodando bonitinha no npm, o próximo plano é criar uma versão `CLI` pra gerar senhas direto no terminal. Vai ser uma mão na roda pra quem só quer algo rápido sem precisar escrever código.
+
+&nbsp;
+&nbsp;
+
+Aqui estão os links, caso queira dar uma olhada no projeto:
 
 &nbsp;
 &nbsp;
