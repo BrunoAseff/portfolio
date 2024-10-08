@@ -129,6 +129,11 @@ Sendo que, o código da lib inteira está em um único arquivo...
 &nbsp;
 &nbsp;
 
+![Imagem de tokens](/postmeme.jpeg)
+
+&nbsp;
+&nbsp;
+
 Então é isso. Criar essa biblioteca me fez perceber o quanto **TypeScript** é poderoso, mas também o quanto ainda temos que melhorar quando o assunto é **integração** com outras ferramentas. E se você está pensando em começar a usar TypeScript, minha dica é: vá em frente. Mesmo com as dificuldades, a segurança e a clareza que ele traz para o desenvolvimento valem muito a pena.
 
 &nbsp;
