@@ -9,7 +9,7 @@ export const metadata = {
   title: "Bruno de Almeida Aseff",
   description: "Portfólio de Bruno de Almeida Aseff",
   icons: {
-    icon: "/favicons/default.ico",
+    icon: "/favicons/typescript.ico",
   },
 };
 

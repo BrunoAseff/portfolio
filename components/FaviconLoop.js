@@ -4,9 +4,10 @@ import { useEffect } from "react";
 const faviconLinks = [
   "/favicons/typescript.ico",
   "/favicons/node.ico",
-  "/favicons/react.ico",
   "/favicons/next.ico",
-  "/favicons/blog.ico",
+  "/favicons/react.ico",
+  "/favicons/git.ico",
+  "/favicons/cpp.ico",
 ];
 
 export default function FaviconLoop() {
