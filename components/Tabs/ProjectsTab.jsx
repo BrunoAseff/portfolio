@@ -11,12 +11,24 @@ import {
 } from "@/components/ui/dialog";
 import Link from "next/link";
 import { projects } from "@/info/projects";
-import { ArrowSquareOut, CheckCircle } from "phosphor-react";
+import { ArrowSquareOut, Check, CheckCircle, Copy } from "phosphor-react";
 import { toast } from "sonner";
 import { AspectRatio } from "../ui/aspect-ratio";
 import RpgCode from "../CodeHightlighter";
+import RandomTypescriptCode from "../randomTypescript";
+import { useState } from "react";
 
 export default function ProjectsTab() {
+  const [copiedItem, setCopiedItem] = useState(null);
+
+  const copyToClipboard = (text, item) => {
+    navigator.clipboard.writeText(text).then(() => {
+      toast("Copiado para a área de transferência!");
+      setCopiedItem(item);
+      setTimeout(() => setCopiedItem(null), 1000);
+    });
+  };
+
   return (
     <Card className="flex-col w-full m-6 md:p-8 items-center justify-center shadow-xl bg-white/20 backdrop-blur-[20px] mb-auto mt-auto  border border-white/40 rounded-xl">
       <CardHeader className="md:flex hidden  gap-1 mb-4 text-lg rounded-lg pl-0 p-2 w-fit font-semibold">
@@ -35,7 +47,7 @@ export default function ProjectsTab() {
                 href={project.gitHubLink}
                 target="_blank"
               >
-                <p> Github </p>
+                <p> {project.ExternalLink || "Github"} </p>
                 <ArrowSquareOut size={17} />
               </Link>
               <div className="w-[15.625rem]  bg-cover overflow-hidden ml-auto mr-auto h-[9rem]">
@@ -59,7 +71,7 @@ export default function ProjectsTab() {
                   href={project.gitHubLink}
                   target="_blank"
                 >
-                  <p>Ver no GitHub</p>
+                  <p>{project.CTA || "Ver no GitHub"}</p>
                   <ArrowSquareOut size={17} />
                 </Link>
               </Button>
@@ -69,7 +81,26 @@ export default function ProjectsTab() {
                 <div className="w-[50%] flex flex-col justify-evenly m-4">
                   <DialogTitle className="mb-6">{project.title}</DialogTitle>
                   <p className="mb-auto max-w-xl"> {project.longDescription}</p>
-
+                  {project.title === "random-password-typescript" && (
+                    <Button
+                      className="flex max-w-fit mr-0 mb-auto items-center justify-between backdrop-blur-[20px] hover:bg-white/5 gap-4 rounded-xl bg-white/10 border border-white/40"
+                      onClick={() =>
+                        copyToClipboard(
+                          "npm install random-password-typescript",
+                          "code"
+                        )
+                      }
+                    >
+                      <p className="text-black font-semibold">
+                        npm install random-password-typescript
+                      </p>
+                      {copiedItem === "code" ? (
+                        <Check color="black" size={23} />
+                      ) : (
+                        <Copy color="black" size={23} />
+                      )}
+                    </Button>
+                  )}
                   <ul className="list-none  mb-auto ">
                     {project.features?.map((feature, index) => (
                       <li
@@ -122,11 +153,12 @@ export default function ProjectsTab() {
                         href={project.gitHubLink}
                       >
                         {" "}
-                        <p>Projeto no Github</p>
+                        <p>{project.CTA || "Projeto no Github"}</p>
                         <ArrowSquareOut size={17} />
                       </Link>
                     </Button>
                   </div>
+
                   <h1 className="mt-auto mb-4 font-semibold text-black">
                     Tecnologias utilizadas
                   </h1>
@@ -148,9 +180,8 @@ export default function ProjectsTab() {
                     ))}
                   </div>
                 </div>
-
-                <div className="grid grid-cols-2 max-w-[90%] gap-12 mt-auto mb-auto ">
-                  {project.images.length > 1 && (
+                {project.images.length > 1 && (
+                  <div className="grid grid-cols-2 max-w-[90%] gap-12 mt-auto mb-auto ">
                     <>
                       {project.images.map((image, index) => (
                         <div key={index} className="w-full">
@@ -186,12 +217,18 @@ export default function ProjectsTab() {
                         </div>
                       ))}
                     </>
-                  )}
-                </div>
+                  </div>
+                )}
 
                 {project.title === "RPG no Terminal" && (
                   <div className="m-auto w-[700px]">
                     <RpgCode />
+                  </div>
+                )}
+
+                {project.title === "random-password-typescript" && (
+                  <div className="m-auto w-[700px]">
+                    <RandomTypescriptCode />
                   </div>
                 )}
               </div>

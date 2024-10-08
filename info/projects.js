@@ -129,6 +129,25 @@ export const projects = [
   },
 
   {
+    title: "random-password-typescript",
+    shortDescription:
+      "Uma biblioteca no npm que gera senhas de forma personalizável, segura e de fortemente tipada. ",
+    longDescription:
+      "Uma biblioteca no npm que gera senhas de forma personalizável, segura e de fortemente tipada. ",
+    features: [
+      "Tipagem forte com TypeScript",
+      "Senhas seguras com CSPRNG",
+      "Personalização de senhas",
+    ],
+    CTA: "Ver no npm",
+    gitHubLink: "https://www.npmjs.com/package/random-password-typescript",
+    technologies: ["/svgs/git.svg", "/svgs/typescript.svg", "/svgs/nodejs.svg"],
+    images: ["/random.png"],
+    imagesAlt: ["Random password"],
+    ExternalLink: "NPM",
+  },
+
+  {
     title: "Portifólio",
     shortDescription: "Meu portfólio pessoal mostrando meus projetos.",
     longDescription:
@@ -158,6 +177,7 @@ export const projects = [
       "Um jogo de RPG desenvolvido em C++ para rodar no terminal, criado como parte do curso de graduação.",
     longDescription:
       "Um jogo de RPG desenvolvido em C++ para rodar no terminal, criado como parte do curso de graduação.",
+    CTA: "Ver no onlineGBD",
     features: [
       "RPG baseado em texto no terminal",
       "Desenvolvido em C++",
@@ -168,5 +188,6 @@ export const projects = [
     technologies: ["/svgs/cpp.svg"],
     images: ["/rpg.webp"],
     imagesAlt: ["RPG no terminal"],
+    ExternalLink: "OnlineGDB",
   },
 ];
