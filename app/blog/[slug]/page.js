@@ -147,9 +147,11 @@ export default function BlogPostPage() {
             </div>
 
             <div
-              className={`w-full [&>ul]:list-disc [&>ul]:ml-6 [&>h1]:text-3xl [&>h1]:font-medium [&>h2]:text-xl [&>h2]:font-semibold ${
-                isDarkMode ? "text-gray-200" : "text-black"
-              } ${isDarkMode ? "[&>h2]:text-blue-400" : "[&>h2]:text-black"}`}
+              className={`w-full [&>ul]:list-disc [&>ul]:ml-6 [&>h2]:mt-2 [&_p_a]:text-blue-500 [&_pre_code]:text-blue-100 [&>pre]:bg-slate-700 [&>pre]:rounded-sm [&>pre]:p-2 [&>_p_code]:text-blue-500 [&>h1]:text-3xl [&>h1]:font-medium [&>h2]:text-xl [&>h2]:font-semibold  
+              [&>a]:text-blue-500 ${
+                isDarkMode ? "text-gray-200" : "text-black  "
+              }
+              ${isDarkMode ? "[&>h2]:text-blue-400" : "[&>h2]:text-black"}`}
               dangerouslySetInnerHTML={{ __html: content }}
             />
           </article>
