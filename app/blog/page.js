@@ -65,7 +65,7 @@ export default async function BlogPage() {
         <Separator orientation="horizontal" />
 
         <CardContent>
-          <ul className="flex md:flex-row md:flex-wrap md:mb-32 flex-col max-w-[95%] w-full mt-2 gap-1 items-center md:items-start">
+          <ul className="flex md:flex-row md:flex-wrap md:mb-32 flex-col  w-full mt-2 gap-1 items-center md:items-start">
             {posts.map((post, index) => (
               <li
                 className="max-w-[350px] hover:bg-slate-100 rounded-lg p-6"
