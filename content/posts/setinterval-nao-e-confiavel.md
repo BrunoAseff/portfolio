@@ -102,7 +102,12 @@ E por que essa arquitetura existe? É assim que Javascript consegue manter a exp
 &nbsp;
 &nbsp;
 
-No final, o que aprendi aqui é que, apesar de parecer uma solução simples, o setInterval carrega um monte de complexidades por trás, e entender essas complexidades é o que realmente permite que você desenvolva funcionalidades de alta qualidade em Javascript.
+No fim das contas, ajustei o Pomodoro e agora está funcionando direitinho, sempre marcando o tempo certo:
+
+&nbsp;
+&nbsp;
+
+![Pomodoro](/pomodoro.png)
 
 &nbsp;
 &nbsp;
