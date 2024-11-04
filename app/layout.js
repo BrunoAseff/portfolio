@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Toaster } from "@/components/ui/sonner";
 import Navbar from "@/components/Navbar";
 import FaviconLoop from "@/components/FaviconLoop";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata = {
   title: "Bruno de Almeida Aseff",
@@ -45,6 +46,7 @@ export default function RootLayout({ children }) {
         </main>
         <Toaster />
       </body>
+      <GoogleAnalytics gaId="G-MCL1RFVL2S" />
     </html>
   );
 }
