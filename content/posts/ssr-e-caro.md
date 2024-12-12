@@ -5,7 +5,7 @@ date: "11 de dezembro de 2024"
 coverImage: "/post5.png"
 ---
 
-Ultimamente, tenho ouvido muitas pessoas questionando a utilidade do Server-Side Rendering (SSR). A narrativa é sempre a mesma: **"SSR é muito caro!"**.
+Ultimamente, tenho ouvido muitas pessoas questionando a utilidade do Server-Side Rendering (SSR). A narrativa é sempre a mesma: **"SSR é muito caro."**.
 
 &nbsp;
 &nbsp;
@@ -24,7 +24,7 @@ Renderizar JSON como HTML no servidor é barato. Sério. Não é isso que vai te
 &nbsp;
 &nbsp;
 
-Na maiorias dos casos, frameworks como Next.js conseguem transformar dados em HTML em menos de 20ms. Consultas básicas ao banco de dados costumam 10x mais que isso. Autenticação e verificações de permissão também são mais demoradas do que renderizar no servidor.
+Na maiorias dos casos, frameworks como Next.js conseguem transformar dados em HTML em menos de 20ms. Consultas básicas ao banco de dados costumam levar 10x mais que isso. Autenticação e verificações de permissão também são mais demoradas do que renderizar no servidor.
 
 &nbsp;
 &nbsp;
