@@ -18,6 +18,12 @@
   filter: blur(10px);
 }
 
+@layer components {
+  .markdown {
+    @apply [&>img]:rounded-xl [&>ul]:list-disc [&>ul]:ml-6 [&>h2]:text-blue-500 [&>h2]:mt-4 [&_p_a]:text-blue-500 [&_pre_code]:text-blue-100 [&>pre]:bg-slate-700 [&>pre]:rounded-md [&>pre]:p-4 [&>pre]:whitespace-pre-wrap [&>_p_code]:text-blue-500 [&>h1]:text-3xl [&>h1]:font-medium [&>h2]:text-xl [&>h2]:font-semibold [&>a]:text-blue-500;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -26,7 +32,7 @@
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
+    --primary: 240 5.9% 0%;
     --primary-foreground: 0 0% 98%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
@@ -37,7 +43,7 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
+    --input: 240 5.9% 30%;
     --ring: 240 10% 3.9%;
     --radius: 0.5rem;
     --chart-1: 12 76% 61%;
@@ -48,7 +54,7 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 220 30% 12%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
@@ -64,7 +70,7 @@
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
+    --border: 240 3.7% 70%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
     --chart-1: 220 70% 50%;

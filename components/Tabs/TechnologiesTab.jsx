@@ -7,7 +7,7 @@ export default function TechnologiesTab({ state, onClose, onMinimize }) {
 
   return (
     <Rnd
-      className="flex-col min-w-20 max-w-[40rem] p-8 bg-white/20 shadow-xl backdrop-blur-[20px] border border-white/40 rounded-xl"
+      className="flex-col min-w-20 max-w-[40rem] p-8 text-black bg-white/20 shadow-xl backdrop-blur-[20px] border border-white/40 rounded-xl"
       default={{
         x: 100,
         y: -200,

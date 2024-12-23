@@ -5,7 +5,7 @@ export default function AboutMeTab({ state, onClose, onMinimize }) {
 
   return (
     <Rnd
-      className="flex-col min-w-20 max-w-[40rem] p-8 relative shadow-xl bg-white/20 backdrop-blur-[20px] border border-white/40 rounded-xl"
+      className="flex-col min-w-20 max-w-[40rem] p-8 text-black relative shadow-xl bg-white/20 backdrop-blur-[20px] border border-white/40 rounded-xl"
       default={{
         x: -600,
         y: -200,

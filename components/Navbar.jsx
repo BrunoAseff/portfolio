@@ -19,7 +19,7 @@ export default function Navbar() {
       <nav className="static md:absolute gap-3 items-center justify-center top-6 left-6 bg-white/20 rounded-xl z-50 backdrop-blur-[30px] flex border border-white/40">
         <a
           href="/"
-          className="p-3 flex rounded-xl border-transparent text-md text-black"
+          className="p-3 flex rounded-xl border-transparent text-md text-black hover:text-black"
         >
           <Image
             className="p-2"
@@ -30,9 +30,12 @@ export default function Navbar() {
           />
         </a>
 
-        <a href="/" className="md:block hidden rounded-xl text-md text-black">
+        <a
+          href="/"
+          className="md:block hidden rounded-xl text-md text-black hover:text-black"
+        >
           <Button
-            className="rounded-xl border-[1px] border-transparent hover:bg-white/20"
+            className="rounded-xl border-[1px] border-transparent hover:bg-white/20 hover:text-black"
             variant="ghost"
           >
             Sobre mim
@@ -40,10 +43,10 @@ export default function Navbar() {
         </a>
         <a
           href="/projetos"
-          className="md:block hidden rounded-xl text-md text-black"
+          className="md:block hidden rounded-xl text-md text-black hover:text-black"
         >
           <Button
-            className="rounded-xl border-[1px] border-transparent hover:bg-white/20"
+            className="rounded-xl border-[1px] border-transparent hover:bg-white/20 hover:text-black"
             variant="ghost"
           >
             Projetos
@@ -55,7 +58,7 @@ export default function Navbar() {
           className="md:block hidden rounded-xl text-md text-black relative"
         >
           <Button
-            className="rounded-xl border-[1px] border-transparent hover:bg-white/20"
+            className="rounded-xl border-[1px] border-transparent hover:bg-white/20 hover:text-black"
             variant="ghost"
           >
             Blog

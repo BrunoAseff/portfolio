@@ -1,52 +1,17 @@
-import fs from "fs";
-import path from "path";
 import Link from "next/link";
-import matter from "gray-matter";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { parse } from "date-fns";
-import { ptBR } from "date-fns/locale";
-
-// Function to get blog posts and sort them by date
-const getBlogPosts = () => {
-  const postsDir = path.join(process.cwd(), "content/posts");
-  const filenames = fs.readdirSync(postsDir);
-
-  const posts = filenames.map((filename) => {
-    const filePath = path.join(postsDir, filename);
-    const fileContents = fs.readFileSync(filePath, "utf8");
-    const { data } = matter(fileContents);
-
-    // Parse the Portuguese date string into a valid Date object
-    const parsedDate = parse(data.date, "d 'de' MMMM 'de' yyyy", new Date(), {
-      locale: ptBR,
-    });
-
-    return {
-      slug: filename.replace(".md", ""),
-      title: data.title,
-      date: data.date, // Keep the original date string
-      parsedDate, // Store the parsed date for sorting
-      coverImage: data.coverImage,
-      description: data.description,
-    };
-  });
-
-  // Sort posts by parsedDate in descending order (latest first)
-  const sortedPosts = posts.sort((a, b) => b.parsedDate - a.parsedDate);
-
-  return sortedPosts;
-};
+import { getAllPostsWithData } from "@/lib/posts";
 
 export default async function BlogPage() {
-  const posts = getBlogPosts();
+  const posts = await getAllPostsWithData();
 
   return (
-    <div className="flex z-40 max-w-full h-screen md:items-center items-start justify-center  overflow-hidden">
-      <Card className="flex flex-col mt-6 md:mt-64 h-[95%] md:h-screen  md:max-w-none max-w-[100%]   p-8  overflow-y-auto overflow-x-hidden  bg-white border">
-        <div className="flex flex-col gap-2 items-center ">
+    <div className="flex z-40 max-w-full h-screen md:items-center items-start justify-center overflow-hidden">
+      <Card className="flex border-gray-600 shadow-none flex-col mt-6 md:mt-64 h-[95%] md:h-screen md:max-w-none max-w-[100%] p-8 overflow-y-auto overflow-x-hidden bg-white">
+        <div className="flex flex-col gap-2 items-center">
           <Image
             className="rounded-full"
             src="/avatar.png"
@@ -55,7 +20,7 @@ export default async function BlogPage() {
             alt="Meu avatar"
           />
           <div className="max-w-72 text-center">
-            <h1 className="font-semibold text-4xl">Bruno Aseff</h1>
+            <h1 className="font-semibold text-black text-4xl">Bruno Aseff</h1>
             <p className="text-gray-600 text-sm m-4">
               Um blog que traz assuntos sobre tecnologia, programação da
               perspectiva de um desenvolvedor e redator.
@@ -65,7 +30,7 @@ export default async function BlogPage() {
         <Separator orientation="horizontal" />
 
         <CardContent>
-          <ul className="flex md:flex-row md:flex-wrap md:mb-32 flex-col  w-full mt-2 gap-1 items-center md:items-start">
+          <ul className="flex md:flex-row md:flex-wrap md:mb-32 flex-col shadow-none border-none w-full mt-2 gap-1 items-center md:items-start">
             {posts.map((post, index) => (
               <li
                 className="max-w-[350px] hover:bg-slate-100 rounded-lg p-6"
@@ -81,12 +46,11 @@ export default async function BlogPage() {
                       alt={post.title}
                     />
                   </div>
-                  <div className="flex flex-col mt-3 gap-2 w-full ">
+                  <div className="flex flex-col mt-3 gap-2 w-full">
                     <div className="flex justify-between">
-                      <Badge className="max-w-fit" variant="outline">
+                      <Badge className="max-w-fit text-black" variant="outline">
                         {post.date}
                       </Badge>
-                      {/* Show "novo" badge only for the first post (index === 0) */}
                       {index === 0 && (
                         <Badge
                           variant="outline"
@@ -96,7 +60,7 @@ export default async function BlogPage() {
                         </Badge>
                       )}
                     </div>
-                    <h2 className="font-semibold">{post.title}</h2>
+                    <h2 className="font-semibold text-black">{post.title}</h2>
                   </div>
                   <p className="text-sm mt-2 max-w-[90%] text-gray-900">
                     {post.description}
