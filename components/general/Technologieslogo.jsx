@@ -11,7 +11,7 @@ export default function TechnologiesLogo({ iconColor, title, icon }) {
       <TooltipProvider delayDuration="50">
         <Tooltip>
           <TooltipTrigger
-            className={`${iconColor}   backdrop-blur-[30px] cursor-default  p-2 rounded-xl`}
+            className={`${iconColor} text-black backdrop-blur-[30px] cursor-default  p-2 rounded-xl`}
           >
             {icon}
           </TooltipTrigger>

@@ -80,7 +80,7 @@ export default function Navbar() {
           <SheetTrigger asChild>
             <Button
               variant="outline"
-              className="pl-3 pr-3 pb-6 pt-6 bg-white/20 rounded-lg z-50 backdrop-blur-[30px] flex border border-white/40"
+              className="pl-3 pr-3 text-black pb-6 pt-6 bg-white/20 rounded-lg z-50 backdrop-blur-[30px] flex border border-white/40"
             >
               <List size={32} />
             </Button>

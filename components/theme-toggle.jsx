@@ -14,10 +14,12 @@ export function ThemeToggle() {
     }
   }
 
+  if (!theme) return null;
+
   return (
     <Button
       onClick={() => handleThemeChange()}
-      className={`absolute bg-transparent top-4 left-4 md:top-10 md:right-10 md:left-auto  p-2`}
+      className={`absolute bg-transparent top-4 left-4 md:top-10 md:right-10 md:left-auto p-2`}
       variant="outline"
       size="icon"
     >
