@@ -40,7 +40,7 @@ export default function ProjectsTab() {
           <Dialog key={index}>
             <div className="shadow-xl justify-between flex min-w-[300px] flex-col  bg-white/5  p-6 backdrop-blur-[20px]  border  border-white/40 rounded-xl">
               <div className="flex w-full justify-between">
-                <h1 className="mb-0 text-black">{project.title}</h1>
+                <h1 className="mb-0 font-medium text-black">{project.title}</h1>
                 {project.InDevelopment && (
                   <div className=" flex gap-1  text-xs text-slate-700 p-1 rounded-full border-[1px]  border-slate-700 bg-slate-700/10 ">
                     <Hammer size={15} />
@@ -111,13 +111,17 @@ export default function ProjectsTab() {
                       )}
                     </Button>
                   )}
-                  <ul className="list-none  mb-auto ">
+                  <ul className="list-none mb-auto">
                     {project.features?.map((feature, index) => (
                       <li
                         key={index}
-                        className="flex gap-1 items-center mb-4 font-bold"
+                        className="flex gap-2 items-center mb-4 font-semibold"
                       >
-                        <CheckCircle size={32} />
+                        <CheckCircle
+                          className="text-slate-950"
+                          weight="duotone"
+                          size={28}
+                        />
 
                         <p> {feature}</p>
                       </li>
@@ -175,7 +179,7 @@ export default function ProjectsTab() {
                   <div className="flex mb-auto gap-2">
                     {project.technologies.map((tech, index) => (
                       <div
-                        className="w-12 h-12 backdrop-blur-[20px]   flex items-center justify-center rounded-xl p-2 bg-black/20 "
+                        className="w-12 h-12  flex items-center justify-center rounded-xl p-2 bg-black/20 border-[1px] border-black/60"
                         key={index}
                       >
                         {" "}
@@ -206,7 +210,7 @@ export default function ProjectsTab() {
                                   width={230}
                                   height={230}
                                 />
-                                <p className="mt-2 font-sm text-stone-700">
+                                <p className="mt-2 text-sm bg-slate-700/10 text-slate-700 p-2 border-[1px] rounded-full border-slate-700 w-fit">
                                   {project.imagesAlt?.[index]}
                                 </p>
                               </div>
@@ -247,7 +251,7 @@ export default function ProjectsTab() {
         ))}
 
         <div className="shadow-xl justify-between flex min-w-[300px] flex-col  bg-white/5  p-6 backdrop-blur-[20px]  border border-white/40 rounded-xl">
-          <h1 className="mb-0">Outros projetos</h1>
+          <h1 className="mb-0 text-black">Outros projetos</h1>
           <p className="text-slate-500 text-sm text-left mb-2">
             Outros repositorios podem ser encontrados no meu github.
           </p>
