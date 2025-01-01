@@ -1,5 +1,52 @@
 export const projects = [
   {
+    title: "Nova",
+    shortDescription: "Plataforma para ajudar no foco e relaxamento.",
+    longDescription: "Plataforma para ajudar no foco e relaxamento.",
+    features: [
+      "Múltiplos espaços totalmente personalizáveis",
+      "Criação de contas com fluxo de e-mails",
+      "Sons ambientes",
+      "Lembretes personalizáveis",
+      "Imagem de fundo personalizada",
+      "Pomodoro com tempo, sons e comportamento personalizáveis",
+      "Temas de cores diferentes",
+      "Diferentes exercícios de respiração",
+    ],
+
+    gitHubLink: "https://github.com/BrunoAseff/nova",
+    webLink: "https://www.novaspaces.io/spaces",
+    technologies: [
+      "/svgs/nextjs.svg",
+      "svgs/react.svg",
+      "/svgs/typescript.svg",
+      "svgs/git.svg",
+      "svgs/prisma.svg",
+      "svgs/postgresql.svg",
+      "svgs/Vercel_light.svg",
+      "svgs/zod.svg",
+      "svgs/tailwindcss.svg",
+    ],
+    images: [
+      "/nova1.webp",
+      "/nova2.webp",
+      "/nova3.webp",
+      "/nova4.webp",
+      "/nova5.webp",
+      "/nova6.webp",
+    ],
+    imagesAlt: [
+      "Pomodoro",
+      "Exercícios de respiração",
+      "Imagens de fundo",
+      "Perfil do usuário",
+      "Temas personalizados",
+      "Lembretes",
+    ],
+    InDevelopment: true,
+  },
+
+  {
     title: "Forms Creator",
     shortDescription: "Uma ferramenta de criação de formulários intuitiva.",
     longDescription:

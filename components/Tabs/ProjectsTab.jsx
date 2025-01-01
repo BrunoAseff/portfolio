@@ -17,6 +17,7 @@ import { AspectRatio } from "../ui/aspect-ratio";
 import RpgCode from "../CodeHightlighter";
 import RandomTypescriptCode from "../randomTypescript";
 import { useState } from "react";
+import { Hammer } from "lucide-react";
 
 export default function ProjectsTab() {
   const [copiedItem, setCopiedItem] = useState(null);
@@ -37,8 +38,17 @@ export default function ProjectsTab() {
       <CardContent className="mt-auto p-6 mb-auto max-h-[85vh]  text-justify gap-4 scroll-smooth md:overflow-x-scroll overflow-x-hidden overflow-y-scroll flex-col md:flex-row flex w-full">
         {projects.map((project, index) => (
           <Dialog key={index}>
-            <div className="shadow-xl justify-between flex min-w-[300px] flex-col  bg-white/5  p-6 backdrop-blur-[20px]  border border-white/40 rounded-xl">
-              <h1 className="mb-0 text-black">{project.title}</h1>
+            <div className="shadow-xl justify-between flex min-w-[300px] flex-col  bg-white/5  p-6 backdrop-blur-[20px]  border  border-white/40 rounded-xl">
+              <div className="flex w-full justify-between">
+                <h1 className="mb-0 text-black">{project.title}</h1>
+                {project.InDevelopment && (
+                  <div className=" flex gap-1  text-xs text-slate-700 p-1 rounded-full border-[1px]  border-slate-700 bg-slate-700/10 ">
+                    <Hammer size={15} />
+                    Em produção
+                  </div>
+                )}
+              </div>
+
               <p className="text-slate-500 text-sm text-left mb-2">
                 {project.shortDescription}
               </p>
