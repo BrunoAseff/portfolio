@@ -18,6 +18,7 @@ import RpgCode from "../CodeHightlighter";
 import RandomTypescriptCode from "../randomTypescript";
 import { useState } from "react";
 import { Hammer } from "lucide-react";
+import ProjectImageGallery from "../ProjectImageGallery";
 
 export default function ProjectsTab() {
   const [copiedItem, setCopiedItem] = useState(null);
@@ -195,43 +196,10 @@ export default function ProjectsTab() {
                   </div>
                 </div>
                 {project.images.length > 1 && (
-                  <div className="grid grid-cols-2 max-w-[90%] gap-12 mt-auto mb-auto ">
-                    <>
-                      {project.images.map((image, index) => (
-                        <div key={index} className="w-full">
-                          <Dialog className="flex flex-col items-left w-full">
-                            <DialogTrigger asChild>
-                              <div className="mt-auto mb-auto">
-                                <Image
-                                  loading="eager"
-                                  className="rounded-xl hover:cursor-pointer"
-                                  src={image}
-                                  alt={project.imagesAlt?.[index]}
-                                  width={230}
-                                  height={230}
-                                />
-                                <p className="mt-2 text-sm bg-slate-700/10 text-slate-700 p-2 border-[1px] rounded-full border-slate-700 w-fit">
-                                  {project.imagesAlt?.[index]}
-                                </p>
-                              </div>
-                            </DialogTrigger>
-                            <DialogContent className="max-w-[1024px] border-0 p-0 max-h-fit  bg-transparent  ">
-                              <AspectRatio ratio={16 / 9}>
-                                <Image
-                                  loading="eager"
-                                  className="rounded-xl  object-cover  hover:cursor-pointer"
-                                  src={image}
-                                  alt={project.imagesAlt?.[index]}
-                                  width={2100}
-                                  height={430}
-                                />
-                              </AspectRatio>
-                            </DialogContent>
-                          </Dialog>
-                        </div>
-                      ))}
-                    </>
-                  </div>
+                  <ProjectImageGallery
+                    images={project.images}
+                    imagesAlt={project.imagesAlt}
+                  />
                 )}
 
                 {project.title === "RPG no Terminal" && (
