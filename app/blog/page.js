@@ -1,16 +1,17 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { getAllPostsWithData } from "@/lib/posts";
+import Image from "next/image";
+import { BlogCardImage } from "@/components/BlogCardImage";
 
 export default async function BlogPage() {
   const posts = await getAllPostsWithData();
 
   return (
     <div className="flex z-40 max-w-full h-screen md:items-center items-start justify-center overflow-hidden">
-      <Card className="flex border-gray-600 shadow-none flex-col mt-6 md:mt-64 h-[95%] md:h-screen md:max-w-none max-w-[100%] p-8 overflow-y-auto overflow-x-hidden bg-white">
+      <Card className="flex ring-gray-300 outline-gray-300 border-gray-300 shadow-none flex-col mt-6 md:mt-64 h-[95%] md:h-screen md:max-w-none max-w-[100%] p-8 overflow-y-auto overflow-x-hidden bg-white">
         <div className="flex flex-col gap-2 items-center">
           <Image
             className="rounded-full"
@@ -27,34 +28,30 @@ export default async function BlogPage() {
             </p>
           </div>
         </div>
-        <Separator orientation="horizontal" />
+        <Separator className="bg-gray-300   " orientation="horizontal" />
 
         <CardContent>
           <ul className="flex md:flex-row md:flex-wrap md:mb-32 flex-col shadow-none border-none w-full mt-2 gap-1 items-center md:items-start">
             {posts.map((post, index) => (
               <li
-                className="max-w-[350px] hover:bg-slate-100 rounded-lg p-6"
+                className="max-w-[350px] hover:bg-slate-100 rounded-lg p-6 group"
                 key={post.slug}
               >
                 <Link href={`/blog/${post.slug}`}>
-                  <div className="w-[300px] rounded-sm bg-cover overflow-hidden h-[200px]">
-                    <Image
-                      className="shadow-2xl shadow-black"
-                      src={post.coverImage}
-                      width={350}
-                      height={200}
-                      alt={post.title}
-                    />
-                  </div>
+                  <BlogCardImage src={post.coverImage} alt={post.title} />
                   <div className="flex flex-col mt-3 gap-2 w-full">
                     <div className="flex justify-between">
-                      <Badge className="max-w-fit text-black" variant="outline">
+                      <Badge
+                        className="max-w-fit bg-black/5 border-black/60 text-black"
+                        variant="outline"
+                      >
                         {post.date}
                       </Badge>
+
                       {index === 0 && (
                         <Badge
                           variant="outline"
-                          className="max-w-fit border-green-500 text-green-500 px-1 text-sm"
+                          className="max-w-fit border-emerald-500/60 bg-emerald-700/10 text-emerald-500 px-1 text-xs"
                         >
                           novo
                         </Badge>
