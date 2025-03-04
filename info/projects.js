@@ -43,9 +43,32 @@ export const projects = [
       "Temas personalizados",
       "Lembretes",
     ],
-    InDevelopment: true,
   },
-
+  {
+    title: "Theatre Updates",
+    shortDescription:
+      "Sistema automatizado de notificações sobre atualizações nos cinemas locais.",
+    longDescription:
+      "Sistema que monitora e notifica por email sobre novos filmes e alterações na programação dos cinemas do Balneário Shopping e Shopping Itajaí, utilizando web scraping e automação.",
+    features: [
+      "Web scraping com Puppeteer",
+      "Emails responsivos com React Email",
+      "Automação com GitHub Actions",
+      "Armazenamento em Gist",
+      "Notificações automáticas semanais",
+      "Indicador visual de novos filmes",
+    ],
+    gitHubLink: "https://github.com/BrunoAseff/theatre-updates",
+    technologies: [
+      "/svgs/typescript.svg",
+      "/svgs/react.svg",
+      "/svgs/git.svg",
+      "/svgs/nodejs.svg",
+      "svgs/resend.svg",
+    ],
+    images: ["/theatre-updates.webp"],
+    imagesAlt: ["Email de atualização dos filmes"],
+  },
   {
     title: "Forms Creator",
     shortDescription: "Uma ferramenta de criação de formulários intuitiva.",
