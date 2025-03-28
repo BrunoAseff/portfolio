@@ -26,7 +26,7 @@ const handjet = Handjet({
 
 export default function RootLayout({ children }) {
   return (
-    <html>
+    <html lang="pt-BR">
       <body className={`${inter.className} ${handjet.variable}`}>
         <FaviconLoop />
         <ThemeProvider

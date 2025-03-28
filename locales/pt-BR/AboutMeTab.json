@@ -1,4 +1,6 @@
 {
   "title": "Sobre mim",
-  "description": "Sou programador e estudante de Sistemas para Internet na Univali. Tenho afinidade tanto com o desenvolvimento back-end quanto front-end, mas tenho mais conhecimento em front-end. Tenho interesse genuíno por linguística e gosto de estudar as diferentes formas de se comunicar, seja através de códigos ou palavras."
+  "description1": "Sou programador e estudante de Sistemas para Internet na Univali.",
+  "description2": "Tenho afinidade tanto com o desenvolvimento back-end quanto front-end, mas tenho mais conhecimento em front-end.",
+  "description3": "Tenho interesse genuíno por linguística e gosto de estudar as diferentes formas de se comunicar, seja através de códigos ou palavras."
 }

@@ -8,6 +8,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useParams } from "next/navigation";
 
 function BrazilSvg() {
   return (
@@ -17,9 +18,9 @@ function BrazilSvg() {
       height="32"
       viewBox="0 0 32 32"
       role="img"
-      aria-label="Brazilian flag"
+      aria-label="Bandeira do Brasil"
     >
-      <title>Brazilian flag</title>
+      <title>Bandeira do Brasil</title>
       <rect
         x="1"
         y="4"
@@ -59,9 +60,9 @@ function USASvg() {
       height="32"
       viewBox="0 0 32 32"
       role="img"
-      aria-label="United States flag"
+      aria-label="Bandeira dos Estados Unidos"
     >
-      <title>United States flag</title>
+      <title>Bandeira dos Estados Unidos</title>
       <rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#fff"></rect>
       <path
         d="M1.638,5.846H30.362c-.711-1.108-1.947-1.846-3.362-1.846H5c-1.414,0-2.65,.738-3.362,1.846Z"
@@ -169,6 +170,9 @@ function USASvg() {
 }
 
 export default function LanguageSelector() {
+  const params = useParams();
+  const currentLocale = params.locale || "pt-BR";
+
   const router = useRouter();
   const { pathname, query, asPath } = router;
 
@@ -182,7 +186,10 @@ export default function LanguageSelector() {
                 href={{ pathname, query }}
                 as={asPath}
                 locale="pt-BR"
-                className="hover:bg-white/20 p-2 rounded-xl text-white transition-all"
+                className={`
+                  hover:bg-white/20 p-2 rounded-xl text-white transition-all
+                  ${currentLocale === "pt-BR" ? "grayscale-0" : "grayscale"}
+                `}
               >
                 <BrazilSvg />
               </Link>
@@ -198,15 +205,16 @@ export default function LanguageSelector() {
                 href={{ pathname, query }}
                 as={asPath}
                 locale="en"
-                className="hover:bg-white/20 p-2 rounded-xl text-white transition-all"
+                className={`
+                  hover:bg-white/20 p-2 rounded-xl text-white transition-all
+                  ${currentLocale === "en" ? "grayscale-0" : "grayscale"}
+                `}
               >
                 <USASvg />
               </Link>
             </TooltipTrigger>
             <TooltipContent>
-              <button className="hover:bg-white/20 p-4 rounded-xl">
-                <p>English</p>
-              </button>{" "}
+              <p>English</p>
             </TooltipContent>
           </Tooltip>
         </div>

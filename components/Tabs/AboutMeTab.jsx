@@ -2,7 +2,7 @@ import { Rnd } from "react-rnd";
 import useTranslation from "next-translate/useTranslation";
 
 export default function AboutMeTab({ state, onClose, onMinimize }) {
-  const { t } = useTranslation("about");
+  const { t } = useTranslation("AboutMeTab");
 
   if (state === "minimized") return null;
 
@@ -34,7 +34,13 @@ export default function AboutMeTab({ state, onClose, onMinimize }) {
         <p>{t("title")}</p>
       </div>
       <div className="items-center justify-center text-justify w-full">
-        <p>{t("description")}</p>
+        <p>
+          {t("description1")}
+          <br />
+          {t("description2")}
+          <br />
+          {t("description3")}
+        </p>{" "}
       </div>
     </Rnd>
   );
