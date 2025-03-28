@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import FaviconLoop from "@/components/FaviconLoop";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import LanguageSelector from "@/components/general/LanguageSelector";
 
 export const metadata = {
   title: "Bruno de Almeida Aseff",
@@ -23,9 +24,9 @@ const handjet = Handjet({
   variable: "--font-handjet",
 });
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, params: { locale } }) {
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={`${inter.className} ${handjet.variable}`}>
         <FaviconLoop />
         <ThemeProvider
@@ -34,7 +35,7 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          <main className="h-screen relative  flex flex-col items-center justify-between w-full ">
+          <main className="h-screen relative flex flex-col items-center justify-between w-full">
             <Image
               priority
               alt="Background"
@@ -52,6 +53,7 @@ export default function RootLayout({ children }) {
           </main>
           <Toaster />
         </ThemeProvider>
+        <LanguageSelector />
       </body>
       <GoogleAnalytics gaId="G-MCL1RFVL2S" />
     </html>

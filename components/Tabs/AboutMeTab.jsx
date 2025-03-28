@@ -1,6 +1,9 @@
 import { Rnd } from "react-rnd";
+import useTranslation from "next-translate/useTranslation";
 
 export default function AboutMeTab({ state, onClose, onMinimize }) {
+  const { t } = useTranslation("about");
+
   if (state === "minimized") return null;
 
   return (
@@ -28,19 +31,10 @@ export default function AboutMeTab({ state, onClose, onMinimize }) {
         <button className="rounded-full w-4 h-4 border-1 border-gray-900 bg-green-400 absolute top-4 left-16" />
       </div>
       <div className="flex gap-1 mb-4 text-lg rounded-lg pl-0 p-2 w-fit font-semibold mt-6">
-        <p>Sobre mim</p>
+        <p>{t("title")}</p>
       </div>
       <div className="items-center justify-center text-justify w-full">
-        <p>
-          Sou programador e estudante de Sistemas para Internet na Univali.
-          <br />
-          Tenho afinidade tanto com o desenvolvimento back-end quanto front-end,
-          mas tenho mais conhecimento em front-end.
-          <br />
-          Tenho interesse genuíno por linguística e gosto de estudar as
-          diferentes formas de se comunicar, seja através de códigos ou
-          palavras.
-        </p>
+        <p>{t("description")}</p>
       </div>
     </Rnd>
   );
