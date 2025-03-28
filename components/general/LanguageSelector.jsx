@@ -16,7 +16,10 @@ function BrazilSvg() {
       width="32"
       height="32"
       viewBox="0 0 32 32"
+      role="img"
+      aria-label="Brazilian flag"
     >
+      <title>Brazilian flag</title>
       <rect
         x="1"
         y="4"
@@ -55,7 +58,10 @@ function USASvg() {
       width="32"
       height="32"
       viewBox="0 0 32 32"
+      role="img"
+      aria-label="United States flag"
     >
+      <title>United States flag</title>
       <rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#fff"></rect>
       <path
         d="M1.638,5.846H30.362c-.711-1.108-1.947-1.846-3.362-1.846H5c-1.414,0-2.65,.738-3.362,1.846Z"
@@ -176,7 +182,7 @@ export default function LanguageSelector() {
                 href={{ pathname, query }}
                 as={asPath}
                 locale="pt-BR"
-                className="p-2 text-white rounded"
+                className="hover:bg-white/20 p-2 rounded-xl text-white transition-all"
               >
                 <BrazilSvg />
               </Link>
@@ -192,13 +198,15 @@ export default function LanguageSelector() {
                 href={{ pathname, query }}
                 as={asPath}
                 locale="en"
-                className="p-2 text-white rounded"
+                className="hover:bg-white/20 p-2 rounded-xl text-white transition-all"
               >
                 <USASvg />
               </Link>
             </TooltipTrigger>
             <TooltipContent>
-              <p>English</p>
+              <button className="hover:bg-white/20 p-4 rounded-xl">
+                <p>English</p>
+              </button>{" "}
             </TooltipContent>
           </Tooltip>
         </div>

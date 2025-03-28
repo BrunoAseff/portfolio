@@ -24,9 +24,9 @@ const handjet = Handjet({
   variable: "--font-handjet",
 });
 
-export default function RootLayout({ children, params: { locale } }) {
+export default function RootLayout({ children }) {
   return (
-    <html lang={locale}>
+    <html>
       <body className={`${inter.className} ${handjet.variable}`}>
         <FaviconLoop />
         <ThemeProvider
