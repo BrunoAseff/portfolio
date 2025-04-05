@@ -194,7 +194,7 @@ export default function LanguageSelector() {
                 <BrazilSvg />
               </Link>
             </TooltipTrigger>
-            <TooltipContent>
+            <TooltipContent className="bg-white/20 mb-1 shadow-xl backdrop-blur-[30px] border border-white/40">
               <p>Português</p>
             </TooltipContent>
           </Tooltip>
@@ -213,7 +213,7 @@ export default function LanguageSelector() {
                 <USASvg />
               </Link>
             </TooltipTrigger>
-            <TooltipContent>
+            <TooltipContent className="bg-white/20 mb-1 shadow-xl backdrop-blur-[30px] border border-white/40">
               <p>English</p>
             </TooltipContent>
           </Tooltip>
