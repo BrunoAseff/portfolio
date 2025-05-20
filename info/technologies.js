@@ -45,7 +45,7 @@ export const technologies = [
     icon: <SiDocker size="2rem" />,
   },
    {
-    title: "Ṕostgres",
+    title: "Postgres",
     color: "hover:text-blue-700",
     icon: <SiPostgresql size="2rem" />,
   },
