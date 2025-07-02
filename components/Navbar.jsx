@@ -54,6 +54,18 @@ export default function Navbar() {
         </a>
 
         <a
+          href="/cerificados"
+          className="md:block hidden rounded-xl text-md text-black hover:text-black"
+        >
+          <Button
+            className="rounded-xl border-[1px] border-transparent hover:bg-white/20 hover:text-black"
+            variant="ghost"
+          >
+            Certificados
+          </Button>
+        </a>
+
+        <a
           href="/blog"
           className="md:block hidden rounded-xl text-md text-black relative"
         >
