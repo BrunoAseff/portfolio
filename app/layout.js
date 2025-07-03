@@ -1,4 +1,4 @@
-import { Inter, Handjet } from "next/font/google";
+import { Roboto, Handjet } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
 import { Toaster } from "@/components/ui/sonner";
@@ -15,7 +15,10 @@ export const metadata = {
   },
 };
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Roboto({ subsets: ["latin"],
+    weight: ["100", "300", "400", "500", "700", "900"],
+
+ });
 
 const handjet = Handjet({
   subsets: ["latin"],
@@ -38,7 +41,7 @@ export default function RootLayout({ children }) {
             <Image
               priority
               alt="Background"
-              src="/opcao_2.jpeg"
+              src="/new3.png"
               quality={100}
               fill
               sizes="100vw"
