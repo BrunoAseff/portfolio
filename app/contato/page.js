@@ -36,7 +36,8 @@ export default function Contato() {
     >
       <Card className="backdrop-blur-[20px] p-6 flex-col mt-auto mb-auto flex rounded-xl bg-white/20 border border-white/40">
         <CardHeader className="flex gap-1 mb-4 text-lg rounded-lg pl-0 p-2 w-fit font-semibold">
-          <h1 className="mt-auto mb-4 font-semibold text-black">Contato</h1>
+
+          <h1 className="mt-auto mb-4 font-semibold text-white/80  drop-shadow-2xl text-2xl">Contato</h1>
         </CardHeader>
         <CardContent className="flex flex-col  gap-10 items-center justify-center">
           <div className="flex flex-col w-full justify-start gap-2">
