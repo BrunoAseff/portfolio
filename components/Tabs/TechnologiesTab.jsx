@@ -7,7 +7,7 @@ export default function TechnologiesTab({ state, onClose, onMinimize }) {
 
   return (
     <Rnd
-      className="flex-col min-w-20 max-w-[40rem] p-8 text-black bg-white/20 shadow-xl backdrop-blur-[20px] border border-white/40 rounded-xl"
+      className="flex-col min-w-20 max-w-[40rem] p-8 relative shadow-xl bg-black/5 backdrop-blur-[40px] border border-white/40 rounded-xl z-50"
       default={{
         x: 100,
         y: -200,
@@ -31,8 +31,7 @@ export default function TechnologiesTab({ state, onClose, onMinimize }) {
           <button className="rounded-full w-4 h-4 border-1 border-gray-900 bg-green-400 absolute top-4 left-16" />
         </div>
       </div>
-      <div className="flex gap-1 mb-4 text-lg rounded-lg pl-0 p-2 w-fit  font-semibold  mt-6  ">
-        <p>Habilidades</p>
+ <div className="flex gap-1 mb-4 text-2xl  pl-0 p-2 w-fit mt-6 text-white/80  drop-shadow-2xl ">        <p>Habilidades</p>
       </div>
       <div className="items-center justify-center w-full">
         <div className="flex-wrap  flex gap-6">
@@ -41,7 +40,7 @@ export default function TechnologiesTab({ state, onClose, onMinimize }) {
               key={index}
               icon={tech.icon}
               title={tech.title}
-              className="bg-white/20"
+              className="bg-white/40 border-[1px] border-white/20"
               iconColor={tech.color}
             />
           ))}

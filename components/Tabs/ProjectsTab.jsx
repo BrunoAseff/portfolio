@@ -32,14 +32,14 @@ export default function ProjectsTab() {
   };
 
   return (
-    <Card className="flex-col w-full m-6 md:p-8 items-center justify-center shadow-xl bg-white/20 backdrop-blur-[20px] mb-auto mt-auto  border border-white/40 rounded-xl">
-      <CardHeader className="md:flex hidden  gap-1 mb-4 text-lg rounded-lg pl-0 p-2 w-fit font-semibold text-black">
-        <p>Projetos</p>
+    <Card className="flex-col w-full m-6 md:p-4 items-center justify-center shadow-xl bg-white/30 backdrop-blur-[20px] mb-auto mt-auto  border border-white/40 rounded-xl">
+      <CardHeader className="md:flex hidden  gap-1  rounded-lg p-2 w-fit font-semibold text-black">
+      <p className="text-white/80  drop-shadow-2xl text-3xl font-medium">Projetos</p>
       </CardHeader>
       <CardContent className="mt-auto p-6 mb-auto max-h-[85vh]  text-justify gap-4 scroll-smooth md:overflow-x-scroll overflow-x-hidden overflow-y-scroll flex-col md:flex-row flex w-full">
         {projects.map((project, index) => (
           <Dialog key={index}>
-            <div className="shadow-xl justify-between flex min-w-[300px] flex-col  bg-white/5  p-6 backdrop-blur-[20px]  border  border-white/40 rounded-xl">
+            <div className="shadow-xl justify-between flex min-w-[300px] flex-col  bg-white/10  p-6 backdrop-blur-[150px]  border  border-white/40 rounded-xl">
               <div className="flex w-full justify-between">
                 <h1 className="mb-0 font-medium text-black">{project.title}</h1>
                 {project.InDevelopment && (
@@ -50,7 +50,7 @@ export default function ProjectsTab() {
                 )}
               </div>
 
-              <p className="text-slate-500 text-sm text-left mb-2">
+              <p className="text-slate-700 text-sm text-left mb-2">
                 {project.shortDescription}
               </p>
               <Link
@@ -219,8 +219,8 @@ export default function ProjectsTab() {
         ))}
 
         <div className="shadow-xl justify-between flex min-w-[300px] flex-col  bg-white/5  p-6 backdrop-blur-[20px]  border border-white/40 rounded-xl">
-          <h1 className="mb-0 text-black">Outros projetos</h1>
-          <p className="text-slate-500 text-sm text-left mb-2">
+          <h1 className="mb-0 text-black font-semibold">Outros projetos</h1>
+          <p className="text-slate-700 text-sm text-left mb-2">
             Outros repositorios podem ser encontrados no meu github.
           </p>
           <Image
