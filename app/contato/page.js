@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import {
   Copy,
   Check,
@@ -102,10 +101,8 @@ export default function Contato() {
 
   return (
     <div className="w-full h-screen flex mt-20 md:mt-16 items-center justify-center p-4 font-sans text-white">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+      <div
+
         className="w-full max-w-md bg-black/10 backdrop-blur-lg border border-white/20 shadow-2xl rounded-2xl p-6 sm:p-8"
       >
         <header className="mb-8">
@@ -124,7 +121,7 @@ export default function Contato() {
 
           {actions.map((item) => <ContactItem key={item.text} {...item} />)}
         </main>
-      </motion.div>
+      </div>
     </div>
   );
 }

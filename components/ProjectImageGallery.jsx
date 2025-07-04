@@ -36,7 +36,7 @@ const ProjectImageGallery = ({ images, imagesAlt }) => {
                         alt={imagesAlt?.[index] || ""}
                         width={230}
                         height={129}
-                        onLoadingComplete={() => handleImageLoad(index)}
+                        onLoad={() => handleImageLoad(index)}
                       />
                     </div>
                   </AspectRatio>

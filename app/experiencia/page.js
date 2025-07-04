@@ -113,7 +113,7 @@ const SectionToggle = ({ activeView, setActiveView }) => (
 );
 
 const ExperienceCard = ({ experience }) => (
-  <GlassCard className="mb-6 animate-fade-in">
+  <GlassCard className="mb-6 ">
     <div className="flex flex-col md:flex-row gap-4">
       <div className="flex-shrink-0 flex justify-center items-center w-16 h-16 bg-white/20 rounded-xl border border-white/30">
           <Briefcase className="text-white" size={32} />
@@ -144,7 +144,7 @@ const ExperienceCard = ({ experience }) => (
 );
 
 const CertificationCard = ({ certification }) => (
-    <GlassCard className="mb-6 animate-fade-in">
+    <GlassCard className="mb-6">
         <div className="flex flex-col sm:flex-row items-start gap-6">
             <div className="flex-shrink-0 flex justify-center items-center w-16 h-16 bg-white/20 rounded-xl border border-white/30">
                 <Award className="text-white" size={32} />
@@ -192,17 +192,7 @@ export default function ExperiencePage() {
 
   return (
     <div className="w-full h-full flex items-center mt-4 md:mt-0 justify-center p-4 md:p-6 text-white font-sans">
-        <style jsx global>{`
-            @keyframes fade-in {
-                from { opacity: 0; transform: translateY(15px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-            .animate-fade-in {
-                animation: fade-in 0.5s ease-out forwards;
-            }
-        `}</style>
-      
-      <div className="bg-black/10 backdrop-blur-[100px] border border-white/20 shadow-2xl rounded-2xl w-full max-w-5xl mt-24 h-[80vh] flex flex-col p-4 sm:p-6">
+<div className="bg-black/10 backdrop-blur-[100px] border border-white/20 shadow-2xl rounded-2xl w-full max-w-5xl mt-24 h-[80vh] flex flex-col p-4 sm:p-6">
         
         <div className="flex-shrink-0">
             <SectionToggle activeView={activeView} setActiveView={setActiveView} />
