@@ -18,7 +18,7 @@ export const BlogCardImage = ({ src, alt, width = 350, height = 200 }) => {
         width={width}
         height={height}
         alt={alt}
-        onLoadingComplete={() => setIsLoading(false)}
+        onLoad={() => setIsLoading(false)}
       />
     </div>
   );
