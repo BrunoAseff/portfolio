@@ -53,7 +53,7 @@ export const ProjectModal = ({ project }) => {
         )}
 
         {project.features && (
-          <div className="my-6">
+          <div className="my-2">
             <h4 className="font-semibold text-white mb-3">Features</h4>
             <ul className="space-y-3">
               {project.features.map((feature, i) => (
@@ -93,7 +93,7 @@ export const ProjectModal = ({ project }) => {
         </footer>
       </div>
 
-      <div className="w-full md:w-1/2 lg:w-2/3 bg-black/20 flex items-center justify-center p-6">
+      <div className="w-full md:w-1/2 lg:w-2/3 bg-black/10 flex items-center justify-center p-6">
         {renderCodeBlock() || (
            <ProjectImageGallery
               images={project.images}

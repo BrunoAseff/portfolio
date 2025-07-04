@@ -101,7 +101,7 @@ export default function Contato() {
   ]
 
   return (
-    <div className="w-full h-screen flex mt-16 items-center justify-center p-4 font-sans text-white">
+    <div className="w-full h-screen flex mt-20 md:mt-16 items-center justify-center p-4 font-sans text-white">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
