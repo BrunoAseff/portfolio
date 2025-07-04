@@ -92,11 +92,11 @@ const GlassCard = ({ children, className = '' }) => (
 );
 
 const SectionToggle = ({ activeView, setActiveView }) => (
-  <div className="bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl p-2 mb-6">
+  <div className="md:bg-white/10 md:backdrop-blur-lg md:border md:border-white/20 md:shadow-lg rounded-2xl p-2 mb-6">
     <div className="flex justify-center items-center gap-2">
       <button
         onClick={() => setActiveView('experience')}
-        className={`w-full text-center px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${activeView === 'experience' ? 'bg-white/30 text-white shadow-md' : 'text-white/70 hover:bg-white/10'}`}
+        className={`w-full text-center px-4 py-2 md:px-6 md:py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${activeView === 'experience' ? 'bg-white/30 text-white shadow-md' : 'text-white/70 hover:bg-white/10'}`}
       >
         <Briefcase size={20} />
         Experiência
@@ -175,7 +175,6 @@ const CertificationCard = ({ certification }) => (
 );
 
 
-// --- COMPONENTE PRINCIPAL ---
 
 export default function ExperiencePage() {
   const [activeView, setActiveView] = useState('experience');
@@ -192,7 +191,7 @@ export default function ExperiencePage() {
   }, [activeView]);
 
   return (
-    <div className="w-full h-full flex items-center justify-center p-4 md:p-6 text-white font-sans">
+    <div className="w-full h-full flex items-center mt-4 md:mt-0 justify-center p-4 md:p-6 text-white font-sans">
         <style jsx global>{`
             @keyframes fade-in {
                 from { opacity: 0; transform: translateY(15px); }
@@ -200,22 +199,6 @@ export default function ExperiencePage() {
             }
             .animate-fade-in {
                 animation: fade-in 0.5s ease-out forwards;
-            }
-            /* Custom scrollbar for a cleaner look */
-            .custom-scrollbar::-webkit-scrollbar {
-                width: 8px;
-            }
-            .custom-scrollbar::-webkit-scrollbar-track {
-                background: transparent;
-            }
-            .custom-scrollbar::-webkit-scrollbar-thumb {
-                background-color: rgba(255, 255, 255, 0.2);
-                border-radius: 10px;
-                border: 2px solid transparent;
-                background-clip: content-box;
-            }
-            .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-                background-color: rgba(255, 255, 255, 0.4);
             }
         `}</style>
       
