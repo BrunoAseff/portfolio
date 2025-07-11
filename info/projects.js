@@ -1,5 +1,24 @@
 export const projects = [
   {
+    title: "Eye Patch",
+    shortDescription:
+      "Monitoramento pessoal de uptime e segurança para aplicações web.",
+    longDescription:
+      "Eye Patch é uma ferramenta pessoal para monitorar a saúde de aplicações web. A cada 15 minutos, verifica se os serviços estão online e dispara alertas por e-mail se houver falhas. Todo o fluxo roda em cima de serviços serverless da AWS e é definido via infraestrutura como código com CDK.",
+    features: [
+      "Verificação periódica de serviços com AWS Lambda",
+      "Agendamento com EventBridge",
+      "Envio de alertas por e-mail com SNS",
+      "Configuração e deploy via AWS CDK",
+    ],
+
+    gitHubLink: "https://github.com/BrunoAseff/eye-patch",
+    technologies: ["/svgs/typescript.svg", "/svgs/nodejs.svg", "svgs/git.svg"],
+    images: ["/eyepatch.webp"],
+    imagesAlt: ["Diagrama de serviços da AWS"],
+  },
+
+  {
     title: "Nova",
     shortDescription: "Plataforma para ajudar no foco e relaxamento.",
     longDescription: "Plataforma para ajudar no foco e relaxamento.",
