@@ -11,16 +11,17 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function ProjectsTab() {
   return (
-    <div className="w-full h-[50%] mb-40 flex flex-col items-center justify-center p-4 md:p-6 text-white font-sans">
-      <div className="w-full max-w-7xl bg-black/10 backdrop-blur-lg border border-white/20 shadow-2xl rounded-2xl flex flex-col h-[90vh]">
+    <div className="w-full flex flex-col items-center justify-start p-4 md:p-6 text-white font-sans pt-24 sm:pt-20 md:pt-16 lg:pt-20 pb-4">
+      <div className="w-full max-w-7xl bg-black/10 backdrop-blur-lg border border-white/20 shadow-2xl rounded-2xl flex flex-col h-[calc(100vh-12rem)] sm:h-[calc(100vh-8rem)] md:h-[calc(100vh-8rem)] lg:h-[calc(100vh-8rem)] max-h-[900px]">
         <header className="p-6 border-b border-white/10 flex-shrink-0">
           <h1 className="text-2xl font-bold text-white">Projetos</h1>
           <p className="text-white/60">
-            Uma seleção de projetos que desenvolvi. Clique para ver mais detalhes.
+            Uma seleção de projetos que desenvolvi. Clique para ver mais
+            detalhes.
           </p>
         </header>
 
-        <main className="flex-grow p-6 overflow-y-auto custom-scrollbar">
+        <main className="flex-grow p-6 overflow-y-auto custom-scrollbar min-h-0">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {projects.map((project, index) => (
               <Dialog key={index}>
@@ -38,7 +39,8 @@ export default function ProjectsTab() {
               <div>
                 <h3 className="text-xl font-bold text-white">Mais Projetos</h3>
                 <p className="text-white/60 mt-2">
-                  Outros repositórios e experimentos podem ser encontrados no meu GitHub.
+                  Outros repositórios e experimentos podem ser encontrados no
+                  meu GitHub.
                 </p>
               </div>
               <div className="w-full h-40 mt-4 rounded-lg overflow-hidden">
@@ -50,7 +52,10 @@ export default function ProjectsTab() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <Button asChild className="mt-6 w-full bg-white/10 hover:bg-white/20 text-white rounded-lg">
+              <Button
+                asChild
+                className="mt-6 w-full bg-white/10 hover:bg-white/20 text-white rounded-lg"
+              >
                 <Link href="https://github.com/BrunoAseff" target="_blank">
                   Acessar GitHub <ArrowUpRight size={16} className="ml-2" />
                 </Link>
