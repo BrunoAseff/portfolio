@@ -1,3 +1,4 @@
+// components/ProjectCard.js
 import Image from "next/image";
 import { Hammer, ArrowUpRight, Github, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -5,19 +6,28 @@ import Link from "next/link";
 
 export const ProjectCard = ({ project }) => {
   const getPrimaryLink = () => {
-    if (project.webLink) {
+    if (project.webLink && project.webLink !== "Você já está nele!") {
       return { url: project.webLink, icon: ExternalLink, label: "Ver site" };
     }
+
     if (project.ExternalLink) {
-      return {
-        url: project.ExternalLink,
-        icon: ExternalLink,
-        label: "Ver projeto",
-      };
+      const label = project.CTA || "Ver projeto";
+
+      let url = project.gitHubLink;
+
+      if (project.ExternalLink === "NPM") {
+        url = project.gitHubLink;
+      } else if (project.ExternalLink === "OnlineGDB") {
+        url = project.gitHubLink;
+      }
+
+      return { url, icon: ExternalLink, label };
     }
-    if (project.gitHubLink) {
+
+    if (project.gitHubLink && !project.webLink) {
       return { url: project.gitHubLink, icon: Github, label: "Ver código" };
     }
+
     return null;
   };
 
