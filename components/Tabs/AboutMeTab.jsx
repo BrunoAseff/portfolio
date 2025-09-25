@@ -1,8 +1,11 @@
+"use client";
+
 import DraggableWindow from "@/components/general/DraggableWindow";
 import { getExperienceDuration } from "@/lib/utils";
+import { useTranslations } from 'next-intl';
 
 export default function AboutMeTab({ state, onClose, onMinimize }) {
-
+  const t = useTranslations('aboutMe');
   const experienceText = getExperienceDuration(new Date("2025-02-03"));
 
   return (
@@ -10,18 +13,21 @@ export default function AboutMeTab({ state, onClose, onMinimize }) {
       state={state}
       onClose={onClose}
       onMinimize={onMinimize}
-      title="Sobre Mim"
+      title={t('title')}
       defaultPosition={{ x: -600, y: -200 }}
     >
       <div className="text-base text-justify text-white/90 space-y-4">
         <p>
-          Sou desenvolvedor fullstack há <strong>{experienceText}</strong> e estudante de Sistemas para Internet na Univali.
+          {t.rich('paragraph1', {
+            experienceTime: experienceText,
+            strong: (chunks) => <strong>{chunks}</strong>
+          })}
         </p>
         <p>
-          Tenho bastante experiência com front-end, mas também trabalho com back-end e arquitetura de aplicações.
+          {t('paragraph2')}
         </p>
         <p>
-          Nos últimos tempos, venho focando cada vez mais em Cloud. Entender como aplicações escalam, se comunicam e se mantêm resilientes na infraestrutura é o que mais me atrai hoje.
+          {t('paragraph3')}
         </p>
       </div>
     </DraggableWindow>
