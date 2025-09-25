@@ -142,7 +142,7 @@ export const projectsEn = [
     technologies: [
       "/svgs/nextjs.svg",
       "/svgs/react.svg",
-      "svgs/typescript.svg",
+      "/svgs/typescript.svg",
       "/svgs/git.svg",
       "/svgs/supabase.svg",
       "/svgs/javascript.svg",
