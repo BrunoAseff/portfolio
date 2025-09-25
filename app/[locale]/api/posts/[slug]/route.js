@@ -20,7 +20,6 @@ export async function GET(request, { params }) {
   const fileContents = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContents);
 
-  // Convert markdown content to HTML
   const htmlContent = marked(content);
 
   return new Response(JSON.stringify({ data, content: htmlContent }), {
