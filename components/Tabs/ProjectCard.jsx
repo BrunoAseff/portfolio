@@ -3,15 +3,18 @@ import Image from "next/image";
 import { Hammer, ArrowUpRight, Github, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useTranslations } from 'next-intl';
 
 export const ProjectCard = ({ project }) => {
+  const t = useTranslations('projects');
+
   const getPrimaryLink = () => {
-    if (project.webLink && project.webLink !== "Você já está nele!") {
-      return { url: project.webLink, icon: ExternalLink, label: "Ver site" };
+    if (project.webLink && project.webLink !== "Você já está nele!" && project.webLink !== "You're already on it!") {
+      return { url: project.webLink, icon: ExternalLink, label: t('viewSite') };
     }
 
     if (project.ExternalLink) {
-      const label = project.CTA || "Ver projeto";
+      const label = project.CTA || t('viewDetails');
 
       let url = project.gitHubLink;
 
@@ -25,7 +28,7 @@ export const ProjectCard = ({ project }) => {
     }
 
     if (project.gitHubLink && !project.webLink) {
-      return { url: project.gitHubLink, icon: Github, label: "Ver código" };
+      return { url: project.gitHubLink, icon: Github, label: t('viewCode') };
     }
 
     return null;
@@ -60,7 +63,7 @@ export const ProjectCard = ({ project }) => {
       </div>
 
       <div className="hidden md:flex items-center justify-end text-sm text-white/70">
-        Ver detalhes
+        {t('viewDetails')}
         <ArrowUpRight
           size={16}
           className="ml-1 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
