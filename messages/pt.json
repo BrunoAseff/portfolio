@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "title": "Bruno de Almeida Aseff",
+    "description": "Portfólio de Bruno de Almeida Aseff"
+  },
+  "nav": {
+    "home": "Sobre mim",
+    "projects": "Projetos",
+    "experience": "Experiência",
+    "blog": "Blog",
+    "contact": "Contato"
+  },
+  "aboutMe": {
+    "title": "Sobre Mim",
+    "paragraph1": "Sou desenvolvedor fullstack há {experienceTime} e estudante de Sistemas para Internet na Univali.",
+    "paragraph2": "Tenho bastante experiência com front-end, mas também trabalho com back-end e arquitetura de aplicações.",
+    "paragraph3": "Nos últimos tempos, venho focando cada vez mais em Cloud. Entender como aplicações escalam, se comunicam e se mantêm resilientes na infraestrutura é o que mais me atrai hoje."
+  },
+  "technologies": {
+    "title": "Habilidades"
+  },
+  "projects": {
+    "title": "Projetos",
+    "subtitle": "Uma seleção de projetos que desenvolvi. Clique para ver mais detalhes.",
+    "moreProjects": "Mais Projetos",
+    "moreProjectsDesc": "Outros repositórios e experimentos podem ser encontrados no meu GitHub.",
+    "accessGithub": "Acessar GitHub",
+    "viewOnGithub": "Ver no GitHub",
+    "visitWebsite": "Visitar Site",
+    "viewOnNpm": "Ver no npm",
+    "viewOnOnlineGdb": "Ver no onlineGBD",
+    "features": "Funcionalidades",
+    "technologiesUsed": "Tecnologias utilizadas",
+    "viewDetails": "Ver detalhes",
+    "viewSite": "Ver site",
+    "viewCode": "Ver código"
+  },
+  "blog": {
+    "title": "Bruno Aseff",
+    "subtitle": "Um blog que traz assuntos sobre tecnologia, programação da perspectiva de um desenvolvedor e redator.",
+    "avatarAlt": "Meu avatar",
+    "new": "novo"
+  },
+  "contact": {
+    "title": "Contato",
+    "subtitle": "Entre em contato ou conecte-se comigo pelas redes.",
+    "whatsapp": "Chamar no WhatsApp",
+    "downloadResume": "Baixar Currículo",
+    "copiedToClipboard": "Copiado para a área de transferência!"
+  },
+  "experience": {
+    "title": "Experiência e Certificações",
+    "description": "Minha jornada profissional e conquistas acadêmicas.",
+    "experienceTab": "Experiência",
+    "certificationsTab": "Certificações",
+    "issuedBy": "Emitido por:",
+    "viewCredential": "Ver Credencial"
+  },
+  "common": {
+    "close": "Fechar",
+    "minimize": "Minimizar",
+    "maximize": "Maximizar"
+  }
+}
