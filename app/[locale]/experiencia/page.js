@@ -9,6 +9,8 @@ import {
   Award,
   Link as LinkIcon,
 } from "lucide-react";
+import { useTranslations, useLocale } from 'next-intl';
+import { professionalExperienceEn, certificationsEn } from '../../../info/experience-en';
 
 const professionalExperience = [
   {
@@ -126,7 +128,7 @@ const GlassCard = ({ children, className = "" }) => (
   </div>
 );
 
-const SectionToggle = ({ activeView, setActiveView }) => (
+const SectionToggle = ({ activeView, setActiveView, t }) => (
   <div className="md:bg-white/10 md:backdrop-blur-lg md:border md:border-white/20 md:shadow-lg rounded-2xl p-2 mb-6">
     <div className="flex justify-center items-center gap-2">
       <button
@@ -138,7 +140,7 @@ const SectionToggle = ({ activeView, setActiveView }) => (
         }`}
       >
         <Briefcase size={20} />
-        Experiência
+        {t('experienceTab')}
       </button>
       <button
         onClick={() => setActiveView("certifications")}
@@ -149,7 +151,7 @@ const SectionToggle = ({ activeView, setActiveView }) => (
         }`}
       >
         <GraduationCap size={20} />
-        Certificações
+        {t('certificationsTab')}
       </button>
     </div>
   </div>
@@ -191,7 +193,7 @@ const ExperienceCard = ({ experience }) => (
   </GlassCard>
 );
 
-const CertificationCard = ({ certification }) => (
+const CertificationCard = ({ certification, t }) => (
   <GlassCard className="mb-6">
     <div className="flex flex-col sm:flex-row items-start gap-6">
       <div className="flex-shrink-0 flex justify-center items-center w-16 h-16 bg-white/20 rounded-xl border border-white/30">
@@ -200,7 +202,7 @@ const CertificationCard = ({ certification }) => (
       <div className="flex-grow">
         <h3 className="text-xl font-bold text-white">{certification.name}</h3>
         <p className="text-md font-semibold text-white/80">
-          Emitido por: {certification.issuer}
+          {t('issuedBy')} {certification.issuer}
         </p>
         <p className="text-sm text-white/60 mb-4">{certification.date}</p>
         <div className="flex flex-wrap gap-2 mb-4">
@@ -220,7 +222,7 @@ const CertificationCard = ({ certification }) => (
           className="inline-flex items-center gap-2 text-sky-300 hover:text-sky-200 font-semibold transition-colors duration-300"
         >
           <LinkIcon size={16} />
-          Ver Credencial
+          {t('viewCredential')}
         </a>
       </div>
     </div>
@@ -229,17 +231,22 @@ const CertificationCard = ({ certification }) => (
 
 export default function ExperiencePage() {
   const [activeView, setActiveView] = useState("experience");
+  const t = useTranslations('experience');
+  const locale = useLocale();
+
+  const currentProfessionalExperience = locale === 'en' ? professionalExperienceEn : professionalExperience;
+  const currentCertifications = locale === 'en' ? certificationsEn : certifications;
 
   const content = useMemo(() => {
     if (activeView === "experience") {
-      return professionalExperience.map((exp, index) => (
+      return currentProfessionalExperience.map((exp, index) => (
         <ExperienceCard key={index} experience={exp} />
       ));
     }
-    return certifications.map((cert, index) => (
-      <CertificationCard key={index} certification={cert} />
+    return currentCertifications.map((cert, index) => (
+      <CertificationCard key={index} certification={cert} t={t} />
     ));
-  }, [activeView]);
+  }, [activeView, t, currentProfessionalExperience, currentCertifications]);
 
   return (
     <div className="w-full h-full flex items-center mt-4 md:mt-0 justify-center p-4 md:p-6 text-white font-sans">
@@ -248,6 +255,7 @@ export default function ExperiencePage() {
           <SectionToggle
             activeView={activeView}
             setActiveView={setActiveView}
+            t={t}
           />
         </div>
 

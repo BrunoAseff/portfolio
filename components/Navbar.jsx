@@ -6,22 +6,41 @@ import { usePathname } from "next/navigation";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "./ui/sheet";
 import { Button } from "./ui/button";
 import { Menu, Home, Briefcase, FileText, Rss, Mail } from "lucide-react";
-
-const navItems = [
-  { href: "/", label: "Sobre mim", icon: <Home size={16} /> },
-  { href: "/projetos", label: "Projetos", icon: <FileText size={16} /> },
-  { href: "/experiencia", label: "Experiência", icon: <Briefcase size={16} /> },
-  { href: "/blog", label: "Blog", icon: <Rss size={16} /> },
-  { href: "/contato", label: "Contato", icon: <Mail size={16} /> },
-];
+import { useTranslations, useLocale } from 'next-intl';
+import LanguageToggle from './LanguageToggle';
 
 export default function Navbar() {
   const pathname = usePathname();
+  const t = useTranslations('nav');
+  const locale = useLocale();
+
+  const navItems = [
+    { href: "/", label: t('home'), icon: <Home size={16} /> },
+    { href: "/projetos", label: t('projects'), icon: <FileText size={16} /> },
+    { href: "/experiencia", label: t('experience'), icon: <Briefcase size={16} /> },
+    { href: "/blog", label: t('blog'), icon: <Rss size={16} /> },
+    { href: "/contato", label: t('contact'), icon: <Mail size={16} /> },
+  ];
+
+  const localizedHref = (href) => {
+    return href === '/' ? `/${locale}` : `/${locale}${href}`;
+  };
+
+  const isActive = (href) => {
+    const currentPath = pathname;
+    const targetPath = localizedHref(href);
+
+    if (href === '/') {
+      return currentPath === targetPath;
+    }
+
+    return currentPath.endsWith(href);
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 p-4 flex justify-center">
       <div className="w-full max-w-5xl flex items-center justify-between">
-        <Link href="/" className="z-10">
+        <Link href={localizedHref("/")} className="z-10">
           <Image
             width={160}
             height={60}
@@ -31,24 +50,31 @@ export default function Navbar() {
           />
         </Link>
 
-        <nav className="hidden md:flex bg-black/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl p-2 items-center gap-2">
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href}>
-              <Button
-                variant="ghost"
-                className={`rounded-xl transition-all border border-transparent hover:bg-white/20 text-white/80 hover:text-white duration-300 ${
-                  pathname === item.href
-                    ? "bg-white/20 border-white/10 text-white"
-                    : ""
-                }`}
-              >
-                {item.label}
-              </Button>
-            </Link>
-          ))}
-        </nav>
+        <div className="flex items-center gap-4">
+          <nav className="hidden md:flex bg-black/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl p-2 items-center gap-2">
+            {navItems.map((item) => (
+              <Link key={item.href} href={localizedHref(item.href)}>
+                <Button
+                  variant="ghost"
+                  className={`rounded-xl transition-all border border-transparent hover:bg-white/20 text-white/80 hover:text-white duration-300 ${
+                    isActive(item.href)
+                      ? "bg-white/20 border-white/10 text-white"
+                      : ""
+                  }`}
+                >
+                  {item.label}
+                </Button>
+              </Link>
+            ))}
+          </nav>
 
-        <div className="md:hidden z-10">
+          <div className="hidden md:block">
+            <LanguageToggle />
+          </div>
+        </div>
+
+        <div className="md:hidden z-10 flex items-center gap-2">
+          <LanguageToggle />
           <Sheet>
             <SheetTrigger asChild>
               <Button
@@ -67,9 +93,9 @@ export default function Navbar() {
                 {navItems.map((item) => (
                   <SheetClose asChild key={item.href}>
                     <Link
-                      href={item.href}
+                      href={localizedHref(item.href)}
                       className={`flex items-center gap-4 text-lg w-full p-3 rounded-lg transition-colors duration-300 ${
-                        pathname === item.href
+                        isActive(item.href)
                           ? "bg-white/10"
                           : "hover:bg-white/10"
                       }`}

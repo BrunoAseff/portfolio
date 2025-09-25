@@ -1,3 +1,9 @@
+import { projectsEn } from './projects-en';
+
+export const getProjects = (locale = 'pt') => {
+  return locale === 'en' ? projectsEn : projects;
+};
+
 export const projects = [
   {
     title: "Eye Patch",
@@ -13,7 +19,7 @@ export const projects = [
     ],
 
     gitHubLink: "https://github.com/BrunoAseff/eye-patch",
-    technologies: ["/svgs/typescript.svg", "/svgs/nodejs.svg", "svgs/git.svg"],
+    technologies: ["/svgs/typescript.svg", "/svgs/nodejs.svg", "/svgs/git.svg"],
     images: ["/eyepatch.webp"],
     imagesAlt: ["Diagrama de serviços da AWS"],
   },
@@ -37,14 +43,14 @@ export const projects = [
     webLink: "https://www.novaspaces.io/spaces",
     technologies: [
       "/svgs/nextjs.svg",
-      "svgs/react.svg",
+      "/svgs/react.svg",
       "/svgs/typescript.svg",
-      "svgs/git.svg",
-      "svgs/prisma.svg",
-      "svgs/postgresql.svg",
-      "svgs/Vercel_light.svg",
-      "svgs/zod.svg",
-      "svgs/tailwindcss.svg",
+      "/svgs/git.svg",
+      "/svgs/prisma.svg",
+      "/svgs/postgresql.svg",
+      "/svgs/Vercel_light.svg",
+      "/svgs/zod.svg",
+      "/svgs/tailwindcss.svg",
     ],
     images: [
       "/nova1.webp",
@@ -83,7 +89,7 @@ export const projects = [
       "/svgs/react.svg",
       "/svgs/git.svg",
       "/svgs/nodejs.svg",
-      "svgs/resend.svg",
+      "/svgs/resend.svg",
     ],
     images: ["/theatre-updates.webp"],
     imagesAlt: ["Email de atualização dos filmes"],
@@ -105,14 +111,14 @@ export const projects = [
     webLink: "https://forms-creator.vercel.app",
     technologies: [
       "/svgs/nextjs.svg",
-      "svgs/react.svg",
+      "/svgs/react.svg",
       "/svgs/typescript.svg",
-      "svgs/git.svg",
-      "svgs/prisma.svg",
-      "svgs/postgresql.svg",
-      "svgs/Vercel_light.svg",
-      "svgs/zod.svg",
-      "svgs/tailwindcss.svg",
+      "/svgs/git.svg",
+      "/svgs/prisma.svg",
+      "/svgs/postgresql.svg",
+      "/svgs/Vercel_light.svg",
+      "/svgs/zod.svg",
+      "/svgs/tailwindcss.svg",
     ],
     images: [
       "/forms_1.webp",
@@ -146,16 +152,16 @@ export const projects = [
     ],
     technologies: [
       "/svgs/nextjs.svg",
-      "svgs/react.svg",
+      "/svgs/react.svg",
       "svgs/typescript.svg",
-      "svgs/git.svg",
-      "svgs/supabase.svg",
-      "svgs/javascript.svg",
-      "svgs/postgresql.svg",
-      "svgs/Vercel_light.svg",
-      "svgs/tailwindcss.svg",
-      "svgs/radix.svg",
-      "svgs/resend.svg",
+      "/svgs/git.svg",
+      "/svgs/supabase.svg",
+      "/svgs/javascript.svg",
+      "/svgs/postgresql.svg",
+      "/svgs/Vercel_light.svg",
+      "/svgs/tailwindcss.svg",
+      "/svgs/radix.svg",
+      "/svgs/resend.svg",
     ],
 
     gitHubLink: "https://github.com/BrunoAseff/quantum-guide",
@@ -195,9 +201,9 @@ export const projects = [
     webLink: "https://univali-intranet.vercel.app",
     technologies: [
       "/svgs/nextjs.svg",
-      "svgs/react.svg",
-      "svgs/git.svg",
-      "svgs/tailwindcss.svg",
+      "/svgs/react.svg",
+      "/svgs/git.svg",
+      "/svgs/tailwindcss.svg",
     ],
     images: [
       "/univali_1.webp",
@@ -236,29 +242,6 @@ export const projects = [
     ExternalLink: "NPM",
   },
 
-  {
-    title: "Portifólio",
-    shortDescription: "Meu portfólio pessoal mostrando meus projetos.",
-    longDescription:
-      "Meu portfólio pessoal com design moderno e animações suaves, mostrando meus projetos de forma clara e interativa.",
-    features: [
-      "Animações fluidas com Framer Motion",
-      "Design moderno e interativo",
-      "Exibição dos projetos com destaque",
-    ],
-
-    gitHubLink: "https://github.com/BrunoAseff/portfolio",
-    webLink: "Você já está nele!",
-    technologies: [
-      "/svgs/nextjs.svg",
-      "svgs/react.svg",
-      "svgs/git.svg",
-      "svgs/tailwindcss.svg",
-      "svgs/Framer.svg",
-    ],
-    images: ["/portfolio_1.webp", "/portfolio_2.webp", "/portfolio_4.webp"],
-    imagesAlt: ["Sobre mim", "Contatos", "Projetos"],
-  },
 
   {
     title: "RPG no Terminal",

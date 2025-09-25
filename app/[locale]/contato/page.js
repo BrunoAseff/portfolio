@@ -12,6 +12,7 @@ import {
   Mail,
   MessageSquare,
 } from "lucide-react";
+import { useTranslations } from 'next-intl';
 
 const ContactItem = ({ href, icon, text, onClick, isCopy = false }) => {
   const [isCopied, setIsCopied] = useState(false);
@@ -52,9 +53,11 @@ const ContactItem = ({ href, icon, text, onClick, isCopy = false }) => {
 };
 
 export default function Contato() {
+  const t = useTranslations('contact');
+
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text).then(() => {
-      console.log("Copiado para a área de transferência!");
+      console.log(t('copiedToClipboard'));
     });
   };
 
@@ -90,12 +93,12 @@ export default function Contato() {
      {
       href: "https://wa.me/5547991031009",
       icon: <MessageSquare size={24} />,
-      text: "Chamar no WhatsApp",
+      text: t('whatsapp'),
     },
     {
       href: "/curriculo.pdf",
       icon: <Download size={24} />,
-      text: "Baixar Currículo",
+      text: t('downloadResume'),
     },
   ]
 
@@ -106,9 +109,9 @@ export default function Contato() {
         className="w-full max-w-md bg-black/10 backdrop-blur-lg border border-white/20 shadow-2xl rounded-2xl p-6 sm:p-8"
       >
         <header className="mb-8">
-          <h1 className="text-3xl font-bold text-white text-center">Contato</h1>
+          <h1 className="text-3xl font-bold text-white text-center">{t('title')}</h1>
           <p className="text-white/60 text-center mt-2">
-            Entre em contato ou conecte-se comigo pelas redes.
+            {t('subtitle')}
           </p>
         </header>
 

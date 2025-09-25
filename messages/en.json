@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "title": "Bruno de Almeida Aseff",
+    "description": "Bruno de Almeida Aseff's Portfolio"
+  },
+  "nav": {
+    "home": "About me",
+    "projects": "Projects",
+    "experience": "Experience",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "aboutMe": {
+    "title": "About Me",
+    "paragraph1": "I've been a fullstack developer for {experienceTime} and a student of Internet Systems at Univali.",
+    "paragraph2": "I have extensive experience with front-end, but I also work with back-end and application architecture.",
+    "paragraph3": "Lately, I've been focusing more and more on Cloud. Understanding how applications scale, communicate and remain resilient in infrastructure is what attracts me most today."
+  },
+  "technologies": {
+    "title": "Skills"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A selection of projects I've developed. Click to see more details.",
+    "moreProjects": "More Projects",
+    "moreProjectsDesc": "Other repositories and experiments can be found on my GitHub.",
+    "accessGithub": "Access GitHub",
+    "viewOnGithub": "View on GitHub",
+    "visitWebsite": "Visit Website",
+    "viewOnNpm": "View on npm",
+    "viewOnOnlineGdb": "View on OnlineGDB",
+    "features": "Features",
+    "technologiesUsed": "Technologies used",
+    "viewDetails": "View details",
+    "viewSite": "View site",
+    "viewCode": "View code"
+  },
+  "blog": {
+    "title": "Bruno Aseff",
+    "subtitle": "A blog that brings topics about technology, programming from the perspective of a developer and writer.",
+    "avatarAlt": "My avatar",
+    "new": "new"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Get in touch or connect with me through social networks.",
+    "whatsapp": "Message on WhatsApp",
+    "downloadResume": "Download Resume",
+    "copiedToClipboard": "Copied to clipboard!"
+  },
+  "experience": {
+    "title": "Experience and Certifications",
+    "description": "My professional journey and academic achievements.",
+    "experienceTab": "Experience",
+    "certificationsTab": "Certifications",
+    "issuedBy": "Issued by:",
+    "viewCredential": "View Credential"
+  },
+  "common": {
+    "close": "Close",
+    "minimize": "Minimize",
+    "maximize": "Maximize"
+  }
+}

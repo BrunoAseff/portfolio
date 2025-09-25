@@ -1,6 +1,6 @@
 "use client";
 
-import { projects } from "@/info/projects";
+import { getProjects } from "@/info/projects";
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 import { ProjectCard } from "./ProjectCard";
 import { ProjectModal } from "./ProjectModal";
@@ -8,16 +8,20 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function ProjectsTab() {
+  const t = useTranslations('projects');
+  const locale = useLocale();
+  const projects = getProjects(locale);
+
   return (
     <div className="w-full flex flex-col items-center justify-start p-4 md:p-6 text-white font-sans pt-24 sm:pt-20 md:pt-16 lg:pt-20 pb-4">
       <div className="w-full max-w-7xl bg-black/10 backdrop-blur-lg border border-white/20 shadow-2xl rounded-2xl flex flex-col h-[calc(100vh-12rem)] sm:h-[calc(100vh-8rem)] md:h-[calc(100vh-8rem)] lg:h-[calc(100vh-8rem)] max-h-[900px]">
         <header className="p-6 border-b border-white/10 flex-shrink-0">
-          <h1 className="text-2xl font-bold text-white">Projetos</h1>
+          <h1 className="text-2xl font-bold text-white">{t('title')}</h1>
           <p className="text-white/60">
-            Uma seleção de projetos que desenvolvi. Clique para ver mais
-            detalhes.
+            {t('subtitle')}
           </p>
         </header>
 
@@ -37,10 +41,9 @@ export default function ProjectsTab() {
             ))}
             <div className="h-full group relative flex flex-col justify-between p-6 bg-white/10 border border-white/20 rounded-2xl transition-all duration-300 hover:bg-white/20 hover:border-white/30 hover:-translate-y-1">
               <div>
-                <h3 className="text-xl font-bold text-white">Mais Projetos</h3>
+                <h3 className="text-xl font-bold text-white">{t('moreProjects')}</h3>
                 <p className="text-white/60 mt-2">
-                  Outros repositórios e experimentos podem ser encontrados no
-                  meu GitHub.
+                  {t('moreProjectsDesc')}
                 </p>
               </div>
               <div className="w-full h-40 mt-4 rounded-lg overflow-hidden">
@@ -57,7 +60,7 @@ export default function ProjectsTab() {
                 className="mt-6 w-full bg-white/10 hover:bg-white/20 text-white rounded-lg"
               >
                 <Link href="https://github.com/BrunoAseff" target="_blank">
-                  Acessar GitHub <ArrowUpRight size={16} className="ml-2" />
+                  {t('accessGithub')} <ArrowUpRight size={16} className="ml-2" />
                 </Link>
               </Button>
             </div>

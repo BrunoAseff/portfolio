@@ -5,9 +5,11 @@ import { Separator } from "@/components/ui/separator";
 import { getAllPostsWithData } from "@/lib/posts";
 import Image from "next/image";
 import { BlogCardImage } from "@/components/BlogCardImage";
+import { getTranslations } from 'next-intl/server';
 
-export default async function BlogPage() {
+export default async function BlogPage({ params: { locale } }) {
   const posts = await getAllPostsWithData();
+  const t = await getTranslations({ locale, namespace: 'blog' });
 
   return (
     <div className="flex z-40 max-w-full h-screen md:items-center items-start justify-center overflow-hidden">
@@ -18,13 +20,12 @@ export default async function BlogPage() {
             src="/avatar.png"
             width={60}
             height={60}
-            alt="Meu avatar"
+            alt={t('avatarAlt')}
           />
           <div className="max-w-72 text-center">
-            <h1 className="font-semibold text-black text-4xl">Bruno Aseff</h1>
+            <h1 className="font-semibold text-black text-4xl">{t('title')}</h1>
             <p className="text-gray-600 text-sm m-4">
-              Um blog que traz assuntos sobre tecnologia, programação da
-              perspectiva de um desenvolvedor e redator.
+              {t('subtitle')}
             </p>
           </div>
         </div>
@@ -37,7 +38,7 @@ export default async function BlogPage() {
                 className="max-w-[350px] hover:bg-slate-100 rounded-lg p-6 group"
                 key={post.slug}
               >
-                <Link href={`/blog/${post.slug}`}>
+                <Link href={`/${locale}/blog/${post.slug}`}>
                   <BlogCardImage src={post.coverImage} alt={post.title} />
                   <div className="flex flex-col mt-3 gap-2 w-full">
                     <div className="flex justify-between">
@@ -53,7 +54,7 @@ export default async function BlogPage() {
                           variant="outline"
                           className="max-w-fit border-emerald-500/60 bg-emerald-700/10 text-emerald-500 px-1 text-xs"
                         >
-                          novo
+                          {t('new')}
                         </Badge>
                       )}
                     </div>
