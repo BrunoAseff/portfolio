@@ -6,7 +6,14 @@ import { ThemeToggle } from "@/components/theme-toggle";
 
 export async function generateStaticParams() {
   const posts = await getAllPosts();
-  return posts.map((slug) => ({ slug }));
+  const locales = ['pt', 'en'];
+
+  return locales.flatMap((locale) =>
+    posts.map((slug) => ({
+      locale,
+      slug,
+    }))
+  );
 }
 
 export const dynamic = "force-static";
@@ -20,7 +27,7 @@ export default async function BlogPostPage({ params }) {
       <div className="flex relative flex-col z-40 max-h-screen pb-16 w-full p-8 border-t-[1px] rounded-md">
         <ThemeToggle />
         <Button className="ml-0 mb-2 p-0" variant="link" asChild>
-          <Link className="flex items-center" href="/blog">
+          <Link className="flex items-center" href={`/${params.locale}/blog`}>
             <h2 className="font-semibold">Voltar</h2>
           </Link>
         </Button>
