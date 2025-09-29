@@ -48,7 +48,7 @@ const certifications = [
     issuer: "Frontend Masters",
     date: "Emitido em 28/09/2025",
     credentialUrl: "/algorithms-practice.pdf",
-    skills: ["Algortimos e estrutura de dados", "Recursão", "Big O"],
+    skills: ["Algoritmos e Estruturas de Dados", "Recursão", "Big O"],
   },
   {
     name: "Web Security v2",
