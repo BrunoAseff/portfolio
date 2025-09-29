@@ -30,6 +30,13 @@ export const certificationsEn = [
     ],
   },
   {
+    name: "Practical Problem Solving with Algorithms",
+    issuer: "Frontend Masters",
+    date: "Issued on 28/09/2025",
+    credentialUrl: "/algorithms-practice.pdf",
+    skills: ["DSA and Algorithms", "Recursion", "Big O"],
+  },
+  {
     name: "Web Security v2",
     issuer: "Frontend Masters",
     date: "Issued on 15/08/2025",
