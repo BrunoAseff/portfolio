@@ -44,6 +44,13 @@ const certifications = [
     ],
   },
   {
+    name: "Practical Problem Solving with Algorithms",
+    issuer: "Frontend Masters",
+    date: "Emitido em 28/09/2025",
+    credentialUrl: "/algorithms-practice.pdf",
+    skills: ["Algortimos e estrutura de dados", "Recursão", "Big O"],
+  },
+  {
     name: "Web Security v2",
     issuer: "Frontend Masters",
     date: "Emitido em 15/08/2025",
