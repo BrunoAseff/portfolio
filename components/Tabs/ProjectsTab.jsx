@@ -51,7 +51,7 @@ export default function ProjectsTab() {
                       <ProjectCard project={project} isMobile={isMobile} />
                     </div>
                   </DialogTrigger>
-                  <DialogContent className="bg-black/10 backdrop-blur-lg border border-white/20 shadow-lg text-white max-w-6xl h-[90vh] flex flex-col p-0">
+                  <DialogContent className="bg-black/20 backdrop-blur-[100px] border-none text-white max-w-6xl h-[90vh] flex flex-col p-0">
                     <ProjectModal project={project} />
                   </DialogContent>
                 </Dialog>
