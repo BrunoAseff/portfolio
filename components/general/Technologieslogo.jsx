@@ -3,7 +3,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "../ui/tooltip";
+} from '../ui/tooltip';
 
 export default function TechnologiesLogo({ iconColor, title, icon }) {
   return (
@@ -15,7 +15,7 @@ export default function TechnologiesLogo({ iconColor, title, icon }) {
           >
             {icon}
           </TooltipTrigger>
-          <TooltipContent className="bg-white/20 font-medium text-white shadow-xl backdrop-blur-[30px] border border-white/40">
+          <TooltipContent className="bg-black/10 backdrop-blur-lg border border-white/20 shadow-lg font-medium text-white">
             <p>{title}</p>
           </TooltipContent>
         </Tooltip>

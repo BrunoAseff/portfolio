@@ -1,44 +1,47 @@
-import { technologies } from "@/info/technologies";
-import TechnologiesLogo from "../general/Technologieslogo";
-import { Card } from "../ui/card";
-import { getExperienceDuration } from "@/lib/utils";
+'use client';
+
+import { technologies } from '@/info/technologies';
+import TechnologiesLogo from '../general/Technologieslogo';
+import { Card } from '../ui/card';
+import { getExperienceDuration } from '@/lib/utils';
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function TabsMobile() {
+  const t = useTranslations('aboutMe');
+  const tTech = useTranslations('technologies');
+  const locale = useLocale();
+  const experienceText = getExperienceDuration(new Date('2025-02-03'), locale);
 
-  const experienceText = getExperienceDuration(new Date("2025-02-03"));
-  
   return (
     <div className="h-screen mt-24 items-start justify-start ml-auto  mr-auto md:hidden max-w-[90%] flex flex-col gap-6">
-      <Card className="flex-col p-4 bg-black/10 shadow-xl backdrop-blur-[20px] border border-white/40 rounded-xl">
+      <Card className="flex-col p-4 bg-black/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-xl">
         <div className="flex gap-1 mb-4 text-2xl pl-0 w-fit text-white/80 drop-shadow-2xl ">
-        <p>Sobre mim</p>
-      </div>
-      <div className="items-center justify-center text-sm text-justify w-full text-white/80 drop-shadow-3xl">
-    <p>
-      Sou desenvolvedor fullstack há <strong>{experienceText}</strong> e estudante de Sistemas para Internet na Univali.
-    </p>
-    <br/>
-      <p>
-      Tenho bastante experiência com front-end, mas também trabalho com back-end e arquitetura de aplicações.
-      </p>
-          <br/>
+          <p>{t('title')}</p>
+        </div>
+        <div className="items-center justify-center text-sm text-justify w-full text-white/80 drop-shadow-3xl">
+          <p>
+            {t.rich('paragraph1', {
+              experienceTime: experienceText,
+              strong: (chunks) => <strong>{chunks}</strong>,
+            })}
+          </p>
+          <br />
+          <p>{t('paragraph2')}</p>
+          <br />
 
-    <p>
-      Nos últimos tempos, venho focando cada vez mais em Cloud. Entender como aplicações escalam, se comunicam e se mantêm resilientes na infraestrutura é o que mais me atrai hoje.
-        </p>
-  <br />
-
-      </div>
+          <p>{t('paragraph3')}</p>
+          <br />
+        </div>
       </Card>
 
-      <Card className="flex-col p-4 bg-black/10 shadow-xl backdrop-blur-[20px] border border-white/40 rounded-xl">
+      <Card className="flex-col p-4 bg-black/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-xl">
         <div className="flex gap-1 text-lg rounded-lg pl-0 w-fit">
           <p className="flex gap-1 mb-1 text-2xl pl-0 p-2 w-fit text-white/80 drop-shadow-2xl">
-            Habilidades
+            {tTech('title')}
           </p>
         </div>
         <div className="items-center justify-center w-full">
-      <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-3">
             {technologies.map((tech, index) => (
               <TechnologiesLogo
                 key={index}

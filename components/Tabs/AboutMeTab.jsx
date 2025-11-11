@@ -1,12 +1,13 @@
-"use client";
+'use client';
 
-import DraggableWindow from "@/components/general/DraggableWindow";
-import { getExperienceDuration } from "@/lib/utils";
-import { useTranslations } from 'next-intl';
+import DraggableWindow from '@/components/general/DraggableWindow';
+import { getExperienceDuration } from '@/lib/utils';
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function AboutMeTab({ state, onClose, onMinimize }) {
   const t = useTranslations('aboutMe');
-  const experienceText = getExperienceDuration(new Date("2025-02-03"));
+  const locale = useLocale();
+  const experienceText = getExperienceDuration(new Date('2025-02-03'), locale);
 
   return (
     <DraggableWindow
@@ -20,15 +21,11 @@ export default function AboutMeTab({ state, onClose, onMinimize }) {
         <p>
           {t.rich('paragraph1', {
             experienceTime: experienceText,
-            strong: (chunks) => <strong>{chunks}</strong>
+            strong: (chunks) => <strong>{chunks}</strong>,
           })}
         </p>
-        <p>
-          {t('paragraph2')}
-        </p>
-        <p>
-          {t('paragraph3')}
-        </p>
+        <p>{t('paragraph2')}</p>
+        <p>{t('paragraph3')}</p>
       </div>
     </DraggableWindow>
   );

@@ -1,27 +1,29 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { toast } from "sonner";
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { toast } from 'sonner';
 import {
   Copy,
   Check,
   CheckCircle,
   ArrowUpRight,
   Link as LinkIcon,
-} from "lucide-react";
-import RpgCode from "../CodeHightlighter";
-import RandomTypescriptCode from "../randomTypescript";
-import ProjectImageGallery from "../ProjectImageGallery";
-import { Button } from "@/components/ui/button";
+} from 'lucide-react';
+import RpgCode from '../CodeHightlighter';
+import RandomTypescriptCode from '../randomTypescript';
+import ProjectImageGallery from '../ProjectImageGallery';
+import { Button } from '@/components/ui/button';
+import { useTranslations } from 'next-intl';
 
 const CopyButton = ({ textToCopy }) => {
   const [isCopied, setIsCopied] = useState(false);
+  const t = useTranslations('common');
 
   const handleCopy = () => {
     navigator.clipboard.writeText(textToCopy).then(() => {
-      toast.success("Comando copiado!");
+      toast.success(t('commandCopied'));
       setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2000);
     });
@@ -31,22 +33,23 @@ const CopyButton = ({ textToCopy }) => {
     <Button
       onClick={handleCopy}
       variant="ghost"
-      className="mt-4 flex-shrink-0 items-center gap-4 text-white/80 bg-white/10 hover:bg-white/20 border border-white/20"
+      className="mt-4 w-full flex items-center justify-center gap-4 text-white/80 bg-white/10 hover:bg-white/20 hover:text-white border border-white/20"
     >
-      <code className="text-sm font-mono">{textToCopy}</code>
-      {isCopied ? (
-        <Check size={16} className="text-green-400" />
-      ) : (
-        <Copy size={16} />
-      )}
+      <code className="text-xs font-mono break-all text-center flex-1">
+        {textToCopy}
+      </code>
+      {isCopied ? <Check size={16} /> : <Copy size={16} />}
     </Button>
   );
 };
 
 export const ProjectModal = ({ project }) => {
+  const t = useTranslations('projects');
+
   const renderCodeBlock = () => {
-    if (project.title === "RPG no Terminal") return <RpgCode />;
-    if (project.title === "random-password-typescript")
+    if (project.title === 'RPG no Terminal' || project.title === 'Terminal RPG')
+      return <RpgCode />;
+    if (project.title === 'random-password-typescript')
       return <RandomTypescriptCode />;
     return null;
   };
@@ -59,13 +62,13 @@ export const ProjectModal = ({ project }) => {
           <p className="text-white/60 mt-2">{project.longDescription}</p>
         </header>
 
-        {project.title === "random-password-typescript" && (
+        {project.title === 'random-password-typescript' && (
           <CopyButton textToCopy="npm install random-password-typescript" />
         )}
 
         {project.features && (
           <div className="my-2">
-            <h4 className="font-semibold text-white mb-3">Features</h4>
+            <h4 className="font-semibold text-white mb-3">{t('features')}</h4>
             <ul className="space-y-3">
               {project.features.map((feature, i) => (
                 <li key={i} className="flex items-start gap-3">
@@ -82,7 +85,7 @@ export const ProjectModal = ({ project }) => {
 
         <div className="my-6">
           <h4 className="font-semibold text-white mb-3">
-            Tecnologias Utilizadas
+            {t('technologiesUsed')}
           </h4>
           <div className="flex flex-wrap gap-3">
             {project.technologies.map((tech, i) => (
@@ -93,7 +96,7 @@ export const ProjectModal = ({ project }) => {
               >
                 <Image
                   src={tech.src || tech}
-                  alt={tech.alt || ""}
+                  alt={tech.alt || ''}
                   width={32}
                   height={32}
                 />
@@ -109,7 +112,7 @@ export const ProjectModal = ({ project }) => {
               className="w-full bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/30"
             >
               <Link href={project.webLink} target="_blank">
-                Ver na Web <LinkIcon size={16} className="ml-2" />
+                {t('visitWebsite')} <LinkIcon size={16} className="ml-2" />
               </Link>
             </Button>
           )}
@@ -118,14 +121,14 @@ export const ProjectModal = ({ project }) => {
             className="w-full bg-white/10 hover:bg-white/20 text-white"
           >
             <Link href={project.gitHubLink} target="_blank">
-              Ver no GitHub <ArrowUpRight size={16} className="ml-2" />
+              {t('viewOnGithub')} <ArrowUpRight size={16} className="ml-2" />
             </Link>
           </Button>
         </footer>
       </div>
 
       <div className="w-full md:w-1/2 lg:w-2/3 bg-black/10 rounded-r-xl flex items-center justify-center p-6">
-        {" "}
+        {' '}
         {renderCodeBlock() || (
           <ProjectImageGallery
             images={project.images}
