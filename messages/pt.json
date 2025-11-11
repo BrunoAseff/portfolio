@@ -59,6 +59,11 @@
   "common": {
     "close": "Fechar",
     "minimize": "Minimizar",
-    "maximize": "Maximizar"
+    "maximize": "Maximizar",
+    "commandCopied": "Comando copiado!"
+  },
+  "bottomNav": {
+    "aboutMe": "Sobre mim",
+    "skills": "Habilidades"
   }
 }
