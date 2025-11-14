@@ -71,6 +71,61 @@ export const projects = [
   },
 
   {
+    title: "Simulador de Ecossistema",
+    shortDescription:
+      "Um jogo de simulação onde você gerencia um ecossistema com grama, coelhos e raposas.",
+    longDescription:
+      "Um jogo de simulação onde você gerencia um ecossistema com grama, coelhos e raposas.",
+    features: [
+      "Simulação de ecossistema em tempo real",
+      "Gestão de população de coelhos e raposas",
+      "Sistema de crescimento de grama",
+      "Visualização interativa do ecossistema",
+    ],
+    gitHubLink: "https://github.com/Bolhas-na-mao/ecosystem-simulator",
+    webLink: "https://ecosystem.bolhas.org",
+    technologies: ["/svgs/cpp.svg"],
+    images: ["/ecosystem.png"],
+    imagesAlt: ["Simulador de Ecossistema"],
+  },
+
+  {
+    title: "Jogo da vida",
+    shortDescription: "Conway's Game of Life no browser feito com PixiJS.",
+    longDescription: "Conway's Game of Life no browser feito com PixiJS.",
+    features: [
+      "Implementação completa do Game of Life",
+      "Interface interativa no browser",
+      "Renderização otimizada com PixiJS",
+      "Controles de play/pause e reset",
+    ],
+    gitHubLink: "https://github.com/Bolhas-na-mao/game-of-life",
+    webLink: "https://gameoflife.bolhas.org",
+    technologies: ["/svgs/typescript.svg"],
+    images: ["/gameoflife.png"],
+    imagesAlt: ["Jogo da vida"],
+  },
+
+  {
+    title: "bolhas.org",
+    shortDescription:
+      "Bolhas na Mão é um laboratório de projetos educacionais interativos sobre algoritmos, matemática e computação.",
+    longDescription:
+      "Bolhas na Mão é um laboratório de projetos educacionais interativos sobre algoritmos, matemática e computação.",
+    features: [
+      "Projetos educacionais interativos",
+      "Conteúdo sobre algoritmos e matemática",
+      "Interface educativa e acessível",
+      "Recursos de aprendizado interativo",
+    ],
+    gitHubLink: "https://github.com/Bolhas-na-mao/bolhas.org",
+    webLink: "https://bolhas.org",
+    technologies: ["/svgs/typescript.svg"],
+    images: ["/bolhas.png"],
+    imagesAlt: ["Bolhas na Mão"],
+  },
+
+  {
     title: "Theatre Updates",
     shortDescription:
       "Sistema automatizado de notificações sobre atualizações nos cinemas locais.",
