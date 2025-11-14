@@ -1,29 +1,10 @@
-import { projectsEn } from './projects-en';
+import { projectsEn } from "./projects-en";
 
-export const getProjects = (locale = 'pt') => {
-  return locale === 'en' ? projectsEn : projects;
+export const getProjects = (locale = "pt") => {
+  return locale === "en" ? projectsEn : projects;
 };
 
 export const projects = [
-  {
-    title: "Eye Patch",
-    shortDescription:
-      "Monitoramento pessoal de uptime e segurança para aplicações web.",
-    longDescription:
-      "Eye Patch é uma ferramenta pessoal para monitorar a saúde de aplicações web. A cada 15 minutos, verifica se os serviços estão online e dispara alertas por e-mail se houver falhas. Todo o fluxo roda em cima de serviços serverless da AWS e é definido via infraestrutura como código com CDK.",
-    features: [
-      "Verificação periódica de serviços com AWS Lambda",
-      "Agendamento com EventBridge",
-      "Envio de alertas por e-mail com SNS",
-      "Configuração e deploy via AWS CDK",
-    ],
-
-    gitHubLink: "https://github.com/BrunoAseff/eye-patch",
-    technologies: ["/svgs/typescript.svg", "/svgs/nodejs.svg", "/svgs/git.svg"],
-    images: ["/eyepatch.webp"],
-    imagesAlt: ["Diagrama de serviços da AWS"],
-  },
-
   {
     title: "Nova",
     shortDescription: "Plataforma para ajudar no foco e relaxamento.",
@@ -69,6 +50,81 @@ export const projects = [
       "Lembretes",
     ],
   },
+
+  {
+    title: "Eye Patch",
+    shortDescription:
+      "Monitoramento pessoal de uptime e segurança para aplicações web.",
+    longDescription:
+      "Eye Patch é uma ferramenta pessoal para monitorar a saúde de aplicações web. A cada 15 minutos, verifica se os serviços estão online e dispara alertas por e-mail se houver falhas. Todo o fluxo roda em cima de serviços serverless da AWS e é definido via infraestrutura como código com CDK.",
+    features: [
+      "Verificação periódica de serviços com AWS Lambda",
+      "Agendamento com EventBridge",
+      "Envio de alertas por e-mail com SNS",
+      "Configuração e deploy via AWS CDK",
+    ],
+
+    gitHubLink: "https://github.com/BrunoAseff/eye-patch",
+    technologies: ["/svgs/typescript.svg", "/svgs/nodejs.svg", "/svgs/git.svg"],
+    images: ["/eyepatch.webp"],
+    imagesAlt: ["Diagrama de serviços da AWS"],
+  },
+
+  {
+    title: "Simulador de Ecossistema",
+    shortDescription:
+      "Um jogo de simulação onde você gerencia um ecossistema com grama, coelhos e raposas.",
+    longDescription:
+      "Um jogo de simulação onde você gerencia um ecossistema com grama, coelhos e raposas.",
+    features: [
+      "Simulação de ecossistema em tempo real",
+      "Gestão de população de coelhos e raposas",
+      "Sistema de crescimento de grama",
+      "Visualização interativa do ecossistema",
+    ],
+    gitHubLink: "https://github.com/Bolhas-na-mao/ecosystem-simulator",
+    webLink: "https://ecosystem.bolhas.org",
+    technologies: ["/svgs/cpp.svg"],
+    images: ["/ecosystem.png"],
+    imagesAlt: ["Simulador de Ecossistema"],
+  },
+
+  {
+    title: "Jogo da vida",
+    shortDescription: "Conway's Game of Life no browser feito com PixiJS.",
+    longDescription: "Conway's Game of Life no browser feito com PixiJS.",
+    features: [
+      "Implementação completa do Game of Life",
+      "Interface interativa no browser",
+      "Renderização otimizada com PixiJS",
+      "Controles de play/pause e reset",
+    ],
+    gitHubLink: "https://github.com/Bolhas-na-mao/game-of-life",
+    webLink: "https://gameoflife.bolhas.org",
+    technologies: ["/svgs/typescript.svg"],
+    images: ["/gameoflife.png"],
+    imagesAlt: ["Jogo da vida"],
+  },
+
+  {
+    title: "bolhas.org",
+    shortDescription:
+      "Bolhas na Mão é um laboratório de projetos educacionais interativos sobre algoritmos, matemática e computação.",
+    longDescription:
+      "Bolhas na Mão é um laboratório de projetos educacionais interativos sobre algoritmos, matemática e computação.",
+    features: [
+      "Projetos educacionais interativos",
+      "Conteúdo sobre algoritmos e matemática",
+      "Interface educativa e acessível",
+      "Recursos de aprendizado interativo",
+    ],
+    gitHubLink: "https://github.com/Bolhas-na-mao/bolhas.org",
+    webLink: "https://bolhas.org",
+    technologies: ["/svgs/typescript.svg"],
+    images: ["/bolhas.png"],
+    imagesAlt: ["Bolhas na Mão"],
+  },
+
   {
     title: "Theatre Updates",
     shortDescription:
@@ -94,154 +150,6 @@ export const projects = [
     images: ["/theatre-updates.webp"],
     imagesAlt: ["Email de atualização dos filmes"],
   },
-  {
-    title: "Forms Creator",
-    shortDescription: "Uma ferramenta de criação de formulários intuitiva.",
-    longDescription:
-      "Ferramenta simples e eficiente para criar, gerenciar e compartilhar formulários de forma rápida e prática, sem complicação.",
-    features: [
-      "Criação e personalização de formulários com drag-and-drop",
-      "Gerenciamento de múltiplos formulários",
-      "Compartilhamento de links para respostas",
-      "Visualização e organização das respostas",
-      "Modo claro e escuro",
-    ],
-
-    gitHubLink: "https://github.com/BrunoAseff/menuscore",
-    webLink: "https://forms-creator.vercel.app",
-    technologies: [
-      "/svgs/nextjs.svg",
-      "/svgs/react.svg",
-      "/svgs/typescript.svg",
-      "/svgs/git.svg",
-      "/svgs/prisma.svg",
-      "/svgs/postgresql.svg",
-      "/svgs/Vercel_light.svg",
-      "/svgs/zod.svg",
-      "/svgs/tailwindcss.svg",
-    ],
-    images: [
-      "/forms_1.webp",
-      "/forms_2.webp",
-      "/forms_3.webp",
-      "/forms_4.webp",
-      "/forms_5.webp",
-      "/forms_6.webp",
-    ],
-    imagesAlt: [
-      "Dashboard",
-      "Editor do formulário",
-      "Tela de respostas e dados",
-      "Tela de formulário criado",
-      "Configurações da conta",
-      "Tema branco",
-    ],
-  },
-
-  {
-    title: "Guia Quântico",
-    shortDescription:
-      "Um curso para explicar física quântica de uma maneira prática e acessível.",
-    longDescription:
-      "Um site que oferece um curso de física quântica com explicações claras e acessíveis para quem quer entender os conceitos de maneira prática.",
-    features: [
-      "Animações interativas com anime.js",
-      "Autenticação de usuários",
-      "Envio de emails com confirmação de conta e recuperação de senha",
-      "Progresso de curso controlado",
-    ],
-    technologies: [
-      "/svgs/nextjs.svg",
-      "/svgs/react.svg",
-      "svgs/typescript.svg",
-      "/svgs/git.svg",
-      "/svgs/supabase.svg",
-      "/svgs/javascript.svg",
-      "/svgs/postgresql.svg",
-      "/svgs/Vercel_light.svg",
-      "/svgs/tailwindcss.svg",
-      "/svgs/radix.svg",
-      "/svgs/resend.svg",
-    ],
-
-    gitHubLink: "https://github.com/BrunoAseff/quantum-guide",
-    webLink: "https://guiaquantico.com.br",
-
-    images: [
-      "/quantum1.webp",
-      "/quantum2.webp",
-      "/quantum3.webp",
-      "/quantum4.webp",
-      "/quantum5.webp",
-      "/quantum6.webp",
-    ],
-    imagesAlt: [
-      "Tela inicial",
-      "Tela de cadastro",
-      "Trilhas de aprendizado",
-      "Aula sobre Neutrôns",
-      "Atualização de progresso",
-      "Finalização do curso",
-    ],
-  },
-
-  {
-    title: "Univali Intranet",
-    shortDescription:
-      "Reimaginação da interface da intranet da Universidade do Vale do Itajaí (Univali).",
-    longDescription:
-      "Um projeto que recria a interface da intranet da Univali, focado apenas no frontend e na experiência visual.",
-    features: [
-      "Recriação da interface da intranet",
-      "Design simples e funcional",
-      "Frontend responsivo",
-    ],
-
-    gitHubLink: "https://github.com/BrunoAseff/univali-intranet",
-    webLink: "https://univali-intranet.vercel.app",
-    technologies: [
-      "/svgs/nextjs.svg",
-      "/svgs/react.svg",
-      "/svgs/git.svg",
-      "/svgs/tailwindcss.svg",
-    ],
-    images: [
-      "/univali_1.webp",
-      "/univali_2.webp",
-      "/univali_3.webp",
-      "/univali_4.webp",
-      "/univali_5.webp",
-      "/univali_6.webp",
-    ],
-    imagesAlt: [
-      "Tela de login",
-      "Início",
-      "Portal do aluno",
-      "Dados do aluno",
-      "Configurações da conta",
-      "Serviços intranet",
-    ],
-  },
-
-  {
-    title: "random-password-typescript",
-    shortDescription:
-      "Uma biblioteca no npm que gera senhas de forma personalizável, segura e de fortemente tipada. ",
-    longDescription:
-      "Uma biblioteca no npm que gera senhas de forma personalizável, segura e de fortemente tipada. ",
-    features: [
-      "Tipagem forte com TypeScript",
-      "Senhas seguras com CSPRNG",
-      "Personalização de senhas",
-    ],
-    CTA: "Ver no npm",
-    gitHubLink: "https://www.npmjs.com/package/random-password-typescript",
-    technologies: ["/svgs/git.svg", "/svgs/typescript.svg", "/svgs/nodejs.svg"],
-    images: ["/random.png"],
-    imagesAlt: ["Random password"],
-    ExternalLink: "NPM",
-  },
-
 
   {
     title: "RPG no Terminal",
@@ -249,7 +157,7 @@ export const projects = [
       "Um jogo de RPG desenvolvido em C++ para rodar no terminal, criado como parte do curso de graduação.",
     longDescription:
       "Um jogo de RPG desenvolvido em C++ para rodar no terminal, criado como parte do curso de graduação.",
-    CTA: "Ver no onlineGBD",
+    CTA: "Ver no onlineGDB",
     features: [
       "RPG baseado em texto no terminal",
       "Desenvolvido em C++",

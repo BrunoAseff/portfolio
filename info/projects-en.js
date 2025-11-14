@@ -1,22 +1,5 @@
 export const projectsEn = [
   {
-    title: "Eye Patch",
-    shortDescription:
-      "Personal uptime and security monitoring for web applications.",
-    longDescription:
-      "Eye Patch is a personal tool for monitoring web application health. Every 15 minutes, it checks if services are online and triggers email alerts if there are failures. The entire flow runs on AWS serverless services and is defined via infrastructure as code with CDK.",
-    features: [
-      "Periodic service verification with AWS Lambda",
-      "Scheduling with EventBridge",
-      "Email alert sending with SNS",
-      "Configuration and deployment via AWS CDK",
-    ],
-    gitHubLink: "https://github.com/BrunoAseff/eye-patch",
-    technologies: ["/svgs/typescript.svg", "/svgs/nodejs.svg", "svgs/git.svg"],
-    images: ["/eyepatch.webp"],
-    imagesAlt: ["AWS services diagram"],
-  },
-  {
     title: "Nova",
     shortDescription: "Platform to help with focus and relaxation.",
     longDescription: "Platform to help with focus and relaxation.",
@@ -61,6 +44,76 @@ export const projectsEn = [
     ],
   },
   {
+    title: "Eye Patch",
+    shortDescription:
+      "Personal uptime and security monitoring for web applications.",
+    longDescription:
+      "Eye Patch is a personal tool for monitoring web application health. Every 15 minutes, it checks if services are online and triggers email alerts if there are failures. The entire flow runs on AWS serverless services and is defined via infrastructure as code with CDK.",
+    features: [
+      "Periodic service verification with AWS Lambda",
+      "Scheduling with EventBridge",
+      "Email alert sending with SNS",
+      "Configuration and deployment via AWS CDK",
+    ],
+    gitHubLink: "https://github.com/BrunoAseff/eye-patch",
+    technologies: ["/svgs/typescript.svg", "/svgs/nodejs.svg", "/svgs/git.svg"],
+    images: ["/eyepatch.webp"],
+    imagesAlt: ["AWS services diagram"],
+  },
+  {
+    title: "Ecosystem Simulator",
+    shortDescription:
+      "A simulation game where you manage an ecosystem with grass, rabbits and foxes.",
+    longDescription:
+      "A simulation game where you manage an ecosystem with grass, rabbits and foxes.",
+    features: [
+      "Real-time ecosystem simulation",
+      "Rabbit and fox population management",
+      "Grass growth system",
+      "Interactive ecosystem visualization",
+    ],
+    gitHubLink: "https://github.com/Bolhas-na-mao/ecosystem-simulator",
+    webLink: "https://ecosystem.bolhas.org",
+    technologies: ["/svgs/cpp.svg"],
+    images: ["/ecosystem.png"],
+    imagesAlt: ["Ecosystem Simulator"],
+  },
+  {
+    title: "Game of Life",
+    shortDescription: "Conway's Game of Life in the browser made with PixiJS.",
+    longDescription: "Conway's Game of Life in the browser made with PixiJS.",
+    features: [
+      "Complete Game of Life implementation",
+      "Interactive browser interface",
+      "Optimized rendering with PixiJS",
+      "Play/pause and reset controls",
+    ],
+    gitHubLink: "https://github.com/Bolhas-na-mao/game-of-life",
+    webLink: "https://gameoflife.bolhas.org",
+    technologies: ["/svgs/typescript.svg"],
+    images: ["/gameoflife.png"],
+    imagesAlt: ["Game of Life"],
+  },
+  {
+    title: "bolhas.org",
+    shortDescription:
+      "Bolhas na Mão is a laboratory of interactive educational projects about algorithms, mathematics and computing.",
+    longDescription:
+      "Bolhas na Mão is a laboratory of interactive educational projects about algorithms, mathematics and computing.",
+    features: [
+      "Interactive educational projects",
+      "Content about algorithms and mathematics",
+      "Educational and accessible interface",
+      "Interactive learning resources",
+    ],
+    gitHubLink: "https://github.com/Bolhas-na-mao/bolhas.org",
+    webLink: "https://bolhas.org",
+    technologies: ["/svgs/typescript.svg"],
+    images: ["/bolhas.png"],
+    imagesAlt: ["Bolhas na Mão"],
+  },
+
+  {
     title: "Theatre Updates",
     shortDescription:
       "Automated notification system about updates in local cinemas.",
@@ -85,146 +138,7 @@ export const projectsEn = [
     images: ["/theatre-updates.webp"],
     imagesAlt: ["Movie update email"],
   },
-  {
-    title: "Forms Creator",
-    shortDescription: "An intuitive form creation tool.",
-    longDescription:
-      "Simple and efficient tool to create, manage and share forms quickly and practically, without complications.",
-    features: [
-      "Form creation and customization with drag-and-drop",
-      "Multiple form management",
-      "Link sharing for responses",
-      "Response viewing and organization",
-      "Light and dark mode",
-    ],
-    gitHubLink: "https://github.com/BrunoAseff/menuscore",
-    webLink: "https://forms-creator.vercel.app",
-    technologies: [
-      "/svgs/nextjs.svg",
-      "/svgs/react.svg",
-      "/svgs/typescript.svg",
-      "/svgs/git.svg",
-      "/svgs/prisma.svg",
-      "/svgs/postgresql.svg",
-      "/svgs/Vercel_light.svg",
-      "/svgs/zod.svg",
-      "/svgs/tailwindcss.svg",
-    ],
-    images: [
-      "/forms_1.webp",
-      "/forms_2.webp",
-      "/forms_3.webp",
-      "/forms_4.webp",
-      "/forms_5.webp",
-      "/forms_6.webp",
-    ],
-    imagesAlt: [
-      "Dashboard",
-      "Form editor",
-      "Responses and data screen",
-      "Created form screen",
-      "Account settings",
-      "White theme",
-    ],
-  },
-  {
-    title: "Quantum Guide",
-    shortDescription:
-      "A course to explain quantum physics in a practical and accessible way.",
-    longDescription:
-      "A website that offers a quantum physics course with clear and accessible explanations for those who want to understand the concepts in a practical way.",
-    features: [
-      "Interactive animations with anime.js",
-      "User authentication",
-      "Email sending with account confirmation and password recovery",
-      "Controlled course progress",
-    ],
-    technologies: [
-      "/svgs/nextjs.svg",
-      "/svgs/react.svg",
-      "/svgs/typescript.svg",
-      "/svgs/git.svg",
-      "/svgs/supabase.svg",
-      "/svgs/javascript.svg",
-      "/svgs/postgresql.svg",
-      "/svgs/Vercel_light.svg",
-      "/svgs/tailwindcss.svg",
-      "/svgs/radix.svg",
-      "/svgs/resend.svg",
-    ],
-    gitHubLink: "https://github.com/BrunoAseff/quantum-guide",
-    webLink: "https://guiaquantico.com.br",
-    images: [
-      "/quantum1.webp",
-      "/quantum2.webp",
-      "/quantum3.webp",
-      "/quantum4.webp",
-      "/quantum5.webp",
-      "/quantum6.webp",
-    ],
-    imagesAlt: [
-      "Home screen",
-      "Registration screen",
-      "Learning paths",
-      "Neutrons lesson",
-      "Progress update",
-      "Course completion",
-    ],
-  },
-  {
-    title: "Univali Intranet",
-    shortDescription:
-      "Reimagining the interface of the University of Vale do Itajaí (Univali) intranet.",
-    longDescription:
-      "A project that recreates the Univali intranet interface, focused only on frontend and visual experience.",
-    features: [
-      "Intranet interface recreation",
-      "Simple and functional design",
-      "Responsive frontend",
-    ],
-    gitHubLink: "https://github.com/BrunoAseff/univali-intranet",
-    webLink: "https://univali-intranet.vercel.app",
-    technologies: [
-      "/svgs/nextjs.svg",
-      "/svgs/react.svg",
-      "/svgs/git.svg",
-      "/svgs/tailwindcss.svg",
-    ],
-    images: [
-      "/univali_1.webp",
-      "/univali_2.webp",
-      "/univali_3.webp",
-      "/univali_4.webp",
-      "/univali_5.webp",
-      "/univali_6.webp",
-    ],
-    imagesAlt: [
-      "Login screen",
-      "Home",
-      "Student portal",
-      "Student data",
-      "Account settings",
-      "Intranet services",
-    ],
-  },
-  {
-    title: "random-password-typescript",
-    shortDescription:
-      "An npm library that generates passwords in a customizable, secure and strongly typed way.",
-    longDescription:
-      "An npm library that generates passwords in a customizable, secure and strongly typed way.",
-    features: [
-      "Strong typing with TypeScript",
-      "Secure passwords with CSPRNG",
-      "Password customization",
-    ],
-    CTA: "View on npm",
-    gitHubLink: "https://www.npmjs.com/package/random-password-typescript",
-    technologies: ["/svgs/git.svg", "/svgs/typescript.svg", "/svgs/nodejs.svg"],
-    images: ["/random.png"],
-    imagesAlt: ["Random password"],
-    ExternalLink: "NPM",
-  },
+
   {
     title: "Terminal RPG",
     shortDescription:
