@@ -56,7 +56,7 @@ export const projectsEn = [
       "Configuration and deployment via AWS CDK",
     ],
     gitHubLink: "https://github.com/BrunoAseff/eye-patch",
-    technologies: ["/svgs/typescript.svg", "/svgs/nodejs.svg", "svgs/git.svg"],
+    technologies: ["/svgs/typescript.svg", "/svgs/nodejs.svg", "/svgs/git.svg"],
     images: ["/eyepatch.webp"],
     imagesAlt: ["AWS services diagram"],
   },
