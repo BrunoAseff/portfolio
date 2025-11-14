@@ -157,7 +157,7 @@ export const projects = [
       "Um jogo de RPG desenvolvido em C++ para rodar no terminal, criado como parte do curso de graduação.",
     longDescription:
       "Um jogo de RPG desenvolvido em C++ para rodar no terminal, criado como parte do curso de graduação.",
-    CTA: "Ver no onlineGBD",
+    CTA: "Ver no onlineGDB",
     features: [
       "RPG baseado em texto no terminal",
       "Desenvolvido em C++",
