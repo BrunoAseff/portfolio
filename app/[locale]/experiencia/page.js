@@ -9,23 +9,42 @@ import {
   Award,
   Link as LinkIcon,
 } from "lucide-react";
-import { useTranslations, useLocale } from 'next-intl';
-import { professionalExperienceEn, certificationsEn } from '../../../info/experience-en';
+import { useTranslations, useLocale } from "next-intl";
+import {
+  professionalExperienceEn,
+  certificationsEn,
+} from "../../../info/experience-en";
 
 const professionalExperience = [
   {
-    role: "Desenvolvedor Fullstack",
-    company: "Access Global Logistics",
-    period: "Fev 2025 - Presente",
+    role: "Fullstack Software Engineer",
+    company: "Bússola Social",
+    period: "Nov 2025 - Presente",
     location: "Itajaí, SC",
     description:
-      "Atuo no desenvolvimento de soluções internas e automações usando tecnologias modernas. Participo desde o backend até o frontend, com forte foco em otimizações cloud (AWS), inteligência artificial e scraping de dados.",
+      "Atuação no desenvolvimento de funcionalidades do produto no frontend e backend, usando principalmente Vue, PHP e Docker. Envolvimento na definição de soluções, decisões técnicas e melhorias contínuas.",
     highlights: [
-      "Criação de funcionalidades para o portal interno da empresa.",
-      "Desenvolvimento de rotas backend com Node.js, TypeScript e Adonis.",
+      "Desenvolvimento de interfaces e funcionalidades usando Vue.",
+      "Implementação de lógica de backend, APIs e tratamento de dados em PHP.",
+      "Participação em decisões do produto e discussões técnicas.",
+      "Melhorias de estabilidade, manutenção e experiência de uso.",
+      "Uso de Docker para padronização e organização do ambiente de desenvolvimento.",
+    ],
+  },
+
+  {
+    role: "Fullstack Software Engineer",
+    company: "Access Global Logistics",
+    period: "Fev 2025 - Nov 2025",
+    location: "Itajaí, SC",
+    description:
+      "Atuação em soluções internas e automações utilizando tecnologias modernas, cobrindo backend, frontend e melhorias orientadas a cloud, incluindo AWS e fluxos de processamento de dados.",
+    highlights: [
+      "Desenvolvimento de funcionalidades para o portal interno da empresa.",
+      "Criação de rotas backend com Node.js, TypeScript e Adonis.",
       "Implementação de interfaces no frontend usando Vue.js.",
-      "Web scraping e automações com Python e IA.",
-      "Otimizações de performance e soluções utilizando serviços da AWS.",
+      "Tarefas de scraping e automação com Python e ferramentas de IA.",
+      "Otimizações de desempenho e soluções em serviços AWS.",
     ],
   },
 ];
@@ -147,7 +166,7 @@ const SectionToggle = ({ activeView, setActiveView, t }) => (
         }`}
       >
         <Briefcase size={20} />
-        {t('experienceTab')}
+        {t("experienceTab")}
       </button>
       <button
         onClick={() => setActiveView("certifications")}
@@ -158,7 +177,7 @@ const SectionToggle = ({ activeView, setActiveView, t }) => (
         }`}
       >
         <GraduationCap size={20} />
-        {t('certificationsTab')}
+        {t("certificationsTab")}
       </button>
     </div>
   </div>
@@ -209,7 +228,7 @@ const CertificationCard = ({ certification, t }) => (
       <div className="flex-grow">
         <h3 className="text-xl font-bold text-white">{certification.name}</h3>
         <p className="text-md font-semibold text-white/80">
-          {t('issuedBy')} {certification.issuer}
+          {t("issuedBy")} {certification.issuer}
         </p>
         <p className="text-sm text-white/60 mb-4">{certification.date}</p>
         <div className="flex flex-wrap gap-2 mb-4">
@@ -229,7 +248,7 @@ const CertificationCard = ({ certification, t }) => (
           className="inline-flex items-center gap-2 text-sky-300 hover:text-sky-200 font-semibold transition-colors duration-300"
         >
           <LinkIcon size={16} />
-          {t('viewCredential')}
+          {t("viewCredential")}
         </a>
       </div>
     </div>
@@ -238,11 +257,13 @@ const CertificationCard = ({ certification, t }) => (
 
 export default function ExperiencePage() {
   const [activeView, setActiveView] = useState("experience");
-  const t = useTranslations('experience');
+  const t = useTranslations("experience");
   const locale = useLocale();
 
-  const currentProfessionalExperience = locale === 'en' ? professionalExperienceEn : professionalExperience;
-  const currentCertifications = locale === 'en' ? certificationsEn : certifications;
+  const currentProfessionalExperience =
+    locale === "en" ? professionalExperienceEn : professionalExperience;
+  const currentCertifications =
+    locale === "en" ? certificationsEn : certifications;
 
   const content = useMemo(() => {
     if (activeView === "experience") {
