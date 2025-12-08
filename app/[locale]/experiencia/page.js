@@ -63,11 +63,31 @@ const certifications = [
     ],
   },
   {
+    name: "The Last Algorithms Course You'll Need",
+    issuer: "Frontend Masters",
+    date: "Emitido em 03/12/2025",
+    credentialUrl: "/algorithms-dark.pdf",
+    skills: [
+      "Estruturas de Dados",
+      "Notação Big O",
+      "Algoritmos de Ordenação",
+      "Travessia de Grafos",
+      "Complexidade de Tempo",
+    ],
+  },
+  {
     name: "Practical Problem Solving with Algorithms",
     issuer: "Frontend Masters",
     date: "Emitido em 28/09/2025",
     credentialUrl: "/algorithms-practice.pdf",
     skills: ["Algoritmos e Estruturas de Dados", "Recursão", "Big O"],
+    credentialUrl: "/algorithms-practice-dark.pdf",
+    skills: [
+      "Recursão",
+      "Memoização",
+      "Resolução de Problemas",
+      "Otimização de Algoritmos",
+    ],
   },
   {
     name: "Web Security v2",
