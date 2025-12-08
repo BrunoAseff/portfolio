@@ -1,19 +1,9 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import {
-  Briefcase,
-  GraduationCap,
-  Calendar,
-  CheckCircle,
-  Award,
-  Link as LinkIcon,
-} from "lucide-react";
+import { Briefcase, GraduationCap, Calendar, CheckCircle, Award, Link as LinkIcon } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
-import {
-  professionalExperienceEn,
-  certificationsEn,
-} from "../../../info/experience-en";
+import { professionalExperienceEn, certificationsEn } from "../../../info/experience-en";
 
 const professionalExperience = [
   {
@@ -55,12 +45,7 @@ const certifications = [
     issuer: "Amazon Web Services",
     date: "Emitido em 29/06/2025",
     credentialUrl: "/aws.pdf",
-    skills: [
-      "Conceitos de Nuvem",
-      "AWS",
-      "Responsabilidade Compartilhada",
-      "Modelos de Preço",
-    ],
+    skills: ["Conceitos de Nuvem", "AWS", "Responsabilidade Compartilhada", "Modelos de Preço"],
   },
   {
     name: "The Last Algorithms Course You'll Need",
@@ -79,15 +64,8 @@ const certifications = [
     name: "Practical Problem Solving with Algorithms",
     issuer: "Frontend Masters",
     date: "Emitido em 28/09/2025",
-    credentialUrl: "/algorithms-practice.pdf",
-    skills: ["Algoritmos e Estruturas de Dados", "Recursão", "Big O"],
     credentialUrl: "/algorithms-practice-dark.pdf",
-    skills: [
-      "Recursão",
-      "Memoização",
-      "Resolução de Problemas",
-      "Otimização de Algoritmos",
-    ],
+    skills: ["Recursão", "Memoização", "Resolução de Problemas", "Otimização de Algoritmos"],
   },
   {
     name: "Web Security v2",
@@ -102,11 +80,7 @@ const certifications = [
     date: "Emitido em 03/09/2024",
     credentialUrl:
       "https://www.linkedin.com/in/bruno-aseff/details/certifications/1728333429207/single-media-viewer/?type=DOCUMENT&profileId=ACoAADSgZsgBmJ1zfWrk5RJbJD7u5DnJPpqQ1PE",
-    skills: [
-      "Sistemas Numéricos",
-      "Conversões",
-      "Matemática Base para Programação",
-    ],
+    skills: ["Sistemas Numéricos", "Conversões", "Matemática Base para Programação"],
   },
   {
     name: "MySQL",
@@ -114,35 +88,20 @@ const certifications = [
     date: "Emitido em 03/09/2024",
     credentialUrl:
       "https://www.linkedin.com/in/bruno-aseff/details/certifications/1728333326902/single-media-viewer/?type=DOCUMENT&profileId=ACoAADSgZsgBmJ1zfWrk5RJbJD7u5DnJPpqQ1PE",
-    skills: [
-      "SQL",
-      "MySQL",
-      "Modelagem de Dados",
-      "CRUD",
-      "Consultas Relacionais",
-    ],
+    skills: ["SQL", "MySQL", "Modelagem de Dados", "CRUD", "Consultas Relacionais"],
   },
   {
     name: "Aprofundando em Hooks",
     issuer: "Rocketseat",
     date: "Emitido em 09/09/2024",
-    credentialUrl:
-      "https://app.rocketseat.com.br/certificates/52909b77-b4f5-4a4a-b143-da026f3d853a",
-    skills: [
-      "React Hooks",
-      "Context API",
-      "Reducers",
-      "immer",
-      "CSS-in-JS",
-      "Formulários",
-    ],
+    credentialUrl: "https://app.rocketseat.com.br/certificates/52909b77-b4f5-4a4a-b143-da026f3d853a",
+    skills: ["React Hooks", "Context API", "Reducers", "immer", "CSS-in-JS", "Formulários"],
   },
   {
     name: "NLW Pocket: Javascript - Full-stack Intermediário",
     issuer: "Rocketseat",
     date: "Emitido em 13/09/2024",
-    credentialUrl:
-      "https://app.rocketseat.com.br/certificates/2ea9d57f-a91c-4a4c-883c-84d10ef7a84a",
+    credentialUrl: "https://app.rocketseat.com.br/certificates/2ea9d57f-a91c-4a4c-883c-84d10ef7a84a",
     skills: [
       "Node.js",
       "Fastify",
@@ -160,8 +119,7 @@ const certifications = [
     name: "Fundamentos do React",
     issuer: "Rocketseat",
     date: "Emitido em 28/07/2024",
-    credentialUrl:
-      "https://app.rocketseat.com.br/certificates/d0f26c92-ccfa-4bc4-b0ab-ae10f523dd61",
+    credentialUrl: "https://app.rocketseat.com.br/certificates/d0f26c92-ccfa-4bc4-b0ab-ae10f523dd61",
     skills: ["React", "Hooks", "Componentes", "Estados", "Props", "TypeScript"],
   },
 ];
@@ -180,9 +138,7 @@ const SectionToggle = ({ activeView, setActiveView, t }) => (
       <button
         onClick={() => setActiveView("experience")}
         className={`w-full text-center px-4 py-2 md:px-6 md:py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
-          activeView === "experience"
-            ? "bg-white/30 text-white shadow-md"
-            : "text-white/70 hover:bg-white/10"
+          activeView === "experience" ? "bg-white/30 text-white shadow-md" : "text-white/70 hover:bg-white/10"
         }`}
       >
         <Briefcase size={20} />
@@ -191,9 +147,7 @@ const SectionToggle = ({ activeView, setActiveView, t }) => (
       <button
         onClick={() => setActiveView("certifications")}
         className={`w-full text-center px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
-          activeView === "certifications"
-            ? "bg-white/30 text-white shadow-md"
-            : "text-white/70 hover:bg-white/10"
+          activeView === "certifications" ? "bg-white/30 text-white shadow-md" : "text-white/70 hover:bg-white/10"
         }`}
       >
         <GraduationCap size={20} />
@@ -211,9 +165,7 @@ const ExperienceCard = ({ experience }) => (
       </div>
       <div className="flex-grow">
         <h3 className="text-xl font-bold text-white">{experience.role}</h3>
-        <p className="text-lg font-semibold text-white/80">
-          {experience.company}
-        </p>
+        <p className="text-lg font-semibold text-white/80">{experience.company}</p>
         <div className="flex items-center flex-wrap gap-x-4 gap-y-1 text-white/60 text-sm mt-1 mb-3">
           <div className="flex items-center gap-2">
             <Calendar size={14} />
@@ -226,10 +178,7 @@ const ExperienceCard = ({ experience }) => (
         <ul className="space-y-2">
           {experience.highlights.map((highlight, index) => (
             <li key={index} className="flex items-start gap-3">
-              <CheckCircle
-                size={20}
-                className="text-green-300 flex-shrink-0 mt-1"
-              />
+              <CheckCircle size={20} className="text-green-300 flex-shrink-0 mt-1" />
               <span className="text-white/80">{highlight}</span>
             </li>
           ))}
@@ -280,36 +229,24 @@ export default function ExperiencePage() {
   const t = useTranslations("experience");
   const locale = useLocale();
 
-  const currentProfessionalExperience =
-    locale === "en" ? professionalExperienceEn : professionalExperience;
-  const currentCertifications =
-    locale === "en" ? certificationsEn : certifications;
+  const currentProfessionalExperience = locale === "en" ? professionalExperienceEn : professionalExperience;
+  const currentCertifications = locale === "en" ? certificationsEn : certifications;
 
   const content = useMemo(() => {
     if (activeView === "experience") {
-      return currentProfessionalExperience.map((exp, index) => (
-        <ExperienceCard key={index} experience={exp} />
-      ));
+      return currentProfessionalExperience.map((exp, index) => <ExperienceCard key={index} experience={exp} />);
     }
-    return currentCertifications.map((cert, index) => (
-      <CertificationCard key={index} certification={cert} t={t} />
-    ));
+    return currentCertifications.map((cert, index) => <CertificationCard key={index} certification={cert} t={t} />);
   }, [activeView, t, currentProfessionalExperience, currentCertifications]);
 
   return (
     <div className="w-full h-full flex items-center mt-4 md:mt-0 justify-center p-4 md:p-6 text-white font-sans">
       <div className="bg-black/10 backdrop-blur-[100px] border border-white/20 shadow-2xl rounded-2xl w-full max-w-5xl mt-24 h-[80vh] flex flex-col p-4 sm:p-6">
         <div className="flex-shrink-0">
-          <SectionToggle
-            activeView={activeView}
-            setActiveView={setActiveView}
-            t={t}
-          />
+          <SectionToggle activeView={activeView} setActiveView={setActiveView} t={t} />
         </div>
 
-        <main className="flex-grow overflow-y-auto overflow-x-hidden custom-scrollbar pr-3">
-          {content}
-        </main>
+        <main className="flex-grow overflow-y-auto overflow-x-hidden custom-scrollbar pr-3">{content}</main>
       </div>
     </div>
   );
