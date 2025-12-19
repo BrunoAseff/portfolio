@@ -21,7 +21,7 @@ export const projects = [
     ],
 
     gitHubLink: "https://github.com/BrunoAseff/nova",
-    webLink: "https://www.novaspaces.io/spaces",
+    webLink: "https://nova-pied-omega.vercel.app",
     technologies: [
       "/svgs/nextjs.svg",
       "/svgs/react.svg",
