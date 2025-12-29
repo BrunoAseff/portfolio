@@ -18,12 +18,12 @@ export default function QuickFacts() {
     {
       icon: <MapPin size={20} />,
       label: t('location'),
-      value: 'Itajaí, SC - Brasil',
+      value: t('locationValue'),
     },
     {
-        icon: <Briefcase size={20} />,
-        label: t('currentJobTitle'),
-        value: t('roleTitle'),
+      icon: <Briefcase size={20} />,
+      label: t('currentJobTitle'),
+      value: t('roleTitle'),
     },
   ];
 
@@ -44,4 +44,3 @@ export default function QuickFacts() {
     </div>
   );
 }
-
