@@ -1,5 +1,3 @@
-'use client';
-
 import { useTranslations } from 'next-intl';
 import { Card } from '@/components/ui/card';
 import TechnologySection from './TechnologySection';
