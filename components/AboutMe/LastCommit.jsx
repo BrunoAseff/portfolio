@@ -3,11 +3,12 @@
 import { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { GitCommit, ExternalLink } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 
 export default function LastCommit() {
   const t = useTranslations('aboutMe');
+  const locale = useLocale();
   const [commit, setCommit] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -60,7 +61,7 @@ export default function LastCommit() {
           <GitCommit size={24} className="text-white/80" />
           <h3 className="text-lg font-semibold text-white">{t('lastCommit')}</h3>
         </div>
-        <div className="text-sm text-white/60">Loading...</div>
+        <div className="text-sm text-white/60">{t('loading')}</div>
       </Card>
     );
   }
@@ -71,7 +72,7 @@ export default function LastCommit() {
 
   const commitMessage = commit.commit.message.split('\n')[0];
   const commitDate = new Date(commit.commit.author.date);
-  const timeAgo = getTimeAgo(commitDate);
+  const timeAgo = getTimeAgo(commitDate, locale, t);
 
   return (
     <Link
@@ -102,13 +103,23 @@ export default function LastCommit() {
   );
 }
 
-function getTimeAgo(date) {
+function getTimeAgo(date, locale, t) {
   const seconds = Math.floor((new Date().getTime() - date.getTime()) / 1000);
   
-  if (seconds < 60) return 'just now';
-  if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`;
-  if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`;
-  if (seconds < 2592000) return `${Math.floor(seconds / 86400)}d ago`;
-  return `${Math.floor(seconds / 2592000)}mo ago`;
+  if (seconds < 60) return t('timeAgo.justNow');
+  if (seconds < 3600) {
+    const minutes = Math.floor(seconds / 60);
+    return t('timeAgo.minutesAgo', { count: minutes });
+  }
+  if (seconds < 86400) {
+    const hours = Math.floor(seconds / 3600);
+    return t('timeAgo.hoursAgo', { count: hours });
+  }
+  if (seconds < 2592000) {
+    const days = Math.floor(seconds / 86400);
+    return t('timeAgo.daysAgo', { count: days });
+  }
+  const months = Math.floor(seconds / 2592000);
+  return t('timeAgo.monthsAgo', { count: months });
 }
 
