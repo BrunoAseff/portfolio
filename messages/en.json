@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Bruno de Almeida Aseff",
-    "description": "Bruno de Almeida Aseff's Portfolio"
+    "title": "Bruno Aseff",
+    "description": "Bruno Aseff's Portfolio"
   },
   "nav": {
     "home": "About me",
@@ -12,9 +12,17 @@
   },
   "aboutMe": {
     "title": "About Me",
-    "paragraph1": "I've been a fullstack developer for {experienceTime} and a student of Internet Systems at Univali.",
-    "paragraph2": "I have extensive experience with front-end, but I also work with back-end and application architecture.",
-    "paragraph3": "Lately, I've been focusing more and more on Cloud. Understanding how applications scale, communicate and remain resilient in infrastructure is what attracts me most today."
+    "heroTitle": "Bruno Aseff",
+    "hero": "Fullstack Developer with experience in web development. Currently seeking opportunities in infrastructure, cloud, and DevOps to apply and expand knowledge in AWS, Docker, Linux, and DevOps practices.",
+    "technologies": "Technologies",
+    "quickFacts": "Quick Facts",
+    "experience": "Experience",
+    "location": "Location",
+    "currentJobTitle": "Current Job Title",
+    "roleTitle": "Fullstack Software Engineer",
+    "whatIDoTitle": "What I do",
+    "whatIDo": "Build and maintain web applications using modern frameworks and tools. Focus on creating scalable solutions, writing clean code, and implementing best practices across the full stack.",
+    "lastCommit": "My Last Commit"
   },
   "technologies": {
     "title": "Skills"
