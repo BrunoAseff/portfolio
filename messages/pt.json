@@ -24,6 +24,8 @@
     "whatIDo": "Desenvolvo e mantenho aplicações web usando frameworks e ferramentas modernas. Foco em criar soluções escaláveis, escrever código limpo e implementar boas práticas em toda a stack.",
     "lastCommit": "Meu Último Commit",
     "loading": "Carregando...",
+    "noCommitsFound": "Nenhum commit encontrado",
+    "commitError": "Erro ao carregar commit",
     "timeAgo": {
       "justNow": "agora",
       "minutesAgo": "{count} min atrás",
