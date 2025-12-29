@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
-import { GitCommit, ExternalLink } from 'lucide-react';
+import { GitCommit, ExternalLink, AlertCircle } from 'lucide-react';
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 
@@ -11,41 +11,43 @@ export default function LastCommit() {
   const locale = useLocale();
   const [commit, setCommit] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchLastCommit = async () => {
       try {
-        const response = await fetch('https://api.github.com/users/BrunoAseff/events/public?per_page=10');
-        if (!response.ok) throw new Error('Failed to fetch events');
+        const response = await fetch('/api/last-commit');
         
-        const events = await response.json();
-        
-        const pushEvent = events.find((event) => event.type === 'PushEvent');
-        
-        if (pushEvent && pushEvent.payload && pushEvent.payload.head) {
-          const commitSha = pushEvent.payload.head;
-          const repoName = pushEvent.repo.name;
-          
-          const commitResponse = await fetch(
-            `https://api.github.com/repos/${repoName}/commits/${commitSha}`
-          );
-          
-          if (!commitResponse.ok) throw new Error('Failed to fetch commit');
-          
-          const commitData = await commitResponse.json();
-          
-          setCommit({
-            sha: commitData.sha.substring(0, 7),
-            commit: commitData.commit,
-            html_url: commitData.html_url,
-            repository: {
-              name: repoName.split('/')[1],
-              full_name: repoName,
-            },
-          });
+        if (!response.ok) {
+          if (response.status === 404) {
+            setError('notFound');
+          } else {
+            setError('fetchError');
+          }
+          return;
         }
+        
+        const data = await response.json();
+        
+        if (data.error) {
+          setError('fetchError');
+          return;
+        }
+        
+        setCommit({
+          sha: data.sha,
+          commit: {
+            message: data.message,
+            author: {
+              date: data.date,
+            },
+          },
+          html_url: data.url,
+          repository: data.repo,
+        });
       } catch (error) {
         console.error('Error fetching last commit:', error);
+        setError('fetchError');
       } finally {
         setLoading(false);
       }
@@ -66,8 +68,19 @@ export default function LastCommit() {
     );
   }
 
-  if (!commit) {
-    return null;
+  if (error || !commit) {
+    return (
+      <Card className="bg-black/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl p-6">
+        <div className="flex items-center gap-3 mb-4">
+          <GitCommit size={24} className="text-white/80" />
+          <h3 className="text-lg font-semibold text-white">{t('lastCommit')}</h3>
+        </div>
+        <div className="flex items-center gap-2 text-sm text-white/60">
+          <AlertCircle size={16} />
+          <span>{error === 'notFound' ? t('noCommitsFound') : t('commitError')}</span>
+        </div>
+      </Card>
+    );
   }
 
   const commitMessage = commit.commit.message.split('\n')[0];
