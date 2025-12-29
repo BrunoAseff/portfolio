@@ -20,11 +20,11 @@ export default function QuickFacts() {
       label: t('location'),
       value: 'Itajaí, SC - Brasil',
     },
-      {
+    {
         icon: <Briefcase size={20} />,
         label: t('currentJobTitle'),
         value: t('roleTitle'),
-      },
+    },
   ];
 
   return (
