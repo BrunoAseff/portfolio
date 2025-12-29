@@ -22,7 +22,15 @@
     "roleTitle": "Fullstack Software Engineer",
     "whatIDoTitle": "O que faço",
     "whatIDo": "Desenvolvo e mantenho aplicações web usando frameworks e ferramentas modernas. Foco em criar soluções escaláveis, escrever código limpo e implementar boas práticas em toda a stack.",
-    "lastCommit": "Meu Último Commit"
+    "lastCommit": "Meu Último Commit",
+    "loading": "Carregando...",
+    "timeAgo": {
+      "justNow": "agora",
+      "minutesAgo": "{count} min atrás",
+      "hoursAgo": "{count} h atrás",
+      "daysAgo": "{count} dias atrás",
+      "monthsAgo": "{count} meses atrás"
+    }
   },
   "technologies": {
     "title": "Habilidades"
