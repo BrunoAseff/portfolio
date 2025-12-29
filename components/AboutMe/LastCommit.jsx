@@ -85,7 +85,7 @@ export default function LastCommit() {
 
   const commitMessage = commit.commit.message.split('\n')[0];
   const commitDate = new Date(commit.commit.author.date);
-  const timeAgo = getTimeAgo(commitDate, locale, t);
+  const timeAgo = getTimeAgo(commitDate, t);
 
   return (
     <Link
@@ -116,7 +116,7 @@ export default function LastCommit() {
   );
 }
 
-function getTimeAgo(date, locale, t) {
+function getTimeAgo(date, t) {
   const seconds = Math.floor((new Date().getTime() - date.getTime()) / 1000);
   
   if (seconds < 60) return t('timeAgo.justNow');
