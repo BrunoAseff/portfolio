@@ -24,6 +24,8 @@
     "whatIDo": "Build and maintain web applications using modern frameworks and tools. Focus on creating scalable solutions, writing clean code, and implementing best practices across the full stack.",
     "lastCommit": "My Last Commit",
     "loading": "Loading...",
+    "noCommitsFound": "No commits found",
+    "commitError": "Error loading commit",
     "timeAgo": {
       "justNow": "just now",
       "minutesAgo": "{count}m ago",
