@@ -28,8 +28,8 @@
     "commitError": "Erro ao carregar commit",
     "timeAgo": {
       "justNow": "agora",
-      "minutesAgo": "{count} min atrás",
-      "hoursAgo": "{count} h atrás",
+      "minutesAgo": "{count} minutos atrás",
+      "hoursAgo": "{count} horas atrás",
       "daysAgo": "{count} dias atrás",
       "monthsAgo": "{count} meses atrás"
     }
