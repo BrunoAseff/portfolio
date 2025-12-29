@@ -50,7 +50,7 @@ export default async function LocaleLayout({ children, params }) {
             enableSystem
             disableTransitionOnChange
           >
-            <main className="h-screen relative  flex flex-col items-center justify-between w-full ">
+            <main className="min-h-screen relative flex flex-col items-center justify-between w-full overflow-y-auto">
               <Image
                 priority
                 alt="Background"
