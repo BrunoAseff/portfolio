@@ -10,64 +10,77 @@ const CACHE_TTL = 10 * 60 * 1000;
 const STALE_TTL = 15 * 60 * 1000;
 
 async function fetchLastCommitFromGitHub() {
-const githubToken = process.env.GITHUB_TOKEN;
-const headers = {
-    'Accept': 'application/vnd.github.v3+json',
-};
-
-if (githubToken) {
-    headers['Authorization'] = `token ${githubToken}`;
-}
-
-try {
-    const eventsResponse = await fetch(
-    'https://api.github.com/users/BrunoAseff/events/public?per_page=10',
-    { headers, next: { revalidate: 0 } } 
-    );
-
-    if (!eventsResponse.ok) {
-    if (eventsResponse.status === 403) {
-        throw new Error('GitHub API rate limit exceeded');
-    }
-    throw new Error(`GitHub API error: ${eventsResponse.status}`);
-    }
-
-    const events = await eventsResponse.json();
-    const pushEvent = events.find((event) => event.type === 'PushEvent');
-
-    if (!pushEvent || !pushEvent.payload?.head) {
-    return null;
-    }
-
-    const commitSha = pushEvent.payload.head;
-    const repoName = pushEvent.repo.name;
-
-    const commitResponse = await fetch(
-    `https://api.github.com/repos/${repoName}/commits/${commitSha}`,
-    { headers, next: { revalidate: 0 } }
-    );
-
-    if (!commitResponse.ok) {
-    throw new Error(`Failed to fetch commit: ${commitResponse.status}`);
-    }
-
-    const commitData = await commitResponse.json();
-
-    return {
-    sha: commitData.sha.substring(0, 7),
-    message: commitData.commit.message.split('\n')[0],
-    url: commitData.html_url,
-    repo: {
-        name: repoName.split('/')[1],
-        full_name: repoName,
-    },
-    date: commitData.commit.author.date,
+    const githubToken = process.env.GITHUB_TOKEN;
+    const headers = {
+      'Accept': 'application/vnd.github.v3+json',
     };
-} catch (error) {
-    console.error('Error fetching last commit from GitHub:', error);
-    throw error;
-}
-}
+  
+    if (githubToken) {
+      headers['Authorization'] = `token ${githubToken}`;
+    }
+  
+    try {
+      const eventsResponse = await fetch(
+        'https://api.github.com/users/BrunoAseff/events/public?per_page=10',
+        { headers, next: { revalidate: 0 } }
+      );
+  
+      if (!eventsResponse.ok) {
+        if (eventsResponse.status === 403) {
+          throw new Error('GitHub API rate limit exceeded');
+        }
+        throw new Error(`GitHub API error: ${eventsResponse.status}`);
+      }
+  
+      const events = await eventsResponse.json();
+      
+      let commitSha = null;
+      let repoName = null;
+  
+      for (const event of events) {
+        if (event.type === 'PushEvent' && event.payload?.commits?.length > 0) {
+          const validCommit = [...event.payload.commits].reverse().find(commit => 
+            !commit.message.startsWith('Merge pull request')
+          );
+  
+          if (validCommit) {
+            commitSha = validCommit.sha;
+            repoName = event.repo.name;
+            break;
+          }
+        }
+      }
+  
+      if (!commitSha) {
+        return null;
+      }
+  
+      const commitResponse = await fetch(
+        `https://api.github.com/repos/${repoName}/commits/${commitSha}`,
+        { headers, next: { revalidate: 0 } }
+      );
+  
+      if (!commitResponse.ok) {
+        throw new Error(`Failed to fetch commit: ${commitResponse.status}`);
+      }
+  
+      const commitData = await commitResponse.json();
+  
+      return {
+        sha: commitData.sha.substring(0, 7),
+        message: commitData.commit.message.split('\n')[0],
+        url: commitData.html_url,
+        repo: {
+          name: repoName.split('/')[1],
+          full_name: repoName,
+        },
+        date: commitData.commit.author.date,
+      };
+    } catch (error) {
+      console.error('Error fetching last commit from GitHub:', error);
+      throw error;
+    }
+  }
 
 async function getCommitWithDeduplication() {
 if (inFlightFetch) {
