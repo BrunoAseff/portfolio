@@ -1,0 +1,10 @@
+.motion-reduced *,
+.motion-reduced *::before,
+.motion-reduced *::after {
+  animation: none !important;
+  transition: none !important;
+}
+.motion-reduced .resume:hover .icon,
+.motion-reduced .text-link:hover .icon-external {
+  transform: none;
+}

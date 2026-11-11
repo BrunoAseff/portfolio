@@ -1,0 +1,37 @@
+---
+import type { Locale, Project } from "../../content/types";
+import { messages } from "../../content/messages";
+import Icon from "../../components/ui/Icon.astro";
+import ExternalLink from "../../components/ui/ExternalLink.astro";
+interface Props {
+  locale: Locale;
+  project: Project;
+}
+const { locale, project } = Astro.props,
+  c = messages[locale];
+---
+
+<article class="project">
+  <div class="project-heading">
+    <h3>{project.name}</h3>
+  </div>
+  <div class="prose">
+    {project.content[locale].paragraphs.map((p) => (
+      <p>{p}</p>
+    ))}
+  </div>
+  <div class="project-actions">
+    {project.links.website && (
+      <ExternalLink class="text-link" href={project.links.website}>
+        {c.visit}
+        <Icon name="external" />
+      </ExternalLink>
+    )}
+    {project.links.repository && (
+      <ExternalLink class="text-link" href={project.links.repository}>
+        {c.code}
+        <Icon name="code" />
+      </ExternalLink>
+    )}
+  </div>
+</article>

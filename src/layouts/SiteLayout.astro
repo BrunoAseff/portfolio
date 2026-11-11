@@ -1,0 +1,28 @@
+---
+import type { Locale } from "../content/types";
+import { htmlLanguage } from "../lib/locale";
+import SeoHead from "../components/SeoHead.astro";
+import "../styles/global.css";
+interface Props {
+  locale: Locale;
+  notFound?: boolean;
+}
+const { locale, notFound = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang={htmlLanguage(locale)}>
+  <head>
+    <SeoHead locale={locale} notFound={notFound} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+<script>
+  import { play, restoreSound } from "../features/sound/audio";
+  restoreSound();
+  document.addEventListener("click", (event) => {
+    if (event.target instanceof Element && event.target.closest('[data-sound="tap"]')) play("tap");
+  });
+</script>

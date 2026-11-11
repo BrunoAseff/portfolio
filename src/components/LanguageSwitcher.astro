@@ -1,0 +1,73 @@
+---
+import type { Locale } from "../content/types";
+import { localePath } from "../lib/locale";
+import { messages } from "../content/messages";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<nav class="language" aria-label={messages[locale].language}>
+  {(["pt", "en"] as const).map((lang) => (
+    <a
+      data-locale-link
+      href={localePath(lang)}
+      lang={lang === "pt" ? "pt-BR" : "en"}
+      hreflang={lang === "pt" ? "pt-BR" : "en"}
+      aria-label={lang === "pt" ? "Português" : "English"}
+      aria-current={locale === lang ? "page" : undefined}
+    >
+      {locale === lang && <span class="language-indicator" />}
+      <span class={`language-label language-label-${lang}`}>{lang.toUpperCase()}</span>
+    </a>
+  ))}
+</nav>
+<script>
+  import { sectionHash, visibleSection } from "../lib/section-navigation";
+
+  function syncPosition() {
+    const section = visibleSection();
+    const hash = sectionHash(section);
+    if (location.hash !== hash) {
+      const url = new URL(location.href);
+      url.hash = hash;
+      history.replaceState(history.state, "", url);
+    }
+    document.querySelectorAll<HTMLAnchorElement>("[data-locale-link]").forEach((link) => {
+      const url = new URL(link.href);
+      url.hash = hash;
+      link.href = url.href;
+    });
+    document.querySelectorAll<HTMLAnchorElement>(".index a").forEach((link) => {
+      if (link.hash === hash) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  }
+
+  let frame = 0;
+  let ready = document.readyState === "complete";
+  function scheduleSync() {
+    if (!ready || frame) return;
+    frame = requestAnimationFrame(() => {
+      frame = 0;
+      syncPosition();
+    });
+  }
+  window.addEventListener("pageshow", () => {
+    ready = true;
+    scheduleSync();
+  });
+  window.addEventListener("scroll", scheduleSync, { passive: true });
+  window.addEventListener("resize", scheduleSync);
+  if (ready) scheduleSync();
+
+  document.querySelectorAll<HTMLAnchorElement>("[data-locale-link]").forEach((link) =>
+    link.addEventListener("click", () => {
+      const url = new URL(link.href);
+      // Read geometry again: the click can arrive before the queued scroll frame.
+      url.hash = sectionHash(visibleSection());
+      link.href = url.href;
+    }),
+  );
+</script>

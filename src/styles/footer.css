@@ -1,0 +1,22 @@
+footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 32px;
+}
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 23px;
+  min-height: 36px;
+  text-decoration: none;
+}
+.back .icon {
+  width: 14px;
+  height: 14px;
+}
+.back:hover {
+  color: var(--accent);
+}

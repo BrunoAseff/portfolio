@@ -1,0 +1,22 @@
+:root {
+  --page: #fcfcfa;
+  --ink: #272c33;
+  --body: #5e6671;
+  --muted: #69727d;
+  --accent: #345c80;
+  --wash: #eef2f5;
+  --selected: #e2eaf0;
+  --line: #d5dce2;
+  --link-line: #a5afb9;
+  --white: #fff;
+  --failure: #a13d35;
+  --far: #e9edef;
+  --mid: #d0d9df;
+  --near: #acbac3;
+  --tree-far: #8a9aa4;
+  --tree: #475761;
+  --ground: #99acb7;
+  --face: Bricolage, sans-serif;
+  --display: Bricolage, sans-serif;
+  --ease: cubic-bezier(0.22, 0.75, 0.22, 1);
+}

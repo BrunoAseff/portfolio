@@ -1,0 +1,13 @@
+.project-heading {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 2px 13px;
+  margin-bottom: 9px;
+}
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 23px;
+  margin-top: 8px;
+}

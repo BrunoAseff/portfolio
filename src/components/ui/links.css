@@ -1,0 +1,31 @@
+.text-link {
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+  width: fit-content;
+  min-height: 32px;
+  padding: 2px 0;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 23px;
+  font-weight: 400;
+  background: transparent;
+  text-decoration: underline;
+  text-decoration-color: var(--link-line);
+  text-underline-offset: 4px;
+  transition:
+    color 0.16s var(--ease),
+    text-decoration-color 0.16s var(--ease);
+}
+.text-link .icon {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.18s var(--ease);
+}
+.text-link:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+.text-link:hover .icon-external {
+  transform: translate(1px, -1px);
+}

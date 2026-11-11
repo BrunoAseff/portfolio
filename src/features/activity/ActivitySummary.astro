@@ -1,0 +1,85 @@
+---
+import { messages } from "../../content/messages";
+import type { Locale } from "../../content/types";
+import snapshot from "../../data/github-activity.json";
+import { isActivitySnapshot } from "./activity";
+import Icon from "../../components/ui/Icon.astro";
+import BrandMark from "../../components/ui/BrandMark.astro";
+import ExternalLink from "../../components/ui/ExternalLink.astro";
+import { site } from "../../content/site";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props,
+  c = messages[locale],
+  activity = isActivitySnapshot(snapshot) ? snapshot : null;
+const date = activity ? new Date(activity.date) : null;
+const days = date ? Math.max(0, Math.floor((Date.now() - date.getTime()) / 86400000)) : 0;
+const relative = new Intl.RelativeTimeFormat(locale === "pt" ? "pt-BR" : "en", {
+  numeric: "auto",
+}).format(-days, "day");
+---
+
+{activity ? (
+  <aside class="activity" aria-label={c.lastCommit}>
+    <ExternalLink class="activity-link" href={activity.url}>
+      <span class="activity-origin">
+        <BrandMark name="github" />
+        <span class="activity-meta">
+          <span class="activity-label">{c.lastCommit}</span>
+          <span aria-hidden="true">·</span>
+          <span class="activity-repository" title={activity.repository}>
+            {activity.repository}
+          </span>
+          <time
+            datetime={activity.date}
+            title={date?.toISOString()}
+            data-relative-date
+            data-locale={locale}
+          >
+            {relative}
+          </time>
+        </span>
+      </span>
+      <span class="activity-change">
+        <svg
+          class="activity-branch"
+          width="32"
+          height="28"
+          viewBox="0 0 32 28"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path d="M8 0v9q0 7 7 7h9" />
+          <circle cx="27" cy="16" r="3" />
+        </svg>
+        <span class="activity-message">{activity.message}</span>
+      </span>
+    </ExternalLink>
+  </aside>
+) : (
+  <aside class="activity activity-fallback" aria-label={c.lastCommit}>
+    <p>{c.activityUnavailable}</p>
+    <ExternalLink class="text-link" href={site.github}>
+      {c.viewGithub}
+      <Icon name="external" />
+    </ExternalLink>
+  </aside>
+)}
+<script>
+  function update() {
+    document.querySelectorAll<HTMLTimeElement>("[data-relative-date]").forEach((el) => {
+      const days = Math.max(
+        0,
+        Math.floor((Date.now() - new Date(el.dateTime).getTime()) / 86400000),
+      );
+      el.textContent = new Intl.RelativeTimeFormat(el.dataset.locale === "pt" ? "pt-BR" : "en", {
+        numeric: "auto",
+      }).format(-days, "day");
+    });
+  }
+  update();
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) update();
+  });
+</script>

@@ -1,0 +1,194 @@
+@media (max-width: 980px) {
+  .landscape-backdrop {
+    display: none;
+  }
+}
+@media (max-width: 640px) {
+  .portfolio {
+    --page-top: 35px;
+  }
+  .reading-column {
+    width: calc(100% - 40px);
+  }
+  main section {
+    margin-top: 42px;
+  }
+}
+@media (max-width: 480px) {
+  .portfolio {
+    --page-top: 25px;
+  }
+  .masthead {
+    gap: 10px;
+  }
+  h1 {
+    font-size: 25px;
+    line-height: 33px;
+  }
+  .utilities {
+    gap: 7px;
+  }
+  .role {
+    margin-top: 4px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .intro-copy {
+    margin-top: 25px;
+  }
+  .personal-meta {
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 16px;
+  }
+  .intro-actions {
+    margin-top: 20px;
+  }
+  .orientation {
+    margin-top: 32px;
+  }
+  .entry-heading {
+    display: block;
+  }
+  .date {
+    margin-top: 2px;
+  }
+  .index {
+    column-gap: 21px;
+    row-gap: 0;
+  }
+  .index a {
+    min-height: 34px;
+  }
+  .nav-separator {
+    display: none;
+  }
+  .section-title {
+    font-size: 21px;
+    line-height: 29px;
+    margin-bottom: 22px;
+  }
+  .knowledge {
+    gap: 20px;
+  }
+  .technologies {
+    margin-top: 25px;
+  }
+  .entries {
+    gap: 30px;
+  }
+  .credential,
+  h3,
+  .courses h4 {
+    font-size: 15px;
+    line-height: 24px;
+  }
+  .technologies h3,
+  .courses-heading {
+    font-size: 13px;
+    line-height: 22px;
+  }
+  .courses p,
+  .degree-status {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .technology-separator {
+    margin-inline: 8px;
+  }
+}
+@media (max-width: 350px) {
+  .reading-column {
+    width: calc(100% - 32px);
+  }
+  .utilities {
+    gap: 4px;
+  }
+  .language a,
+  .sound {
+    min-width: 32px;
+    width: 32px;
+  }
+  h1 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .index {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    column-gap: 25px;
+  }
+}
+@media (pointer: coarse) {
+  .language a,
+  .sound {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .resume,
+  .copy-email,
+  .text-link,
+  .index a,
+  .back,
+  .credential {
+    min-height: 44px;
+  }
+  .credential {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+@media (max-width: 350px) and (pointer: coarse) {
+  .masthead {
+    gap: 6px;
+  }
+  .utilities {
+    gap: 4px;
+  }
+  h1 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .resume:hover .icon,
+  .text-link:hover .icon-external {
+    transform: none;
+  }
+  .credential:hover .icon,
+  .credential:focus-visible .icon {
+    transform: translateY(1px);
+  }
+  .sound:active {
+    transform: none;
+  }
+}
+@media print {
+  .portfolio {
+    padding: 0;
+    background: white;
+  }
+  .reading-column {
+    width: 100%;
+    max-width: none;
+  }
+  .landscape-backdrop,
+  .utilities,
+  .index,
+  .intro-actions,
+  .copy-feedback,
+  footer,
+  .notice {
+    display: none;
+  }
+  main section {
+    break-inside: avoid;
+    margin-top: 24px;
+  }
+}

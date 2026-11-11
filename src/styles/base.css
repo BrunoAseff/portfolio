@@ -1,0 +1,108 @@
+:root {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  color-scheme: light;
+  background: #fcfcfa;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: clip;
+  scroll-behavior: auto;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  font: inherit;
+  cursor: pointer;
+}
+button,
+a {
+  touch-action: manipulation;
+}
+button:disabled {
+  cursor: default;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent, #345c8c);
+  outline-offset: 5px;
+}
+button {
+  border: 0;
+}
+h1,
+h2,
+h3,
+p,
+dl,
+dd,
+ul {
+  margin: 0;
+}
+button,
+a {
+  color: inherit;
+}
+svg {
+  display: block;
+}
+::selection {
+  background: #d9e6ef;
+  color: #202933;
+}
+
+:root {
+  --face: "Bricolage Grotesque", sans-serif;
+  --display: "Bricolage Grotesque", sans-serif;
+}
+@view-transition {
+  navigation: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*) {
+    animation-duration: 0s;
+  }
+}
+
+/* Native document navigation only animates the selected language marker. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+.language-indicator {
+  view-transition-name: language-marker;
+}
+::view-transition-group(language-marker) {
+  animation-duration: 180ms;
+  animation-timing-function: var(--ease);
+  z-index: 1;
+}
+.language-label-pt {
+  view-transition-name: language-label-pt;
+}
+.language-label-en {
+  view-transition-name: language-label-en;
+}
+/* Labels must remain above the lifted marker snapshot throughout navigation. */
+::view-transition-group(language-label-pt),
+::view-transition-group(language-label-en) {
+  z-index: 2;
+  animation: none;
+}
+::view-transition-old(language-label-pt),
+::view-transition-new(language-label-pt),
+::view-transition-old(language-label-en),
+::view-transition-new(language-label-en) {
+  animation: none;
+  mix-blend-mode: normal;
+}

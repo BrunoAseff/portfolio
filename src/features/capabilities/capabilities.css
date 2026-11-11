@@ -1,0 +1,44 @@
+.knowledge {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+}
+.knowledge dt {
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 500;
+}
+.knowledge dd {
+  margin-top: 4px;
+  font-size: 15px;
+  line-height: 25px;
+  font-weight: 400;
+}
+.technologies {
+  margin-top: 28px;
+}
+.technologies h3 {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 22px;
+  font-weight: 400;
+}
+.technologies ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-top: 6px;
+  list-style: none;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 26px;
+}
+.technologies li {
+  display: inline-flex;
+  white-space: nowrap;
+}
+.technology-separator {
+  color: #98a3ad;
+  margin-inline: 10px;
+}

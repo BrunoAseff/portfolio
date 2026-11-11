@@ -1,0 +1,63 @@
+.degree-status,
+.courses p {
+  color: var(--body);
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  margin-top: 4px;
+}
+.courses-heading {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 22px;
+  font-weight: 400;
+  margin: 29px 0 12px;
+}
+.courses {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  gap: 21px;
+}
+.courses h4 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 25px;
+}
+.credential {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  max-width: 100%;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--link-line);
+  text-underline-offset: 4px;
+  transition:
+    color 0.16s var(--ease),
+    text-decoration-color 0.16s var(--ease);
+}
+.credential .icon {
+  width: 15px;
+  height: 15px;
+  transform: translateY(1px);
+  transition: transform 0.18s var(--ease);
+}
+.credential:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+.credential:hover .icon,
+.credential:focus-visible .icon {
+  transform: translate(1px, 0);
+}
+.courses p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 14px;
+}

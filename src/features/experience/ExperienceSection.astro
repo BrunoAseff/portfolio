@@ -1,0 +1,21 @@
+---
+import { experiences } from "../../content/experience";
+import { messages } from "../../content/messages";
+import type { Locale } from "../../content/types";
+import ExperienceEntry from "./ExperienceEntry.astro";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<section id="experiencia" aria-labelledby="experience-title" tabindex="-1">
+  <h2 id="experience-title" class="section-title">
+    {messages[locale].sections[1].name}
+  </h2>
+  <div class="entries experience-entries">
+    {experiences.map((entry) => (
+      <ExperienceEntry locale={locale} entry={entry} />
+    ))}
+  </div>
+</section>

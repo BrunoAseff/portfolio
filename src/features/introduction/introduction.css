@@ -1,0 +1,151 @@
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+h1 {
+  color: var(--ink);
+  font: 500 26px/34px var(--display);
+  letter-spacing: -0.45px;
+}
+.utilities {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.language {
+  display: flex;
+  gap: 2px;
+}
+.language a {
+  position: relative;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--muted);
+  background: transparent;
+}
+.language a > span:not(.language-indicator) {
+  position: relative;
+  z-index: 1;
+}
+.language-indicator {
+  position: absolute;
+  inset: 0;
+  background: var(--selected);
+  border-radius: 10px;
+}
+.language a[aria-current="page"] {
+  color: var(--ink);
+}
+.language a:hover {
+  color: var(--accent);
+}
+.sound {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--muted);
+  transition:
+    background-color 0.16s var(--ease),
+    color 0.16s var(--ease),
+    box-shadow 0.16s var(--ease),
+    transform 0.16s var(--ease);
+}
+.sound:hover {
+  background: var(--wash);
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.sound[aria-pressed="true"] {
+  color: #2f5674;
+  background: #dde8ef;
+}
+.sound[aria-pressed="true"]:hover {
+  background: #d3e2ec;
+  box-shadow: inset 0 0 0 1px #b6cbd9;
+}
+.sound-wave,
+.sound-muted {
+  stroke-dasharray: 1;
+  transition:
+    opacity 0.2s var(--ease),
+    stroke-dashoffset 0.2s var(--ease);
+}
+.sound-wave {
+  opacity: 0;
+  stroke-dashoffset: 1;
+}
+.sound-wave-outer {
+  transition-duration: 0.22s;
+}
+.sound-muted {
+  opacity: 1;
+  stroke-dashoffset: 0;
+  transition-duration: 0.16s;
+}
+.sound[aria-pressed="true"] .sound-wave {
+  opacity: 1;
+  stroke-dashoffset: 0;
+}
+.sound[aria-pressed="true"] .sound-muted {
+  opacity: 0;
+  stroke-dashoffset: 1;
+}
+.sound:active {
+  transform: translateY(1px);
+}
+.icon {
+  flex: none;
+  width: 17px;
+  height: 17px;
+}
+.sound .icon {
+  width: 20px;
+  height: 20px;
+}
+.role {
+  margin-top: 5px;
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0;
+}
+.intro-copy {
+  margin-top: 26px;
+  font-size: 15px;
+  line-height: 26px;
+}
+.personal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 22px;
+  margin-top: 17px;
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--muted);
+}
+.intro-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 21px;
+}
+.format {
+  white-space: nowrap;
+}
+
+.language a {
+  text-decoration: none;
+}

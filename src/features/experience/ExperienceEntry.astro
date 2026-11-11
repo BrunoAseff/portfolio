@@ -1,0 +1,21 @@
+---
+import type { Locale, Experience } from "../../content/types";
+interface Props {
+  locale: Locale;
+  entry: Experience;
+}
+const { locale, entry } = Astro.props,
+  c = entry.content[locale];
+---
+
+<article class="experience">
+  <div class="entry-heading">
+    <h3>{entry.name}</h3>
+    <p class="date">{c.period}</p>
+  </div>
+  <div class="prose">
+    {c.paragraphs.map((p) => (
+      <p>{p}</p>
+    ))}
+  </div>
+</article>

@@ -1,0 +1,23 @@
+# Netlify/Cloudflare-compatible map. Apply equivalent rules on other hosts.
+/pt / 301
+/pt/ / 301
+/pt/experiencia /#experiencia 301
+/pt/experiencia/ /#experiencia 301
+/pt/projetos /#projetos 301
+/pt/projetos/ /#projetos 301
+/pt/contato /#contato 301
+/pt/contato/ /#contato 301
+/en/experiencia /en/#experiencia 301
+/en/experiencia/ /en/#experiencia 301
+/en/projetos /en/#projetos 301
+/en/projetos/ /en/#projetos 301
+/en/contato /en/#contato 301
+/en/contato/ /en/#contato 301
+/experiencia /#experiencia 301
+/projetos /#projetos 301
+/contato /#contato 301
+/aws.pdf /documents/certificates/aws-cloud-practitioner.pdf 301
+/web-security-v2.pdf /documents/certificates/web-security-v2.pdf 301
+/algorithms-dark.pdf /documents/certificates/last-algorithms-course.pdf 301
+# Removed blog/API routes intentionally fall through to a real 404.
+# Add /curriculo.pdf only after the new PT résumé exists.

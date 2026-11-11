@@ -1,0 +1,74 @@
+---
+import type { Locale } from "../../content/types";
+import { messages } from "../../content/messages";
+import { soundStorageKey } from "./audio";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const { soundOn, soundOff } = messages[locale];
+---
+
+<button
+  class="sound"
+  type="button"
+  aria-label={soundOn}
+  aria-pressed="false"
+  title={soundOn}
+  data-sound-on-label={soundOn}
+  data-sound-off-label={soundOff}
+>
+  <svg
+    class="icon icon-sound"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M11 4.5 6.5 8H3.7C3.2 8 3 8.4 3 9v6c0 .6.2 1 .7 1h2.8l4.5 3.5c.5.4 1 .1 1-.5V5c0-.6-.5-.9-1-.5Z" />
+    <path class="sound-wave sound-wave-inner" pathLength="1" d="M16 8c2 2.2 2 5.8 0 8" />
+    <path class="sound-wave sound-wave-outer" pathLength="1" d="M19 5c3.8 3.8 3.8 10.2 0 14" />
+    <path class="sound-muted" pathLength="1" d="m17 9 5 6m0-6-5 6" />
+  </svg>
+</button>
+<!-- Restore the visible and accessible state while parsing, before the first
+     paint/navigation snapshot. No React hydration can reset it to the SSR default. -->
+<script is:inline define:vars={{ soundStorageKey }}>
+  {
+    const button = document.currentScript.previousElementSibling;
+    let enabled = false;
+    try {
+      enabled = sessionStorage.getItem(soundStorageKey) === "on";
+    } catch {}
+    const label = enabled ? button.dataset.soundOffLabel : button.dataset.soundOnLabel;
+    button.setAttribute("aria-pressed", String(enabled));
+    button.setAttribute("aria-label", label);
+    button.title = label;
+  }
+</script>
+<script>
+  import { getSound, restoreSound, setSound, subscribeSound, play } from "./audio";
+  const button = document.querySelector<HTMLButtonElement>(".sound");
+  if (button) {
+    const render = () => {
+      const enabled = getSound();
+      const label = (enabled ? button.dataset.soundOffLabel : button.dataset.soundOnLabel)!;
+      button.setAttribute("aria-pressed", String(enabled));
+      button.setAttribute("aria-label", label);
+      button.title = label;
+    };
+    restoreSound();
+    render();
+    subscribeSound(render);
+    button.addEventListener("click", () => {
+      const enabled = !getSound();
+      setSound(enabled);
+      if (enabled) play("tap", true);
+    });
+  }
+</script>

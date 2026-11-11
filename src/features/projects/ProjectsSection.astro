@@ -1,0 +1,23 @@
+---
+import { projects } from "../../content/projects";
+import { messages } from "../../content/messages";
+import type { Locale } from "../../content/types";
+import ProjectEntry from "./ProjectEntry.astro";
+import ActivitySummary from "../activity/ActivitySummary.astro";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<section id="projetos" aria-labelledby="projects-title" tabindex="-1">
+  <h2 id="projects-title" class="section-title">
+    {messages[locale].sections[2].name}
+  </h2>
+  <div class="entries project-entries">
+    {projects.map((project) => (
+      <ProjectEntry locale={locale} project={project} />
+    ))}
+  </div>
+  <ActivitySummary locale={locale} />
+</section>

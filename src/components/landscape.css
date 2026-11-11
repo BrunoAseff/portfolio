@@ -1,0 +1,45 @@
+.landscape-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.landscape {
+  position: absolute;
+  bottom: -32px;
+  width: min(290px, calc((100vw - 720px)/2));
+  mask-image: linear-gradient(to right, #000 56%, transparent 100%);
+}
+.landscape-left {
+  left: 0;
+}
+.landscape-right {
+  right: 0;
+  transform: scaleX(-1);
+  bottom: -75px;
+}
+.landscape svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.mountain-far {
+  fill: var(--far);
+}
+.mountain-mid {
+  fill: var(--mid);
+}
+.mountain-near {
+  fill: var(--near);
+}
+.tree-far {
+  color: var(--tree-far);
+  fill: currentColor;
+}
+.tree-near {
+  color: var(--tree);
+  fill: currentColor;
+}
+.ground {
+  fill: var(--ground);
+}
