@@ -1,5 +1,5 @@
 .activity {
-  margin-top: 28px;
+  margin-top: 34px;
 }
 .activity-link {
   display: block;
@@ -101,6 +101,18 @@
   color: var(--muted);
   font-size: 14px;
   line-height: 23px;
+}
+.activity-progress {
+  stroke: var(--accent);
+  stroke-dasharray: 36;
+  stroke-dashoffset: 36;
+  transition: stroke-dashoffset 400ms cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+.activity-link:is(:hover, :focus-visible) .activity-progress {
+  stroke-dashoffset: 0;
+}
+.activity-link:is(:hover, :focus-visible) .activity-branch > path:not(.activity-progress) {
+  stroke: var(--link-line);
 }
 
 .activity-link:hover .activity-origin::before,

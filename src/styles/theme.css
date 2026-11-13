@@ -1,13 +1,13 @@
 :root {
   --page: #fcfcfa;
-  --ink: #272c33;
-  --body: #5e6671;
-  --muted: #69727d;
+  --ink: #282d34;
+  --body: #4d555f;
+  --muted: #6b737d;
   --accent: #345c80;
-  --wash: #eef2f5;
+  --wash: #edf2f5;
   --selected: #e2eaf0;
-  --line: #d5dce2;
-  --link-line: #a5afb9;
+  --line: #d6dce1;
+  --link-line: #adb6bf;
   --white: #fff;
   --failure: #a13d35;
   --far: #e9edef;
@@ -16,7 +16,7 @@
   --tree-far: #8a9aa4;
   --tree: #475761;
   --ground: #99acb7;
-  --face: Bricolage, sans-serif;
-  --display: Bricolage, sans-serif;
-  --ease: cubic-bezier(0.22, 0.75, 0.22, 1);
+  --face: system-ui, sans-serif;
+  --display: system-ui, sans-serif;
+  --ease: cubic-bezier(0.22, 0.8, 0.22, 1);
 }

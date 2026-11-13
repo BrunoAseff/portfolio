@@ -22,10 +22,18 @@ function ResumeControl({
     trigger = useRef<HTMLButtonElement | null>(null);
   useEffect(() => {
     const hide = () => setNotice(false);
+    const escape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      if (document.activeElement?.closest(".notice"))
+        trigger.current?.focus({ preventScroll: true });
+      setNotice(false);
+    };
     window.addEventListener("portfolio:dismiss-resume-notice", hide);
+    window.addEventListener("keydown", escape);
     return () => {
       if (timer.current) clearTimeout(timer.current);
       window.removeEventListener("portfolio:dismiss-resume-notice", hide);
+      window.removeEventListener("keydown", escape);
     };
   }, []);
   const dismiss = () => {
@@ -38,7 +46,7 @@ function ResumeControl({
     trigger.current?.focus({ preventScroll: true });
   };
   const contact = variant === "contact";
-  const className = contact ? "text-link contact-channel" : "text-link";
+  const className = contact ? "text-link resume contact-channel" : "text-link resume";
   const contents = contact ? (
     <>
       <AnimatedIcon name="document" />
@@ -47,14 +55,16 @@ function ResumeControl({
     </>
   ) : (
     <>
-      {c.resume} (PDF)
       <AnimatedIcon name="document" />
+      <span className="link-label">{c.resume}</span>
+      <span className="format">PDF</span>
     </>
   );
   const href = site.resumes[locale];
   if (href)
     return (
       <a
+        data-sound="tap"
         className={className}
         aria-label={contact ? `${c.resume} (PDF)` : undefined}
         href={href}
@@ -65,10 +75,11 @@ function ResumeControl({
       </a>
     );
   return (
-    <>
+    <span className={`resume-origin${contact ? " resume-contact" : ""}`}>
       <motion.button
         ref={trigger}
         type="button"
+        data-sound="tap"
         className={className}
         aria-label={contact ? `${c.resume} (PDF)` : undefined}
         whileTap={reduced ? undefined : { y: 1 }}
@@ -87,9 +98,9 @@ function ResumeControl({
           <motion.div
             className="notice"
             role="status"
-            initial={reduced ? false : { opacity: 0, y: 5 }}
+            initial={reduced ? false : { opacity: 0, y: -3 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 3 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: reduced ? 0 : 0.16 }}
           >
             {c.resumePending}
@@ -99,7 +110,7 @@ function ResumeControl({
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </span>
   );
 }
 

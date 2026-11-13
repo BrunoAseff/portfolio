@@ -1,7 +1,3 @@
-@import "@fontsource/bricolage-grotesque/latin-400.css";
-@import "@fontsource/bricolage-grotesque/latin-ext-400.css";
-@import "@fontsource/bricolage-grotesque/latin-500.css";
-@import "@fontsource/bricolage-grotesque/latin-ext-500.css";
 @import "tailwindcss";
 @import "./theme.css";
 @import "./base.css";
@@ -22,4 +18,8 @@
 @import "../components/ui/notice.css";
 @import "./accessibility.css";
 @import "./motion.css";
+@import "./locale.css";
 @import "./responsive.css";
+
+/* Accepted composition and interaction presentation, shared by both locales. */
+@import "./presentation.css";

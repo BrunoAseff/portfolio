@@ -8,7 +8,7 @@ interface Props {
 const { locale } = Astro.props;
 ---
 
-<div class="technologies">
+<div class="technologies" id="tecnologias">
   <h3>{messages[locale].technologiesHeading}</h3>
   <ul>
     {technologies.map((technology, index) => (

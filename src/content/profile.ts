@@ -3,7 +3,7 @@ export const profile = {
   pt: {
     role: "Engenheiro de software fullstack",
     intro:
-      "Construo aplicações e participo das decisões que transformam uma necessidade em uma solução, com atenção às interfaces e à experiência de quem usa.",
+      "Desenvolvo aplicações web completas, integrações e ferramentas com IA. Participo das decisões técnicas e cuido da experiência de quem usa.",
     location: "Itajaí, SC — Brasil",
     deliveries: [
       ["Aplicações web", "Desenvolvi aplicações completas, das interfaces às APIs e integrações."],
@@ -20,7 +20,7 @@ export const profile = {
   en: {
     role: "Fullstack software engineer",
     intro:
-      "I build applications and help make the decisions that turn a need into a working solution, with care for interfaces and the people using them.",
+      "I build complete web applications, integrations and AI-powered tools. I help shape technical decisions and the experience of the people using them.",
     location: "Itajaí, SC — Brazil",
     deliveries: [
       [

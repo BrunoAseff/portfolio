@@ -18,7 +18,20 @@ const { name } = Astro.props;
   stroke-linejoin="round"
   aria-hidden="true"
 >
-  {paths[name].map((d) => (
-    <path d={d} />
-  ))}
+  {name === "external" ? (
+    <>
+      <g class="external-original">
+        {paths[name].map((d) => (
+          <path d={d} />
+        ))}
+      </g>
+      <g class="external-twin">
+        {paths[name].map((d) => (
+          <path d={d} />
+        ))}
+      </g>
+    </>
+  ) : (
+    paths[name].map((d) => <path d={d} />)
+  )}
 </svg>

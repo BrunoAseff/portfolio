@@ -3,6 +3,7 @@ import type { Locale, Project } from "../../content/types";
 import { messages } from "../../content/messages";
 import Icon from "../../components/ui/Icon.astro";
 import ExternalLink from "../../components/ui/ExternalLink.astro";
+import ProjectMedia from "./ProjectMedia.astro";
 interface Props {
   locale: Locale;
   project: Project;
@@ -11,25 +12,32 @@ const { locale, project } = Astro.props,
   c = messages[locale];
 ---
 
-<article class="project">
+<article class="project" id={`projeto-${project.id}`}>
   <div class="project-heading">
-    <h3>{project.name}</h3>
+    <h3>
+      {project.links.website ? (
+        <ExternalLink class="project-name" href={project.links.website}>
+          <span class="link-label">{project.name}</span>
+          <Icon name="external" />
+        </ExternalLink>
+      ) : (
+        project.name
+      )}
+    </h3>
   </div>
-  <div class="prose">
-    {project.content[locale].paragraphs.map((p) => (
-      <p>{p}</p>
-    ))}
-  </div>
-  <div class="project-actions">
-    {project.links.website && (
-      <ExternalLink class="text-link" href={project.links.website}>
-        {c.visit}
-        <Icon name="external" />
-      </ExternalLink>
-    )}
+  {project.content[locale].pitch && <p class="project-pitch">{project.content[locale].pitch}</p>}
+  <ProjectMedia project={project} locale={locale} />
+  {project.content[locale].paragraphs.length > 0 && (
+    <div class="prose">
+      {project.content[locale].paragraphs.map((p) => (
+        <p>{p}</p>
+      ))}
+    </div>
+  )}
+  <div class="project-actions attention-group">
     {project.links.repository && (
       <ExternalLink class="text-link" href={project.links.repository}>
-        {c.code}
+        <span class="link-label">{c.code}</span>
         <Icon name="code" />
       </ExternalLink>
     )}

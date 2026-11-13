@@ -12,7 +12,7 @@ export type Project = {
   id: string;
   name: string;
   links: { website?: string; repository?: string };
-  content: Localized<{ paragraphs: string[] }>;
+  content: Localized<{ pitch?: string; paragraphs: string[] }>;
 };
 export type Credential = { id: string; name: string; issuer: string; issued: string; href: string };
 export type ProfileContent = {

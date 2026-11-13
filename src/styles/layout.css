@@ -4,17 +4,16 @@
   min-height: 100vh;
   background: var(--page);
   color: var(--body);
-  font: 400 15px/1.67 var(--face);
-  --page-top: 60px;
-  padding: var(--page-top) 0 36px;
+  font: 400 16px/1.7 var(--face);
+  --page-top: 72px;
+  padding: var(--page-top) 0 48px;
 }
 .reading-column {
   position: relative;
   z-index: 1;
-  width: min(600px, calc(100% - 48px));
+  width: min(680px, calc(100% - 48px));
   margin-inline: auto;
 }
-
 .introduction {
   scroll-margin-top: var(--page-top);
 }

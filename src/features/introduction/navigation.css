@@ -1,25 +1,38 @@
 .orientation {
-  margin-top: 36px;
+  margin-top: 37px;
 }
 .index {
   display: flex;
+  gap: 30px;
   flex-wrap: wrap;
-  gap: 0;
 }
 .index a {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  min-height: 32px;
-  font-size: 13px;
-  line-height: 22px;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.16s var(--ease);
+  min-height: 36px;
+  color: var(--body);
+  font-size: 14px;
+  transition: color 200ms var(--ease);
 }
-.index a:hover {
+.index a:is(:hover, :focus-visible, [data-inspect="true"]) {
   color: var(--accent);
 }
-.nav-separator {
-  color: #c4cbd2;
-  margin: 0 18px;
+.nav-caret {
+  position: absolute;
+  left: -16px;
+  width: 12px;
+  height: 14px;
+  opacity: 0;
+  transform: translateX(-3px);
+  clip-path: inset(0 100% 0 0);
+  transition:
+    opacity 220ms var(--ease),
+    transform 320ms var(--ease),
+    clip-path 320ms var(--ease);
+}
+.index a:is(:hover, :focus-visible, [data-inspect="true"]) .nav-caret {
+  opacity: 1;
+  transform: translateX(0);
+  clip-path: inset(0);
 }

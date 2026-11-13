@@ -1,6 +1,6 @@
 import type { Locale } from "../content/types";
 import { site } from "../content/site";
-export function experienceSince(now = new Date(), lang: Locale = "pt") {
+export function experienceSince(now = new Date(), lang: Locale = "pt", compact = false) {
   const [year, month, day] = site.experienceStart.split("-").map(Number);
   let months = (now.getFullYear() - year) * 12 + now.getMonth() - (month - 1);
   if (now.getDate() < day) months--;
@@ -20,6 +20,7 @@ export function experienceSince(now = new Date(), lang: Locale = "pt") {
       ? parts.join(lang === "pt" ? " e " : " and ")
       : lang === "pt"
         ? "Menos de um mês"
-        : "Less than a month") + (lang === "pt" ? " de experiência" : " of experience")
+        : "Less than a month") +
+    (compact ? "" : lang === "pt" ? " de experiência" : " of experience")
   );
 }

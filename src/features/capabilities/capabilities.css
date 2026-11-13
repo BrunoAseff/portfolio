@@ -1,44 +1,47 @@
 .knowledge {
   display: flex;
   flex-direction: column;
-  gap: 21px;
+  gap: 24px;
 }
 .knowledge dt {
+  font-size: 17px;
+  line-height: 26px;
   color: var(--ink);
-  font-size: 15px;
-  line-height: 24px;
   font-weight: 500;
 }
 .knowledge dd {
-  margin-top: 4px;
-  font-size: 15px;
-  line-height: 25px;
-  font-weight: 400;
+  margin-top: 5px;
+  font-size: 16px;
+  line-height: 27px;
+  text-wrap: pretty;
 }
 .technologies {
-  margin-top: 28px;
+  margin-top: 30px;
 }
-.technologies h3 {
+.technologies h3,
+.courses-heading {
+  font-size: 14px;
+  line-height: 24px;
   color: var(--muted);
-  font-size: 13px;
-  line-height: 22px;
   font-weight: 400;
 }
 .technologies ul {
   display: flex;
   flex-wrap: wrap;
-  padding: 0;
-  margin-top: 6px;
   list-style: none;
+  padding: 0;
+  margin-top: 7px;
+  column-gap: 0;
+  row-gap: 0;
   color: var(--ink);
-  font-size: 14px;
-  line-height: 26px;
+  font-size: 15px;
+  line-height: 28px;
 }
 .technologies li {
   display: inline-flex;
   white-space: nowrap;
 }
 .technology-separator {
-  color: #98a3ad;
-  margin-inline: 10px;
+  color: #a7afb5;
+  margin-inline: 11px;
 }

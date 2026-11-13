@@ -10,16 +10,20 @@ const { locale } = Astro.props;
 ---
 
 <section id="conhecimentos" aria-labelledby="knowledge-title" tabindex="-1">
-  <h2 id="knowledge-title" class="section-title">
-    {messages[locale].sections[0].name}
-  </h2>
-  <dl class="knowledge">
-    {profile[locale].deliveries.map(([title, description]) => (
-      <div>
-        <dt>{title}</dt>
-        <dd>{description}</dd>
-      </div>
-    ))}
-  </dl>
-  <TechnologyList locale={locale} />
+  <div class="section-lead">
+    <h2 id="knowledge-title" class="section-title">
+      {messages[locale].sections[0].name}
+    </h2>
+  </div>
+  <div class="section-content">
+    <dl class="knowledge">
+      {profile[locale].deliveries.map(([title, description]) => (
+        <div>
+          <dt>{title}</dt>
+          <dd>{description}</dd>
+        </div>
+      ))}
+    </dl>
+    <TechnologyList locale={locale} />
+  </div>
 </section>

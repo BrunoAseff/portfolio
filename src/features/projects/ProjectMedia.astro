@@ -1,0 +1,45 @@
+---
+import { Image, getImage } from "astro:assets";
+import Icon from "../../components/ui/Icon.astro";
+import type { Locale, Project } from "../../content/types";
+import { projectMedia } from "./media";
+interface Props {
+  project: Project;
+  locale: Locale;
+}
+const { project, locale } = Astro.props;
+const media = projectMedia[project.id as keyof typeof projectMedia];
+const full =
+  media && (await getImage({ src: media.source, width: 1800, format: "webp", quality: 85 }));
+---
+
+{media && full && (
+  <button
+    type="button"
+    class="project-media"
+    data-sound="tap"
+    data-project-image={full.src}
+    data-image-width={full.attributes.width}
+    data-image-height={full.attributes.height}
+    data-image-name={project.name}
+    style={`--media-position:${media.position};view-transition-name:media-${project.id}`}
+    aria-label={
+      locale === "pt" ? `Ampliar interface de ${project.name}` : `Enlarge ${project.name} interface`
+    }
+    aria-haspopup="dialog"
+  >
+    <Image
+      src={media.source}
+      widths={[600, 900, 1200]}
+      sizes="(max-width: 720px) calc(100vw - 44px), 680px"
+      format="webp"
+      quality={85}
+      alt=""
+      loading="lazy"
+      decoding="async"
+    />
+    <span class="media-expand" aria-hidden="true">
+      <Icon name="external" />
+    </span>
+  </button>
+)}

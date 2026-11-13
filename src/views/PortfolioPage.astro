@@ -3,6 +3,8 @@ import type { Locale } from "../content/types";
 import { messages } from "../content/messages";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import Landscape from "../components/Landscape.astro";
+import ActivitySummary from "../features/activity/ActivitySummary.astro";
+import Icon from "../components/ui/Icon.astro";
 import Introduction from "../features/introduction/Introduction.astro";
 import CapabilitiesSection from "../features/capabilities/CapabilitiesSection.astro";
 import ExperienceSection from "../features/experience/ExperienceSection.astro";
@@ -24,12 +26,22 @@ const { locale } = Astro.props;
     <div class="reading-column">
       <Introduction locale={locale} />
       <main id="main" tabindex="-1">
-        <CapabilitiesSection locale={locale} />
         <ExperienceSection locale={locale} />
         <ProjectsSection locale={locale} />
+        <CapabilitiesSection locale={locale} />
         <EducationSection locale={locale} />
         <ContactSection locale={locale} />
       </main>
+      <footer class="document-closing">
+        <ActivitySummary locale={locale} />
+        <a class="back" href="#inicio">
+          <span class="link-label">{messages[locale].back}</span>
+          <span class="up-window">
+            <Icon name="up" />
+            <Icon name="up" />
+          </span>
+        </a>
+      </footer>
     </div>
   </div>
 </SiteLayout>

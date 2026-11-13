@@ -9,15 +9,17 @@ export const projects = [
     },
     content: {
       pt: {
+        pitch:
+          "Documentos, flashcards e quizzes para estudar com recuperação ativa e revisão espaçada.",
         paragraphs: [
-          "Plataforma de estudos que reúne documentos, flashcards e quizzes, conectando a organização dos materiais à prática de recuperação ativa e às revisões espaçadas. A IA auxilia na criação e no aprimoramento dos conteúdos, que podem ser revisados antes de entrar no estudo.",
-          "Construí uma aplicação fullstack que integra edição de conteúdo, processamento de arquivos e IA ao ciclo de estudo, com agendamento de revisões e acompanhamento de resultados.",
+          "Construí a aplicação fullstack que integra edição de conteúdo, processamento de arquivos e IA à criação de exercícios, às revisões e ao acompanhamento do estudo. O conteúdo gerado por IA pode ser revisado antes de entrar na prática.",
         ],
       },
       en: {
+        pitch:
+          "Documents, flashcards and quizzes for studying with active recall and spaced repetition.",
         paragraphs: [
-          "A study platform bringing documents, flashcards and quizzes together, connecting study materials with active recall and spaced reviews. AI helps create and refine content, which can be reviewed before being added to a study session.",
-          "I built a fullstack application connecting content editing, file processing and AI with the study cycle, including review scheduling and progress tracking.",
+          "I built the fullstack application, integrating content editing, file processing and AI with exercise creation, reviews and study progress. AI-generated content can be reviewed before being added to a study session.",
         ],
       },
     },
@@ -31,14 +33,14 @@ export const projects = [
     },
     content: {
       pt: {
-        paragraphs: [
+        pitch:
           "Plataforma de foco e relaxamento que permite criar ambientes personalizados, combinando sons, sessões de Pomodoro e exercícios de respiração para acompanhar momentos de concentração e pausa.",
-        ],
+        paragraphs: [],
       },
       en: {
-        paragraphs: [
+        pitch:
           "A focus and relaxation platform for creating personalised environments, combining sounds, Pomodoro sessions and breathing exercises for moments of concentration and rest.",
-        ],
+        paragraphs: [],
       },
     },
   },

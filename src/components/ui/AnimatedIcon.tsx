@@ -77,6 +77,13 @@ export function AnimatedIcon({ name, active = false }: { name: Name; active?: bo
           animate={{ pathLength: 1 }}
           transition={{ duration: reduced ? 0 : 0.22, ease: [0.22, 0.75, 0.22, 1] }}
         />
+      ) : name === "document" ? (
+        <>
+          <path d={paths.document[0]} />
+          <path className="document-fold" d={paths.document[1]} />
+          <path className="document-line line-one" pathLength="1" d="M8 14h8" />
+          <path className="document-line line-two" pathLength="1" d="M8 17.5h5" />
+        </>
       ) : (
         paths[name].map((d, index) => <path key={index} d={d} />)
       )}

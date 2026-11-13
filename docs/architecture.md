@@ -20,3 +20,13 @@ The full design/career context remains at `../../ai-context/` in the original wo
 ## Hosting boundary
 
 Static deployment is intentionally unconfigured. Apply equivalent redirects/status/cache rules for the chosen provider, including true missing-page status, removed blog/API paths and old document URLs. `_redirects`/`_headers` are templates compatible with Netlify/Cloudflare. No automatic domain/provider/account changes are part of this implementation.
+
+## Locale and arrival refinement
+
+Native cross-document View Transitions name translated content blocks and preserve separate header/marker/image snapshots. Locale navigation stores a short-lived reading anchor for restoration before the new document is revealed. Supported browsers animate; other browsers retain normal static navigation. Entry animation is a block opacity fade, skipped for locale arrivals, hash navigation and reduced motion. Essential content remains server-rendered HTML. Typography uses local Nunito 400/600, with the regular reading weight preloaded and the OFL license preserved. The shared presentation layer defines the accepted composition and text/control roles.
+
+## Refino 8 migration · 2026-11-13
+
+The authorized composition uses a continuous rounded reading surface, integrated complete header navigation, and Experience before Projects. Global account activity lives in the document footer. Location and résumé are in Contact; project names are external destinations. All essential content remains Astro-rendered.
+
+Contextual audio is opt-in and browser-only; consecutive hover entries have no shared cooldown, and hover tails do not suppress action voices. Coordinated page interactions are in `lib/page-interactions.js`, alongside existing section navigation and media-viewer modules. The media canvas supports pull-to-dismiss while retaining Escape, close control and focus return. The shared presentation layer is `styles/presentation.css`; comparison-only prototype modes are excluded.

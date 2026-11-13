@@ -1,5 +1,5 @@
 :root {
-  font-family: "Bricolage Grotesque", sans-serif;
+  font-family: system-ui, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -61,48 +61,6 @@ svg {
 }
 
 :root {
-  --face: "Bricolage Grotesque", sans-serif;
-  --display: "Bricolage Grotesque", sans-serif;
-}
-@view-transition {
-  navigation: auto;
-}
-@media (prefers-reduced-motion: reduce) {
-  ::view-transition-group(*) {
-    animation-duration: 0s;
-  }
-}
-
-/* Native document navigation only animates the selected language marker. */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-.language-indicator {
-  view-transition-name: language-marker;
-}
-::view-transition-group(language-marker) {
-  animation-duration: 180ms;
-  animation-timing-function: var(--ease);
-  z-index: 1;
-}
-.language-label-pt {
-  view-transition-name: language-label-pt;
-}
-.language-label-en {
-  view-transition-name: language-label-en;
-}
-/* Labels must remain above the lifted marker snapshot throughout navigation. */
-::view-transition-group(language-label-pt),
-::view-transition-group(language-label-en) {
-  z-index: 2;
-  animation: none;
-}
-::view-transition-old(language-label-pt),
-::view-transition-new(language-label-pt),
-::view-transition-old(language-label-en),
-::view-transition-new(language-label-en) {
-  animation: none;
-  mix-blend-mode: normal;
+  --face: system-ui, sans-serif;
+  --display: system-ui, sans-serif;
 }

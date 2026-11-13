@@ -9,6 +9,7 @@ export type IconName =
   | "error"
   | "up"
   | "commit"
+  | "expand"
   | "close";
 export const paths: Record<Exclude<IconName, "sound" | "check">, string[]> = {
   mail: [
@@ -30,4 +31,10 @@ export const paths: Record<Exclude<IconName, "sound" | "check">, string[]> = {
   up: ["M6 10c2-2 4-4.3 6-6 2 1.7 4 4 6 6", "M12 4v16"],
   commit: ["M3 12h5m8 0h5", "M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0"],
   close: ["m6 6 12 12M18 6 6 18"],
+  expand: [
+    "M9 4H6C4.6 4 4 4.6 4 6v3",
+    "M15 4h3c1.4 0 2 .6 2 2v3",
+    "M20 15v3c0 1.4-.6 2-2 2h-3",
+    "M9 20H6c-1.4 0-2-.6-2-2v-3",
+  ],
 };

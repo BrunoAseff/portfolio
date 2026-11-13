@@ -1,3 +1,13 @@
+# Current refinement state
+
+## Refino 8 migrated · 2026-11-13
+
+Bruno authorized applying refino 8 to the real application. Composition, local Nunito typography, integrated navigation light, supporting text roles, contextual audio/volume, locale transitions, icons, spacing and media drag are implemented. The global activity summary is in the footer, location/résumé in Contact. Previous prototypes are historical references, not the operational application.
+
+Full verification passed: formatting/lint, Astro checks, 17 tests, static build and HTML/SEO/assets verifier. Browser checks covered copy, language/audio persistence, return navigation, media drag and narrow layouts. Browser screenshots remained unavailable; these checks do not imply a complete perceptual/audio review. Landscape, updated résumé materials and publication remain deferred. Migration does not close the wider refinement backlog.
+
+## Historical records
+
 # Deferred refinements after v3
 
 ## Current contact/activity direction
@@ -33,3 +43,13 @@ Lazúli now links to https://lazuli.brunoaseff.com.br/ in both locales. External
 Both locales checked at 320/390/640/1280 px; copy feedback and built-link policy verified. Future delight research (imagery, custom interactions, motion and references) was explicitly deferred by Bruno and has not started. These focused refinements do not close the broader pending visual work.
 
 Follow-up after Bruno said merely undoing the cards was insufficient: email and Copy are now one action with a stable animated feedback area and selectable address. Email is the primary contact text (18px desktop/17px narrow), profiles/résumé are secondary (14px). Commit metadata is grouped above its 15px message link; the current-account prefix is omitted visually while the full repository remains in the title/data. No surfaces or duplicate CTA. Awaiting visual evaluation. Copy verified by click in EN and Enter in PT; narrow layouts checked in both languages. Print retains the email and hides only feedback.
+
+## Accepted interaction migration
+
+External-arrow and code gestures, clipboard/sound geometry morphs, activity branch tracing, contextual résumé notice and the original local navigation cursor are now in the application. The cursor no longer traverses intervening links. Project media controls retain their prototype positions: arrow bottom-right of the preview, Close top-right inside the expanded image. Real project screenshots and certificate peeks are integrated. No portrait, magnifier, floating side navigation, triangle replacement, document shake or back-arrow shake. Broader refinement work is paused pending design alignment; these changes do not close R11/R13 or resolve the reported whole-page language/loading experience.
+
+## Refino migrated · 2026-11-12
+
+Applied the accepted prototype direction to the real Astro components: wider reading column, clearer type/contrast, aligned project captures, block locale transitions, document/external/up gestures and temporary certificate previews. Restored Experience before Projects and reduced the local navigation indicator. The prototype actually rendered the system font; production now declares system-ui explicitly and avoids unused font downloads. Existing copy morph, activity hierarchy and audio preference remain.
+
+Header composition and the Lazúli capture edge remain open for the next refinement round, alongside broader sound/motion work. Landscape remains deferred. Successful isolated checks do not constitute final visual approval. Vite Plus remains the project tool; memory-bounded direct Astro commands were needed for this validation run.

@@ -3,151 +3,164 @@
     display: none;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 720px) {
   .portfolio {
-    --page-top: 35px;
+    --page-top: 40px;
   }
   .reading-column {
-    width: calc(100% - 40px);
-  }
-  main section {
-    margin-top: 42px;
-  }
-}
-@media (max-width: 480px) {
-  .portfolio {
-    --page-top: 25px;
-  }
-  .masthead {
-    gap: 10px;
+    width: calc(100% - 44px);
   }
   h1 {
-    font-size: 25px;
-    line-height: 33px;
-  }
-  .utilities {
-    gap: 7px;
-  }
-  .role {
-    margin-top: 4px;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 30px;
+    letter-spacing: -0.7px;
   }
   .intro-copy {
-    margin-top: 25px;
+    font-size: 19px;
+    line-height: 1.6;
+    margin-top: 30px;
   }
-  .personal-meta {
-    flex-direction: column;
-    gap: 2px;
-    margin-top: 16px;
-  }
-  .intro-actions {
-    margin-top: 20px;
-  }
-  .orientation {
-    margin-top: 32px;
-  }
-  .entry-heading {
-    display: block;
-  }
-  .date {
-    margin-top: 2px;
+  .utilities {
+    gap: 8px;
   }
   .index {
-    column-gap: 21px;
-    row-gap: 0;
-  }
-  .index a {
-    min-height: 34px;
-  }
-  .nav-separator {
-    display: none;
+    gap: 7px 29px;
   }
   .section-title {
-    font-size: 21px;
-    line-height: 29px;
-    margin-bottom: 22px;
+    font-size: 23px;
+  }
+  main > section {
+    margin-top: 62px;
+  }
+  .project-media {
+    border-radius: 11px;
+  }
+  .entry-heading {
+    flex-direction: column;
+    gap: 3px;
+  }
+  .experience .prose {
+    margin-top: 12px;
+  }
+  .date {
+    font-size: 13px;
+  }
+  .project-actions {
+    gap: 3px 24px;
   }
   .knowledge {
-    gap: 20px;
+    gap: 23px;
   }
-  .technologies {
-    margin-top: 25px;
+  .project-pitch {
+    font-size: 16px;
   }
-  .entries {
-    gap: 30px;
+  .project-entries {
+    gap: 39px;
   }
-  .credential,
-  h3,
-  .courses h4 {
-    font-size: 15px;
-    line-height: 24px;
-  }
-  .technologies h3,
-  .courses-heading {
-    font-size: 13px;
-    line-height: 22px;
-  }
-  .courses p,
-  .degree-status {
-    font-size: 14px;
-    line-height: 24px;
-  }
-  .technology-separator {
-    margin-inline: 8px;
+  .contact-details {
+    column-gap: 16px;
   }
 }
-@media (max-width: 350px) {
+@media (max-width: 380px) {
+  .portfolio {
+    --page-top: 30px;
+  }
   .reading-column {
-    width: calc(100% - 32px);
+    width: calc(100% - 36px);
+  }
+  h1 {
+    font-size: 27px;
   }
   .utilities {
     gap: 4px;
   }
   .language a,
   .sound {
-    min-width: 32px;
     width: 32px;
+    height: 34px;
   }
-  h1 {
-    font-size: 24px;
-    line-height: 32px;
+  .language-indicator {
+    width: 32px;
+    height: 34px;
+  }
+  .role {
+    font-size: 14px;
+  }
+  .intro-copy {
+    font-size: 18px;
   }
   .index {
-    display: grid;
-    grid-template-columns: max-content max-content;
-    column-gap: 25px;
+    gap: 4px 25px;
+  }
+  .email-address {
+    font-size: 15px;
+  }
+  .copy-email {
+    gap: 6px;
+  }
+  .copy-feedback {
+    width: 67px;
+  }
+  .copy-words {
+    font-size: 12px;
+  }
+  .contact-details {
+    column-gap: 15px;
+  }
+}
+@media (pointer: coarse) {
+  .media-expand {
+    opacity: 1;
+    scale: 1;
+  }
+  .media-close {
+    width: 44px;
+    height: 44px;
+  }
+  .index a {
+    min-height: 40px;
+  }
+  .text-link {
+    min-height: 40px;
+  }
+}
+
+@media (min-width: 521px) {
+  .entry-heading {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+}
+@media (max-width: 520px) {
+  .entry-heading {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (max-width: 380px) {
+  .copy-feedback {
+    width: 67px;
+  }
+  .copy-email {
+    gap: 6px;
+  }
+  .copy-label {
+    font-size: 12px;
   }
 }
 @media (pointer: coarse) {
   .language a,
   .sound {
-    min-width: 44px;
-    min-height: 44px;
+    min-width: 40px;
+    min-height: 40px;
   }
-  .resume,
+  .credential,
   .copy-email,
-  .text-link,
-  .index a,
-  .back,
-  .credential {
-    min-height: 44px;
+  .back {
+    min-height: 40px;
   }
-  .credential {
-    display: inline-flex;
-    align-items: center;
-  }
-}
-@media (max-width: 350px) and (pointer: coarse) {
-  .masthead {
-    gap: 6px;
-  }
-  .utilities {
-    gap: 4px;
-  }
-  h1 {
-    font-size: 22px;
-    line-height: 30px;
+  .media-expand {
+    scale: 1;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -157,16 +170,11 @@
     animation: none !important;
     transition: none !important;
   }
-  .resume:hover .icon,
-  .text-link:hover .icon-external {
-    transform: none;
+  .attention-group > * {
+    opacity: 1 !important;
   }
-  .credential:hover .icon,
-  .credential:focus-visible .icon {
-    transform: translateY(1px);
-  }
-  .sound:active {
-    transform: none;
+  [data-await] {
+    opacity: 1 !important;
   }
 }
 @media print {

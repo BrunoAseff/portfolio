@@ -1,22 +1,40 @@
 footer {
   display: flex;
   justify-content: flex-end;
-  margin-top: 32px;
+  margin-top: 65px;
 }
 .back {
   display: inline-flex;
   align-items: center;
   gap: 7px;
   color: var(--muted);
-  font-size: 13px;
-  line-height: 23px;
+  font-size: 14px;
+  line-height: 24px;
   min-height: 36px;
   text-decoration: none;
 }
-.back .icon {
-  width: 14px;
-  height: 14px;
-}
-.back:hover {
+.back:is(:hover, :focus-visible) {
   color: var(--accent);
+}
+.up-window {
+  width: 17px;
+  height: 19px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.up-window > .icon {
+  width: 17px;
+  height: 19px;
+  transition: transform 390ms var(--ease);
+}
+.back:is(:hover, :focus-visible, [data-inspect="true"]) .up-window > .icon {
+  transform: translateY(-19px);
+}
+.back .link-label {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0 1px;
+}
+.back:is(:hover, :focus-visible, [data-inspect="true"]) .link-label {
+  background-size: 100% 1px;
 }

@@ -31,9 +31,8 @@ const { soundOn, soundOff } = messages[locale];
     aria-hidden="true"
   >
     <path d="M11 4.5 6.5 8H3.7C3.2 8 3 8.4 3 9v6c0 .6.2 1 .7 1h2.8l4.5 3.5c.5.4 1 .1 1-.5V5c0-.6-.5-.9-1-.5Z" />
-    <path class="sound-wave sound-wave-inner" pathLength="1" d="M16 8c2 2.2 2 5.8 0 8" />
-    <path class="sound-wave sound-wave-outer" pathLength="1" d="M19 5c3.8 3.8 3.8 10.2 0 14" />
-    <path class="sound-muted" pathLength="1" d="m17 9 5 6m0-6-5 6" />
+    <path class="sound-wave sound-wave-inner" d="M17 9C18.67 11 20.33 13 22 15" />
+    <path class="sound-wave sound-wave-outer" d="M22 9C20.33 11 18.67 13 17 15" />
   </svg>
 </button>
 <!-- Restore the visible and accessible state while parsing, before the first
@@ -49,18 +48,43 @@ const { soundOn, soundOff } = messages[locale];
     button.setAttribute("aria-pressed", String(enabled));
     button.setAttribute("aria-label", label);
     button.title = label;
+    const paths = enabled
+      ? ["M16 8C18.7 10.2 18.7 13.8 16 16", "M19 5C24.1 8.8 24.1 15.2 19 19"]
+      : ["M17 9C18.67 11 20.33 13 22 15", "M22 9C20.33 11 18.67 13 17 15"];
+    button
+      .querySelectorAll(".sound-wave")
+      .forEach((path, index) => path.setAttribute("d", paths[index]));
   }
 </script>
 <script>
   import { getSound, restoreSound, setSound, subscribeSound, play } from "./audio";
   const button = document.querySelector<HTMLButtonElement>(".sound");
   if (button) {
+    const onPaths = ["M16 8C18.7 10.2 18.7 13.8 16 16", "M19 5C24.1 8.8 24.1 15.2 19 19"];
+    const offPaths = ["M17 9C18.67 11 20.33 13 22 15", "M22 9C20.33 11 18.67 13 17 15"];
+    const animations = new WeakMap<SVGPathElement, Animation>();
     const render = () => {
       const enabled = getSound();
       const label = (enabled ? button.dataset.soundOffLabel : button.dataset.soundOnLabel)!;
       button.setAttribute("aria-pressed", String(enabled));
       button.setAttribute("aria-label", label);
       button.title = label;
+      button.querySelectorAll<SVGPathElement>(".sound-wave").forEach((path, index) => {
+        const next = (enabled ? onPaths : offPaths)[index]!;
+        const previous = path.getAttribute("d");
+        if (previous === next) return;
+        animations.get(path)?.cancel();
+        path.setAttribute("d", next);
+        if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          animations.set(
+            path,
+            path.animate([{ d: `path("${previous}")` }, { d: `path("${next}")` }], {
+              duration: 210 + index * 25,
+              easing: "cubic-bezier(.2,.8,.25,1)",
+            }),
+          );
+        }
+      });
     };
     restoreSound();
     render();
@@ -68,7 +92,7 @@ const { soundOn, soundOff } = messages[locale];
     button.addEventListener("click", () => {
       const enabled = !getSound();
       setSound(enabled);
-      if (enabled) play("tap", true);
+      if (enabled) void play("tap", true);
     });
   }
 </script>

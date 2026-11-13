@@ -1,10 +1,16 @@
 main section {
-  margin-top: 49px;
-  scroll-margin-top: 34px;
+  margin-top: 76px;
+  scroll-margin-top: 40px;
 }
 .section-title {
+  font: 500 24px/32px var(--display);
+  letter-spacing: -0.45px;
   color: var(--ink);
-  font: 500 21px/29px var(--display);
-  letter-spacing: -0.2px;
-  margin-bottom: 24px;
+  margin-bottom: 29px;
+}
+h3 {
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 27px;
+  font-weight: 500;
 }

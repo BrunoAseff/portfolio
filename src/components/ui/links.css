@@ -1,31 +1,125 @@
+.icon {
+  width: 17px;
+  height: 17px;
+  flex: none;
+  vertical-align: middle;
+}
 .text-link {
   display: inline-flex;
-  gap: 7px;
   align-items: center;
+  gap: 7px;
   width: fit-content;
-  min-height: 32px;
-  padding: 2px 0;
-  color: var(--ink);
+  min-height: 34px;
   font-size: 14px;
-  line-height: 23px;
-  font-weight: 400;
-  background: transparent;
-  text-decoration: underline;
-  text-decoration-color: var(--link-line);
-  text-underline-offset: 4px;
+  line-height: 24px;
+  color: var(--ink);
   transition:
-    color 0.16s var(--ease),
-    text-decoration-color 0.16s var(--ease);
+    color 180ms var(--ease),
+    opacity 230ms var(--ease);
+}
+.link-label,
+.contact-destination {
+  background-image:
+    linear-gradient(var(--accent), var(--accent)),
+    linear-gradient(var(--link-line), var(--link-line));
+  background-size:
+    0 1px,
+    100% 1px;
+  background-position:
+    0 calc(100% - 1px),
+    0 calc(100% - 1px);
+  background-repeat: no-repeat;
+  transition: background-size 320ms var(--ease);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding-bottom: 3px;
+}
+.text-link:is(:hover, :focus-visible, [data-inspect="true"]),
+.credential:is(:hover, :focus-visible, [data-inspect="true"]),
+.back:is(:hover, :focus-visible, [data-inspect="true"]) {
+  color: var(--accent);
+}
+.text-link:is(:hover, :focus-visible, [data-inspect="true"]) .link-label,
+.text-link:is(:hover, :focus-visible, [data-inspect="true"]) .contact-destination,
+.credential:is(:hover, :focus-visible, [data-inspect="true"]) .link-label {
+  background-size:
+    100% 1px,
+    100% 1px;
 }
 .text-link .icon {
-  width: 15px;
-  height: 15px;
-  transition: transform 0.18s var(--ease);
+  width: 16px;
+  height: 16px;
 }
-.text-link:hover {
-  color: var(--accent);
-  text-decoration-color: var(--accent);
+.icon-external {
+  overflow: hidden;
 }
-.text-link:hover .icon-external {
-  transform: translate(1px, -1px);
+.icon-external g {
+  transition: transform 350ms var(--ease);
+}
+.external-twin {
+  transform: translate(-24px, 24px);
+}
+:is(a, button):is(:hover, :focus-visible, [data-inspect="true"]) .external-original {
+  transform: translate(24px, -24px);
+}
+:is(a, button):is(:hover, :focus-visible, [data-inspect="true"]) .external-twin {
+  transform: translate(0);
+}
+.icon-code {
+  overflow: visible;
+}
+.icon-code path:first-child,
+.icon-code path:nth-child(2) {
+  transition: transform 240ms var(--ease);
+}
+.text-link:is(:hover, :focus-visible, [data-inspect="true"]) .icon-code path:first-child {
+  transform: translateX(-1.5px);
+}
+.text-link:is(:hover, :focus-visible, [data-inspect="true"]) .icon-code path:nth-child(2) {
+  transform: translateX(1.5px);
+}
+.attention-group:has(> :is(a, button):is(:hover, :focus-visible, [data-inspect="true"]))
+  > :is(a, button):not(:hover, :focus-visible) {
+  opacity: 0.7;
+}
+.text-link {
+  background: transparent;
+  padding: 2px 0;
+  text-decoration: none;
+}
+.icon-external {
+  transform: none !important;
+}
+.text-link:active .icon,
+.credential:active .icon {
+  scale: 0.94;
+}
+
+.document-fold {
+  transition: fill 260ms var(--ease);
+  fill: transparent;
+}
+.document-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+.resume:is(:hover, :focus-visible, [data-inspect="true"]) .document-fold {
+  fill: var(--selected);
+}
+.resume:is(:hover, :focus-visible, [data-inspect="true"]) .line-one {
+  animation: write-line 620ms var(--ease) both;
+}
+.resume:is(:hover, :focus-visible, [data-inspect="true"]) .line-two {
+  animation: write-line 620ms 70ms var(--ease) both;
+}
+@keyframes write-line {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  24% {
+    stroke-dashoffset: 0.78;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
