@@ -1,0 +1,24 @@
+.entry-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin-bottom: 13px;
+}
+.prose p {
+  font-size: 16px;
+  line-height: 27px;
+  font-weight: 400;
+  text-wrap: pretty;
+}
+.prose p + p {
+  margin-top: 14px;
+}
+.experience-total {
+  font-size: 13px;
+  line-height: 23px;
+  color: var(--muted);
+  margin-top: -19px;
+  margin-bottom: 27px;
+}

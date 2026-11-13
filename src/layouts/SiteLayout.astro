@@ -1,0 +1,51 @@
+---
+import type { Locale } from "../content/types";
+import { htmlLanguage } from "../lib/locale";
+import SeoHead from "../components/SeoHead.astro";
+import "../styles/global.css";
+interface Props {
+  locale: Locale;
+  notFound?: boolean;
+}
+const { locale, notFound = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang={htmlLanguage(locale)}>
+  <head>
+    <script is:inline>
+      // Locale navigation carries a reading anchor, never a stale clicked hash.
+      try {
+        const raw = sessionStorage.getItem("portfolio:locale-position");
+        sessionStorage.removeItem("portfolio:locale-position");
+        const saved = raw && JSON.parse(raw);
+        if (saved && saved.path === location.pathname && Date.now() - saved.at < 10000) {
+          document.documentElement.setAttribute("data-locale-arrival", "");
+          const restore = () => {
+            const target = document.getElementById(saved.id);
+            const y = saved.bottom
+              ? document.documentElement.scrollHeight - innerHeight
+              : target
+                ? target.getBoundingClientRect().top + scrollY - saved.top
+                : saved.y;
+            scrollTo(0, y);
+          };
+          addEventListener("pagereveal", restore, { once: true });
+          addEventListener("DOMContentLoaded", restore, { once: true });
+        }
+      } catch {}
+    </script>
+    <link rel="preload" href="/fonts/nunito/nunito-400.ttf" as="font" type="font/ttf" crossorigin />
+    <SeoHead locale={locale} notFound={notFound} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+<script>
+  import { restoreSound } from "../features/sound/audio";
+  import { initSectionTravel } from "../lib/section-navigation";
+  import "../lib/page-interactions.js";
+  restoreSound();
+  initSectionTravel();
+</script>

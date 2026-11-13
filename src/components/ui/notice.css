@@ -1,0 +1,38 @@
+.resume-origin {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.notice {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  top: 100%;
+  width: max-content;
+  max-width: calc(100vw - 40px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0 0;
+  color: var(--body);
+  background: var(--page);
+  font-size: 12px;
+  line-height: 20px;
+}
+.resume-contact .notice {
+  top: auto;
+  bottom: 100%;
+  left: auto;
+  right: 0;
+  width: 195px;
+  padding: 0 0 5px;
+}
+.notice button {
+  flex: none;
+  min-height: 24px;
+  min-width: 24px;
+  color: inherit;
+  background: transparent;
+  display: grid;
+  place-items: center;
+}

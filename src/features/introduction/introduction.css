@@ -1,0 +1,119 @@
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+h1 {
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  color: var(--ink);
+}
+.utilities {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.language {
+  display: flex;
+  position: relative;
+  gap: 3px;
+}
+.language a,
+.sound {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+  position: relative;
+  isolation: isolate;
+  transition:
+    color 180ms var(--ease),
+    background-color 180ms var(--ease);
+}
+.language a {
+  z-index: 1;
+}
+.language a[aria-current="page"] {
+  color: var(--ink);
+}
+.language-indicator {
+  position: absolute;
+  inset: 0;
+  border-radius: 11px;
+  background: var(--selected);
+  z-index: -1;
+}
+.language a:hover {
+  color: var(--ink);
+}
+.sound:hover {
+  color: var(--ink);
+  background: var(--wash);
+}
+.sound[aria-pressed="true"] {
+  background: var(--selected);
+  color: var(--accent);
+}
+.sound:active {
+  scale: 0.94;
+}
+.icon {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+.sound .icon {
+  width: 20px;
+  height: 20px;
+}
+.role {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 24px;
+  margin-top: 8px;
+}
+.intro-copy {
+  font-size: 20px;
+  line-height: 1.6;
+  letter-spacing: -0.24px;
+  color: var(--ink);
+  max-width: 55ch;
+  margin-top: 35px;
+  text-wrap: pretty;
+}
+.personal-meta {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 23px;
+  margin-top: 20px;
+}
+.intro-actions {
+  margin-top: 19px;
+}
+.sound-wave {
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+.language a {
+  text-decoration: none;
+}
+.personal-meta {
+  display: block;
+}
+.format {
+  white-space: nowrap;
+}
+
+.sound .icon {
+  width: 20px;
+  height: 20px;
+}

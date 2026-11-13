@@ -1,0 +1,35 @@
+---
+import { degree, credentials } from "../../content/education";
+import { messages } from "../../content/messages";
+import type { Locale } from "../../content/types";
+import CredentialEntry from "./CredentialEntry.astro";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props,
+  c = messages[locale];
+---
+
+<section id="formacao" aria-labelledby="education-title" tabindex="-1">
+  <div class="section-lead">
+    <h2 id="education-title" class="section-title">
+      {c.sections[3].name}
+    </h2>
+  </div>
+  <div class="section-content">
+    <article class="degree">
+      <h3>{degree[locale].name}</h3>
+      <p class="degree-status">{degree[locale].status}</p>
+    </article>
+    <h3 class="courses-heading">{c.coursesHeading}</h3>
+    <ul class="courses">
+      {credentials.map((credential) => (
+        <CredentialEntry locale={locale} credential={credential} />
+      ))}
+    </ul>
+  </div>
+</section>
+<script>
+  import { initCertificatePreview } from "./certificate-preview";
+  initCertificatePreview();
+</script>

@@ -1,0 +1,19 @@
+minimumReleaseAgeExclude:
+  - "@astrojs/internal-helpers@0.13.2"
+  - "@astrojs/markdown-satteri@0.4.9"
+  - "@astrojs/react-renderer@0.1.2"
+  - "@astrojs/react@7.1.8"
+  - "@astrojs/runtime@0.1.1"
+  - "@astrojs/vite-plugin-astro@0.1.2"
+  - "@voidzero-dev/vite-plus-core@1.6.0"
+  - "@voidzero-dev/vite-plus-darwin-arm64@1.6.0"
+  - "@voidzero-dev/vite-plus-darwin-x64@1.6.0"
+  - "@voidzero-dev/vite-plus-linux-arm64-gnu@1.6.0"
+  - "@voidzero-dev/vite-plus-linux-arm64-musl@1.6.0"
+  - "@voidzero-dev/vite-plus-linux-x64-gnu@1.6.0"
+  - "@voidzero-dev/vite-plus-linux-x64-musl@1.6.0"
+  - "@voidzero-dev/vite-plus-win32-arm64-msvc@1.6.0"
+  - "@voidzero-dev/vite-plus-win32-x64-msvc@1.6.0"
+  - astro@7.4.11
+  - vite-plus@1.6.0
+  - vite@8.3.8

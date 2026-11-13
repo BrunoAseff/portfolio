@@ -1,0 +1,44 @@
+---
+import type { Locale } from "../../content/types";
+import { profile } from "../../content/profile";
+import { messages } from "../../content/messages";
+import { site } from "../../content/site";
+import LanguageSwitcher from "../../components/LanguageSwitcher.astro";
+import SoundToggle from "../sound/SoundToggle.astro";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props,
+  c = messages[locale],
+  p = profile[locale];
+const navigation = [
+  ...c.sections.slice(1, 3),
+  { id: "tecnologias", name: locale === "pt" ? "Tecnologias" : "Technologies" },
+  ...c.sections.slice(3),
+];
+---
+
+<header id="inicio" class="introduction">
+  <div class="topbar">
+    <div class="orientation">
+      <nav class="index" aria-label={c.navigation}>
+        {navigation.map((section) => (
+          <a href={`#${section.id}`}>
+            <span>{section.name}</span>
+          </a>
+        ))}
+      </nav>
+    </div>
+    <div class="utilities">
+      <LanguageSwitcher locale={locale} />
+      <SoundToggle locale={locale} />
+    </div>
+  </div>
+  <div class="identity">
+    <h1>{site.name}</h1>
+    <p class="role">{p.role}</p>
+  </div>
+  <div class="profile-copy">
+    <p class="intro-copy">{p.intro}</p>
+  </div>
+</header>

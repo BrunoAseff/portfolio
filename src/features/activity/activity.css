@@ -1,0 +1,121 @@
+.activity {
+  margin-top: 34px;
+}
+.activity-link {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  text-decoration: none;
+}
+.activity-origin {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  color: var(--body);
+}
+.activity-origin::before {
+  content: "";
+  position: absolute;
+  left: 7.35px;
+  top: 20px;
+  bottom: 3px;
+  width: 1.3px;
+  background: var(--link-line);
+  transition: background-color 0.16s var(--ease);
+}
+.activity-origin > .brand-mark {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  align-self: start;
+  margin-top: 4px;
+}
+.activity-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 12px;
+  min-width: 0;
+  font-size: 14px;
+  line-height: 24px;
+  overflow-wrap: anywhere;
+}
+.activity-label {
+  font-size: 13px;
+  line-height: 22px;
+}
+.activity-meta time {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+.activity-change {
+  display: flex;
+  align-items: start;
+  gap: 8px;
+}
+.activity-branch {
+  width: 32px;
+  height: 28px;
+  flex-shrink: 0;
+  margin-top: -3px;
+  stroke: var(--link-line);
+  stroke-width: 1.3;
+  stroke-linecap: round;
+  transition: stroke 0.16s var(--ease);
+}
+.activity-branch circle {
+  fill: var(--page);
+  transition: fill 0.16s var(--ease);
+}
+.activity-message {
+  min-width: 0;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 25px;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-decoration-color: var(--link-line);
+  text-underline-offset: 4px;
+  transition:
+    color 0.16s var(--ease),
+    text-decoration-color 0.16s var(--ease);
+}
+.activity-link:hover .activity-message,
+.activity-link:focus-visible .activity-message {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+.activity-link:hover .activity-branch,
+.activity-link:focus-visible .activity-branch {
+  stroke: var(--accent);
+}
+.activity-link:hover .activity-branch circle,
+.activity-link:focus-visible .activity-branch circle {
+  fill: var(--accent);
+}
+.activity-fallback {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 23px;
+}
+.activity-progress {
+  stroke: var(--accent);
+  stroke-dasharray: 36;
+  stroke-dashoffset: 36;
+  transition: stroke-dashoffset 400ms cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+.activity-link:is(:hover, :focus-visible) .activity-progress {
+  stroke-dashoffset: 0;
+}
+.activity-link:is(:hover, :focus-visible) .activity-branch > path:not(.activity-progress) {
+  stroke: var(--link-line);
+}
+
+.activity-link:hover .activity-origin::before,
+.activity-link:focus-visible .activity-origin::before {
+  background: var(--accent);
+}

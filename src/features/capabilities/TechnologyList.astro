@@ -1,0 +1,25 @@
+---
+import { technologies } from "../../content/profile";
+import { messages } from "../../content/messages";
+import type { Locale } from "../../content/types";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<div class="technologies" id="tecnologias">
+  <h3>{messages[locale].technologiesHeading}</h3>
+  <ul>
+    {technologies.map((technology, index) => (
+      <li>
+        {technology}
+        {index < technologies.length - 1 && (
+          <span class="technology-separator" aria-hidden="true">
+            ·
+          </span>
+        )}
+      </li>
+    ))}
+  </ul>
+</div>

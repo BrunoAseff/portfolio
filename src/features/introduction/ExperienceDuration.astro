@@ -1,0 +1,24 @@
+---
+import { experienceSince } from "../../lib/experience-duration";
+import type { Locale } from "../../content/types";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<span data-experience-duration data-locale={locale}>
+  {experienceSince(new Date(), locale, true)}
+</span>
+<script>
+  import { experienceSince } from "../../lib/experience-duration";
+  function update() {
+    document.querySelectorAll<HTMLElement>("[data-experience-duration]").forEach((el) => {
+      el.textContent = experienceSince(new Date(), el.dataset.locale === "en" ? "en" : "pt", true);
+    });
+  }
+  update();
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) update();
+  });
+</script>

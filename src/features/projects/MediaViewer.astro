@@ -1,0 +1,31 @@
+---
+import type { Locale } from "../../content/types";
+import Icon from "../../components/ui/Icon.astro";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<dialog
+  class="media-viewer"
+  aria-label={locale === "pt" ? "Interface do projeto" : "Project interface"}
+>
+  <figure class="media-frame">
+    <div class="media-canvas">
+      <img alt="" />
+    </div>
+    <figcaption></figcaption>
+    <button
+      class="media-close"
+      type="button"
+      aria-label={locale === "pt" ? "Fechar imagem" : "Close image"}
+    >
+      <Icon name="close" />
+    </button>
+  </figure>
+</dialog>
+<script>
+  import { initMediaViewer } from "./media-viewer";
+  initMediaViewer();
+</script>

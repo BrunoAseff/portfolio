@@ -1,0 +1,41 @@
+.motion-reduced *,
+.motion-reduced *::before,
+.motion-reduced *::after {
+  animation: none !important;
+  transition: none !important;
+}
+.motion-reduced .resume:hover .icon,
+.motion-reduced .text-link:hover .icon-external {
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .text-link:is(:hover, :focus-visible) .icon-code path,
+  .copy-email:active .copy-feedback {
+    transform: none;
+  }
+}
+
+@keyframes arrival {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+html:not([data-locale-arrival]) .masthead,
+html:not([data-locale-arrival]) .role {
+  animation: arrival 480ms var(--ease) both;
+}
+html:not([data-locale-arrival]) .intro-copy {
+  animation: arrival 480ms var(--ease) 70ms both;
+}
+html:not([data-locale-arrival]) .orientation {
+  animation: arrival 480ms var(--ease) 130ms both;
+}
+.section-arrival {
+  animation: arrival 520ms var(--ease) both;
+}
+[data-await="true"] {
+  opacity: 0;
+}
