@@ -1,0 +1,49 @@
+:root {
+  --face: "Manrope", Arial, sans-serif;
+  --display: var(--face);
+}
+:is(
+  h1,
+  .section-title,
+  .entry-heading h3,
+  .project-heading h3,
+  .degree h3,
+  .courses h4,
+  .document-title
+) {
+  font-weight: 500;
+}
+/* Supporting headings remain supporting text, including under each employer. */
+.experience-topic {
+  margin-top: 18px;
+}
+.experience-topic h4 {
+  font: 400 15px/25px var(--face);
+  color: var(--muted);
+  margin: 0 0 4px;
+}
+.experience-topic p {
+  margin: 0;
+}
+main > .technologies {
+  margin-top: 34px;
+  scroll-margin-top: 38px;
+}
+main > .technologies h3 {
+  font: 400 15px/25px var(--face);
+  color: var(--muted);
+}
+main > .technologies + #experiencia {
+  margin-top: 44px;
+}
+@media (max-width: 780px) {
+  main > .technologies {
+    margin-top: 30px;
+  }
+  main > .technologies + #experiencia {
+    margin-top: 40px;
+  }
+  .experience-topic {
+    margin-top: 16px;
+  }
+}

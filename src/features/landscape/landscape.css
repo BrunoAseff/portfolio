@@ -1,0 +1,223 @@
+.landscape-backdrop {
+  display: none !important;
+}
+.portfolio {
+  background: transparent;
+}
+.landscape-trial {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #fcfcfa;
+  view-transition-name: ambient-landscape;
+}
+.scene-plane {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: min(50vw, 88vh);
+  mask-image: linear-gradient(transparent 1%, #000 14%);
+}
+.scene-plane > canvas,
+.scene-plane > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.scene-plane > canvas {
+  opacity: 0;
+}
+.landscape-trial[data-ready] canvas {
+  opacity: 1;
+}
+.landscape-trial[data-ready] .scene-fallback {
+  visibility: hidden;
+}
+.reading-column {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: #ffffffb3;
+  box-shadow: 0 8px 42px #27394004;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  --muted: #596870;
+}
+@supports not (backdrop-filter: blur(8px)) {
+  .reading-column {
+    background: rgba(255, 255, 255, 0.9);
+  }
+}
+html[data-scene-view] .reading-column,
+html[data-scene-view] .skip {
+  display: none;
+}
+html[data-scene-view] .portfolio {
+  min-height: 100vh;
+  padding: 0;
+}
+::view-transition-old(ambient-landscape),
+::view-transition-new(ambient-landscape) {
+  animation: none;
+}
+::view-transition-old(ambient-landscape) {
+  opacity: 0;
+}
+@media (max-width: 780px) {
+  .landscape-trial {
+    position: relative;
+    inset: auto;
+    min-height: 215px;
+    margin: 24px -24px -40px;
+    view-transition-name: none;
+  }
+  .scene-plane {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    height: auto;
+    aspect-ratio: 2;
+  }
+  .reading-column {
+    background: white;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  html[data-scene-view] .landscape-trial {
+    position: fixed;
+    inset: 0;
+    margin: 0;
+  }
+  html[data-scene-view] .scene-plane {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+@media print {
+  .landscape-trial {
+    display: none;
+  }
+}
+
+.bird-hit {
+  all: unset;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 52px;
+  height: 44px;
+  z-index: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  pointer-events: auto;
+  will-change: transform;
+}
+.bird-hit[hidden] {
+  display: none;
+}
+.bird-hit:focus-visible {
+  outline: 1px solid #56767b;
+  outline-offset: 3px;
+}
+@media (max-width: 780px), (prefers-reduced-motion: reduce) {
+  .bird-hit {
+    display: none !important;
+  }
+}
+@media print {
+  .bird-hit {
+    display: none !important;
+  }
+}
+
+/* Separate captures: landscape below panel, text above it, stable sound control. */
+:root {
+  view-transition-name: none;
+}
+.reading-column {
+  view-transition-name: reading-surface;
+}
+.sound {
+  view-transition-name: audio-control;
+}
+::view-transition-group(*) {
+  z-index: 3;
+}
+::view-transition-group(ambient-landscape) {
+  z-index: 0;
+  animation: none;
+}
+::view-transition-group(reading-surface) {
+  z-index: 1;
+  animation: none;
+}
+::view-transition-group(audio-control) {
+  z-index: 4;
+  animation: none;
+}
+::view-transition-group(foreground-bird) {
+  z-index: 5;
+  animation: none;
+}
+::view-transition-old(reading-surface),
+::view-transition-old(audio-control),
+::view-transition-old(ambient-landscape),
+::view-transition-old(foreground-bird) {
+  animation: none;
+  opacity: 1;
+  mix-blend-mode: normal;
+}
+::view-transition-new(reading-surface),
+::view-transition-new(audio-control),
+::view-transition-new(ambient-landscape),
+::view-transition-new(foreground-bird) {
+  animation: none;
+  opacity: 0;
+  mix-blend-mode: normal;
+}
+.bird-front {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 180px;
+  height: 160px;
+  z-index: 30;
+  pointer-events: none;
+  view-transition-name: foreground-bird;
+  will-change: transform;
+}
+.bird-front[hidden] {
+  display: none;
+}
+@media (max-width: 780px), (prefers-reduced-motion: reduce) {
+  .bird-front {
+    display: none !important;
+  }
+}
+/* Keep the unchanged PT/EN glyphs above the stable panel throughout navigation. */
+::view-transition-group(language-label-pt),
+::view-transition-group(language-label-en) {
+  z-index: 6;
+  animation: none;
+}
+::view-transition-old(language-label-pt),
+::view-transition-old(language-label-en) {
+  animation: none;
+  opacity: 1;
+}
+::view-transition-new(language-label-pt),
+::view-transition-new(language-label-en) {
+  animation: none;
+  opacity: 0;
+}
+::view-transition-group(language-marker) {
+  z-index: 5;
+}

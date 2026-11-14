@@ -1,0 +1,15 @@
+---
+import type { HTMLAttributes } from "astro/types";
+type Props = HTMLAttributes<"a"> & { href: string; inline?: boolean };
+const { href, inline = false, class: className = "", ...attributes } = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={["text-link", { "inline-text-link": inline }, className]}
+  {...attributes}
+>
+  <span class="contact-destination">
+    <slot />
+  </span>
+</a>

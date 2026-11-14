@@ -1,0 +1,41 @@
+---
+import { messages } from "../../content/messages";
+import { profile } from "../../content/profile";
+import { site } from "../../content/site";
+import type { Locale } from "../../content/types";
+import Icon from "../../components/ui/Icon.astro";
+import BrandMark from "../../components/ui/BrandMark.astro";
+import ResumeControl from "../../components/ui/ResumeControl";
+import CopyEmailButton from "./CopyEmailButton";
+import ExternalLink from "../../components/ui/ExternalLink.astro";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props,
+  c = messages[locale];
+---
+
+<section id="contato" class="contact" aria-labelledby="contact-title" tabindex="-1">
+  <div class="section-lead">
+    <h2 id="contact-title" class="section-title">
+      {c.sections[4].name}
+    </h2>
+  </div>
+  <div class="section-content">
+    <CopyEmailButton locale={locale} client:load />
+    <div class="contact-details attention-group">
+      <ExternalLink class="text-link contact-channel" href={site.linkedin}>
+        <BrandMark name="linkedin" />
+        <span class="contact-destination">LinkedIn</span>
+        <Icon name="external" />
+      </ExternalLink>
+      <ExternalLink class="text-link contact-channel" href={site.github}>
+        <BrandMark name="github" />
+        <span class="contact-destination">GitHub</span>
+        <Icon name="external" />
+      </ExternalLink>
+      <ResumeControl locale={locale} variant="contact" client:load />
+    </div>
+    <p class="personal-meta">{profile[locale].location}</p>
+  </div>
+</section>

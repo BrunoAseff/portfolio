@@ -1,0 +1,142 @@
+@view-transition {
+  navigation: auto;
+}
+:root {
+  view-transition-name: none;
+  --language-duration: 360ms;
+}
+.masthead {
+  view-transition-name: masthead;
+}
+.language-indicator {
+  view-transition-name: language-marker;
+}
+.language-label-pt {
+  view-transition-name: language-label-pt;
+}
+.language-label-en {
+  view-transition-name: language-label-en;
+}
+.role {
+  view-transition-name: role;
+}
+.intro-copy {
+  view-transition-name: introduction;
+}
+.personal-meta {
+  view-transition-name: location;
+}
+.intro-actions {
+  view-transition-name: resume;
+}
+.orientation {
+  view-transition-name: navigation;
+}
+#conhecimentos {
+  view-transition-name: conhecimentos;
+}
+#experiencia {
+  view-transition-name: experiencia;
+}
+#projetos {
+  view-transition-name: projetos;
+}
+#formacao {
+  view-transition-name: formacao;
+}
+#contato {
+  view-transition-name: contato;
+}
+::view-transition-group(*) {
+  animation-duration: var(--language-duration);
+  animation-timing-function: var(--ease);
+}
+::view-transition-old(*),
+::view-transition-new(*) {
+  mix-blend-mode: normal;
+  animation-fill-mode: both;
+  animation-timing-function: var(--ease);
+}
+::view-transition-old(*) {
+  animation: language-leave 86ms var(--ease) var(--text-stagger, 0ms) both;
+}
+::view-transition-new(*) {
+  animation: language-enter 216ms var(--ease) calc(86ms + var(--text-stagger, 0ms)) both;
+}
+@keyframes language-leave {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes language-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Header labels and restored audio remain present while translated copy changes. */
+::view-transition-old(masthead),
+::view-transition-new(masthead),
+::view-transition-old(language-marker),
+::view-transition-new(language-marker),
+::view-transition-old(language-label-pt),
+::view-transition-new(language-label-pt),
+::view-transition-old(language-label-en),
+::view-transition-new(language-label-en) {
+  animation: none;
+}
+::view-transition-group(language-label-pt),
+::view-transition-group(language-label-en) {
+  z-index: 2;
+  animation: none;
+}
+::view-transition-old(media-lazuli),
+::view-transition-old(media-nova) {
+  animation: none;
+  opacity: 0;
+}
+::view-transition-new(media-lazuli),
+::view-transition-new(media-nova) {
+  animation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+::view-transition-old(introduction),
+::view-transition-new(introduction) {
+  --text-stagger: 14ms;
+}
+::view-transition-old(location),
+::view-transition-new(location) {
+  --text-stagger: 28ms;
+}
+::view-transition-old(resume),
+::view-transition-new(resume) {
+  --text-stagger: 42ms;
+}
+::view-transition-old(navigation),
+::view-transition-new(navigation) {
+  --text-stagger: 56ms;
+}
+::view-transition-old(conhecimentos),
+::view-transition-new(conhecimentos),
+::view-transition-old(experiencia),
+::view-transition-new(experiencia),
+::view-transition-old(projetos),
+::view-transition-new(projetos),
+::view-transition-old(formacao),
+::view-transition-new(formacao),
+::view-transition-old(contato),
+::view-transition-new(contato) {
+  --text-stagger: 72ms;
+}

@@ -1,0 +1,48 @@
+---
+import type { Locale } from "../../content/types";
+import TextLink from "../../components/ui/TextLink.astro";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const en = locale === "en";
+---
+
+<p>
+  {en
+    ? "Araucaria: LeonardoG (photography) and T. Michael Keesey (vectorisation), "
+    : "Araucária: LeonardoG (fotografia) e T. Michael Keesey (vetorização), "}
+  <TextLink
+    inline
+    href="https://www.phylopic.org/images/ca78afa0-16e0-417d-bae9-65899c8d0a31/araucaria-angustifolia"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    PhyloPic
+  </TextLink>
+  ,{" "}
+  <TextLink
+    inline
+    href="https://creativecommons.org/licenses/by-sa/3.0/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    CC BY-SA 3.0
+  </TextLink>
+  .
+</p>
+<p>
+  {en
+    ? "Adaptation: proportions, trunk, branch separation and reconstruction, pigment and animation. Derivative artwork under the same licence. This is not an original botanical illustration by the assistant."
+    : "Adaptação: proporções, fuste, separação e reconstrução de ramo, pigmento e animação. Arte derivada sob a mesma licença. Não é uma ilustração botânica original do assistente."}
+</p>
+<p>
+  {en
+    ? "Bird: original vector drawing using Bézier curves, with articulated body, head, tail, legs and wings. A general study of a long-tailed bird; it does not depict a specific species."
+    : "Pássaro: desenho vetorial original por curvas Bézier, com corpo, cabeça, cauda, pernas e asas articuladas. Estudo geral de ave de cauda longa; não é ilustração de uma espécie específica."}
+</p>
+<p>
+  {en
+    ? "Pigment painted with libmypaint; base preset by David Revoy, CC0. Terrain: artwork preserved from the first landscape study. No additional image generation was used in this iteration."
+    : "Pigmento pintado com libmypaint; preset-base David Revoy, CC0. Terreno: placa preservada do primeiro ensaio de paisagem. Nenhuma nova geração de imagem foi usada nesta rodada."}
+</p>
