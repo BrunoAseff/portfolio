@@ -1,4 +1,4 @@
-name: Verify portfolio
+name: Verify and deploy portfolio
 on:
   push:
   pull_request:
@@ -35,3 +35,33 @@ jobs:
           name: portfolio-static
           path: dist/
           retention-days: 7
+  deploy:
+    needs: verify
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: cloudflare-production
+      url: https://brunoaseff.com.br
+    concurrency:
+      group: cloudflare-portfolio-production
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
+      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+      - run: pnpm install --frozen-lockfile
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: portfolio-static
+          path: dist/
+      - name: Deploy verified static output
+        run: pnpm run deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: 0b5eb954946b101a17e7c4620ebffb1f
+      - name: Verify published output
+        run: node scripts/verify-deployment.mjs https://portfolio.brunoaseff2.workers.dev

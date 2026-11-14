@@ -17,11 +17,14 @@ directory explicitly uploads Astro's already verified output. It does not ask th
 CLI to detect or rewrite the framework. No Astro adapter or server hydration is
 required. `_headers` and `_redirects` ship with the assets.
 
-Workers Builds should connect `BrunoAseff/portfolio` to Worker `portfolio`, with
-root `/`, production branch `main`, build command `pnpm exec vp run verify`, and
-deploy command `pnpm run deploy`. A failed verification must prevent deployment.
-Use a dedicated portfolio build token, managed by Cloudflare; never commit a token.
-The package manager and Node versions are pinned in the repository.
+GitHub Actions runs `.github/workflows/verify.yml`: `verify` builds and uploads the
+static artifact; `deploy` runs only after it succeeds, on a push to `main`. It
+uploads that exact artifact without rebuilding. Pull requests, schedules and
+manual verification do not deploy. Cloudflare CLI is version-pinned; the token is
+a repository secret exposed only to the deploy step, restricted to Worker
+`portfolio` (Individual Workers Editor). It is independent of Lazúli's build token.
+The post-deploy check verifies both locales, PDFs, legacy redirects, headers,
+404 handling and static assets. The package manager and Node versions are pinned.
 
 ## Domain boundary
 

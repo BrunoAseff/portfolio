@@ -6,6 +6,8 @@ export default defineConfig({
   worker: {
     name: "portfolio",
     compatibilityDate: "2026-11-14",
+    workersDev: true,
+    previewUrls: false,
     assets: {
       htmlHandling: "force-trailing-slash",
       notFoundHandling: "404-page",
