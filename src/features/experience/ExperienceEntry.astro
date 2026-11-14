@@ -17,5 +17,11 @@ const { locale, entry } = Astro.props,
     {c.paragraphs.map((p) => (
       <p>{p}</p>
     ))}
+    {c.topics?.map((topic) => (
+      <div class="experience-topic">
+        <h4>{topic.title}</h4>
+        <p>{topic.text}</p>
+      </div>
+    ))}
   </div>
 </article>

@@ -8,7 +8,10 @@ export default defineConfig({
   trailingSlash: "always",
   integrations: [
     react(),
-    sitemap({ i18n: { defaultLocale: "pt", locales: { pt: "pt-BR", en: "en" } } }),
+    sitemap({
+      i18n: { defaultLocale: "pt", locales: { pt: "pt-BR", en: "en" } },
+      filter: (page) => !page.endsWith("/credits/"),
+    }),
   ],
   vite: { plugins: [tailwind()] },
   devToolbar: { enabled: false },

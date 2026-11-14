@@ -1,19 +1,12 @@
 @font-face {
-  font-family: PortfolioRound;
-  src: url("/fonts/nunito/nunito-400.ttf") format("truetype");
+  font-family: Manrope;
+  src: url("/fonts/manrope/manrope-variable.ttf") format("truetype");
   font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: PortfolioRound;
-  src: url("/fonts/nunito/nunito-600.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 600;
+  font-weight: 200 800;
   font-display: swap;
 }
 :root {
-  --face: PortfolioRound, Arial, sans-serif;
+  --face: Manrope, Arial, sans-serif;
   --display: var(--face);
   --ink: #273940;
   --body: #43525b;
@@ -374,10 +367,7 @@ h3,
 .credential:active .icon {
   scale: 1;
 }
-.attention-group:has(> :is(a, button):is(:hover, :focus-visible))
-  > :is(a, button):not(:hover, :focus-visible) {
-  opacity: 0.7;
-}
+
 .knowledge {
   display: flex;
   flex-direction: column;

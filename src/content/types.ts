@@ -6,7 +6,11 @@ export type Experience = {
   name: string;
   start: string;
   end: string | null;
-  content: Localized<{ period: string; paragraphs: string[] }>;
+  content: Localized<{
+    period: string;
+    paragraphs: string[];
+    topics?: { title: string; text: string }[];
+  }>;
 };
 export type Project = {
   id: string;

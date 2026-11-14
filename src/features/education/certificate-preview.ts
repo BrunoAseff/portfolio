@@ -29,12 +29,12 @@ export function initCertificatePreview() {
     } else {
       left = Math.max(18, Math.min(target.left, innerWidth - width - 18));
       const height = width * (image.naturalHeight / image.naturalWidth || 0.78);
-      const item = current.closest("li")!.getBoundingClientRect();
+      const item = (current.closest("li,.contact-details") ?? current).getBoundingClientRect();
       top = target.top - height - 18 >= 18 ? target.top - height - 18 : item.bottom + 18;
     }
     const height = width * (image.naturalHeight / image.naturalWidth || 0.78);
     top = Math.max(18, Math.min(top, innerHeight - height - 18));
-    const item = current.closest("li")!.getBoundingClientRect();
+    const item = (current.closest("li,.contact-details") ?? current).getBoundingClientRect();
     // In a short viewport, omit the preview rather than cover the active item.
     if (
       left < item.right &&

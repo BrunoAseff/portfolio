@@ -23,7 +23,7 @@ for (const [file, lang, path] of [
   for (const id of [
     "inicio",
     "main",
-    "conhecimentos",
+    "tecnologias",
     "experiencia",
     "projetos",
     "formacao",
@@ -64,6 +64,19 @@ for (const [file, lang, path] of [
     if (target.endsWith("/")) target += "index.html";
     await stat(new URL(target.slice(1), root));
   }
+  const styles = await Promise.all(
+    Array.from(html.matchAll(/href="(\/_astro\/[^"]+\.css)"/g), (match) =>
+      readFile(new URL(match[1].slice(1), root), "utf8"),
+    ),
+  );
+  assert(
+    styles.some((css) => /font-family:["']?Manrope["']?/.test(css)),
+    "Manrope must be registered, not just named as a fallback",
+  );
+  assert(
+    html.includes(`/documents/resumes/bruno-aseff-${lang === "en" ? "en" : "pt"}.pdf`),
+    "Localized resume missing",
+  );
   const json = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
   assert(json, "Missing JSON-LD");
   assert.equal(JSON.parse(json[1])["@type"], "ProfilePage");

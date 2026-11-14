@@ -23,3 +23,7 @@
 
 /* Accepted composition and interaction presentation, shared by both locales. */
 @import "./presentation.css";
+
+@import "../features/landscape/landscape.css";
+@import "../features/documents/documents.css";
+@import "./refinements.css";

@@ -11,6 +11,7 @@ const parameter = () => ({
 });
 class TestAudioContext {
   state = "running";
+  addEventListener() {}
   currentTime = 0;
   destination = {};
   resume() {
@@ -19,16 +20,38 @@ class TestAudioContext {
   createOscillator() {
     return {
       frequency: parameter(),
-      connect() {},
-      disconnect() {},
+      connect(target: unknown) {
+        return target;
+      },
+      disconnect(target: unknown) {
+        return target;
+      },
       stop() {},
       start() {
         starts++;
       },
     };
   }
+  createDynamicsCompressor() {
+    return {
+      threshold: parameter(),
+      knee: parameter(),
+      ratio: parameter(),
+      attack: parameter(),
+      release: parameter(),
+      connect(target: unknown) {
+        return target;
+      },
+    };
+  }
   createGain() {
-    return { gain: parameter(), connect() {}, disconnect() {} };
+    return {
+      gain: parameter(),
+      connect(target: unknown) {
+        return target;
+      },
+      disconnect() {},
+    };
   }
 }
 beforeEach(() => {

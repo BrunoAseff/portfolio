@@ -79,11 +79,17 @@ function iconResponse(control) {
   }
 }
 // One response per actual control entry, without a shared dwell timer or cooldown.
-const hoverControls = "a,button";
+const hoverControls = "a:not([data-scene-silent]),button:not([data-scene-silent])";
 document.addEventListener("pointerover", (event) => {
   if (event.pointerType !== "mouse" || !(event.target instanceof Element)) return;
   const el = event.target.closest(hoverControls);
-  if (!el || el.contains(event.relatedTarget) || el.matches(":disabled") || el.closest("[inert]"))
+  if (
+    !el ||
+    el.matches("[data-scene-silent]") ||
+    el.contains(event.relatedTarget) ||
+    el.matches(":disabled") ||
+    el.closest("[inert]")
+  )
     return;
   iconResponse(el);
   const variation = el.matches(".index a") ? 1 + $$(".index a").indexOf(el) * 0.035 : 1;
@@ -110,7 +116,7 @@ document.addEventListener(
   (e) => {
     if (!(e.target instanceof Element)) return;
     const control = e.target.closest("a,button");
-    if (!control) return;
+    if (!control || control.matches("[data-scene-silent]")) return;
     cue(
       actionKind(e.target),
       control.matches(".index a") ? 1 + $$(".index a").indexOf(control) * 0.035 : 1,

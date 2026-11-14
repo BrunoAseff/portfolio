@@ -35,7 +35,13 @@ const { locale, notFound = false } = Astro.props;
         }
       } catch {}
     </script>
-    <link rel="preload" href="/fonts/nunito/nunito-400.ttf" as="font" type="font/ttf" crossorigin />
+    <link
+      rel="preload"
+      href="/fonts/manrope/manrope-variable.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
     <SeoHead locale={locale} notFound={notFound} />
   </head>
   <body>
@@ -43,9 +49,8 @@ const { locale, notFound = false } = Astro.props;
   </body>
 </html>
 <script>
-  import { restoreSound } from "../features/sound/audio";
   import { initSectionTravel } from "../lib/section-navigation";
   import "../lib/page-interactions.js";
-  restoreSound();
+  import "../lib/smooth-scroll.js";
   initSectionTravel();
 </script>

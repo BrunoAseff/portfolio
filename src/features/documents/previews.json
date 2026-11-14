@@ -1,0 +1,52 @@
+{
+  "/documents/certificates/aws-cloud-practitioner.pdf": {
+    "pages": [
+      {
+        "src": "/documents/previews/aws-cloud-practitioner-1.webp",
+        "width": 1800,
+        "height": 1391
+      }
+    ],
+    "sha256": "f4c227f8f35981ef933d905525d5110999002e01e46fbc0680a22112420193af"
+  },
+  "/documents/certificates/last-algorithms-course.pdf": {
+    "pages": [
+      {
+        "src": "/documents/previews/last-algorithms-course-1.webp",
+        "width": 1800,
+        "height": 1273
+      }
+    ],
+    "sha256": "17525ee84048df5ecb11f80883945f9f83eb3931cd3da176e7de9f1ed30eab81"
+  },
+  "/documents/certificates/web-security-v2.pdf": {
+    "pages": [
+      {
+        "src": "/documents/previews/web-security-v2-1.webp",
+        "width": 1800,
+        "height": 1273
+      }
+    ],
+    "sha256": "b580cf7179cd8781e182330bc4e3061df9c654e655565f34f0ae5c104b527ed4"
+  },
+  "/documents/resumes/bruno-aseff-pt.pdf": {
+    "pages": [
+      {
+        "src": "/documents/previews/resume-pt.webp",
+        "width": 1273,
+        "height": 1800
+      }
+    ],
+    "sourceSha256": "913b605683acb71e22d5e145819d6bab4cfc90bd59bab2ea63fb155b5a1b8c5c"
+  },
+  "/documents/resumes/bruno-aseff-en.pdf": {
+    "pages": [
+      {
+        "src": "/documents/previews/resume-en.webp",
+        "width": 1273,
+        "height": 1800
+      }
+    ],
+    "sourceSha256": "477f1759a43fdaeb18b8a6c60e3eb89b81b6ee02d131aa608502bd925ed9fedf"
+  }
+}

@@ -6,7 +6,9 @@ import Landscape from "../components/Landscape.astro";
 import ActivitySummary from "../features/activity/ActivitySummary.astro";
 import Icon from "../components/ui/Icon.astro";
 import Introduction from "../features/introduction/Introduction.astro";
-import CapabilitiesSection from "../features/capabilities/CapabilitiesSection.astro";
+import TechnologyList from "../features/capabilities/TechnologyList.astro";
+import TextLink from "../components/ui/TextLink.astro";
+import DocumentDialog from "../features/documents/DocumentDialog.astro";
 import ExperienceSection from "../features/experience/ExperienceSection.astro";
 import ProjectsSection from "../features/projects/ProjectsSection.astro";
 import EducationSection from "../features/education/EducationSection.astro";
@@ -26,22 +28,35 @@ const { locale } = Astro.props;
     <div class="reading-column">
       <Introduction locale={locale} />
       <main id="main" tabindex="-1">
+        <TechnologyList locale={locale} />
         <ExperienceSection locale={locale} />
         <ProjectsSection locale={locale} />
-        <CapabilitiesSection locale={locale} />
         <EducationSection locale={locale} />
         <ContactSection locale={locale} />
       </main>
       <footer class="document-closing">
         <ActivitySummary locale={locale} />
-        <a class="back" href="#inicio">
-          <span class="link-label">{messages[locale].back}</span>
-          <span class="up-window">
-            <Icon name="up" />
-            <Icon name="up" />
-          </span>
-        </a>
+        <nav
+          class="closing-navigation"
+          aria-label={locale === "pt" ? "Final da página" : "Page footer"}
+        >
+          <TextLink
+            class="landscape-credit"
+            data-landscape-credit
+            href={locale === "pt" ? "/credits/" : "/en/credits/"}
+          >
+            {locale === "pt" ? "Créditos da paisagem" : "Landscape credits"}
+          </TextLink>
+          <a class="back" href="#inicio">
+            <span class="link-label">{messages[locale].back}</span>
+            <span class="up-window">
+              <Icon name="up" />
+              <Icon name="up" />
+            </span>
+          </a>
+        </nav>
       </footer>
     </div>
   </div>
+  <DocumentDialog locale={locale} />
 </SiteLayout>

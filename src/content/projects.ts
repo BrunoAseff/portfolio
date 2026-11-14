@@ -10,16 +10,16 @@ export const projects = [
     content: {
       pt: {
         pitch:
-          "Documentos, flashcards e quizzes para estudar com recuperação ativa e revisão espaçada.",
+          "Plataforma de estudos com documentos, flashcards e quizzes, combinando recuperação ativa e revisão espaçada.",
         paragraphs: [
-          "Construí a aplicação fullstack que integra edição de conteúdo, processamento de arquivos e IA à criação de exercícios, às revisões e ao acompanhamento do estudo. O conteúdo gerado por IA pode ser revisado antes de entrar na prática.",
+          "Desenvolvi a aplicação fullstack, da edição de conteúdo e processamento de arquivos à criação de exercícios com IA e ao acompanhamento do estudo. O conteúdo gerado por IA pode ser revisado antes de entrar na prática.",
         ],
       },
       en: {
         pitch:
-          "Documents, flashcards and quizzes for studying with active recall and spaced repetition.",
+          "A study platform with documents, flashcards and quizzes, combining active recall and spaced repetition.",
         paragraphs: [
-          "I built the fullstack application, integrating content editing, file processing and AI with exercise creation, reviews and study progress. AI-generated content can be reviewed before being added to a study session.",
+          "I developed the fullstack application, from content editing and file processing to AI-generated exercises and study progress tracking. AI-generated content can be reviewed before being added to a study session.",
         ],
       },
     },

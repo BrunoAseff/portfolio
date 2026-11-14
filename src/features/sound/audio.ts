@@ -12,7 +12,16 @@ type SoundKind =
   | "copy"
   | "success"
   | "top";
-type Voice = { o: OscillatorNode; g: GainNode; kind: SoundKind; fading: boolean };
+type Voice = {
+  o: OscillatorNode;
+  g: GainNode;
+  kind: SoundKind;
+  fading: boolean;
+  at: number;
+  peak: number;
+  attack: number;
+  length: number;
+};
 let enabled = false,
   ctx: AudioContext | null = null,
   intent: SoundKind = "tap",
@@ -92,9 +101,12 @@ const tones: Record<SoundKind, Tone[]> = {
     [587, 587, 0.04, 0.1, 0.009],
   ],
 };
-async function prepare() {
+export async function prepare() {
   try {
-    ctx ??= new AudioContext({ latencyHint: "interactive" });
+    if (!ctx) {
+      ctx = new AudioContext({ latencyHint: "interactive" });
+      ctx.addEventListener("statechange", notify);
+    }
     if (ctx.state === "suspended") await ctx.resume();
     return ctx.state === "running";
   } catch {
@@ -120,24 +132,33 @@ async function play(kind: SoundKind = "tap", force = false) {
       for (const voice of active) {
         if (voice.kind === "hover" && !voice.fading) {
           voice.fading = true;
-          voice.g.gain.cancelScheduledValues(start);
-          voice.g.gain.setTargetAtTime(0.0001, start, 0.006);
-          voice.o.stop(start + 0.025);
+          holdHoverGain(voice, start);
+          voice.g.gain.linearRampToValueAtTime(0.0001, start + 0.018);
+          voice.o.stop(start + 0.022);
         }
       }
     for (const [from, to, offset, length, volume] of tones[selected] || tones.tap) {
       const o = ctx.createOscillator(),
         g = ctx.createGain(),
         t = start + offset,
-        voice = { o, g, kind: selected, fading: false };
+        voice = {
+          o,
+          g,
+          kind: selected,
+          fading: false,
+          at: t,
+          peak: volume * (selected === "hover" ? 5 : 3),
+          attack: selected === "hover" ? 0.009 : 0.004,
+          length,
+        };
       o.type = "sine";
       o.frequency.setValueAtTime(from * variation, t);
       o.frequency.exponentialRampToValueAtTime(to * variation, t + length);
       g.gain.setValueAtTime(0, t);
-      g.gain.linearRampToValueAtTime(volume * (selected === "hover" ? 5 : 3), t + 0.004);
+      g.gain.linearRampToValueAtTime(volume * (selected === "hover" ? 5 : 3), t + voice.attack);
       g.gain.exponentialRampToValueAtTime(0.0001, t + length);
       o.connect(g);
-      g.connect(ctx.destination);
+      g.connect(uiDestination());
       active.add(voice);
       o.onended = () => {
         active.delete(voice);
@@ -169,3 +190,46 @@ export {
   restore as restoreSound,
   get as getSound,
 };
+
+// The same discrete-sound bus is shared with the bird calls; breeze bypasses it.
+let uiBus: GainNode | null = null;
+export function uiDestination() {
+  if (!ctx) throw new Error("Audio context has not been prepared");
+  if (!uiBus) {
+    const boost = ctx.createGain(),
+      limit = ctx.createDynamicsCompressor();
+    boost.gain.value = 1.6;
+    limit.threshold.value = -6;
+    limit.knee.value = 9;
+    limit.ratio.value = 3;
+    limit.attack.value = 0.003;
+    limit.release.value = 0.08;
+    boost.connect(limit).connect(ctx.destination);
+    uiBus = boost;
+  }
+  return uiBus;
+}
+export function sceneAudio() {
+  return ctx;
+}
+export function getSoundState() {
+  return enabled && ctx?.state === "running";
+}
+function holdHoverGain(voice: Voice, time: number) {
+  const gain = voice.g.gain;
+  if (gain.cancelAndHoldAtTime) {
+    gain.cancelAndHoldAtTime(time);
+    return;
+  }
+  const dt = Math.max(0, time - voice.at);
+  const value =
+    dt < voice.attack
+      ? (voice.peak * dt) / voice.attack
+      : voice.peak *
+        Math.pow(
+          0.0001 / voice.peak,
+          Math.min(1, (dt - voice.attack) / (voice.length - voice.attack)),
+        );
+  gain.cancelScheduledValues(time);
+  gain.setValueAtTime(value, time);
+}

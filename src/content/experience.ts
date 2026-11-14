@@ -9,15 +9,33 @@ export const experiences = [
       pt: {
         period: "Nov. 2025 — atual",
         paragraphs: [
-          "Desenvolvo interfaces, APIs e integrações para organizações sociais, cooperativas e instituições, participando das decisões técnicas em sistemas novos e existentes.",
-          "Também construo agentes e automações com IA, documento processos e aprimoro pipelines de CI/CD com Jenkins e ambientes de execução.",
+          "Desenvolvo sistemas, interfaces, APIs e integrações para organizações sociais, cooperativas e instituições. Participo das decisões técnicas de sistemas novos e existentes.",
+        ],
+        topics: [
+          {
+            title: "IA e automações",
+            text: "Construo agentes e automações com IA integrados a aplicações.",
+          },
+          {
+            title: "Processos e infraestrutura",
+            text: "Documento processos e aprimoro pipelines de CI/CD com Jenkins e ambientes de execução.",
+          },
         ],
       },
       en: {
         period: "Nov 2025 — present",
         paragraphs: [
-          "I build interfaces, APIs and integrations for social organisations, cooperatives and institutions, contributing to technical decisions for new and existing systems.",
-          "I also build AI agents and automations, document processes, and improve CI/CD pipelines with Jenkins and runtime environments.",
+          "I build systems, interfaces, APIs and integrations for social organisations, cooperatives and institutions. I contribute to technical decisions for new and existing systems.",
+        ],
+        topics: [
+          {
+            title: "AI and automation",
+            text: "I build AI agents and automations integrated into applications.",
+          },
+          {
+            title: "Processes and infrastructure",
+            text: "I document processes and improve CI/CD pipelines with Jenkins and runtime environments.",
+          },
         ],
       },
     },
@@ -31,15 +49,33 @@ export const experiences = [
       pt: {
         period: "Fev. 2025 — Nov. 2025",
         paragraphs: [
-          "Desenvolvi um sistema interno de gestão financeira, cadastral e de funcionários para uma empresa de agenciamento de cargas.",
-          "Criei pesquisas de satisfação com e-mails e dashboards, um assistente com IA para WhatsApp e rotinas de dados com scraping, OCR e IA.",
+          "Desenvolvi o sistema interno da empresa de agenciamento de cargas, com dados financeiros, cadastros e informações de funcionários.",
+        ],
+        topics: [
+          {
+            title: "Automações e integrações",
+            text: "Automatizei o envio de pesquisas de satisfação por e-mail e ações a partir das respostas, com criação de demandas, revisão de problemas e dashboards. Também criei rotinas de dados com scraping e OCR.",
+          },
+          {
+            title: "Aplicações com IA integrada",
+            text: "Desenvolvi um assistente para atendimento via WhatsApp e rotinas de transcrição e análise de chamadas com IA.",
+          },
         ],
       },
       en: {
         period: "Feb 2025 — Nov 2025",
         paragraphs: [
-          "I built an internal system for financial, company and employee information at a freight forwarding company.",
-          "I created satisfaction surveys with emails, dashboards and actions based on responses, an AI assistant for WhatsApp, and data workflows using scraping, OCR and AI.",
+          "I developed the freight forwarding company’s internal system, covering financial data, company records and employee information.",
+        ],
+        topics: [
+          {
+            title: "Automation and integrations",
+            text: "I automated satisfaction survey emails and response-based workflows, including task creation, issue review and dashboards. I also built data workflows using scraping and OCR.",
+          },
+          {
+            title: "Applications with integrated AI",
+            text: "I developed a customer service assistant for WhatsApp and AI-powered call transcription and analysis workflows.",
+          },
         ],
       },
     },

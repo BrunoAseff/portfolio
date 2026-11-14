@@ -5,6 +5,8 @@ export const site = {
   github: "https://github.com/BrunoAseff",
   linkedin: "https://www.linkedin.com/in/bruno-aseff/",
   experienceStart: "2025-02-03",
-  // Keep null until real, reviewed PDFs exist. Never serve the outdated résumé.
-  resumes: { pt: null, en: null } as Record<"pt" | "en", string | null>,
+  resumes: {
+    pt: "/documents/resumes/bruno-aseff-pt.pdf",
+    en: "/documents/resumes/bruno-aseff-en.pdf",
+  } as Record<"pt" | "en", string>,
 };
