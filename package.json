@@ -10,7 +10,8 @@
     "check:astro": "astro check",
     "sync:activity": "node scripts/sync-public-activity.mjs",
     "verify": "vp check && vp run check:astro && vp test run && vp run build",
-    "social": "node scripts/generate-social.mjs"
+    "social": "node scripts/generate-social.mjs",
+    "deploy": "cf deploy dist"
   },
   "dependencies": {
     "@astrojs/react": "7.1.8",
@@ -29,6 +30,7 @@
     "@types/node": "24.19.2",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
+    "cf": "1.0.0-beta.32",
     "oxc-transform-react": "0.156.0",
     "sharp": "0.35.5",
     "typescript": "6.0.3",

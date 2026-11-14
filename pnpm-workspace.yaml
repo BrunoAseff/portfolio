@@ -1,3 +1,5 @@
+allowBuilds:
+  workerd: true
 minimumReleaseAgeExclude:
   - "@astrojs/internal-helpers@0.13.2"
   - "@astrojs/markdown-satteri@0.4.9"

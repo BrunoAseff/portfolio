@@ -20,4 +20,4 @@
 /web-security-v2.pdf /documents/certificates/web-security-v2.pdf 301
 /algorithms-dark.pdf /documents/certificates/last-algorithms-course.pdf 301
 # Removed blog/API routes intentionally fall through to a real 404.
-# Add /curriculo.pdf only after the new PT résumé exists.
+/curriculo.pdf /documents/resumes/bruno-aseff-pt.pdf 301

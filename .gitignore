@@ -9,3 +9,6 @@ dist/
 *.tsbuildinfo
 .cache/
 .claude/
+.cloudflare/
+.wrangler/
+.dev.vars*

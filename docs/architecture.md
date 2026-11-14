@@ -19,7 +19,7 @@ The full design/career context remains at `../../ai-context/` in the original wo
 
 ## Hosting boundary
 
-Static deployment is intentionally unconfigured. Apply equivalent redirects/status/cache rules for the chosen provider, including true missing-page status, removed blog/API paths and old document URLs. `_redirects`/`_headers` are templates compatible with Netlify/Cloudflare. No automatic domain/provider/account changes are part of this implementation.
+Cloudflare Workers Static Assets is the selected hosting target after Bruno authorized migration from Vercel on 2026-11-14. Astro still emits static HTML; `cf deploy dist` uploads the verified output directly. Preserve true missing-page status, legacy redirects and cache headers. Production branch is main; see deployment.md for the DNS boundary and release steps.
 
 ## Locale and arrival refinement
 
