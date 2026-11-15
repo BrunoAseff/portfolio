@@ -1,5 +1,7 @@
 # Bruno Aseff · portfolio
 
+Portfólio pessoal de Bruno Aseff, com experiências, projetos e contato.
+
 Static Astro site with React islands, TypeScript, Tailwind CSS and Vite Plus. Portuguese at `/`, English at `/en/`. No server, database, CMS or blog.
 
 ## Develop and verify
