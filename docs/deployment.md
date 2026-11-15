@@ -37,9 +37,10 @@ Before cutover, verify the workers.dev deployment, both locales, the real 404,
 legacy redirects, PDF downloads, headers and a hashed asset. After cutover,
 verify these on the production domain and compare Lazúli's DNS/HTTP baseline.
 
-Rollback: restore only the portfolio apex/www records from the DNS backup kept
-outside this public repository, or deploy a previously verified Worker version.
-Do not delete the Vercel project until the replacement has been verified.
+Rollback: deploy a previously verified version of Worker `portfolio`. The Vercel
+project has been retired; restoring its old DNS records would not restore that
+origin. The DNS backup kept outside this repository is historical evidence, not
+a working Vercel rollback target.
 
 The initial deployment status and account resource identifiers are recorded in
 the private workspace continuity documents, not as credentials in this repository.
