@@ -1,0 +1,52 @@
+---
+import type { Locale } from "../content/types";
+import CreditsCopy from "../features/landscape/CreditsCopy.astro";
+import TextLink from "../components/ui/TextLink.astro";
+import "../styles/global.css";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const title = locale === "pt" ? "Créditos da paisagem" : "Landscape credits";
+---
+
+<!doctype html>
+<html lang={locale === "pt" ? "pt-BR" : "en"}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex,follow" />
+    <title>{title} · Bruno Aseff</title>
+  </head>
+  <body>
+    <main class="credits-page">
+      <h1>{title}</h1>
+      <CreditsCopy locale={locale} />
+      <TextLink href={locale === "pt" ? "/" : "/en/"}>
+        {locale === "pt" ? "Voltar ao portfólio" : "Back to portfolio"}
+      </TextLink>
+    </main>
+  </body>
+</html>
+<style>
+  .credits-page {
+    max-width: 650px;
+    margin: 60px auto;
+    padding: 24px;
+  }
+  .credits-page h1 {
+    font: 500 26px/36px var(--face);
+    margin-bottom: 24px;
+  }
+  .credits-page :global(p) {
+    margin: 20px 0;
+  }
+  .credits-page :global(.inline-text-link) {
+    display: inline;
+    font: inherit;
+    min-height: 0;
+  }
+  .credits-page :global(.inline-text-link .contact-destination) {
+    font: inherit;
+  }
+</style>

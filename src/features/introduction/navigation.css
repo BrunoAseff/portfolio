@@ -1,0 +1,38 @@
+.orientation {
+  margin-top: 37px;
+}
+.index {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.index a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  color: var(--body);
+  font-size: 14px;
+  transition: color 200ms var(--ease);
+}
+.index a:is(:hover, :focus-visible, [data-inspect="true"]) {
+  color: var(--accent);
+}
+.nav-caret {
+  position: absolute;
+  left: -16px;
+  width: 12px;
+  height: 14px;
+  opacity: 0;
+  transform: translateX(-3px);
+  clip-path: inset(0 100% 0 0);
+  transition:
+    opacity 220ms var(--ease),
+    transform 320ms var(--ease),
+    clip-path 320ms var(--ease);
+}
+.index a:is(:hover, :focus-visible, [data-inspect="true"]) .nav-caret {
+  opacity: 1;
+  transform: translateX(0);
+  clip-path: inset(0);
+}

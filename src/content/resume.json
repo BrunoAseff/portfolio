@@ -1,0 +1,117 @@
+{
+  "name": "Bruno Aseff",
+  "email": "brunoaseff2@gmail.com",
+  "portfolio": "https://brunoaseff.com.br",
+  "linkedin": "https://www.linkedin.com/in/bruno-aseff/",
+  "github": "https://github.com/BrunoAseff",
+  "age": 24,
+  "ageConfirmed": "2026-11-14",
+  "pt": {
+    "role": "Engenheiro de software fullstack",
+    "meta": "Itajaí, SC — Brasil · 24 anos · Inglês fluente",
+    "headings": [
+      "Experiência profissional",
+      "Tecnologias",
+      "Projetos selecionados",
+      "Formação",
+      "Certificação"
+    ],
+    "experience": [
+      {
+        "name": "Bússola Social · Wiidoo Labs",
+        "period": "Nov. 2025 — atual",
+        "bullets": [
+          "Desenvolvo sistemas, interfaces, APIs e integrações para organizações sociais, cooperativas e instituições, participando das decisões técnicas.",
+          "Construo agentes e automações com IA integrados a aplicações.",
+          "Documento processos e aprimoro pipelines de CI/CD com Jenkins e ambientes de execução."
+        ]
+      },
+      {
+        "name": "Access Global Logistics",
+        "period": "Fev. 2025 — Nov. 2025",
+        "bullets": [
+          "Desenvolvi o sistema interno da empresa de agenciamento de cargas, com dados financeiros, cadastros e informações de funcionários.",
+          "Automatizei pesquisas de satisfação: envio de e-mails, criação de demandas, revisão de problemas e dashboards baseados nas respostas.",
+          "Criei um assistente para WhatsApp com IA, rotinas de transcrição e análise de chamadas e integrações com scraping e OCR."
+        ]
+      }
+    ],
+    "skills": [
+      "TypeScript · React · Vue.js · PHP · Laravel · Go · Docker · Linux",
+      "CI/CD com Jenkins · Integrações com IA · Scraping · OCR"
+    ],
+    "projects": [
+      {
+        "name": "Lazúli",
+        "url": "https://lazuli.brunoaseff.com.br/",
+        "label": "lazuli.brunoaseff.com.br",
+        "text": "Plataforma de estudos com documentos, flashcards e quizzes. Aplicação fullstack com IA, revisão espaçada e acompanhamento do estudo."
+      },
+      {
+        "name": "Eye Patch",
+        "url": "https://github.com/BrunoAseff/eye-patch",
+        "label": "github.com/BrunoAseff/eye-patch",
+        "text": "Monitoramento de disponibilidade com alertas por e-mail, verificações em AWS Lambda e infraestrutura definida com AWS CDK."
+      }
+    ],
+    "education": [
+      "Sistemas para Internet — Univali",
+      "Em andamento. Conclusão prevista para o 1º semestre de 2027."
+    ],
+    "certification": "AWS Certified Cloud Practitioner — Amazon Web Services · Jun. 2025"
+  },
+  "en": {
+    "role": "Fullstack software engineer",
+    "meta": "Itajaí, SC — Brazil · 24 years old · Fluent English",
+    "headings": [
+      "Professional experience",
+      "Technologies",
+      "Selected projects",
+      "Education",
+      "Certification"
+    ],
+    "experience": [
+      {
+        "name": "Bússola Social · Wiidoo Labs",
+        "period": "Nov 2025 — present",
+        "bullets": [
+          "Develop systems, interfaces, APIs and integrations for social organisations, cooperatives and institutions, contributing to technical decisions.",
+          "Build AI agents and automations integrated into applications.",
+          "Document processes and improve CI/CD pipelines with Jenkins and runtime environments."
+        ]
+      },
+      {
+        "name": "Access Global Logistics",
+        "period": "Feb 2025 — Nov 2025",
+        "bullets": [
+          "Developed the freight forwarding company’s internal system, covering financial data, company records and employee information.",
+          "Automated satisfaction survey emails, task creation, issue review and dashboards based on responses.",
+          "Built an AI assistant for WhatsApp, call transcription and analysis workflows, and integrations using scraping and OCR."
+        ]
+      }
+    ],
+    "skills": [
+      "TypeScript · React · Vue.js · PHP · Laravel · Go · Docker · Linux",
+      "CI/CD with Jenkins · AI integrations · Scraping · OCR"
+    ],
+    "projects": [
+      {
+        "name": "Lazúli",
+        "url": "https://lazuli.brunoaseff.com.br/",
+        "label": "lazuli.brunoaseff.com.br",
+        "text": "Study platform with documents, flashcards and quizzes. Fullstack application with AI, spaced repetition and study progress tracking."
+      },
+      {
+        "name": "Eye Patch",
+        "url": "https://github.com/BrunoAseff/eye-patch",
+        "label": "github.com/BrunoAseff/eye-patch",
+        "text": "Availability monitoring with email alerts, checks running on AWS Lambda and infrastructure defined with AWS CDK."
+      }
+    ],
+    "education": [
+      "Internet Systems — Univali",
+      "In progress. Expected graduation in the first half of 2027."
+    ],
+    "certification": "AWS Certified Cloud Practitioner — Amazon Web Services · Jun 2025"
+  }
+}

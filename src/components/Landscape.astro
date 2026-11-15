@@ -1,0 +1,78 @@
+<div class="landscape-trial" aria-hidden="true">
+  <div class="scene-plane">
+    <img class="scene-fallback" alt="" src="/landscape/poster.png" />
+    <canvas></canvas>
+  </div>
+</div>
+<canvas class="bird-front" aria-hidden="true" hidden></canvas>
+<button
+  class="bird-hit"
+  data-scene-silent
+  type="button"
+  hidden
+  aria-label="Fazer o pássaro levantar voo"
+></button>
+<script is:inline>
+  // Synchronous first-paint bridge, before the asynchronous scene/art imports.
+  try {
+    const cached = JSON.parse(sessionStorage.getItem("portfolio:landscape-frame") || "null");
+    if (
+      cached &&
+      Date.now() - cached.at < 10000 &&
+      Math.abs(cached.width - innerWidth) < 2 &&
+      Math.abs(cached.height - innerHeight) < 2
+    ) {
+      const image = document.querySelector(".scene-fallback");
+      image.src = cached.png;
+    }
+  } catch {}
+  addEventListener("pagereveal", (e) => {
+    document.documentElement.dataset.landscapeTransition = e.viewTransition
+      ? "active"
+      : "unavailable";
+  });
+
+  // Observe the browser's active snapshot layers; do not infer them from final pixels.
+  addEventListener("pagereveal", (e) => {
+    if (!e.viewTransition) return;
+    e.viewTransition.ready
+      .then(() => {
+        setTimeout(() => {
+          const names = [
+            "ambient-landscape",
+            "reading-surface",
+            "audio-control",
+            "language-label-pt",
+            "language-label-en",
+          ];
+          const states = Object.fromEntries(
+            names.map((name) => {
+              const group = getComputedStyle(
+                  document.documentElement,
+                  "::view-transition-group(" + name + ")",
+                ),
+                old = getComputedStyle(
+                  document.documentElement,
+                  "::view-transition-old(" + name + ")",
+                );
+              return [
+                name,
+                {
+                  z: group.zIndex,
+                  width: group.width,
+                  height: group.height,
+                  opacity: old.opacity,
+                  animation: old.animationName,
+                },
+              ];
+            }),
+          );
+          document.documentElement.dataset.transitionLayers = JSON.stringify(states);
+        }, 70);
+      })
+      .catch(() => {});
+  });
+</script>
+<script>
+  import "../features/landscape/scene.js";
+</script>

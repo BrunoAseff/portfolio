@@ -1,0 +1,40 @@
+---
+import type { Locale } from "../../content/types";
+import { messages } from "../../content/messages";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const { soundOn, soundOff } = messages[locale];
+---
+
+<button
+  class="sound"
+  type="button"
+  aria-label={soundOn}
+  aria-pressed="false"
+  title={soundOn}
+  data-sound-on-label={soundOn}
+  data-sound-off-label={soundOff}
+>
+  <svg
+    class="icon icon-sound"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M11 4.5 6.5 8H3.7C3.2 8 3 8.4 3 9v6c0 .6.2 1 .7 1h2.8l4.5 3.5c.5.4 1 .1 1-.5V5c0-.6-.5-.9-1-.5Z" />
+    <path class="sound-wave sound-wave-inner" d="M17 9C18.67 11 20.33 13 22 15" />
+    <path class="sound-wave sound-wave-outer" d="M22 9C20.33 11 18.67 13 17 15" />
+  </svg>
+</button>
+<script>
+  import { initSoundToggle } from "./sound-toggle";
+  initSoundToggle();
+</script>

@@ -1,0 +1,41 @@
+---
+import type { Locale } from "../../content/types";
+import Icon from "../../components/ui/Icon.astro";
+import CreditsCopy from "../landscape/CreditsCopy.astro";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<template id="landscape-credit-copy">
+  <CreditsCopy locale={locale} />
+</template>
+<dialog class="document-dialog" aria-labelledby="document-title">
+  <section class="document-sheet">
+    <header class="document-header">
+      <h2 id="document-title" class="document-title"></h2>
+      <a class="document-download text-link" href="#" download>
+        <span class="contact-destination">{locale === "pt" ? "Baixar PDF" : "Download PDF"}</span>
+        <span class="download-window" aria-hidden="true">
+          {[0, 1].map(() => (
+            <svg viewBox="0 0 24 24">
+              <path d="M6 14c2 2 4 4.3 6 6 2-1.7 4-4 6-6M12 20V4" />
+            </svg>
+          ))}
+        </span>
+      </a>
+      <button
+        class="document-close media-close"
+        type="button"
+        aria-label={locale === "pt" ? "Fechar diálogo" : "Close dialog"}
+      >
+        <Icon name="close" />
+      </button>
+    </header>
+    <div class="document-body"></div>
+  </section>
+</dialog>
+<script>
+  import "./documents.js";
+</script>
