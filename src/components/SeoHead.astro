@@ -1,5 +1,6 @@
 ---
 import { site } from "../content/site";
+import favicon from "../assets/favicon.png";
 import { profile } from "../content/profile";
 import { localePath, htmlLanguage } from "../lib/locale";
 import type { Locale } from "../content/types";
@@ -38,7 +39,7 @@ const jsonLd = {
 <title>{title}</title>
 <meta name="description" content={description} />
 <meta name="theme-color" content="#fcfcfa" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="64x64" href={favicon.src} />
 {noindex && <meta name="robots" content="noindex,follow" />}
 {!notFound && (
   <>

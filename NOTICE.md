@@ -1,5 +1,9 @@
 # Fontes e código de terceiros
 
+## Favicon — inicial em Manrope
+
+`src/assets/favicon.png` usa a letra B em Manrope Medium, a mesma família local da aplicação, sobre fundo claro arredondado. Regeneração: `node scripts/generate-favicon.mjs`. Fonte e licença OFL em `public/fonts/manrope/`.
+
 ## Arc UI — componentes gratuitos
 
 O hook em `src/features/contact/use-copy-feedback.ts` foi obtido da instalação manual do Copy Button gratuito e adaptado para permitir testar falhas. `CopyEmailButton.tsx` adapta a transição conjunta de ícone e palavra, com ícones próprios, tradução e largura estável. Nenhum componente Pro foi utilizado.
