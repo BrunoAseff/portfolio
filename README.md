@@ -30,9 +30,9 @@ Bricolage WOFF2 is bundled from Fontsource, with its OFL notice in `src/assets/f
 vp run sync:activity
 ```
 
-This optional network step resolves a public push and its head commit across the public account, validates the repository is still public and writes a small snapshot. `GITHUB_TOKEN` is optional and build-only. Fetch failure keeps the last valid cache/baseline without changing its timestamp. The site itself makes no GitHub request for each visitor.
+This network step reads the account's most recently pushed public repositories (forks and archived repositories excluded) and keeps the newest non-merge commit on a default branch. The public events feed is not used: it omits pushes made by merging pull requests. `GITHUB_TOKEN` is optional and build-only. Fetch failure keeps the last valid cache/baseline without changing its timestamp. The site itself makes no GitHub request for each visitor.
 
-CI verifies builds and uploads `dist/`. Its daily schedule refreshes the snapshot in the build artifact. **It does not publish the site or update the source snapshot automatically.** Once hosting is chosen, connect that verified artifact to publication, or run sync before a host build. An existing host which rebuilds only on Git commits will not become fresh merely because the verification workflow ran.
+CI refreshes the snapshot on every non-PR run. An hourly schedule on `main` compares the fresh commit with the one served at brunoaseff.com.br and redeploys only when it changed; code changes still deploy on push to `main`. The snapshot committed in `src/data/` is only the local/offline baseline.
 
 ## Static hosting
 

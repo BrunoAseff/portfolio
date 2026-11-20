@@ -18,42 +18,43 @@ describe("public activity contract", () => {
     expect(isActivitySnapshot({ ...baseline, date: "invalid" })).toBe(false);
     expect(isActivitySnapshot({ ...baseline, repository: "someone/secret" })).toBe(false);
   });
-  it("resolves the push head instead of assuming payload.commits or commit authorship", async () => {
-    const calls: string[] = [];
+  it("picks the newest non-merge commit across recently pushed public repositories", async () => {
+    const other = "BrunoAseff/lazuli",
+      older = "c".repeat(40),
+      merge = "d".repeat(40);
+    const commit = (repository: string, id: string, date: string, parents = 1) => ({
+      sha: id,
+      html_url: `https://github.com/${repository}/commit/${id}`,
+      parents: Array.from({ length: parents }, () => ({})),
+      commit: { message: `Change ${id[0]}\n\nDetails`, committer: { date } },
+    });
     const result = await collectPublicActivity(async (path) => {
-      calls.push(path);
       if (path.startsWith("/users/"))
         return [
-          {
-            type: "PushEvent",
-            repo: { name: repo },
-            payload: { head: sha },
-            created_at: "2026-11-11T10:00:00Z",
-          },
+          { full_name: "BrunoAseff/forked", private: false, fork: true },
+          { full_name: other, private: false, pushed_at: "2026-11-20T05:00:20Z" },
+          { full_name: repo, private: false, pushed_at: "2026-11-16T00:00:00Z" },
+          { full_name: "BrunoAseff/hidden", private: true },
         ];
-      if (path === `/repos/${repo}`) return { private: false };
-      return {
-        sha,
-        html_url: `https://github.com/${repo}/commit/${sha}`,
-        commit: {
-          message: "A real change\n\nDetails",
-          committer: { date: "2026-11-10T10:00:00Z" },
-        },
-      };
-    }, "2026-11-11T11:00:00Z");
-    expect(result.message).toBe("A real change");
-    expect(result.date).not.toBe(result.pushDate);
-    expect(calls).toHaveLength(3);
+      if (path.startsWith(`/repos/${other}/`))
+        return [
+          commit(other, merge, "2026-11-20T05:00:20Z", 2),
+          commit(other, sha, "2026-11-20T04:59:15Z"),
+        ];
+      if (path.startsWith(`/repos/${repo}/`)) return [commit(repo, older, "2026-11-15T10:00:00Z")];
+      throw new Error(`Unexpected ${path}`);
+    }, "2026-11-20T06:00:00Z");
+    expect(result.repository).toBe(other);
+    expect(result.sha).toBe(sha);
+    expect(result.message).toBe("Change a");
     expect(isActivitySnapshot(result)).toBe(true);
   });
-  it("refuses a repository which has become private", async () => {
+  it("fails instead of inventing activity when no public commit is available", async () => {
     await expect(
       collectPublicActivity(async (path) =>
-        path.startsWith("/users/")
-          ? [{ type: "PushEvent", repo: { name: repo }, payload: { head: sha } }]
-          : { private: true },
+        path.startsWith("/users/") ? [{ full_name: repo, private: true }] : [],
       ),
-    ).rejects.toThrow("not public");
+    ).rejects.toThrow("No recent public commit");
   });
 });
 

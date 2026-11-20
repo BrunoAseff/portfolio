@@ -18,9 +18,10 @@ CLI to detect or rewrite the framework. No Astro adapter or server hydration is
 required. `_headers` and `_redirects` ship with the assets.
 
 GitHub Actions runs `.github/workflows/verify.yml`: `verify` builds and uploads the
-static artifact; `deploy` runs only after it succeeds, on a push to `main`. It
-uploads that exact artifact without rebuilding. Pull requests, schedules and
-manual verification do not deploy. Cloudflare CLI is version-pinned; the token is
+static artifact; `deploy` runs only after it succeeds, on a push to `main`, or on
+the hourly schedule/manual run from `main` when the refreshed public commit differs
+from the one served in production. It uploads that exact artifact without
+rebuilding. Pull requests and unchanged scheduled runs do not deploy. Cloudflare CLI is version-pinned; the token is
 a repository secret exposed only to the deploy step, restricted to Worker
 `portfolio` (Individual Workers Editor). It is independent of Lazúli's build token.
 The post-deploy check verifies both locales, PDFs, legacy redirects, headers,
