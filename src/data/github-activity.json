@@ -1,10 +1,10 @@
 {
   "repository": "BrunoAseff/lazuli",
-  "sha": "054ab3b9da719a4f6908bf22732ffc7e6abc5d30",
-  "message": "feat: refine application interface",
-  "url": "https://github.com/BrunoAseff/lazuli/commit/054ab3b9da719a4f6908bf22732ffc7e6abc5d30",
-  "date": "2026-11-03T13:25:35Z",
-  "pushDate": "2026-11-03T13:25:40Z",
-  "checkedAt": "2026-11-11T18:53:54.620Z",
-  "source": "github-public-events"
+  "sha": "7160833e37f3c92acd65999f7f526273efccc2f6",
+  "message": "fix(ui): busy buttons dim and show a spinner with the running verb; one centred spinner",
+  "url": "https://github.com/BrunoAseff/lazuli/commit/7160833e37f3c92acd65999f7f526273efccc2f6",
+  "date": "2026-11-20T04:59:15Z",
+  "pushDate": "2026-11-20T05:00:20Z",
+  "checkedAt": "2026-11-20T05:14:23.424Z",
+  "source": "github-repositories"
 }

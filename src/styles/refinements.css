@@ -47,3 +47,60 @@ main > .technologies + #experiencia {
     margin-top: 16px;
   }
 }
+
+/* Mobile index: the same single row as desktop, never a wrapped grid inside a card.
+   It bleeds to the screen edges and scrolls sideways when the names do not fit. */
+@media (max-width: 780px) {
+  .orientation {
+    margin: 20px -26px 0;
+    padding: 0;
+    max-width: none;
+    background: transparent;
+    border-radius: 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(90deg, #0000, #000 16px, #000 calc(100% - 12px), #0000);
+    mask-image: linear-gradient(90deg, #0000, #000 16px, #000 calc(100% - 12px), #0000);
+  }
+  .orientation::-webkit-scrollbar {
+    display: none;
+  }
+  .index {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0 2px;
+    width: max-content;
+    padding: 0 16px;
+  }
+  .index a {
+    flex: none;
+    padding: 0 10px;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 520px) {
+  .orientation {
+    margin-inline: -22px;
+  }
+  .index {
+    padding-inline: 12px;
+  }
+  /* The technology list sits directly below the index on phones; linking to it adds
+     a fifth name that forces the row to overflow without saving any travel. */
+  .index a[href="#tecnologias"] {
+    display: none;
+  }
+}
+@media (max-width: 380px) {
+  .orientation {
+    margin-inline: -18px;
+  }
+  .index {
+    padding-right: 6px;
+  }
+  .index a {
+    padding-inline: 6px;
+  }
+}

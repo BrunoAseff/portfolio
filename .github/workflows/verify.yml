@@ -4,12 +4,15 @@ on:
   pull_request:
   workflow_dispatch:
   schedule:
-    - cron: "23 9 * * *"
+    # Hourly: the static site only learns about new public commits by rebuilding.
+    - cron: "17 * * * *"
 permissions:
   contents: read
 jobs:
   verify:
     runs-on: ubuntu-latest
+    outputs:
+      activity-changed: ${{ steps.activity.outputs.changed }}
     env:
       ASTRO_TELEMETRY_DISABLED: "1"
     steps:
@@ -29,6 +32,14 @@ jobs:
         run: pnpm exec vp run sync:activity
         env:
           GITHUB_TOKEN: ${{ github.token }}
+      - name: Compare activity with production
+        id: activity
+        if: github.event_name != 'pull_request'
+        run: |
+          built=$(node -p "require('./src/data/github-activity.json')?.sha ?? ''")
+          live=$(curl -fsS https://brunoaseff.com.br/ | grep -o 'commit/[0-9a-f]\{40\}' | head -1 | cut -d/ -f2 || true)
+          echo "built=$built live=$live"
+          if [ -n "$built" ] && [ "$built" != "$live" ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; fi
       - run: pnpm exec vp run verify
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
@@ -37,7 +48,11 @@ jobs:
           retention-days: 7
   deploy:
     needs: verify
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # Code changes deploy on push to main; scheduled/manual runs deploy only fresh activity.
+    if: >-
+      github.ref == 'refs/heads/main' && (github.event_name == 'push' ||
+      ((github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') &&
+      needs.verify.outputs.activity-changed == 'true'))
     runs-on: ubuntu-latest
     environment:
       name: cloudflare-production

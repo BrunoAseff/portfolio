@@ -27,50 +27,64 @@ export function isActivitySnapshot(value: unknown): value is ActivitySnapshot {
   );
 }
 type GetJson = (path: string) => Promise<unknown>;
-type PushEvent = {
-  type: string;
-  repo?: { name?: string };
-  created_at?: string;
-  payload?: { head?: string };
+type Repository = {
+  full_name?: string;
+  private?: boolean;
+  fork?: boolean;
+  archived?: boolean;
+  pushed_at?: string;
 };
+type Commit = {
+  sha?: string;
+  html_url?: string;
+  parents?: unknown[];
+  commit?: { message?: string; committer?: { date?: string } };
+};
+const owner = /^BrunoAseff\/[a-zA-Z0-9_.-]+$/i;
+
+// Public events omit pushes made through merged pull requests, so they cannot be the
+// source. The repositories most recently pushed to are read directly instead; within
+// each, the newest non-merge commit on the default branch is the real change.
 export async function collectPublicActivity(
   get: GetJson,
   checkedAt = new Date().toISOString(),
 ): Promise<ActivitySnapshot> {
-  let push: PushEvent | undefined;
-  for (let page = 1; page <= 3; page++) {
-    const events = await get(`/users/BrunoAseff/events/public?per_page=100&page=${page}`);
-    if (!Array.isArray(events)) throw new Error("Unexpected events response");
-    push = (events as PushEvent[]).find(
-      (e) => e.type === "PushEvent" && e.repo?.name && typeof e.payload?.head === "string",
+  const repositories = await get("/users/BrunoAseff/repos?type=owner&sort=pushed&per_page=10");
+  if (!Array.isArray(repositories)) throw new Error("Unexpected repositories response");
+  const candidates = (repositories as Repository[])
+    .filter(
+      (r) =>
+        r.private === false &&
+        !r.fork &&
+        !r.archived &&
+        typeof r.full_name === "string" &&
+        owner.test(r.full_name),
+    )
+    .slice(0, 3);
+  let latest: ActivitySnapshot | null = null;
+  for (const repo of candidates) {
+    const repository = repo.full_name as string;
+    const commits = await get(`/repos/${repository}/commits?per_page=30`);
+    if (!Array.isArray(commits)) continue;
+    const commit = (commits as Commit[]).find(
+      (c) => Array.isArray(c.parents) && c.parents.length === 1,
     );
-    if (push || events.length < 100) break;
+    if (!commit?.sha) continue;
+    const snapshot = {
+      repository,
+      sha: commit.sha,
+      message: commit.commit?.message?.split("\n")[0]?.trim() ?? "",
+      url: commit.html_url ?? "",
+      date: commit.commit?.committer?.date ?? "",
+      pushDate: repo.pushed_at ?? null,
+      checkedAt,
+      source: "github-repositories",
+    };
+    if (!isActivitySnapshot(snapshot)) continue;
+    if (!latest || Date.parse(snapshot.date) > Date.parse(latest.date)) latest = snapshot;
   }
-  if (!push?.repo?.name || !push.payload?.head) throw new Error("No recent public push found");
-  const repository = push.repo.name,
-    sha = push.payload.head;
-  if (!/^BrunoAseff\/[a-zA-Z0-9_.-]+$/i.test(repository) || !/^[a-f0-9]{40}$/i.test(sha))
-    throw new Error("Invalid public event");
-  const repo = (await get(`/repos/${repository}`)) as { private?: boolean };
-  if (repo.private !== false) throw new Error("Repository is not public");
-  const commit = (await get(`/repos/${repository}/commits/${sha}`)) as {
-    sha?: string;
-    html_url?: string;
-    commit?: { message?: string; committer?: { date?: string } };
-  };
-  const snapshot = {
-    repository,
-    sha,
-    message: commit.commit?.message?.split("\n")[0] ?? "",
-    url: commit.html_url ?? "",
-    date: commit.commit?.committer?.date ?? "",
-    pushDate: push.created_at ?? null,
-    checkedAt,
-    source: "github-public-events",
-  };
-  if (commit.sha !== sha || !isActivitySnapshot(snapshot))
-    throw new Error("Invalid commit response");
-  return snapshot;
+  if (!latest) throw new Error("No recent public commit found");
+  return latest;
 }
 
 export function selectActivityFallback(...sources: unknown[]): ActivitySnapshot | null {
