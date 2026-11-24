@@ -14,9 +14,23 @@ async function request(path, status = 200) {
   checked.push({ path, status });
   return response;
 }
-const home = await request("/");
+// A new version takes a moment to reach every edge. Until then "/" can still serve the
+// previous HTML, whose hashed assets no longer exist. Wait for the HTML just deployed.
+const stylesheet = (text) => text.match(/href="([^"]+\.css)"/)?.[1];
+const expectedCss = stylesheet(
+  await readFile(new URL("../dist/index.html", import.meta.url), "utf8"),
+);
+assert.ok(expectedCss, "Missing stylesheet in dist");
+let home, html;
+for (let attempt = 1; ; attempt++) {
+  home = await request("/");
+  html = await home.text();
+  if (stylesheet(html) === expectedCss) break;
+  checked.pop();
+  assert.ok(attempt < 24, `Edge still serves a previous build after ${attempt} attempts`);
+  await new Promise((resolve) => setTimeout(resolve, 5000));
+}
 assert.equal(home.headers.get("x-content-type-options"), "nosniff");
-const html = await home.text();
 assert.match(html, /<html[^>]*lang="pt-BR"/);
 assert.match(html, /id="experiencia"/);
 assert.match(html, /manrope-variable\.ttf/);
